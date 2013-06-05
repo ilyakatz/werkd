@@ -23,22 +23,25 @@ end
 
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2'
-gem "twitter-bootstrap-rails"
-
 group :assets do
   gem 'sass-rails',   '~> 3.2'
   gem 'coffee-rails', '~> 3.2'
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'rails', '~> 3.2'
+gem "twitter-bootstrap-rails"
+
 gem 'jquery-rails'
+gem 'bootstrap-sass'
 
 #user authentication
 gem 'devise', '~> 2'
+gem 'omniauth-google-apps'
+
+gem 'puma'
 
 group :test, :development do
-  gem 'thin'
 end
 
 group :test do
