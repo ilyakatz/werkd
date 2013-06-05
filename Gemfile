@@ -1,32 +1,13 @@
-require 'yaml'
-env = ENV["RAILS_ENV"] || 'development'
-dbfile = File.expand_path("../config/database.yml", __FILE__)
-
-unless File.exists?(dbfile)
-  raise "You need to configure config/database.yml first"
-else
-  conf = YAML.load(File.read(dbfile))
-  environment = conf[env]
-  adapter = environment['adapter'] if environment
-  raise "You need define an adapter in your database.yml or set your RAILS_ENV variable" if adapter == '' || adapter.nil?
-  case adapter
-  when 'sqlite3'
-    gem 'sqlite3'
-  when 'postgresql'
-    gem 'pg'
-  when 'mysql2'
-    gem 'mysql2'
-  else
-    raise "Don't know what gem to use for adapter #{adapter}"
-  end
-end
-
 source 'https://rubygems.org'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2'
   gem 'coffee-rails', '~> 3.2'
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :production do
+  gem "pg"
 end
 
 gem 'rails', '~> 3.2'
@@ -42,6 +23,7 @@ gem 'omniauth-google-apps'
 gem 'puma'
 
 group :test, :development do
+  gem "mysql2"
 end
 
 group :test do
