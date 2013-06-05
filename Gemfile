@@ -56,6 +56,9 @@ group :test do
 end
 
 group :development do
+  gem "foreman"
+  gem 'quiet_assets'
+
   #show great looking error pages with extra functionality
   gem "better_errors"
   gem "binding_of_caller"
