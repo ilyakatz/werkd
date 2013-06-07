@@ -60,3 +60,8 @@ module WeRKD
     config.assets.version = '1.0'
   end
 end
+
+Figleaf::Settings.configure_with_auto_define do |s|
+  s.env = Rails.env
+  s.load_settings
+end

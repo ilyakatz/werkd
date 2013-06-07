@@ -22,6 +22,7 @@ gem 'omniauth-google-oauth2'
 gem 'social-share-button'
 
 gem 'puma'
+gem "figleaf"
 
 group :test, :development do
   gem "mysql2"

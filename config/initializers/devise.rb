@@ -206,7 +206,9 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-  config.omniauth :google_oauth2, "167144929226.apps.googleusercontent.com", "64_AU6Dmw5y2RTmGp0PpuUak",
+  config.omniauth :google_oauth2,
+    Figleaf::Settings.social_login.google.client,
+    Figleaf::Settings.social_login.google.secret,
     { access_type: "offline", approval_prompt: "" }
 
   # ==> Warden configuration

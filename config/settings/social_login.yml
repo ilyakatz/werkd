@@ -1,0 +1,11 @@
+# https://code.google.com/apis/console
+development:
+ google:
+  client: 167144929226.apps.googleusercontent.com
+  secret: 64_AU6Dmw5y2RTmGp0PpuUak
+
+production:
+ google:
+  client: 167144929226-hbf5v6oft97gpu708pqsau3r1d79l3pm.apps.googleusercontent.com
+  secret: VKkbaoSrCe30baWwSLLaMTJ2
+
