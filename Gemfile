@@ -18,7 +18,8 @@ gem 'bootstrap-sass'
 
 #user authentication
 gem 'devise', '~> 2'
-gem 'omniauth-google-apps'
+gem 'omniauth-google-oauth2'
+gem 'social-share-button'
 
 gem 'puma'
 
@@ -47,4 +48,8 @@ group :development do
 
   #load rails much faster in development
   gem 'rails-dev-boost', git: 'git://github.com/thedarkone/rails-dev-boost.git'
+end
+
+group :development, :test do
+  gem "hirb"
 end

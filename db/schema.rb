@@ -11,14 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412083640) do
+ActiveRecord::Schema.define(:version => 20130606191725) do
 
-  create_table "apps", :force => true do |t|
-    t.text "settings"
+  create_table "authentications", :force => true do |t|
+    t.string   "provider"
+    t.string   "provider_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

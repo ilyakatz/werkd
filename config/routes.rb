@@ -1,5 +1,8 @@
 WeRKD::Application.routes.draw do
-  devise_for :users, :path => "", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => '', :sign_up => 'signup' }
+  #devise_for :users, :path => ""
+  devise_for :users,
+    path: "",
+    :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

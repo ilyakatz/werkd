@@ -1,5 +1,11 @@
 <div class="span8 offset2">
 
+  <% if current_user %>
+    <div class="well">
+      <h2>Hi, <%= current_user.first_name %></h2>
+    </div>
+  <% end %>
+
   <div class="well">
     Where creative folks come to shmooze
   </div>

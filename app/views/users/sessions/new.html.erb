@@ -1,7 +1,7 @@
 <%= page_header "Sign in" %>
 
 <div class="span5 offset3">
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
+  <% form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
 
   <div class="control-group">
     <%= f.label :email, :class => 'control-label' %>
@@ -25,12 +25,14 @@
     <div class="controls">
     <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
       <%= link_to "Forgot your password?", new_password_path(resource_name) %>
-    <% end -%>    
+    <% end -%>
     </div>
-  </div>  
+  </div>
   <% end -%>
   <div class="form-actions">
     <%= f.submit "Sign in", :class => 'btn btn-primary' %>
   </div>
   <% end %>
 </div>
+
+<%= render partial: "users/shared/links" %>
