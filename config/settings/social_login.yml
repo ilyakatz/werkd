@@ -1,11 +1,17 @@
-# https://code.google.com/apis/console
+# Google: https://code.google.com/apis/console
+# Facebook: https://developers.facebook.com/apps/
 development:
  google:
   client: 167144929226.apps.googleusercontent.com
   secret: 64_AU6Dmw5y2RTmGp0PpuUak
+ facebook:
+  app_id: 532816730110615
+  secret: 6ad09758e2296dd1e2d1594595656adc
 
 production:
  google:
   client: 167144929226-hbf5v6oft97gpu708pqsau3r1d79l3pm.apps.googleusercontent.com
   secret: VKkbaoSrCe30baWwSLLaMTJ2
-
+ facebook:
+  app_id: 166859140151609
+  secret: efa48669c2ac1bc070b8f5e829b6f5d3

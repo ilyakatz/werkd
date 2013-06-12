@@ -210,6 +210,10 @@ Devise.setup do |config|
     Figleaf::Settings.social_login.google.client,
     Figleaf::Settings.social_login.google.secret,
     { access_type: "offline", approval_prompt: "" }
+  config.omniauth :facebook,
+    Figleaf::Settings.social_login.facebook.app_id,
+    Figleaf::Settings.social_login.facebook.secret,
+    { scope: 'email' }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

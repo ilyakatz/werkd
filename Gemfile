@@ -19,6 +19,7 @@ gem 'bootstrap-sass'
 #user authentication
 gem 'devise', '~> 2'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 gem 'social-share-button'
 
 gem 'puma'

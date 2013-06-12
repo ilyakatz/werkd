@@ -1,7 +1,9 @@
 <!--<div class="span5 offset3">-->
-  <!--<%- if controller_name != 'sessions' %>-->
-    <!--<%= link_to "Sign in", new_session_path(resource_name) %>-->
-  <!--<% end -%>-->
+<!--
+<%- if controller_name != 'sessions' %>-->
+  <!--<%= link_to "Sign in", new_session_path(resource_name) %>-->
+  <!--
+<% end -%>-->
 <!--</div>-->
 
 <div class="span5 offset3">
@@ -11,24 +13,32 @@
 </div>
 
 <!--<div class="span5 offset3">-->
-  <!--<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>-->
-    <!--<%= link_to "Forgot your password?", new_password_path(resource_name) %>-->
-  <!--<% end -%>-->
+<!--
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>-->
+  <!--<%= link_to "Forgot your password?", new_password_path(resource_name) %>-->
+  <!--
+<% end -%>-->
 <!--</div>-->
 <!---->
 <!--<div class="span5 offset3">-->
-  <!--<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>-->
-    <!--<%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>-->
-  <!--<% end -%>-->
+<!--
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>-->
+  <!--<%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>-->
+  <!--
+<% end -%>-->
 <!--</div>-->
 <!---->
 <!--<div class="span5 offset3">-->
-  <!--<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>-->
-    <!--<%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %>-->
-  <!--<% end -%>-->
+<!--
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>-->
+  <!--<%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %>-->
+  <!--
+<% end -%>-->
 <!--</div>-->
 <!---->
 <div class="span5 offset3">
   <%= link_to image_tag("login/google_64.png",
-          :title=>"Google"), user_omniauth_authorize_path(:google_oauth2) %>
+          title: "Google"), user_omniauth_authorize_path(:google_oauth2) %>
+  <%= link_to image_tag("login/facebook_64.png",
+          title: "Facebook"), user_omniauth_authorize_path(:facebook) %>
 </div>
