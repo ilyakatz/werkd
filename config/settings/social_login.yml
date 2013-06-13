@@ -8,6 +8,14 @@ development:
   app_id: 532816730110615
   secret: 6ad09758e2296dd1e2d1594595656adc
 
+development:
+ google:
+  client: no_client
+  secret: no_secret
+ facebook:
+  app_id: no_id
+  secret: no_secret
+
 production:
  google:
   client: 167144929226-hbf5v6oft97gpu708pqsau3r1d79l3pm.apps.googleusercontent.com
