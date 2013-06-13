@@ -25,6 +25,8 @@ gem 'social-share-button'
 gem 'puma'
 gem "figleaf"
 
+gem 'postmark-rails'
+
 group :test, :development do
   gem "mysql2"
 end
