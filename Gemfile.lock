@@ -125,6 +125,9 @@ GEM
     omniauth-google-oauth2 (0.1.17)
       omniauth (~> 1.0)
       omniauth-oauth2
+    omniauth-linkedin-oauth2 (0.0.2)
+      omniauth (~> 1.0)
+      omniauth-oauth2
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -239,6 +242,7 @@ DEPENDENCIES
   mysql2
   omniauth-facebook
   omniauth-google-oauth2
+  omniauth-linkedin-oauth2
   pg
   postmark-rails
   pry

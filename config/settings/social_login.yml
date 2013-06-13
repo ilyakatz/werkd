@@ -1,5 +1,6 @@
 # Google: https://code.google.com/apis/console
 # Facebook: https://developers.facebook.com/apps/
+# LinkedIn: https://www.linkedin.com/secure/developer
 development:
  google:
   client: 167144929226.apps.googleusercontent.com
@@ -7,6 +8,9 @@ development:
  facebook:
   app_id: 532816730110615
   secret: 6ad09758e2296dd1e2d1594595656adc
+ linkedin:
+  app_key: bmom2i1zyfco
+  secret: 2gLh0fYIX0g1KnrX
 
 test:
  google:
@@ -15,6 +19,9 @@ test:
  facebook:
   app_id: no_id
   secret: no_secret
+ linkedin:
+   app_key: none
+   secret: none
 
 production:
  google:
@@ -23,3 +30,6 @@ production:
  facebook:
   app_id: 166859140151609
   secret: efa48669c2ac1bc070b8f5e829b6f5d3
+ linkedin:
+   app_key: bmom2i1zyfco
+   secret: 2gLh0fYIX0g1KnrX

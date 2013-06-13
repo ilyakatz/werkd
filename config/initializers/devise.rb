@@ -210,10 +210,17 @@ Devise.setup do |config|
     Figleaf::Settings.social_login.google.client,
     Figleaf::Settings.social_login.google.secret,
     { access_type: "offline", approval_prompt: "" }
+
   config.omniauth :facebook,
     Figleaf::Settings.social_login.facebook.app_id,
     Figleaf::Settings.social_login.facebook.secret,
     { scope: 'email' }
+
+  config.omniauth :linkedin_oauth2,
+    Figleaf::Settings.social_login.linkedin.app_key,
+    Figleaf::Settings.social_login.linkedin.secret,
+    { :scope => 'r_fullprofile r_emailaddress r_network',
+      :fields => ['id', 'email-address', 'first-name', 'last-name'] }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

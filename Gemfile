@@ -20,6 +20,7 @@ gem 'bootstrap-sass'
 gem 'devise', '~> 2'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem 'omniauth-linkedin-oauth2'
 gem 'social-share-button'
 
 gem 'puma'
