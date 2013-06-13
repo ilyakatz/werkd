@@ -1,0 +1,8 @@
+development:
+  support: "profitengine@profit-engine.com"
+
+test:
+  support: "ilyakatz@gmail.com"
+
+production:
+  support: "profitengine@profit-engine.com"
