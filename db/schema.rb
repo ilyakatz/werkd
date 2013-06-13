@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612024734) do
+ActiveRecord::Schema.define(:version => 20130607030804) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(:version => 20130612024734) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
-
-  add_index "authentications", ["provider", "user_id"], :name => "index_authentications_on_provider_and_user_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -4,29 +4,15 @@ describe HomeController do
   render_views
   
   before :each do
-    @app = App.create
   end
   
   it "Should use the index template" do
     get :index
     response.should render_template 'index'
-    response.should have_selector('a', :class => 'brand', :content => "My Wonderful Rails App")
+    response.should have_selector('a', :class => 'brand', :content => "WeRKD")
   end
-    
-  it "should use the App name by default as a title" do
-    get :index
-    response.should render_template 'index'
-    response.should have_selector('a', :class => 'brand', :content => "My Wonderful Rails App")
-  end
-  
-  it "changing app name should change the title" do
-    @app.app_name = "Come get some"
-    @app.save
-    get :index
-    response.should render_template 'index'
-    response.should have_selector('a', :class => 'brand', :content => "Come get some")
-  end
-    
+
+
   describe "With a logged out user" do
     before do
       @user = FactoryGirl.create(:user)
@@ -38,12 +24,12 @@ describe HomeController do
     end
 
     it "should have login and register links" do
-      response.should have_selector('a', :href => "/signup", :content => "Create an account")
-      response.should have_selector('a', :href => "/login", :content => "Sign in")    
+      response.should have_selector('a', :href => "/sign_up", :content => "Create an account")
+      response.should have_selector('a', :href => "/sign_in", :content => "Sign in")
     end
     
     it "should not have a logout link" do
-      response.should_not have_selector('a', :href => "/logout", :content => "Logout")
+      response.should_not have_selector('a', :href => "/sign_out", :content => "Logout")
     end
   end
 
@@ -63,7 +49,7 @@ describe HomeController do
     end
     
     it "should have a logout link" do
-      response.should have_selector('a', :href => "/logout", :content => "Logout")
+      response.should have_selector('a', :href => "/sign_out", :content => "Logout")
     end
   end
 end

@@ -8,7 +8,7 @@ development:
   app_id: 532816730110615
   secret: 6ad09758e2296dd1e2d1594595656adc
 
-development:
+test:
  google:
   client: no_client
   secret: no_secret
