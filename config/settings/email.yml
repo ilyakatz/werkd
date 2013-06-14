@@ -1,8 +1,8 @@
 development:
-  support: "profitengine@profit-engine.com"
+  support: "we@werkd.net"
 
 test:
   support: "ilyakatz@gmail.com"
 
 production:
-  support: "profitengine@profit-engine.com"
+  support: "we@werkd.net"
