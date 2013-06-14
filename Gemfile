@@ -27,6 +27,7 @@ gem 'puma'
 gem "figleaf"
 
 gem 'postmark-rails'
+gem "sentry-raven"
 
 group :test, :development do
   gem "mysql2"
