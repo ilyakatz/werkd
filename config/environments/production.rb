@@ -5,7 +5,7 @@ WeRKD::Application.configure do
   config.cache_classes = true
 
   # Full error reports are disabled and caching is turned on
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
@@ -40,7 +40,10 @@ WeRKD::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production
-  config.cache_store = :iron_cache
+  config.cache_store = :iron_cache, {
+    project_id: ENV['IRON_CACHE_PROJECT_ID'],
+    token: ENV['IRON_CACHE_TOKEN']
+  }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
