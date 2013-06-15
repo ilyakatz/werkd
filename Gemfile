@@ -8,6 +8,7 @@ end
 
 group :production do
   gem "pg"
+  gem 'iron_cache_rails'
 end
 
 gem 'rails', '~> 3.2'
@@ -31,7 +32,6 @@ gem "figleaf"
 gem 'postmark-rails'
 gem "sentry-raven"
 
-gem 'iron_cache_rails'
 gem 'typhoeus'
 
 group :test, :development do
