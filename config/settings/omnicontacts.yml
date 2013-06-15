@@ -11,6 +11,5 @@ test:
 
 production:
  google:
-  client: 167144929226-43tdrbru81nhctrqjrps2leq5nu6s3ht.apps.googleusercontent.com
-  secret: -7BF5WIdnB8aLadPDgZcwK9O
-
+  client: 167144929226-6rii4jghfgnl7uqokjosssbiop9prbnh.apps.googleusercontent.com
+  secret: pkB3WlcnZC2kMKKYBzaxnc9B
