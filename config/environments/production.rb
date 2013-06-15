@@ -40,10 +40,7 @@ WeRKD::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production
-  config.cache_store = :iron_cache, {
-    project_id: ENV['IRON_CACHE_PROJECT_ID'],
-    token: ENV['IRON_CACHE_TOKEN']
-  }
+  config.cache_store = :iron_cache
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
