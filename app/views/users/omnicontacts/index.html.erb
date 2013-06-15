@@ -1,0 +1,8 @@
+<div>
+  List of contacts of obtained from <b><%= @importer %></b>
+  <% @contacts.each do |contact| %>
+    <% if contact[:email] %>
+      <p><%= contact[:name] %>, <%= contact[:email] %></p>
+    <% end %>
+  <% end %>
+</div>

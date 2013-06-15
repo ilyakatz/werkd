@@ -21,6 +21,8 @@ gem 'devise', '~> 2'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin-oauth2'
+
+gem 'omnicontacts'
 gem 'social-share-button'
 
 gem 'puma'
@@ -28,6 +30,8 @@ gem "figleaf"
 
 gem 'postmark-rails'
 gem "sentry-raven"
+
+gem 'iron_cache_rails'
 
 group :test, :development do
   gem "mysql2"
