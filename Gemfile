@@ -32,6 +32,7 @@ gem 'postmark-rails'
 gem "sentry-raven"
 
 gem 'iron_cache_rails'
+gem 'typhoeus'
 
 group :test, :development do
   gem "mysql2"

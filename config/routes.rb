@@ -4,9 +4,11 @@ WeRKD::Application.routes.draw do
     path: "",
     :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+
   match "/contacts/:importer/callback" => "users/omnicontacts#callback"
   namespace :users do
-    resources :omnicontacts, only: :index
+    resources :omnicontacts, only: [ :index, :show]
+    resources :dashboards, only: [:index]
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

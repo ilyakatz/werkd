@@ -3,10 +3,13 @@ module Users
 
     def callback
       Rails.cache.write(cachekey, request.env['omnicontacts.contacts'], expire: 10.minutes)
-      redirect_to users_omnicontacts_path(importer: params[:importer])
+      redirect_to method: :show, id: params[:importer]
     end
 
     def index
+    end
+
+    def show
       @importer = params[:importer]
       @contacts = Rails.cache.read(cachekey)
     end

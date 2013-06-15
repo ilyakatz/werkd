@@ -47,9 +47,7 @@
           <a class="brand" href="/">WeRKD</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Dashboard", users_dashboards_path  %></li>
             </ul>
             <ul class="nav pull-right">
               <% if current_user %>
@@ -66,7 +64,6 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <%= render_breadcrumbs unless controller.controller_name == "home" %>
         <%= bootstrap_flash %>
         <%= yield %>
       </div><!--/row-->

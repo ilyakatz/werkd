@@ -1,8 +1,10 @@
-<div>
-  List of contacts of obtained from <b><%= @importer %></b>
-  <% @contacts.each do |contact| %>
-    <% if contact[:email] %>
-      <p><%= contact[:name] %>, <%= contact[:email] %></p>
-    <% end %>
-  <% end %>
+<div class="well">
+  <h3>Import Contacts</h3>
+</div>
+
+<div class="well">
+  We need some seeds to create meaningful connections for you
+  <div>
+    <%= link_to image_tag("login/google_64.png"), "/contacts/gmail" %>
+  </div>
 </div>
