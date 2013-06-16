@@ -26,7 +26,7 @@ gem 'omniauth-linkedin-oauth2'
 gem 'omnicontacts'
 gem 'social-share-button'
 
-gem 'puma'
+gem 'thin'
 gem "figleaf"
 
 gem 'postmark-rails'
