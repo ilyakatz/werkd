@@ -1,8 +1,30 @@
-<div>
-  List of contacts of obtained from <b><%= @importer %></b>
-  <% @contacts.each do |contact| %>
-    <% if contact[:email] %>
-      <p><%= contact[:name] %>, <%= contact[:email] %></p>
+<div class="well">
+  <h3>Imported <%=@contacts.count%> contacts from <b><%= @importer %></h3>
+</div>
+
+
+<div class="span12">
+  <table class="table">
+    <tbody>
+
+    <% @contacts.each do |contact| %>
+      <% if contact[:email] %>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td class="hidden-phone">
+            <%= contact[:first_name] %>
+          </td>
+          <td class="hidden-phone">
+            <%= contact[:last_name] %>
+          </td>
+          <td>
+            <%= contact[:email] %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
-  <% end %>
+    </tbody>
+  </table>
 </div>
