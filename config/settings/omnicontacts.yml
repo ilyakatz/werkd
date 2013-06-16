@@ -3,6 +3,9 @@ development:
  google:
   client: 167144929226-43tdrbru81nhctrqjrps2leq5nu6s3ht.apps.googleusercontent.com
   secret: -7BF5WIdnB8aLadPDgZcwK9O
+ yahoo:
+  consumer: dj0yJmk9TmUyUlp0NFJ6eENNJmQ9WVdrOVVETTFlVlZ2TjJjbWNHbzlNVEUyT1RJME5EWXkmcz1jb25zdW1lcnNlY3JldCZ4PTMy
+  secret: 3ab655f62706837b6bfc503f36c61e710ec28b3b
 
 test:
  google:
@@ -13,3 +16,6 @@ production:
  google:
   client: 167144929226-6rii4jghfgnl7uqokjosssbiop9prbnh.apps.googleusercontent.com
   secret: pkB3WlcnZC2kMKKYBzaxnc9B
+ yahoo:
+  consumer: dj0yJmk9TmUyUlp0NFJ6eENNJmQ9WVdrOVVETTFlVlZ2TjJjbWNHbzlNVEUyT1RJME5EWXkmcz1jb25zdW1lcnNlY3JldCZ4PTMy
+  secret: 3ab655f62706837b6bfc503f36c61e710ec28b3b
