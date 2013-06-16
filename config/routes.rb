@@ -10,6 +10,8 @@ WeRKD::Application.routes.draw do
     resources :omnicontacts, only: [ :index, :show]
     resources :dashboards, only: [:index]
   end
+
+  get "gZqxhv5bXQHTESFXI4.Bv3o.KlzhDLDXnISp3_xRCQ--.html" => 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
