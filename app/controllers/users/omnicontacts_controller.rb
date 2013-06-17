@@ -19,6 +19,10 @@ module Users
       end
     end
 
+    def failure
+      #TODO: implement me
+    end
+
     private
 
     def cachekey
