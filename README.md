@@ -12,4 +12,4 @@ You can access your server from the outside world:
 
 1. gem install proxylocal
 
-2. proxylocal 5000 --host `scutil --get LocalHostName | perl -ne 'print $_ if s/(.*)/\L$1/'`
+2. proxylocal 5000 --host \`scutil --get LocalHostName | perl -ne 'print $_ if s/(.*)/\L$1/'\`
