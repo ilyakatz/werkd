@@ -4,6 +4,7 @@ module Users
     before_filter :authenticate_user!
 
     def callback
+      Rails.logger.info("Storing contacts into #{cachekey}")
       Rails.cache.write(cachekey, request.env['omnicontacts.contacts'], expire: 10.minutes)
       redirect_to action: :show, id: params[:importer]
     end
