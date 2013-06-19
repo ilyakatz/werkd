@@ -13,8 +13,13 @@ module Users
     end
 
     def show
+      Rails.logger.info("Reading contacts from #{cachekey}")
       @importer = params[:id]
-      @contacts = Rails.cache.read(cachekey)
+      contacts = Rails.cache.read(cachekey)
+      cs = ::ContactsService.new(contacts, current_user)
+      cs.save
+      @contacts = cs.contacts
+      Rails.logger.info("Saved #{@contacts.count} into database")
       unless @contacts.present?
         redirect_to action: :index
       end

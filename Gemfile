@@ -34,6 +34,8 @@ gem "sentry-raven"
 
 gem 'typhoeus'
 
+gem 'activerecord-import'
+
 group :test, :development do
   gem "mysql2"
 end
