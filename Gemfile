@@ -11,6 +11,8 @@ end
 group :production do
   gem "pg"
   gem 'iron_cache_rails'
+
+  gem 'newrelic_rpm'
 end
 
 gem 'rails', '~> 3.2'
@@ -37,6 +39,7 @@ gem "sentry-raven"
 gem 'typhoeus'
 
 gem 'activerecord-import'
+
 
 group :test, :development do
   gem "mysql2"

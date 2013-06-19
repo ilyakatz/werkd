@@ -125,6 +125,7 @@ GEM
     multipart-post (1.2.0)
     mysql2 (0.3.11)
     net-http-persistent (2.8)
+    newrelic_rpm (3.6.4.122)
     nokogiri (1.5.9)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -275,6 +276,7 @@ DEPENDENCIES
   iron_cache_rails
   jquery-rails
   mysql2
+  newrelic_rpm
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-linkedin-oauth2
