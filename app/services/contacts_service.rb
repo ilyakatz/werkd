@@ -26,7 +26,11 @@ class ContactsService
     @contacts[0..-1].each do |contact|
       c << ImportedContact.new(contact.slice(*attributes).merge(referer_id: @referrer.id))
     end
-    ImportedContact.import(c)
+
+    begin
+      ImportedContact.import(c)
+    rescue ActiveRecord::RecordNotUnique => e
+    end
   end
 
   attr_accessor :contacts
