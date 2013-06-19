@@ -10,7 +10,14 @@
     <% @contacts.each do |contact| %>
       <tr>
         <td>
-          <input type="checkbox">
+          <%= link_to "Invite",
+                  users_invitations_path(
+                          email: contact[:email],
+                          format: :js
+                  ),
+                  remote: true,
+                  data: { method: :post }
+          %>
         </td>
         <td class="hidden-phone">
           <%= contact[:first_name] %>

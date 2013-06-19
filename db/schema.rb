@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619023038) do
+ActiveRecord::Schema.define(:version => 20130619192711) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(:version => 20130619023038) do
   end
 
   add_index "imported_contacts", ["email"], :name => "index_imported_contacts_on_email", :unique => true
+
+  create_table "invitations", :force => true do |t|
+    t.string   "email"
+    t.integer  "referer_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "invitations", ["email", "referer_id"], :name => "index_invitations_on_email_and_referer_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

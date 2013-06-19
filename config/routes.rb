@@ -1,4 +1,5 @@
 WeRKD::Application.routes.draw do
+
   #devise_for :users, :path => ""
   devise_for :users,
     path: "",
@@ -9,6 +10,7 @@ WeRKD::Application.routes.draw do
   namespace :users do
     resources :omnicontacts, only: [ :index, :show]
     resources :dashboards, only: [:index]
+    resources :invitations
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

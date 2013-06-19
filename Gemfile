@@ -39,6 +39,7 @@ gem "sentry-raven"
 gem 'typhoeus'
 
 gem 'activerecord-import'
+gem 'strong_parameters'
 
 
 group :test, :development do
