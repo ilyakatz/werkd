@@ -13,11 +13,14 @@ module Users
     end
 
     def show
+      Rails.logger.info("Reading contacts from #{cachekey}")
       @importer = params[:id]
-      @contacts = Rails.cache.read(cachekey)
+      @contacts = load_and_persist
+
       unless @contacts.present?
         redirect_to action: :index
       end
+
     end
 
     def failure
@@ -25,6 +28,14 @@ module Users
     end
 
     private
+
+    def load_and_persist
+      contacts = Rails.cache.read(cachekey)
+      cs = ::ContactsService.new(contacts, current_user)
+      cs.save
+      Rails.logger.info("Saved #{contacts.count} into database")
+      cs.contacts
+    end
 
     def cachekey
       "#{WeRKD::Application.config.secret_token}/#{session["session_id"]}/contacts"
