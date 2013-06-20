@@ -27,7 +27,10 @@ You can access your server from the outside world:
 	git clone git@bitbucket.org:katzmopolitan/werkd.git
 
 - install command line tools https://developer.apple.com/downloads/index.action#
-- install mysql http://dev.mysql.com/downloads/mysql/
+- install mysql 
+    http://dev.mysql.com/downloads/mysql/
+- update paths
+    http://stackoverflow.com/questions/10557507/rails-mysql-on-osx-library-not-loaded-libmysqlclient-18-dylib
 - install ruby 
 	rvm install ruby 2.0.0
 - install homebrew http://mxcl.github.io/homebrew/
