@@ -23,8 +23,21 @@ You can access your server from the outside world:
 - cd ~/ws
 - git clone git@bitbucket.org:katzmopolitan/werkd.git
 - install command line tools https://developer.apple.com/downloads/index.action#
-- install homebrew http://mxcl.github.io/homebrew/
-
 - install mysql http://dev.mysql.com/downloads/mysql/
+
 - install ruby `rvm install ruby 2.0.0`
-- install posture http://www.postgresql.org/download/macosx/
+- install homebrew http://mxcl.github.io/homebrew/
+- install postgre http://www.postgresql.org/download/macosx/
+- (optional) Git GUI http://www.sourcetreeapp.com/download/
+
+# Work flow
+
+1. Open terminal.app
+2. cd ws/werkd
+3. Pull the latest code from git repository
+
+	git pull
+
+4 Start server
+
+	foreman start
