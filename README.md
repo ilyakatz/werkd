@@ -19,15 +19,21 @@ You can access your server from the outside world:
 - install git http://git-scm.com/download/mac
 - install rvm https://rvm.io
 - create ssh keys
+	
+	ssh-keygen
+	
 - add ssh key to bitbucket
-- cd ~/ws
-- git clone git@bitbucket.org:katzmopolitan/werkd.git
+	cd ~/ws
+	git clone git@bitbucket.org:katzmopolitan/werkd.git
+
 - install command line tools https://developer.apple.com/downloads/index.action#
 - install mysql http://dev.mysql.com/downloads/mysql/
-
-- install ruby `rvm install ruby 2.0.0`
+- install ruby 
+	rvm install ruby 2.0.0
 - install homebrew http://mxcl.github.io/homebrew/
-- install postgre http://www.postgresql.org/download/macosx/
+- brew doctor
+- install postgre 
+	brew install postgres
 - (optional) Git GUI http://www.sourcetreeapp.com/download/
 
 # Work flow
