@@ -28,16 +28,25 @@ You can access your server from the outside world:
 
 - install command line tools https://developer.apple.com/downloads/index.action#
 - install mysql 
-    http://dev.mysql.com/downloads/mysql/
+
+	http://dev.mysql.com/downloads/mysql/
+
 - update paths
+
     http://stackoverflow.com/questions/10557507/rails-mysql-on-osx-library-not-loaded-libmysqlclient-18-dylib
+
 - install ruby 
+
 	rvm install ruby 2.0.0
+
 - install homebrew http://mxcl.github.io/homebrew/
 - brew doctor
 - install postgre 
+
 	brew install postgres
+
 - (optional) Git GUI http://www.sourcetreeapp.com/download/
+
 
 # Work flow
 
@@ -47,6 +56,10 @@ You can access your server from the outside world:
 
 	git pull
 
-4 Start server
+4. Start server
 
 	foreman start
+
+5. Open local version
+
+    http://localhost:5000
