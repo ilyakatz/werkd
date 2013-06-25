@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(:version => 20130619023038) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "authentications", ["provider", "user_id"], :name => "index_authentications_on_provider_and_user_id", :unique => true
-
   create_table "imported_contacts", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
