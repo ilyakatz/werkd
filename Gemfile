@@ -23,6 +23,7 @@ gem 'bootstrap-sass'
 
 #user authentication
 gem 'devise', '~> 2'
+gem 'devise_invitable'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin-oauth2'
@@ -51,10 +52,6 @@ group :test do
   gem 'factory_girl', '~> 3'
   gem 'factory_girl_rails'
   gem 'webrat'
-
-  #debugging
-  gem "pry"
-  gem "pry-debugger"
 end
 
 group :development do
@@ -71,4 +68,8 @@ end
 
 group :development, :test do
   gem "hirb"
+
+    #debugging
+  gem "pry"
+  gem "pry-debugger"
 end

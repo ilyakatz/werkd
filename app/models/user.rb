@@ -2,10 +2,10 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
-  devise :omniauthable, :omniauth_providers => [:google_oauth2,
+  devise :invitable, :omniauthable, :omniauth_providers => [:google_oauth2,
     :facebook, :linkedin_oauth2]
 
   # Setup accessible (or protected) attributes for your model
@@ -14,8 +14,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :authentications
-
-  after_create :send_welcome_email!
 
   def self.find_for_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info
@@ -28,6 +26,7 @@ class User < ActiveRecord::Base
         email: data["email"],
         password: Devise.friendly_token[0, 20]
       )
+      WelcomeMailer.send_welcome_email(self).deliver!
     end
     user
   end
@@ -58,17 +57,12 @@ class User < ActiveRecord::Base
         )
         user.authentications << auth
         user.save!
+        WelcomeMailer.send_welcome_email(self).deliver!
       end
     end
 
 
     user
-  end
-
-  private
-
-  def send_welcome_email!
-    WelcomeMailer.send_welcome_email(self).deliver!
   end
 
 end

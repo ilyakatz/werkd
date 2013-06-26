@@ -71,6 +71,10 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    devise_invitable (1.1.8)
+      actionmailer (~> 3.0)
+      devise (>= 2.1.2)
+      railties (~> 3.0)
     diff-lcs (1.2.4)
     dotenv (0.7.0)
     erubis (2.7.0)
@@ -272,6 +276,7 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 3.2)
   devise (~> 2)
+  devise_invitable
   factory_girl (~> 3)
   factory_girl_rails
   figleaf

@@ -1,16 +1,17 @@
 WeRKD::Application.routes.draw do
 
-  #devise_for :users, :path => ""
+  #TODO: need to update
   devise_for :users,
     path: "",
-    :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
+    :controllers => {
+      omniauth_callbacks: "users/omniauth_callbacks",
+      invitations: 'users/invitations'
+    }
 
   match "/contacts/:importer/callback" => "users/omnicontacts#callback"
   namespace :users do
     resources :omnicontacts, only: [ :index, :show]
     resources :dashboards, only: [:index]
-    resources :invitations
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

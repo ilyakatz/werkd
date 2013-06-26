@@ -1,16 +1,33 @@
 module Users
-  class InvitationsController < ApplicationController
+  class InvitationsController < Devise::InvitationsController
 
     before_filter :authenticate_user!
 
-    respond_to :js
+    respond_to :json, :html
 
     def create
-      @invitation = create_invitation(params[:email], current_user)
-      respond_with(@invitation) do |format|
-        format.js { render json: @invitation.to_json }
+      self.resource = resource_class.invite!(resource_params, current_inviter)
+
+      respond_to do |format|
+        if resource.errors.empty?
+          format.json do
+            render text: "#{resource.email} invited", status: :ok
+          end
+          format.html do
+            set_flash_message :notice, :send_instructions, :email => self.resource.email
+            respond_with resource, :location => after_invite_path_for(resource)
+          end
+        else
+          format.json do
+            render text: resource.errors, status: :internal_server_error
+          end
+          format.html do
+            respond_with_navigational(resource) { render :new }
+          end
+        end
       end
     end
+
 
     def show
     end

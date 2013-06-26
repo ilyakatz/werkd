@@ -11,9 +11,9 @@
       <tr>
         <td>
           <%= link_to "Invite",
-                  users_invitations_path(
-                          email: contact[:email],
-                          format: :js
+                  user_invitation_path(
+                          user: { email: contact[:email] },
+                          format: :json
                   ),
                   remote: true,
                   data: { method: :post }
