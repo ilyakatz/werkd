@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
 
 
   def confirmed?
-    invitation_accepted_at == true
+    !!invitation_accepted_at
   end
 
 end

@@ -39,6 +39,7 @@ module Users
 
     # users - array of users
     # [{id: 1, email: "some@email.com"}]
+    # TODO: yes, I know, not very efficient, but tis an MVP
     def mark_existing(users)
       users.each do |user_hash|
         #if users_hash[:email] is already present, mark it as existing user
