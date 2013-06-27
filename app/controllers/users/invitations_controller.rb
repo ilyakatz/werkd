@@ -1,7 +1,8 @@
 module Users
   class InvitationsController < Devise::InvitationsController
 
-    before_filter :authenticate_user!
+    skip_before_filter :require_no_authentication, :only => [:edit]
+    before_filter :authenticate_user!, only: [:edit, :show, :index]
 
     respond_to :json, :html
 
@@ -28,30 +29,15 @@ module Users
       end
     end
 
-
-    def show
-    end
-
-    def index
-    end
+    #def edit
+    #  redirect_to action: :update, method: :put
+    #end
 
     private
 
-    def create_invitation(email, referer)
-      invitation =
-        Invitation.where(email: email).where(referer_id: referer.id).first
-
-      if invitation
-        return invitation
-      else
-        invitation = Invitation.new(
-          email: params[:email],
-          referer_id: current_user.id
-        )
-        return invitation
-      end
-
-    end
+    #def authenticate_user!
+    #  warden.authenticate!(scope: :user)
+    #end
 
   end
 end

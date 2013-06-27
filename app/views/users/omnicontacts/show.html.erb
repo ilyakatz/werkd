@@ -10,14 +10,18 @@
     <% @contacts.each do |contact| %>
       <tr>
         <td>
-          <%= link_to "Invite",
+          <% if contact[:existing] %>
+            <%= link_to "Connect", "#" %>
+          <% else %>
+            <%= link_to "Invite",
                   user_invitation_path(
-                          user: { email: contact[:email] },
-                          format: :json
+                        user: { email: contact[:email] },
+                        format: :json
                   ),
                   remote: true,
                   data: { method: :post }
-          %>
+            %>
+          <% end %>
         </td>
         <td class="hidden-phone">
           <%= contact[:first_name] %>

@@ -15,7 +15,7 @@ module Users
     def show
       Rails.logger.info("Reading contacts from #{cachekey}")
       @importer = params[:id]
-      @contacts = load_and_persist
+      @contacts = mark_existing(load_and_persist)
 
       unless @contacts.present?
         redirect_to action: :index
@@ -35,6 +35,18 @@ module Users
       cs.save
       Rails.logger.info("Saved #{contacts.count} into database")
       cs.contacts
+    end
+
+    # users - array of users
+    # [{id: 1, email: "some@email.com"}]
+    def mark_existing(users)
+      users.each do |user_hash|
+        #if users_hash[:email] is already present, mark it as existing user
+        if existing = User.find_by_email(user_hash[:email])
+          user_hash[:existing]=true if existing.confirmed?
+        end
+      end
+      users
     end
 
     def cachekey
