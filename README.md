@@ -74,11 +74,11 @@ You can access your server from the outside world:
 
 7. Start server
 
-	foreman start
+	`foreman start`
 
 8. Open local version
 
-    http://localhost:5000
+    `http://localhost:5000`
 
 # To preview emails in the browser
 
