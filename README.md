@@ -57,21 +57,23 @@ You can access your server from the outside world:
 2. cd ws/werkd
 3. Pull the latest code from git repository
 
-	git pull
+	`git pull`
 
 4. Make sure that all libraries are installed
 
-    bundle install
+    `bundle install`
 
 5. Migrate database changes
 
-    rake db:migrate
+    `rake db:migrate`
 
 6. Stop server if already running
 
+    ```
     open window where foreman is running
     Cntrl-C
-
+    ```
+	
 7. Start server
 
 	`foreman start`
@@ -85,5 +87,5 @@ You can access your server from the outside world:
 1. Follow instructions to bring up the server
 2. Go to
 
-    http://localhost:5000/email_preview
+    `http://localhost:5000/email_preview`
 
