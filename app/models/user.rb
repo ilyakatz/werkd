@@ -66,8 +66,9 @@ class User < ActiveRecord::Base
   end
 
 
+  #not invited by anyone or invitation accepted
   def confirmed?
-    !!invitation_accepted_at
+    !invited_by_id || !!invitation_accepted_at
   end
 
 end
