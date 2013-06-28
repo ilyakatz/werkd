@@ -58,10 +58,31 @@ You can access your server from the outside world:
 
 	git pull
 
-4. Start server
+4. Make sure that all libraries are installed
+
+  bundle install
+
+5. Migrate database changes
+
+  rake db:migrate
+
+6. Stop server if already running
+
+  open window where foreman is running
+  Cntrl-C
+
+7. Start server
 
 	foreman start
 
-5. Open local version
+8. Open local version
 
     http://localhost:5000
+
+# To preview emails in the browser
+
+1. Follow instructions to bring up the server
+2. Go to
+
+  http://localhost:5000/email_preview
+

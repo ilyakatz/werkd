@@ -39,6 +39,7 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    addressable (2.3.5)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     better_errors (0.9.0)
@@ -58,6 +59,8 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     columnize (0.3.6)
+    css_parser (1.3.4)
+      addressable
     daemons (1.1.9)
     debug_inspector (0.0.2)
     debugger (1.6.0)
@@ -77,6 +80,8 @@ GEM
       railties (~> 3.0)
     diff-lcs (1.2.4)
     dotenv (0.7.0)
+    email_preview (1.5.3)
+      rails (>= 3.0)
     erubis (2.7.0)
     ethon (0.5.12)
       ffi (>= 1.3.0)
@@ -101,6 +106,7 @@ GEM
     hashie (2.0.5)
     hike (1.2.3)
     hirb (0.7.1)
+    htmlentities (4.3.1)
     httpauth (0.2.0)
     i18n (0.6.1)
     iron_cache (1.4.0)
@@ -163,6 +169,12 @@ GEM
     postmark-rails (0.5.0)
       actionmailer
       postmark (~> 1.0)
+    premailer (1.7.3)
+      css_parser (>= 1.1.9)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.4.0)
+      premailer (~> 1.7)
+      rails (>= 3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -277,6 +289,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2)
   devise (~> 2)
   devise_invitable
+  email_preview
   factory_girl (~> 3)
   factory_girl_rails
   figleaf
@@ -286,12 +299,14 @@ DEPENDENCIES
   jquery-rails
   mysql2
   newrelic_rpm
+  nokogiri
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-linkedin-oauth2
   omnicontacts
   pg
   postmark-rails
+  premailer-rails
   pry
   pry-debugger
   quiet_assets

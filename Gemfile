@@ -42,6 +42,8 @@ gem 'typhoeus'
 gem 'activerecord-import'
 gem 'strong_parameters'
 
+gem 'nokogiri'
+gem 'premailer-rails'
 
 group :test, :development do
   gem "mysql2"
@@ -72,4 +74,5 @@ group :development, :test do
     #debugging
   gem "pry"
   gem "pry-debugger"
+  gem 'email_preview'
 end
