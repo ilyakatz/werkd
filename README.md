@@ -71,6 +71,8 @@ You can access your server from the outside world:
 
     ```
     open window where foreman is running
+	
+	
     Cntrl-C
     ```
 	
