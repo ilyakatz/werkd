@@ -86,7 +86,7 @@ You can access your server from the outside world:
 
     `git add .`
 	
-	`git commit -m "brief message about what changes your made"
+	`git commit -m "brief message about what changes your made"`
 	
 	`git push`
 
