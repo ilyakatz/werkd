@@ -25,6 +25,7 @@ You can access your server from the outside world:
 	ssh-keygen
 	
 - add ssh key to bitbucket
+	
 	cd ~/ws
 	git clone git@bitbucket.org:katzmopolitan/werkd.git
 
@@ -56,33 +57,49 @@ You can access your server from the outside world:
 2. cd ws/werkd
 3. Pull the latest code from git repository
 
-	git pull
+	`git pull`
 
 4. Make sure that all libraries are installed
 
-  bundle install
+    `bundle install`
 
 5. Migrate database changes
 
-  rake db:migrate
+    `rake db:migrate`
 
 6. Stop server if already running
 
-  open window where foreman is running
-  Cntrl-C
-
+    `open window where foreman is running`
+    `Cntrl-C`
+    
 7. Start server
 
-	foreman start
+	`foreman start`
 
 8. Open local version
 
-    http://localhost:5000
+    `http://localhost:5000`
+	
+9. Write your code and do your magic!
 
+10. Push your changes back to the repository
+
+    `git add .`
+	
+	`git commit -m "brief message about what changes your made"`
+	
+	`git push`
+
+    1. If you get a message
+	` ! [rejected]        HEAD -> master (non-fast-forward)`
+	That means that someone already made changes upstream (bitbucket) and you need to pull then with `git pull`
+	2. If there are no conflicts, do `git push` again
+	
+	
 # To preview emails in the browser
 
 1. Follow instructions to bring up the server
 2. Go to
 
-  http://localhost:5000/email_preview
+    `http://localhost:5000/email_preview`
 
