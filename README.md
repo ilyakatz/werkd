@@ -85,7 +85,9 @@ You can access your server from the outside world:
 10. Push your changes back to the repository
 
     `git add .`
+	
 	`git commit -m "brief message about what changes your made"
+	
 	`git push`
 
     1. If you get a message
