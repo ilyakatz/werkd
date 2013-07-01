@@ -12,6 +12,7 @@ WeRKD::Application.routes.draw do
   namespace :users do
     resources :omnicontacts, only: [ :index, :show]
     resources :dashboards, only: [:index]
+    resources :connections, only: [:index]
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

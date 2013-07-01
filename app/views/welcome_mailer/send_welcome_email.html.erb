@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Welcome to WeRKD</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Welcome to WeRKD</title>
 
 </head>
 <body>
@@ -31,3 +31,16 @@
 </body>
 </html>
 
+
+<%
+   count = 0
+   makers = 0
+   User.where("created_at > ?", 2.days.ago).each do |u|
+     if u.address.present?
+       count = count +1
+     end
+     if u.skills.present?
+       makers = makers + 1
+     end
+   end
+%>

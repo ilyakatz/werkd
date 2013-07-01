@@ -69,13 +69,9 @@ You can access your server from the outside world:
 
 6. Stop server if already running
 
-    ```
-    open window where foreman is running
-	
-	
-    Cntrl-C
-    ```
-	
+    `open window where foreman is running`
+    `Cntrl-C`
+    
 7. Start server
 
 	`foreman start`
@@ -83,7 +79,23 @@ You can access your server from the outside world:
 8. Open local version
 
     `http://localhost:5000`
+	
+9. Write your code and do your magic!
 
+10. Push your changes back to the repository
+
+    `git add .`
+	
+	`git commit -m "brief message about what changes your made"`
+	
+	`git push`
+
+    1. If you get a message
+	` ! [rejected]        HEAD -> master (non-fast-forward)`
+	That means that someone already made changes upstream (bitbucket) and you need to pull then with `git pull`
+	2. If there are no conflicts, do `git push` again
+	
+	
 # To preview emails in the browser
 
 1. Follow instructions to bring up the server
