@@ -1,4 +1,4 @@
-if Rails.development?
+if Rails.env.development?
 
   EmailPreview.register 'Welcome Email', :category => :user do
     u = User.new :email => 'foo@example.com'
