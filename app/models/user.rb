@@ -74,4 +74,9 @@ class User < ActiveRecord::Base
     !invited_by_id || !!invitation_accepted_at
   end
 
+  #create a meaningful professional connection
+  def connect_to!(user)
+    self.contacts << user
+  end
+
 end

@@ -29,10 +29,6 @@ module Users
       end
     end
 
-    #def edit
-    #  redirect_to action: :update, method: :put
-    #end
-
     private
 
     #def authenticate_user!

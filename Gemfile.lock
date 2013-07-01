@@ -50,6 +50,12 @@ GEM
     bootstrap-sass (2.3.1.3)
       sass (~> 3.2)
     builder (3.0.4)
+    capybara (2.1.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -61,7 +67,18 @@ GEM
     columnize (0.3.6)
     css_parser (1.3.4)
       addressable
+    cucumber (1.3.2)
+      builder (>= 2.1.2)
+      diff-lcs (>= 1.1.3)
+      gherkin (~> 2.12.0)
+      multi_json (~> 1.3)
+    cucumber-rails (1.3.1)
+      capybara (>= 1.1.2)
+      cucumber (>= 1.2.0)
+      nokogiri (>= 1.5.0)
+      rails (~> 3.0)
     daemons (1.1.9)
+    database_cleaner (1.0.1)
     debug_inspector (0.0.2)
     debugger (1.6.0)
       columnize (>= 0.3.1)
@@ -103,6 +120,8 @@ GEM
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
+    gherkin (2.12.0)
+      multi_json (~> 1.3)
     hashie (2.0.5)
     hike (1.2.3)
     hirb (0.7.1)
@@ -162,6 +181,9 @@ GEM
       rack
     orm_adapter (0.4.0)
     pg (0.15.1)
+    pickle (0.4.11)
+      cucumber (>= 0.8)
+      rake
     polyglot (0.3.3)
     postmark (1.0.0)
       json
@@ -277,6 +299,8 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -287,6 +311,8 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   coffee-rails (~> 3.2)
+  cucumber-rails
+  database_cleaner
   devise (~> 2)
   devise_invitable
   email_preview
@@ -305,6 +331,7 @@ DEPENDENCIES
   omniauth-linkedin-oauth2
   omnicontacts
   pg
+  pickle
   postmark-rails
   premailer-rails
   pry

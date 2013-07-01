@@ -6,6 +6,9 @@ development: &default
   timeout: 5000
   reconnect: true
 
-test:
+test: &test
   <<: *default
   database: werkd_test
+
+cucumber:
+  <<: *test
