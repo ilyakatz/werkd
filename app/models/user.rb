@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
 
   has_many :authentications
 
+  has_many :connections
+  has_many :contacts, through: :connections
+
   def self.find_for_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info
     user = User.where(email: data["email"]).first
