@@ -51,6 +51,7 @@ module Users
       user.contacts << user.invited_by
       user.invited_by.contacts << user
       ContactsMailer.send_invitation_accepted(user).deliver!
+      WelcomeMailer.send_welcome_email(user).deliver!
     end
 
   end
