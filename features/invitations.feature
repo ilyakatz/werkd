@@ -31,3 +31,6 @@ Feature: Invitations
     And the email should contain "ilyakatz@gmail.com"
     And I follow "here" in the email
     Then I should see "ilyakatz@gmail.com"
+
+  Scenario: When user accept invitation, they should get a welcome email
+    Given PENDING
