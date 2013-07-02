@@ -1,7 +1,7 @@
 Feature: Invitations
 
   Scenario: Invite a user
-    When I am a new, authenticated user
+    When I am a new, authenticated user with email "ilya@werkd.net"
     And I go to new user invitation page
     And I fill in "Email" with "ilyakatz@gmail.com"
     And I press "Send"
@@ -12,4 +12,4 @@ Feature: Invitations
     And I fill in "confirmation" with "test123"
     And I press "Set"
     And I follow "Connections"
-    And show me the page
+    Then I should see "ilya@werkd.net"
