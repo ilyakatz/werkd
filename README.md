@@ -8,6 +8,16 @@ Where creative folks come to shmooze
 
 https://www.codeship.io/projects/4271
 
+## Test locally
+
+1. Install spring
+
+    `gem install spring`
+
+1. Run tests
+
+    `spring cucumber features`
+
 # In the wild
 
 You can access your server from the outside world:
@@ -94,8 +104,7 @@ You can access your server from the outside world:
 	` ! [rejected]        HEAD -> master (non-fast-forward)`
 	That means that someone already made changes upstream (bitbucket) and you need to pull then with `git pull`
 	2. If there are no conflicts, do `git push` again
-	
-	
+
 # To preview emails in the browser
 
 1. Follow instructions to bring up the server

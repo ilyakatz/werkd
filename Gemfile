@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2'
+  gem 'sass-rails', '~> 3.2'
   gem 'coffee-rails', '~> 3.2'
   gem 'uglifier', '>= 1.0.3'
 end
@@ -54,6 +54,10 @@ group :test do
   gem 'factory_girl', '~> 3'
   gem 'factory_girl_rails'
   gem 'webrat'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'pickle'
+  gem 'launchy'
 end
 
 group :development do
@@ -71,7 +75,7 @@ end
 group :development, :test do
   gem "hirb"
 
-    #debugging
+  #debugging
   gem "pry"
   gem "pry-debugger"
   gem 'email_preview'

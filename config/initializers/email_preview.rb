@@ -5,4 +5,19 @@ if Rails.env.development?
     WelcomeMailer.send_welcome_email(u)
   end
 
+  EmailPreview.register 'Invitation Accepted', :category => :user do
+    u = User.new :email => 'invitee@example.com'
+    u1 = User.new :email => 'inviter@example.com'
+    u.invited_by = u1
+    ContactsMailer.send_invitation_accepted(u)
+  end
+
+  EmailPreview.register 'Invitation Sent', :category => :devise do
+    u = User.new :email => 'invitee@example.com'
+    u1 = User.new :email => 'inviter@example.com'
+    u.invited_by = u1
+    Devise::Mailer.invitation_instructions(u)
+  end
+
+
 end

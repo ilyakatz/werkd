@@ -19,6 +19,9 @@ test:
  yahoo:
   consumer: no_consumer
   secret: no_secret
+ hotmail:
+  client: no_client
+  secret: no_secret
 
 production:
  google:
