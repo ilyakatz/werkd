@@ -21,3 +21,8 @@ if Rails.env.development?
 
 
 end
+
+
+# what to do when file is deleted
+# ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime
+# export EDITOR=/usr/local/bin/sublime

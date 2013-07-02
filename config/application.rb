@@ -63,6 +63,8 @@ module WeRKD
 
     config.action_mailer.delivery_method = :postmark
     config.action_mailer.postmark_settings = { api_key: "3a6e6a88-73e7-4a08-9b89-1178492a3a64" }
+
+    config.assets.precompile += %w( email.css twitter.css )
   end
 end
 

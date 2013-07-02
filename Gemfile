@@ -43,7 +43,7 @@ gem 'activerecord-import'
 gem 'strong_parameters'
 
 gem 'nokogiri'
-gem 'premailer-rails'
+gem 'roadie'
 
 group :test, :development do
   gem "mysql2"
