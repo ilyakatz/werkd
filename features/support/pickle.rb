@@ -26,3 +26,26 @@ require 'pickle/world'
 # end
 require 'pickle/path/world'
 require 'pickle/email/world'
+
+module Pickle
+  module Email
+    def open_in_browser(path) # :nodoc
+      require "launchy"
+      Launchy.open(path)
+    rescue LoadError
+      warn "Sorry, you need to install launchy to open emails: `gem install launchy`"
+    end
+
+    def save_and_open_emails
+      emails_to_open = @emails || emails
+      filename = "#{Rails.root}/tmp/pickle-email-#{Time.now.to_i}.html"
+      File.open(filename, "w") do |f|
+        emails_to_open.each_with_index do |e, i|
+          f.write "<h1>Email #{i+1}</h1><pre>#{e}</pre><hr />"
+        end
+      end
+      open_in_browser(filename)
+    end
+
+  end
+end
