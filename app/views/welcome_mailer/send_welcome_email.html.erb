@@ -30,17 +30,3 @@
 </div>
 </body>
 </html>
-
-
-<%
-   count = 0
-   makers = 0
-   User.where("created_at > ?", 2.days.ago).each do |u|
-     if u.address.present?
-       count = count +1
-     end
-     if u.skills.present?
-       makers = makers + 1
-     end
-   end
-%>

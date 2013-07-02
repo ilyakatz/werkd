@@ -58,6 +58,7 @@ group :test do
   gem 'database_cleaner'
   gem 'pickle'
   gem 'launchy'
+  gem 'rspec-mocks'
 end
 
 group :development do
