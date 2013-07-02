@@ -18,6 +18,13 @@ Given /^I am a new, authenticated user with email "(.*?)"$/ do |email|
   click_button "Sign in"
 end
 
+Given /^I login as "(.*?)"/ do |email|
+  user = User.find_by_email(email)
+  user = FactoryGirl.create(:user, email: email) unless user
+
+  login_as(user)
+end
+
 
 Given /^I am not signed in$/ do
   page.driver.submit :delete, destroy_user_session_path, {}

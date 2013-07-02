@@ -50,10 +50,8 @@ module Users
     def after_accept_actions(user)
       user.contacts << user.invited_by
       user.invited_by.contacts << user
+      ContactsMailer.send_invitation_accepted(user).deliver!
     end
-    #def authenticate_user!
-    #  warden.authenticate!(scope: :user)
-    #end
 
   end
 end

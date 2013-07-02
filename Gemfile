@@ -54,7 +54,7 @@ group :test do
   gem 'factory_girl', '~> 3'
   gem 'factory_girl_rails'
   gem 'webrat'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'pickle'
   gem 'launchy'
