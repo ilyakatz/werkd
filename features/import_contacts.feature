@@ -14,6 +14,6 @@ Feature: invite contacts
     And google returns my contact list
     And I go to import google contacts page
     And I follow "Connect"
-    Then I should see "ilya@not-werkd.net invited"
-    And 1 email should be delivered to ilya@not-werkd.net
-    And the email should contain "Let's get to WeRKD!"
+    Then I should see "Connection request sent"
+    And 1 email should be delivered to ilya@werkd.net
+    And the email should contain "Connect"
