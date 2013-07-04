@@ -1,16 +1,25 @@
-.back {
-  background: yellow;
+
+
+.imagelinknodecor{
+  text-decoration: none;
 }
+
+.werkdlink a.link {text-decoration: none; color: #ff6600; font-weight: bold;}
+.werkdlink a.visited {text-decoration: none; color: #ff6600; font-weight: bold;}
+.werkdlink a.active {text-decoration: none; color: #ff6600; font-weight: bold;}
+.werkdlink a.hover {text-decoration: none; color: #ff6600; font-weight: bold;}
+
+.namelink a.link {text-decoration: none; color: #ff6600; font-weight: bold;}
 
 .acceptinviation {
   -moz-box-shadow: inset 0px 1px 0px 0px #ffa200;
   -webkit-box-shadow: inset 0px 1px 0px 0px #ffa200;
-  box-shadow: inset 0px 1px 0px 0px #ffa200;
-  background-color: #ffa200;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  border: 1px solid #ffa200;
+  box-shadow: inset 0px 0px 0px 0px #ffa200;
+  background-color: #ff6633;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  border: 0px solid #ffa200;
   display: inline-block;
   color: #ffffff;
   font-family: arial;
@@ -18,7 +27,7 @@
   font-weight: bold;
   padding: 6px 24px;
   text-decoration: none;
-  text-shadow: 1px 1px 0px #ce8e28;
+  text-shadow: 0px 0px 0px #ce8e28;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   -khtml-border-radius: 20px;
@@ -26,10 +35,35 @@
 }
 
 .classname:hover {
-  background-color: #ffa200;
+  background-color: #ff6633;
 }
 
 .classname:active {
   position: relative;
   top: 1px;
+}
+
+.body {font-size: 16px;font-family:  Verdana, Geneva, sans-serif; color: #666;
+}
+
+.bodysmall {
+  font-size: 10px;font-family: Verdana, Geneva, sans-serif; color: #666;
+}
+
+.bold {
+font-size: 16px;font-family: Verdana, Geneva, sans-serif; color: #666; font-weight:bold;  
+}
+
+.orange {font-size: 16px;font-family: Verdana, Geneva, sans-serif;color: #ff6633; text-decoration: none;
+}
+
+.orangebold {font-size: 16px;font-family: Verdana, Geneva, sans-serif;color: #ff6633; font-weight: bold;
+}
+
+.greycell {
+  background-color:#f0f0f0; padding-left:10px; padding-right:10px;
+}
+
+.whitecell {
+  background-color:#ffffff; padding-left:10px; padding-right:10px;
 }
