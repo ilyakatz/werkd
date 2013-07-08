@@ -34,7 +34,7 @@ gem 'social-share-button'
 gem 'thin'
 gem "figleaf"
 
-gem 'postmark-rails'
+gem 'postmark-rails', "~>0.5.1"
 gem "sentry-raven"
 
 gem 'typhoeus'
