@@ -44,7 +44,9 @@ module Users
       users.each do |user_hash|
         #if users_hash[:email] is already present, mark it as existing user
         if existing = User.find_by_email(user_hash[:email])
-          user_hash[:existing]=true if existing.confirmed?
+          if existing.confirmed?
+            user_hash[:existing_id]=existing.id
+          end
         end
       end
       users
