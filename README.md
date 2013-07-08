@@ -28,6 +28,16 @@ You can access your server from the outside world:
 
 # Environment setup
 
+- Install sublime
+- If you have sublime, createa link
+
+        ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime
+
+- Open ~/.bash_profile and add this line
+
+        export EDITOR=/usr/local/bin/sublime
+
+- Close terminal window and restart it
 - install git http://git-scm.com/download/mac
 - install rvm https://rvm.io
 - create ssh keys
@@ -112,3 +122,5 @@ You can access your server from the outside world:
 
     `http://localhost:5000/email_preview`
 
+# TODO
+- when a file is deleted
