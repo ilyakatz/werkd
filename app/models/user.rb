@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
         email: data["email"],
         password: Devise.friendly_token[0, 20]
       )
-      WelcomeMailer.send_welcome_email(self).deliver!
+      WelcomeMailer.send_welcome_email(user).deliver!
     end
     user
   end
