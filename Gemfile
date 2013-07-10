@@ -45,6 +45,8 @@ gem 'strong_parameters'
 gem 'nokogiri'
 gem 'roadie'
 
+gem 'simple_form'
+
 group :test, :development do
   gem "mysql2"
 end
