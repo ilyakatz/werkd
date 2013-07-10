@@ -60,10 +60,14 @@ font-size: 16px;font-family: Verdana, Geneva, sans-serif; color: #666; font-weig
 .orangebold {font-size: 16px;font-family: Verdana, Geneva, sans-serif;color: #ff6633; font-weight: bold;
 }
 
+.whitecell {
+  background-color:#ffffff; padding-left:30px; padding-right:30px;
+}
+
 .greycell {
   background-color:#dcdcdc; padding-left:20px; padding-right:20px;
 }
 
-.whitecell {
-  background-color:#ffffff; padding-left:30px; padding-right:30px;
+.imagecell {
+  background-color:#ffffff; padding-left:0px; padding-right:0px; padding-top:0px; padding-bottom:0px;
 }
