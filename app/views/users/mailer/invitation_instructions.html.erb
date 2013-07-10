@@ -1,62 +1,35 @@
 <%= stylesheet_link_tag "email", :media => "all" %>
 
-
+<body style="background-color:#cccccc;">
 <div align="center">
-  <a href="http://www.werkd.net" style="text-decoration: none;"><img src="01.jpg" width="600" height="130" alt="WeRKD logo"/></a>
-  <table width="600" border="0" cellpadding="60">
+  <table width="550" border="0" cellpadding="0" cellspacing="0" >
+  	<tr><td class="imagecell">
+  		<a href="http://www.werkd.net" id="imagelinknodecor"><%= image_tag "logos/email_header.jpg" %></a>
+  	</td></tr>
     <tr>
-      <td>
-        <p class="email" style="font-size: 12px;font-family: Verdana, Geneva, sans-serif;color: #666;">Hello, <%= @resource.email %>
-          !
-          <a href="http://www.werkd.net/username" style="text-decoration: none;color: #ff6600;"><%= @resource.invited_by.email %></a>
-          wants to connect with you on
-          <a href="http://www.werkd.net" style="text-decoration: none;color: #ff6600;"><strong>WeRKD</strong></a>.
+      <td class="whitecell">
+        <p class="body"><span class="bold">Hello, <%= @resource.email%>,</span>
+        <br><br>
+          It's <a href="http://www.werkd.net/username" style="text-decoration: none;color: #ff6644;"><%= @resource.invited_by.email %></a>. I'd like you to join me on <a href="http://www.werkd.net" style="text-decoration: none;color: #ff6644;">WeRKD</a>,
+          <span class="body">where professionals network through projects to build meaningful connections.</span>
+      	</p>
 
-        <div align="center">
-          <%= link_to "Let's get to WeRKD!",
-                accept_invitation_url(@resource, :invitation_token => @resource.invitation_token),
-                class: "btn"
-          %>
+      <div align="center">
+      	<form id="form1" name="form1" method="post" action="">
+			<input type="submit" name="acceptinvitation" id="acceptinvitation" class="acceptinviation" value="Accept Invitation" />
+      	</form>
+      </div>
+<br><br><br>
 
-          <div class="email" style="font-size: 12px;font-family: Verdana, Geneva, sans-serif;color: #666;">and connect
-            with <%= @resource.invited_by.email %></div>
-        </div>
-        <p class="email" style="font-size: 12px;font-family: Verdana, Geneva, sans-serif;color: #666;">
-
-        <p class="email" style="font-size: 12px;font-family: Verdana, Geneva, sans-serif;color: #666;">
-          <a href="http://www.werkd.net" style="text-decoration: none;color: #ff6600;"><strong>WeRKD</strong></a>
-          <span class="email" style="font-size: 12px;font-family: Verdana, Geneva, sans-serif;color: #666;">is a professional network that's more about working,  less about schmoozing.</span>
-        <blockquote>
-          <p class="email2" style="font-size: 12px;font-family: Verdana, Geneva, sans-serif;color: #ff6600;">
-            <strong>At WeRKD</strong>:</p>
-
-          <p class="email2" style="font-size: 12px;font-family: Verdana, Geneva, sans-serif;color: #ff6600;">
-            <strong>You create meaningful professional connections through projects.</strong><br>
-            <span class="email" style="font-family: Verdana, Geneva, sans-serif;color: #666;">We give ourselves credit for the work that we did. Add projects and events, tag yourself and your contacts - and naturally create a meaningful connections along the way without sending those awkward emails.</span>
-          </p>
-
-          <p class="email2" style="font-size: 12px;font-family: Verdana, Geneva, sans-serif;color: #ff6600;">
-            <strong>Your skills matter the most.</strong><br>
-            <span class="email" style="font-family: Verdana, Geneva, sans-serif;color: #666;">What you do is what you are at WeRKD. Add skill tags on each projects to show exactly what you did. Now it's easy-breezy for people to find you based on your skills and experience.</span>
-          </p>
-
-          <p class="email2" style="font-size: 12px;font-family: Verdana, Geneva, sans-serif;color: #ff6600;">
-            <strong>You and your peers create a networked portfolio to share.</strong><br>
-            <span class="email" style="font-family: Verdana, Geneva, sans-serif;color: #666;">And each one of us get to personalize each project with one's own contribution and mementos. Sharing final product has never been so personal!</span>
-          </p>
-        </blockquote>
-        <p class="email" style="font-size: 12px;font-family: Verdana, Geneva, sans-serif;color: #666;">Take a look at
-          <a href="http://www.werkd.net/username" style="text-decoration: none;color: #ff6600;">(inviter's name)'s
-            page</a>, and see if there are more projects that you two have WeRKD on.
-
-        <p class="email" style="font-size: 12px;font-family: Verdana, Geneva, sans-serif;color: #666;" align="right">Cheers,</p>
-
-        <p class="email" style="font-size: 12px;font-family: Verdana, Geneva, sans-serif;color: #666;" align="right">
-          <strong>Will &amp; the team at WeRKD</strong></p>
-
-        <p class="email" style="font-size: 10px;font-family: Verdana, Geneva, sans-serif;color: #666;">If you don't want
-          to accept the invitation, please ignore this email.<br/>
-          Your account won't be created until you access the link above and set your password.</p></td>
+      </td>
     </tr>
+    <tr>
+    	<td height="50" bgcolor="#f0f0f0" style="padding-left:10px;">
+    		<p class="bodysmall">If you don't want to accept the invitation, please ignore this email.<br/>
+          Your account won't be created until you access the link above and set your password.
+      	</p>
+      </td>
+      <tr>
   </table>
 </div>
+</body>

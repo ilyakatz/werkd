@@ -1,16 +1,25 @@
 <%= stylesheet_link_tag "email", :media => "all" %>
 
-Hello <%= @inviter.first_name %>
-<br/>
-<br/>
+<body style="background-color:#cccccc;">
+<div align="center">
+  <table width="550" border="0" cellpadding="0" cellspacing="0" ><tr><td class="imagecell">
+  		<a href="http://www.werkd.net" id="imagelinknodecor"><%= image_tag "logos/email_header.jpg" %></a>
+  	</td></tr>
+    <tr>
+      <td class="whitecell">
+        <p class="body"><span class="bold">Hello <%= @inviter.first_name %>,</span>
+       <br><br>
+          <span class="bold"><%= @invitee.email %></span> accepted your invitation to join <a href="http://www.werkd.net" style="text-decoration: none;color: #ff6600;">WeRKD</a>, and you're now connected! <br><br>Take a look at <a href="http://www.werkd.net/invitee" style="text-decoration: none;color: #ff6600;"><%= @invitee.email %>'s profile</a>, say hi, and see if there are projects you have worked together on. 
+          <br><br><br>
 
-You recently invited <%= @invitee.email %> to join WeRKD and they have accepted your invitation. You're now connected!
-<br/><br/>
-To see all of your connections, click <%= link_to "here", users_connections_url, class: "back" %>
-<br/>
-<br/>
+      	</p>
+      </td>
+    </tr>
+    <tr>
+    	<td height="50" bgcolor="#f0f0f0" style="padding-left:10px;">
+      	</td>
+      <tr>
+  </table>
+</div>
+</body>
 
-Yours,
-<br/>
-<br/>
-The team at WeRKD
