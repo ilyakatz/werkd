@@ -14,10 +14,12 @@
           <span class="body">where professionals network through projects to build meaningful connections.</span>
       	</p>
 
-      <div align="center">
-      	<form id="form1" name="form1" method="post" action="">
-			<input type="submit" name="acceptinvitation" id="acceptinvitation" class="acceptinviation" value="Accept Invitation" />
-      	</form>
+      <div align="center"> 
+        <%= link_to 'Accept Invitation', 
+            accept_invitation_url(@resource, :invitation_token => @resource.invitation_token),
+            id: "acceptinvitation",
+            class: "acceptinviation"
+        %>
       </div>
 <br><br><br>
 
