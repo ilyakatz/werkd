@@ -262,6 +262,9 @@ GEM
       hashie (>= 1.1.0)
       multi_json (~> 1.0)
       uuidtools
+    simple_form (2.1.0)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     slop (3.4.5)
     social-share-button (0.1.4)
     sprockets (2.2.2)
@@ -344,6 +347,7 @@ DEPENDENCIES
   rspec-rails (~> 2)
   sass-rails (~> 3.2)
   sentry-raven
+  simple_form
   social-share-button
   strong_parameters
   thin

@@ -16,6 +16,8 @@ module NavigationHelpers
       new_user_invitation_path
     when /import google contacts page/
       "/users/omnicontacts/gmail"
+    when /new users connection page/
+      new_users_connection_path
 
 
     # the following are examples using path_to_pickle

@@ -8,6 +8,11 @@ module Users
       @connections = current_user.contacts
     end
 
+    def new
+     @connection = Connection.new
+     @connection.user = current_user
+    end
+
     def create
       connect_to=User.find(params[:id])
 
