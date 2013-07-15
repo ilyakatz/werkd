@@ -10,7 +10,12 @@ My connections
   <% @connections.each do |contact| %>
     <tr>
       <td>
-        <%= contact.email %>
+        <%= contact.contact.email %>
+      </td
+      <td>
+        <% unless contact.accepted? %>
+          pending
+        <%end%>
       </td>
     </tr>
   <% end %>

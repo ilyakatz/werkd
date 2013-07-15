@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701033829) do
+ActiveRecord::Schema.define(:version => 20130715025355) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(:version => 20130701033829) do
     t.integer  "connected_to"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.time     "sent_at"
+    t.time     "accepted_at"
   end
 
   add_index "connections", ["user_id", "connected_to"], :name => "index_connections_on_user_id_and_connected_to", :unique => true

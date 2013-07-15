@@ -9,7 +9,7 @@ module Users
     def create
       if invitee = User.where(email: invitation_email).first
         existing_user_invitation(invitee, current_user)
-      else 
+      else
         new_user_invitation(resource_params, current_user)
       end
     end
@@ -42,7 +42,7 @@ module Users
     def invitation_email
       resource_params[:email]
     end
-    
+
     def new_user_invitation(resource_params, current_inviter)
       resource = resource_class.invite!(resource_params, current_inviter)
       respond_to do |format|
@@ -67,7 +67,8 @@ module Users
 
     def existing_user_invitation(invitee, inviter)
       ContactsMailer.send_connection_request(invitee, inviter).deliver!
-      respond_with resource, :location => after_invite_path_for(invitee)
+      Connection.created_pending_connections(invitee, inviter)
+      redirect_to after_invite_path_for(invitee), notice: "Invitation to connect has been sent"
     end
 
 

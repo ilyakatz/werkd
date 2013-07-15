@@ -5,12 +5,15 @@ module Users
     respond_to :json, :html
 
     def index
-      @connections = current_user.contacts
+      @connections = current_user.connections
     end
 
     def new
      @connection = Connection.new
      @connection.user = current_user
+    end
+
+    def accept
     end
 
     def create
