@@ -7,7 +7,7 @@ Feature: Invitations
     And I press "Send"
     Then 1 email should be delivered to ilyakatz@gmail.com
     And I am not signed in
-    When they follow "Let's get to WeRKD!" in the email
+    When they follow "Accept Invitation" in the email
     And I fill in "Password" with "test123"
     And I fill in "confirmation" with "test123"
     And I press "Set"
@@ -21,7 +21,7 @@ Feature: Invitations
     And I press "Send"
     Then 1 email should be delivered to ilyakatz@gmail.com
     And I am not signed in
-    When they follow "Let's get to WeRKD!" in the email
+    When they follow "Accept Invitation" in the email
     And I fill in "Password" with "test123"
     And I fill in "confirmation" with "test123"
     And I press "Set"
@@ -29,7 +29,7 @@ Feature: Invitations
     When I login as "ilya@werkd.net"
     Then 1 email should be delivered to ilya@werkd.net
     And the email should contain "ilyakatz@gmail.com"
-    And I follow "here" in the email
+    And I follow "ilyakatz@gmail.com" in the email
     Then I should see "ilyakatz@gmail.com"
 
   Scenario: When user accept invitation, they should get a welcome email
@@ -39,7 +39,7 @@ Feature: Invitations
     And I press "Send"
     Then 1 email should be delivered to ilyakatz@gmail.com
     And I am not signed in
-    When they follow "Let's get to WeRKD!" in the email
+    When they follow "Accept Invitation" in the email
     And all emails have been delivered
     And I fill in "Password" with "test123"
     And I fill in "confirmation" with "test123"

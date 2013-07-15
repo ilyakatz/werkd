@@ -7,25 +7,10 @@ module Users
     respond_to :json, :html
 
     def create
-      self.resource = resource_class.invite!(resource_params, current_inviter)
-
-      respond_to do |format|
-        if resource.errors.empty?
-          format.json do
-            render text: "#{resource.email} invited", status: :ok
-          end
-          format.html do
-            set_flash_message :notice, :send_instructions, :email => self.resource.email
-            respond_with resource, :location => after_invite_path_for(resource)
-          end
-        else
-          format.json do
-            render text: resource.errors, status: :internal_server_error
-          end
-          format.html do
-            respond_with_navigational(resource) { render :new }
-          end
-        end
+      if invitee = User.where(email: invitation_email).first
+        existing_user_invitation(invitee, current_user)
+      else 
+        new_user_invitation(resource_params, current_user)
       end
     end
 
@@ -53,6 +38,38 @@ module Users
       ContactsMailer.send_invitation_accepted(user).deliver!
       WelcomeMailer.send_welcome_email(user).deliver!
     end
+
+    def invitation_email
+      resource_params[:email]
+    end
+    
+    def new_user_invitation(resource_params, current_inviter)
+      resource = resource_class.invite!(resource_params, current_inviter)
+      respond_to do |format|
+        if resource.errors.empty?
+          format.json do
+            render text: "#{resource.email} invited", status: :ok
+          end
+          format.html do
+            set_flash_message :notice, :send_instructions, :email => resource.email
+            respond_with resource, :location => after_invite_path_for(resource)
+          end
+        else
+          format.json do
+            render text: resource.errors, status: :internal_server_error
+          end
+          format.html do
+            respond_with_navigational(resource) { render :new }
+          end
+        end
+      end
+    end
+
+    def existing_user_invitation(invitee, inviter)
+      ContactsMailer.send_connection_request(invitee, inviter).deliver!
+      respond_with resource, :location => after_invite_path_for(invitee)
+    end
+
 
   end
 end
