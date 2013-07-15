@@ -68,7 +68,12 @@ You can access your server from the outside world:
 
 	brew install postgres
 
+- Add this to /etc/hosts
+
+    127.0.0.1 localhost
+
 - (optional) Git GUI http://www.sourcetreeapp.com/download/
+
 
 
 # Work flow
