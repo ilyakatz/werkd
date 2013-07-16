@@ -8,12 +8,6 @@ module Users
       @connections = current_user.connections
     end
 
-    def new
-      binding.pry
-     @connection = Connection.new
-     @connection.inviter = current_user
-    end
-
     def accept
      @connection = current_user.connections.find(params[:connection_id])
      @connection.accept!
