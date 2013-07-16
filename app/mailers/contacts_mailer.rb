@@ -1,5 +1,5 @@
 class ContactsMailer < ActionMailer::Base
-
+  default css: 'email'
   def send_invitation_accepted(invitee)
     @invitee = invitee
     @inviter = invitee.invited_by
