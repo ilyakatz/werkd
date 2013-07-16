@@ -12,13 +12,13 @@ class ContactsMailer < ActionMailer::Base
     )
   end
 
-  def send_connection_request(invitee, inviter)
-    @invitee = invitee
-    @inviter = inviter
-
+  def send_connection_request(connection)
+    @invitee = connection.invitee
+    @inviter = connection.inviter
+    @connection = connection
     mail(
       :subject => 'Invitation to connect at WeRKD',
-      :to => invitee.email,
+      :to => @invitee.email,
       :from => Figleaf::Settings.email.support,
       :tag => 'invitation'
     )

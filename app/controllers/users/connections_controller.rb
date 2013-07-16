@@ -14,12 +14,15 @@ module Users
     end
 
     def accept
+     @connection = current_user.connections.find(params[:connection_id])
+     @connection.accept!
+     redirect_to action: :index
     end
 
     def create
       connect_to=User.find(params[:id])
-
-      ContactsMailer.send_connection_request(connect_to, current_user).deliver!
+      connection = Connection.create_pending_connections(current_user, connect_to)
+      ContactsMailer.send_connection_request(connection).deliver!
 
       respond_to do |format|
         if true

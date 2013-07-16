@@ -33,8 +33,8 @@ module Users
     private
 
     def after_accept_actions(user)
-      user.contacts << user.invited_by
-      user.invited_by.contacts << user
+      connection = Connection.create_pending_connections(user, user.invited_by)
+      connection.accept!
       ContactsMailer.send_invitation_accepted(user).deliver!
       WelcomeMailer.send_welcome_email(user).deliver!
     end
@@ -66,8 +66,8 @@ module Users
     end
 
     def existing_user_invitation(invitee, inviter)
-      ContactsMailer.send_connection_request(invitee, inviter).deliver!
-      Connection.created_pending_connections(invitee, inviter)
+      connection = Connection.create_pending_connections(inviter, invitee)
+      ContactsMailer.send_connection_request(connection).deliver!
       redirect_to after_invite_path_for(invitee), notice: "Invitation to connect has been sent"
     end
 

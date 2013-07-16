@@ -22,7 +22,11 @@ if Rails.env.development?
   EmailPreview.register 'Invitation to connect', :category => :invitations do
     u = User.new :email => 'invitee@example.com'
     u1 = User.new :email => 'inviter@example.com'
-    ContactsMailer.send_connection_request(u,u1)
+    connection = Connection.new
+    connection.inviter = u1
+    connection.invitee = u
+    connection.save!
+    ContactsMailer.send_connection_request(connection)
   end
 
 end
