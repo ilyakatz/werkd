@@ -68,7 +68,16 @@ module Users
     def existing_user_invitation(invitee, inviter)
       connection = Connection.create_pending_connections(inviter, invitee)
       ContactsMailer.send_connection_request(connection).deliver!
-      redirect_to after_invite_path_for(invitee), notice: "Invitation to connect has been sent"
+      message = "Invitation to connect has been sent"
+      respond_to do |format|
+        format.json do
+          render text: message, status: :ok
+        end
+        format.html do
+          redirect_to after_invite_path_for(invitee), notice: message
+        end
+      end
+
     end
 
 
