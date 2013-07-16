@@ -5,6 +5,8 @@ class Connection < ActiveRecord::Base
   belongs_to :invitee, class_name: "User", :foreign_key => :connected_to
   has_one :user
 
+  validates_uniqueness_of :connected_to, scope: :user_id
+
   def self.create_pending_connections(inviter, invitee)
     connection = Connection.new
     connection.user_id = inviter.id
