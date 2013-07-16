@@ -23,8 +23,11 @@ Feature: connections
     When they follow "here" in the email
     Then I should see "ilya@werkd.net"
     And I should not see "pending"
-    #When I login as "ilya@werkd.net"
-    #And I go to new users connection page
+    Then I am not signed in
+    When I login as "ilya@werkd.net"
+    And I go to users connections page
+    Then I should see "ilyakatz@gmail.com"
+    And I should not see "pending"
 
 
   Scenario: I accept connection invitation

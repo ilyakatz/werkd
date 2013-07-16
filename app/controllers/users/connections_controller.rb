@@ -9,8 +9,9 @@ module Users
     end
 
     def new
+      binding.pry
      @connection = Connection.new
-     @connection.user = current_user
+     @connection.inviter = current_user
     end
 
     def accept
