@@ -1,3 +1,32 @@
-Hello
-<br>
-<%=@inviter.email%> sent you an invitation to connect at WeRKD. Click <%=link_to "here", users_dashboards_url%> to connection
+<%= stylesheet_link_tag "email", :media => "all" %>
+
+<div style="background-color:#cccccc;">
+  <div align="center">
+    <table width="550" border="0" cellpadding="0" cellspacing="0" ><tr><td class="imagecell">
+          <a href="http://www.werkd.net" class="linknodecor"><%= image_tag "logos/email_header.jpg" %></a>
+      </td></tr>
+      <tr>
+        <td class="whitecell">
+          <p class="body"><span class="bold">Hello <%= @invitee.first_name %>,</span>
+          <br><br>
+          <span class="bold"><%=@inviter.email%></span> wants to connect with you on <%=link_to "WeRKD", root_url, style: "text-decoration: none;color: #ff6600;"%>. <br><br>Take a look at <%=link_to @inviter.email, users_connections_url, style:"text-decoration: none;color: #ff6600;"%>'s profile and see if you want to connect.
+
+          <div align="center">
+				<%=link_to "Yes!", users_dashboards_url,
+              	id: "acceptinvitation",
+              	class: "acceptinviation" %>
+          </div>
+
+          <br><br><br>
+
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td height="50" bgcolor="#f0f0f0" style="padding-left:10px;">
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
