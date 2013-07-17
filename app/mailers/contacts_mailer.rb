@@ -1,5 +1,17 @@
 class ContactsMailer < ActionMailer::Base
 
+  def send_connection_accepted(connection)
+    @invitee = connection.invitee
+    @inviter = connection.inviter
+
+    mail(
+      :subject => 'Connection invitation Accepted',
+      :to => @inviter.email,
+      :from => Figleaf::Settings.email.support,
+      :tag => 'invitation'
+    )
+  end
+
   def send_invitation_accepted(invitee)
     @invitee = invitee
     @inviter = invitee.invited_by

@@ -47,5 +47,14 @@ Feature: connections
     Then I should see "ilyakatz@gmail.com"
     And I should not see "pending"
 
-
-  Scenario: I accept connection invitation
+ Scenario: Inviter gets an email when invitee accepts invitation
+    When I login as "ilya@werkd.net"
+    And I go to new user invitation page
+    And a user exists with email: "ilyakatz@gmail.com", password: "password123"
+    And I fill in "Email" with "ilyakatz@gmail.com"
+    And I press "Send"
+    Then 1 email should be delivered to ilyakatz@gmail.com
+    And I am not signed in
+    When I login as "ilyakatz@gmail.com"
+    When they follow "here" in the email
+    Then 1 email should be delivered to ilya@werkd.net
