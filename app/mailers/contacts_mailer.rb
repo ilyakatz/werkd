@@ -1,4 +1,5 @@
 class ContactsMailer < ActionMailer::Base
+  default css: 'email'
 
   def send_connection_accepted(connection)
     @invitee = connection.invitee

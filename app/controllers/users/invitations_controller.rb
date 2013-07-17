@@ -66,15 +66,20 @@ module Users
     end
 
     def existing_user_invitation(invitee, inviter)
-      connection = Connection.create_pending_connections(inviter, invitee)
-      ContactsMailer.send_connection_request(connection).deliver!
-      message = "Invitation to connect has been sent"
-      respond_to do |format|
-        format.json do
-          render text: message, status: :ok
-        end
-        format.html do
-          redirect_to after_invite_path_for(invitee), notice: message
+
+      if Connection.exists?(user_id: inviter.id, connected_to: invitee.id)
+        notice = "You already invited #{invitee.email}"
+      else
+        connection = Connection.create_pending_connections(inviter, invitee)
+        ContactsMailer.send_connection_request(connection).deliver!
+        message = "Invitation to connect has been sent"
+        respond_to do |format|
+          format.json do
+            render text: message, status: :ok
+          end
+          format.html do
+            redirect_to after_invite_path_for(invitee), notice: message
+          end
         end
       end
 

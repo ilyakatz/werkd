@@ -1,5 +1,7 @@
 class WelcomeMailer <ActionMailer::Base
 
+  default css: 'email'
+
   def send_welcome_email(user)
     mail(
       :subject => 'hello',
