@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :authentications
+  has_many :projects
 
   has_many :contacts, through: :connections
 

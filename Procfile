@@ -1,2 +1,2 @@
 web: bundle exec rails server thin -p $PORT
-#guard: bundle exec guard
+guard: bundle exec guard
