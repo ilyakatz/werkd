@@ -33,7 +33,7 @@ module Users
       @project = current_user.projects.find(params[:id])
 
       if @project.update_attributes(project_params)
-        redirect_to @project, notice: 'Project was successfully updated.'
+        redirect_to [:users, @project], notice: 'Project was successfully updated.'
       else
         render action: "edit"
       end
