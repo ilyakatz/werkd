@@ -1,0 +1,11 @@
+development:
+  enabled: true
+  api_key: 6302cfbf429e4309b6235dbee0c051a1
+
+test:
+  enabled: false
+  api_key: none
+
+production:
+  enabled: true
+  api_key: 6302cfbf429e4309b6235dbee0c051a1
