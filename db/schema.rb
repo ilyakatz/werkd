@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130729230616) do
+ActiveRecord::Schema.define(:version => 20130729232759) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(:version => 20130729230616) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "collaborations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "collaborations", ["user_id", "project_id"], :name => "index_collaborations_on_user_id_and_project_id", :unique => true
 
   create_table "connections", :force => true do |t|
     t.integer  "user_id"

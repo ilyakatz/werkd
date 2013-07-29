@@ -49,7 +49,8 @@ module Users
     private
 
     def project_params
-      params.require(:project).permit(:company, :title, :user_id, :video, :contribution, :media_url)
+      params.require(:project).permit(:company, :title, :user_id,
+        :video, :contribution, :media_url, :collaborators)
     end
 
   end

@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
   belongs_to :creator, class_name: "User", foreign_key: :user_id
+  has_many :collaborations
+  has_many :collaborators, through: :collaborations
 
   validates_presence_of :title, :company
 
