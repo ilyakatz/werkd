@@ -1,4 +1,3 @@
-I was here
 
 WeRKD
 
@@ -77,7 +76,7 @@ You can access your server from the outside world:
 
     https://toolbelt.heroku.com/
 
-
+- Add heroku remote repostory
 
 # Work flow
 

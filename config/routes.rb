@@ -1,5 +1,7 @@
 WeRKD::Application.routes.draw do
 
+
+
   #TODO: need to update
   devise_for :users,
     path: "",
@@ -15,6 +17,7 @@ WeRKD::Application.routes.draw do
     resources :connections, only: [:index] do
       get "accept"
     end
+    resources :projects
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

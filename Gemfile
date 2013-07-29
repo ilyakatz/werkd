@@ -46,6 +46,7 @@ gem 'nokogiri'
 gem 'roadie'
 
 gem 'simple_form'
+gem 'embedly'
 
 group :test, :development do
   gem "mysql2"
@@ -64,6 +65,8 @@ group :test do
 end
 
 group :development do
+  gem "guard"
+  gem "guard-migrate"
   gem "foreman"
   gem 'quiet_assets'
 

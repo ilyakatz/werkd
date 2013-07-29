@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130715025355) do
+ActiveRecord::Schema.define(:version => 20130729125647) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(:version => 20130715025355) do
   end
 
   add_index "invitations", ["email", "referer_id"], :name => "index_invitations_on_email_and_referer_id", :unique => true
+
+  create_table "projects", :force => true do |t|
+    t.string   "title"
+    t.string   "company"
+    t.integer  "user_id"
+    t.string   "video"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "media_url"
+    t.string   "embed_url"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                :default => "", :null => false

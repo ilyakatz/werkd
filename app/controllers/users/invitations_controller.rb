@@ -69,6 +69,7 @@ module Users
 
       if Connection.exists?(user_id: inviter.id, connected_to: invitee.id)
         notice = "You already invited #{invitee.email}"
+        redirect_to after_invite_path_for(invitee), notice: notice
       else
         connection = Connection.create_pending_connections(inviter, invitee)
         ContactsMailer.send_connection_request(connection).deliver!

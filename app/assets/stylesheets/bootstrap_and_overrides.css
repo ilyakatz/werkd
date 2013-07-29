@@ -1,10 +1,12 @@
 /*
-  =require twitter-bootstrap-static/bootstrap
+  =require bootstrap/cosmo/bootstrap
 
   Use Font Awesome icons (default)
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
+
   */
+<<<<<<< HEAD
 // Cosmo 2.3.2
 // Bootswatch
 // -----------------------------------------------------
@@ -618,3 +620,6 @@ a.thumbnail {
 
 // MEDIA QUERIES
 // -----------------------------------------------------
+=======
+
+>>>>>>> 57af473731742ccf4b7fa9eb109fdea67bd8718b
