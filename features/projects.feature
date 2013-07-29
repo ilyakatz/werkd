@@ -2,7 +2,7 @@ Feature: Projects
 
   Scenario: I should be able to list my projects
     Given a user "me" exists with email: "ilyakatz@gmail.com"
-    And a project "project" exists with user: user "me", title: "Cool project"
+    And a project "project" exists with creator: user "me", title: "Cool project"
     And I login as "ilyakatz@gmail.com"
     When I go to the users dashboards page
     And I follow "Projects"
@@ -24,7 +24,7 @@ Feature: Projects
 
   Scenario: I should be able to edit a project
     Given a user "me" exists with email: "ilyakatz@gmail.com"
-    And a project "project" exists with user: user "me", title: "Cool project"
+    And a project "project" exists with creator: user "me", title: "Cool project"
     And I login as "ilyakatz@gmail.com"
     When I go to the users dashboards page
     And I follow "Projects"

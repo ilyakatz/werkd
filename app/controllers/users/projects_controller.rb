@@ -11,7 +11,7 @@ module Users
 
     def new
       @project = Project.new
-      @project.user = current_user
+      @project.creator = current_user
     end
 
     def edit
@@ -20,7 +20,7 @@ module Users
 
     def create
       @project = Project.new(project_params)
-      @project.user = current_user
+      @project.creator = current_user
 
       if @project.save
         redirect_to [:users,@project], notice: 'Project was successfully created.'
