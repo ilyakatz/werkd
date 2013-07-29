@@ -4,9 +4,4 @@ module ApplicationHelper
       content_tag(tag.to_sym, title)
     end    
   end
-  
-  def app
-    @app ||= App.default
-  end
-  
 end

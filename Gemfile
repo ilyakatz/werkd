@@ -46,6 +46,7 @@ gem 'nokogiri'
 gem 'roadie'
 
 gem 'simple_form'
+gem 'embedly'
 
 group :test, :development do
   gem "mysql2"
