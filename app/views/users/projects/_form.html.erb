@@ -22,7 +22,14 @@
   <script>
 
     $('document').ready(function(){
-      $('.embed-link').preview({key:'<%=Figleaf::Settings.embedly.api_key%>'})
+
+      $('.embed-link').preview({
+        key:'<%=Figleaf::Settings.embedly.api_key%>',
+        error: function(obj){
+          console.log('The URL you entered was not processed.');
+        }
+      });
+
     });
 
 
