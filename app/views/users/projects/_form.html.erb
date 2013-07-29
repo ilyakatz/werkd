@@ -1,31 +1,30 @@
-<%= simple_form_for([:users,@project]) do |f| %>
-  <%=f.input :title%>
-  <%=f.input :company%>
-  <%=f.input :media_url, 
-    input_html: 
-    {
-    value: "http://www.youtube.com/watch?v=80yIdY5Kyho",
-    class: "embed-link" 
-  }
-%>
-<div class="selector-wrapper"></div>
+<%= simple_form_for([:users, @project]) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :company %>
+  <%= f.input :media_url,
+        input_html:
+              {
+                    class: "embed-link"
+              }
+  %>
+  <div class="selector-wrapper"></div>
 
-<br/>
-<%=f.submit%>
+  <br/>
+  <%= f.submit %>
 <% end %>
 
 
 <% content_for :dom_ready do %>
-  <link rel="stylesheet" href="http://cdn.embed.ly/jquery.preview-0.3.2.css" />
+  <link rel="stylesheet" href="http://cdn.embed.ly/jquery.preview-0.3.2.css"/>
   <%= javascript_include_tag "http://cdn.embed.ly/jquery.preview-0.3.2.min.js" %>
   <%= javascript_include_tag "http://cdn.embed.ly/jquery.embedly-3.1.1.min.js" %>
   <script>
 
-    $('document').ready(function(){
+    $('document').ready(function () {
 
       $('.embed-link').preview({
-        key:'<%=Figleaf::Settings.embedly.api_key%>',
-        error: function(obj){
+        key: '<%=Figleaf::Settings.embedly.api_key%>',
+        error: function (obj) {
           console.log('The URL you entered was not processed.');
         }
       });
