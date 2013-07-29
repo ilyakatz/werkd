@@ -7,13 +7,16 @@ My connections
 <br/>
 
 <table class="table table-striped table-bordered table-hover">
-  <% @connections.each do |contact| %>
+  <% @connections.each do |connection| %>
     <tr>
       <td>
-        <%= contact.contact.email %>
-      </td
+        <%= connection.inviter.email %>
+      </td>
       <td>
-        <% unless contact.accepted? %>
+        <%= connection.invitee.email %>
+      </td>
+      <td>
+        <% unless connection.accepted? %>
           pending
         <%end%>
       </td>

@@ -12,8 +12,8 @@
         <td>
           <% if contact[:existing_id] %>
             <%= link_to "Connect",
-                  users_connections_path(
-                        id: contact[:existing_id],
+                  user_invitation_path(
+                        user: { email: contact[:email] },
                         format: :json
                   ),
                   remote: true,

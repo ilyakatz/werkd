@@ -41,16 +41,16 @@ You can access your server from the outside world:
 - install git http://git-scm.com/download/mac
 - install rvm https://rvm.io
 - create ssh keys
-	
+
 	ssh-keygen
-	
+
 - add ssh key to bitbucket
-	
+
 	cd ~/ws
 	git clone git@bitbucket.org:katzmopolitan/werkd.git
 
 - install command line tools https://developer.apple.com/downloads/index.action#
-- install mysql 
+- install mysql
 
 	http://dev.mysql.com/downloads/mysql/
 
@@ -58,13 +58,13 @@ You can access your server from the outside world:
 
     http://stackoverflow.com/questions/10557507/rails-mysql-on-osx-library-not-loaded-libmysqlclient-18-dylib
 
-- install ruby 
+- install ruby
 
 	rvm install ruby 2.0.0
 
 - install homebrew http://mxcl.github.io/homebrew/
 - brew doctor
-- install postgre 
+- install postgre
 
 	brew install postgres
 
@@ -73,6 +73,9 @@ You can access your server from the outside world:
     127.0.0.1 localhost
 
 - (optional) Git GUI http://www.sourcetreeapp.com/download/
+- Set up heroku environment
+
+    https://toolbelt.heroku.com/
 
 
 
@@ -96,7 +99,7 @@ You can access your server from the outside world:
 
     `open window where foreman is running`
     `Cntrl-C`
-    
+
 7. Start server
 
 	`foreman start`
@@ -104,15 +107,15 @@ You can access your server from the outside world:
 8. Open local version
 
     `http://localhost:5000`
-	
+
 9. Write your code and do your magic!
 
 10. Push your changes back to the repository
 
     `git add .`
-	
+
 	`git commit -m "brief message about what changes your made"`
-	
+
 	`git push`
 
     1. If you get a message

@@ -8,39 +8,11 @@ module Users
       @connections = current_user.connections
     end
 
-    def new
-     @connection = Connection.new
-     @connection.user = current_user
-    end
-
     def accept
-    end
-
-    def create
-      connect_to=User.find(params[:id])
-
-      ContactsMailer.send_connection_request(connect_to, current_user).deliver!
-
-      respond_to do |format|
-        if true
-          msg = "Connection request sent"
-          format.json do
-            render text: msg, status: :ok
-          end
-          format.html do
-            redirect_to :back, notice: msg
-          end
-
-        else
-          msg = "An error occurred"
-          format.json do
-            render text: msg, status: :internal_server_error
-          end
-          format.html do
-            redirect_to :back, notice: msg
-          end
-        end
-      end
+     @connection = current_user.connections.find(params[:connection_id])
+     @connection.accept!
+     ContactsMailer.send_connection_accepted(@connection).deliver!
+     redirect_to action: :index
     end
 
   end

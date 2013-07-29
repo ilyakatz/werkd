@@ -16,9 +16,7 @@
 
           <div align="center">
             <%= link_to 'Accept Invitation',
-              accept_invitation_url(@resource, :invitation_token => @resource.invitation_token),
-              id: "acceptinvitation",
-              class: "acceptinviation"
+              accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), id: "acceptinvitation", class: "acceptinviation"
             %>
           </div>
           <br><br><br>
