@@ -1,5 +1,4 @@
 class Project < ActiveRecord::Base
-  attr_accessible :company, :title, :user_id, :media_url
   belongs_to :user
 
   validates_presence_of :title, :company

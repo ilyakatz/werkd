@@ -10,15 +10,19 @@
   <%= @project.company %>
 </p>
 
-<p>
-<b>User:</b>
-  <%= @project.user_id %>
-</p>
+<% if @project.contribution.present? %>
+  <p>
+    <b>Contribution:</b>
+    <%= @project.contribution %>
+  </p>
+<% end %>
 
-<p>
-  <b>Video:</b>
-  <%= @project.video %>
-</p>
+<% if @project.preview_available? %>
+  <p>
+    <b>Video:</b>
+    <%= @project.embed_url %>
+  </p>
+<% end %>
 
 
 <%= link_to 'Edit', edit_users_project_path(@project) %> |

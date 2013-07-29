@@ -31,3 +31,14 @@ Feature: Projects
     And I follow "Edit"
     And I fill in "Title" with "New cool project"
     And I press "Update"
+
+  Scenario: I should be able to add my contribution
+    When I login as "ilyakatz@gmail.com"
+    And I go to the users dashboards page
+    And I follow "Projects"
+    And I follow "New Project"
+    And I fill in "Title" with "New Project"
+    And I fill in "Company" with "Coca Cola"
+    And I fill in "Contribution" with "Slacked off, mostly"
+    And I press "Create"
+    Then I should see "Slacked off, mostly"
