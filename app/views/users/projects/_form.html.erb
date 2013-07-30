@@ -2,7 +2,8 @@
   <%= f.input :title, hint: "What was your role on this project?" %>
   <%= f.input :company, hint: "What company was this project for?" %>
   <%= f.input :contribution, hint: "(optional) What was your contribution to the project?" %>
-  <%= f.input :collaborators,
+  <%= f.association :collaborators,
+          as: :select,
         hint: "(optional) Who worked with you on this project"
   %>
   <%= f.input :media_url,
