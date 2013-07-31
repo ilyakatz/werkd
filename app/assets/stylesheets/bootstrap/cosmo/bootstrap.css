@@ -6720,7 +6720,7 @@ legend {
 }
 
 .usertitle {
-  border: none; text-align: 
+  border: none; text-align: center;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
           border-radius: 0;

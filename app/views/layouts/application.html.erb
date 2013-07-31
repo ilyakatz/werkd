@@ -62,7 +62,7 @@
                    <li><%= link_to "Invite a friend", new_user_invitation_path %></li>
                 </ul>
               </div>
-              <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+              <li class="nav pull-right"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
               <% else %>
               <li><%= link_to "Create an account", new_registration_path("user") %></li>
               <li><%= link_to "Sign in", new_session_path("user") %></li>
