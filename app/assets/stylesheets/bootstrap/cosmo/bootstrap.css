@@ -4375,12 +4375,12 @@ input[type="submit"].btn.btn-mini {
   min-height: 50px;
   padding-right: 20px;
   padding-left: 20px;
-  background-color: #080808;
-  background-image: -moz-linear-gradient(top, #080808, #080808);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#080808), to(#080808));
-  background-image: -webkit-linear-gradient(top, #080808, #080808);
-  background-image: -o-linear-gradient(top, #080808, #080808);
-  background-image: linear-gradient(to bottom, #080808, #080808);
+  background-color: #ffffff;
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#ffffff));
+  background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -o-linear-gradient(top, #ffffff, #ffffff);
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff);
   background-repeat: repeat-x;
   border: 1px solid transparent;
   -webkit-border-radius: 0;
@@ -4420,8 +4420,8 @@ input[type="submit"].btn.btn-mini {
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
-  color: #ffffff;
-  text-shadow: 0 1px 0 #080808;
+  color: #000000;
+  text-shadow: 0 0px 0 #080808;
 }
 
 .navbar .brand:hover,
@@ -4432,23 +4432,23 @@ input[type="submit"].btn.btn-mini {
 .navbar-text {
   margin-bottom: 0;
   line-height: 50px;
-  color: #ffffff;
+  color: #777777;
 }
 
 .navbar-link {
-  color: #ffffff;
+  color: #777777;
 }
 
 .navbar-link:hover,
 .navbar-link:focus {
-  color: #bbbbbb;
+  color: #ff6633;
 }
 
 .navbar .divider-vertical {
   height: 50px;
   margin: 0 9px;
-  border-right: 1px solid #080808;
-  border-left: 1px solid #080808;
+  border-right: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
 }
 
 .navbar .btn,
@@ -4615,9 +4615,9 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav > li > a {
   float: none;
   padding: 15px 15px 15px;
-  color: #ffffff;
+  color: #777777;
   text-decoration: none;
-  text-shadow: 0 1px 0 #080808;
+  text-shadow: 0 0px 0 #080808;
 }
 
 .navbar .nav .dropdown-toggle .caret {
@@ -4626,9 +4626,9 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
-  color: #bbbbbb;
+  color: #ff6633;
   text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .navbar .nav > .active > a,
