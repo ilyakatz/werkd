@@ -6719,6 +6719,16 @@ legend {
           box-shadow: none;
 }
 
+.usertitle {
+  border: none; text-align: center;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+
 [class^="icon-"],
 [class*=" icon-"] {
   margin: 0 2px;
