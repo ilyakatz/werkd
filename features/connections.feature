@@ -27,7 +27,8 @@ Feature: connections
     Then 1 email should be delivered to ilyakatz@gmail.com
     And I am not signed in
     When I login as "ilyakatz@gmail.com"
-    When they follow "here" in the email
+    When they follow "Yes" in the email
+    And I follow "Connections"
     Then I should see "ilya@werkd.net"
     And I should not see "pending"
 
@@ -51,7 +52,7 @@ Feature: connections
     Then 1 email should be delivered to ilyakatz@gmail.com
     And I am not signed in
     When I login as "ilyakatz@gmail.com"
-    When they follow "here" in the email
+    When they follow "Yes" in the email
     Then I am not signed in
     When I login as "ilya@werkd.net"
     And I go to users connections page
@@ -67,5 +68,5 @@ Feature: connections
     Then 1 email should be delivered to ilyakatz@gmail.com
     And I am not signed in
     When I login as "ilyakatz@gmail.com"
-    When they follow "here" in the email
+    When they follow "Yes" in the email
     Then 1 email should be delivered to ilya@werkd.net
