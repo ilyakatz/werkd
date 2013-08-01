@@ -28,7 +28,6 @@ Feature: connections
     And I am not signed in
     When I login as "ilyakatz@gmail.com"
     When they follow "Yes" in the email
-    And I follow "Connections"
     Then I should see "ilya@werkd.net"
     And I should not see "pending"
 
