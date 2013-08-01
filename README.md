@@ -1,4 +1,3 @@
-
 WeRKD
 
 Where creative folks come to shmooze
@@ -129,5 +128,12 @@ You can access your server from the outside world:
 
     `http://localhost:5000/email_preview`
 
-# TODO
-- when a file is deleted
+# Other git commands
+
+## When a file is deleted
+
+git rm [path to file]
+
+## When you want to reset all changes made to a file since last commit
+
+git checkout [path to file]
