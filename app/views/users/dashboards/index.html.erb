@@ -13,23 +13,53 @@
 
 </div>
  -->
+<!-- fluid/fluid
 
     <div class="container-fluid">
       <div class="span12">
-        
+
         <div class="usertitle">
           <h2>  <%= current_user.first_name %> <%= current_user.last_name %>
           </h2>
         </div>
 
         <div class="row-fluid">
+
           <div class="span10">
            <%=render "projects"%>
           </div>
+
           <div class="span2">
             <%=render "contacts"%>
           </div>
+
         </div>
 
       </div>
     </div>
+
+-->
+     <div class="container-fluid">
+        <div class="span12">
+
+        <div class="usertitle">
+          <h2>  <%= current_user.first_name %> <%= current_user.last_name %>
+          </h2>
+        </div>
+      <div class="row-fluid">
+
+
+          <div class="well sidebar-nav right">
+            <ul class="nav nav-list">
+            <%=render "contacts"%>
+            </ul>
+          </div><!--/.well -->
+
+        <div class="content fluid-fixed">
+          <div class="hero-unit">
+           <%=render "projects"%>
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div>
+      </div><!--/row-->
