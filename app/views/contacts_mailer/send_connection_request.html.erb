@@ -12,7 +12,7 @@
           <span class="bold"><%=@inviter.email%></span> wants to connect with you on <%=link_to "WeRKD", root_url, style: "text-decoration: none;color: #ff6600;"%>. <br><br>Take a look at <%=link_to @inviter.email, users_connections_url, style:"text-decoration: none;color: #ff6600;"%>'s profile and see if you want to connect.
 
           <div align="center">
-				<%=link_to "Yes!", users_connection_accept_url(@connection),
+				<%=link_to "Yes, let's connect!", users_connection_accept_url(@connection),
               	id: "acceptinvitation",
               	class: "acceptinviation" %>
           </div>
