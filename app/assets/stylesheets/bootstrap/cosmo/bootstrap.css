@@ -1629,11 +1629,12 @@ select:focus:invalid:focus {
 }
 
 .form-actions {
-  padding: 19px 20px 20px;
+  padding: 0px 20px 20px;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: #f5f5f5;
-  border-top: 1px solid #e5e5e5;
+  text-align: center;
+  background-color: #ffffff;
+  border-top: 1px solid #ffffff;
   *zoom: 1;
 }
 
@@ -1938,6 +1939,7 @@ input.search-query {
 
 .control-group {
   margin-bottom: 10px;
+  text-align: center;
 }
 
 legend + .control-group {
@@ -1947,6 +1949,7 @@ legend + .control-group {
 
 .form-horizontal .control-group {
   margin-bottom: 20px;
+  text-align: center;
   *zoom: 1;
 }
 
@@ -1993,7 +1996,7 @@ legend + .control-group {
 }
 
 .form-horizontal .form-actions {
-  padding-left: 180px;
+text-align: center;
 }
 
 table {
@@ -6622,7 +6625,7 @@ legend {
 }
 
 .form-actions {
-  background-color: #eeeeee;
+  background-color: #ffffff;
   border-top: none;
 }
 
