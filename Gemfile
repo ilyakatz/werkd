@@ -80,6 +80,7 @@ end
 
 group :development, :test do
   gem "hirb"
+  gem "hpricot"
 
   #debugging
   gem "pry"
