@@ -42,3 +42,14 @@ Feature: Projects
     And I fill in "Contribution" with "Slacked off, mostly"
     And I press "Create"
     Then I should see "Slacked off, mostly"
+
+  Scenario: I should be abel to add tags to a project
+    When I login as "ilyakatz@gmail.com"
+    And I go to the users dashboards page
+    And I follow "Projects"
+    And I follow "New Project"
+    And I fill in "Title" with "New Project"
+    And I fill in "Company" with "Coca Cola"
+    And I fill in "Tags" with "graphic design"
+    And I press "Create"
+    Then I should see "graphic design"

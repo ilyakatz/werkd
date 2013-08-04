@@ -3,6 +3,8 @@ class Project < ActiveRecord::Base
   has_many :collaborations
   has_many :collaborators, through: :collaborations
 
+  acts_as_taggable
+
   validates_presence_of :title, :company
 
   after_save :extract_embed

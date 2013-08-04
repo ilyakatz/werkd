@@ -47,6 +47,7 @@ gem 'roadie'
 
 gem 'simple_form'
 gem 'embedly'
+gem 'acts-as-taggable-on'
 
 group :test, :development do
   gem "mysql2"

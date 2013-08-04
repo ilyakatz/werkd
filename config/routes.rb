@@ -10,6 +10,7 @@ WeRKD::Application.routes.draw do
       invitations: 'users/invitations'
     }
 
+  resources :tags, only: [:index]
   match "/contacts/:importer/callback" => "users/omnicontacts#callback"
   namespace :users do
     resources :omnicontacts, only: [ :index, :show]

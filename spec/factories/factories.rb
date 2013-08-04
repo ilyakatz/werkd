@@ -12,6 +12,10 @@ FactoryGirl.define do
     company "No company"
   end
 
+  factory :tag do
+    name "Default tag"
+  end
+
 end
 
 

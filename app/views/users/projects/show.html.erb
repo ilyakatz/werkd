@@ -24,6 +24,15 @@
   </p>
 <% end %>
 
+<% if @project.tags.any? %>
+  <p><b>Tags:</b></p>
+  <ul>
+  <%@project.tags.each do |t|%>
+    <li><%=t.name%></li>
+  <%end%>
+</ul>
+<%end%>
+
 
 <%= link_to 'Edit', edit_users_project_path(@project) %> |
 <%= link_to 'Back', users_projects_path %>
