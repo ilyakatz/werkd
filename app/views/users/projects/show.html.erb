@@ -33,6 +33,11 @@
 </ul>
 <%end%>
 
+<% if @project.start_at %>
+  <p><b>Starting</p></b>
+  <%=l @project.start_at, format: :long%>
+<%end%>
+
 
 <%= link_to 'Edit', edit_users_project_path(@project) %> |
 <%= link_to 'Back', users_projects_path %>

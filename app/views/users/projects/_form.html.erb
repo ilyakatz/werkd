@@ -13,14 +13,16 @@
   <%= f.input :media_url,
     hint: "(optional) Any videos or picture link that visualizes the project",
     input_html:
-    {
-    class: "embed-link"
-  }
-%>
-<div class="selector-wrapper"></div>
+    { class: "embed-link" }
+  %>
+  <%= f.input :start_at,
+    label: "Starting",
+    hint: "(optional) When did you start working on this project?"
+  %>
+  <div class="selector-wrapper"></div>
 
-<br/>
-<%= f.submit %>
+  <br/>
+  <%= f.submit %>
 <% end %>
 
 
