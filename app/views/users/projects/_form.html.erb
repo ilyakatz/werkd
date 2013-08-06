@@ -17,7 +17,8 @@
   %>
   <%= f.input :start_at,
     label: "Starting",
-    hint: "(optional) When did you start working on this project?"
+    hint: "(optional) When did you start working on this project?",
+    order: [:month, :year]
   %>
   <div class="selector-wrapper"></div>
 

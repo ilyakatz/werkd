@@ -63,6 +63,5 @@ Feature: Projects
     And I fill in "Company" with "Coca Cola"
     And I select "2012" from "project_start_at_1i"
     And I select "May" from "project_start_at_2i"
-    And I select "1" from "project_start_at_3i"
     And I press "Create"
     Then I should see "May 01, 2012"
