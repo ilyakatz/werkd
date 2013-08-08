@@ -4,7 +4,7 @@ class Project < ActiveRecord::Base
   has_many :collaborators, through: :collaborations
 
   acts_as_taggable
-
+  acts_as_taggable_on :roles
   validates_presence_of :title, :company
 
   after_save :extract_embed
@@ -13,7 +13,28 @@ class Project < ActiveRecord::Base
     !!embed_url
   end
 
+  def tag_users(users)
+    users.each do |user|
+      user.tag(self, with: participant_role, on: :roles)
+    end
+  end
+
+  def tag_users_by_ids(users_ids)
+    users = User.where(id: users_ids)
+    tag_users(users)
+  end
+
+  def tagged_users
+    user_ids = Tagging.where(context: :roles).
+      where(tagger_type: User).collect(&:tagger_id)
+    User.where(id: user_ids)
+  end
+
   private
+
+  def participant_role
+    "participant"
+  end
 
   def extract_embed
     if media_url_changed?

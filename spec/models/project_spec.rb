@@ -12,5 +12,27 @@ describe Project do
     end
 
   end
+
+  describe "tagging" do
+
+    it "should tag users" do
+      p = FactoryGirl.create(:project)
+      u = FactoryGirl.create(:user)
+      u1 = FactoryGirl.create(:user)
+
+      p.tag_users([u,u1])
+      p.tagged_users.should eq([u,u1])
+    end
+
+    it "should tag by user ids" do
+      p = FactoryGirl.create(:project)
+      u = FactoryGirl.create(:user)
+      u1 = FactoryGirl.create(:user)
+
+      p.tag_users_by_ids([u.id, u1.id])
+      p.tagged_users.should eq([u,u1])
+
+    end
+  end
 end
 

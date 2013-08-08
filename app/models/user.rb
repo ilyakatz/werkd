@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
 
   has_many :contacts, through: :connections
 
+  acts_as_tagger
+
   def connections
     Connection.where("user_id = ? or connected_to = ? ", self.id, self.id)
   end
