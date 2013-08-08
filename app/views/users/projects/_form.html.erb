@@ -16,12 +16,14 @@
     input_html:
     { class: "embed-link" }
   %>
+
+  <div id="embedly-preview" class="selector-wrapper"></div>
+
   <%= f.input :start_at,
     label: "Starting",
     hint: "(optional) When did you start working on this project?",
     order: [:month, :year]
   %>
-  <div class="selector-wrapper"></div>
 
   <br/>
   <%= f.submit %>
