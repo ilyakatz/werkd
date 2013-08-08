@@ -29,9 +29,32 @@ describe Project do
       u = FactoryGirl.create(:user)
       u1 = FactoryGirl.create(:user)
 
-      p.tag_users_by_ids([u.id, u1.id])
-      p.tagged_users.should eq([u,u1])
+      p.tagged_user_ids=([u.id, u1.id])
 
+      p.tagged_users.should eq([u,u1])
+      p.tagged_user_ids.should eq [u.id, u1.id]
+    end
+
+    it "should tag using a string" do
+      p = FactoryGirl.create(:project)
+      u = FactoryGirl.create(:user)
+      u1 = FactoryGirl.create(:user)
+
+      p.tagged_user_ids=("[#{u.id}, #{u1.id}]")
+
+      p.tagged_users.should eq([u,u1])
+    end
+
+    it "should override existing tagged users" do
+      p = FactoryGirl.create(:project)
+      u = FactoryGirl.create(:user)
+      u1 = FactoryGirl.create(:user)
+
+      p.tagged_users=[u]
+      p.tagged_users.should eq [u]
+
+      p.tagged_users=[u1]
+      p.tagged_users.should eq [u1]
     end
   end
 end

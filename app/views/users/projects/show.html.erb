@@ -1,41 +1,51 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @project.title %>
+<b>Title:</b>
+<%= @project.title %>
 </p>
 
 <p>
-  <b>Company:</b>
-  <%= @project.company %>
+<b>Company:</b>
+<%= @project.company %>
 </p>
 
 <% if @project.contribution.present? %>
   <p>
-    <b>Contribution:</b>
-    <%= @project.contribution %>
+  <b>Contribution:</b>
+  <%= @project.contribution %>
   </p>
 <% end %>
 
 <% if @project.preview_available? %>
   <p>
-    <b>Video:</b>
-    <%= @project.embed_url %>
+  <b>Video:</b>
+  <%= @project.embed_url %>
   </p>
 <% end %>
 
 <% if @project.tags.any? %>
   <p><b>Tags:</b></p>
   <ul>
-  <%@project.tags.each do |t|%>
-    <li><%=t.name%></li>
-  <%end%>
-</ul>
+    <%@project.tags.each do |t|%>
+      <li><%=t.name%></li>
+    <%end%>
+  </ul>
 <%end%>
 
 <% if @project.start_at %>
-  <p><b>Starting</p></b>
+  <p><b>Starting</b>
   <%=l @project.start_at, format: :long%>
+  </p>
+<%end%>
+
+<% if @project.tagged_user_ids %>
+  <p><b>Collaborators</b></p>
+  <ul>
+    <%@project.tagged_users.each do |u|%>
+      <li><%=u.email%></li>
+    <%end%>
+  </ul>
 <%end%>
 
 

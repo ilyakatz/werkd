@@ -51,7 +51,7 @@ module Users
     def project_params
       params.require(:project).permit(:company, :title, :user_id,
         :video, :contribution, :media_url,
-        :collaborators, :tag_list, :start_at
+        :tag_list, :start_at, :tagged_user_ids
                                      )
     end
 

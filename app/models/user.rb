@@ -23,6 +23,13 @@ class User < ActiveRecord::Base
   def connections
     Connection.where("user_id = ? or connected_to = ? ", self.id, self.id)
   end
+
+  def self.token(q)
+    query = "%#{q}%"
+    User.where("email like ?", query).limit(10)
+  end
+
+
   def self.find_for_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info
     user = User.where(email: data["email"]).first

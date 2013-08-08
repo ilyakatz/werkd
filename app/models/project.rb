@@ -14,23 +14,33 @@ class Project < ActiveRecord::Base
   end
 
   def tagged_users=(users)
+    tag_users(users)
+  end
+
+  def tagged_user_ids=(users_ids)
+    if users_ids.class == String
+      users_ids = JSON.parse(users_ids)
+    end
+    users = User.where(id: users_ids)
+    tag_users(users)
+  end
+
+  def tagged_user_ids
+    Tagging.where(context: :roles).
+      where(tagger_type: User).collect(&:tagger_id)
+  end
+
+  def tagged_users
+    User.where(id: tagged_user_ids)
+  end
+
+  private
+
+  def tag_users(users)
     users.each do |user|
       user.tag(self, with: participant_role, on: :roles)
     end
   end
-
-  def tag_users_by_ids(users_ids)
-    users = User.where(id: users_ids)
-    self.tagged_users=(users)
-  end
-
-  def tagged_users
-    user_ids = Tagging.where(context: :roles).
-      where(tagger_type: User).collect(&:tagger_id)
-    User.where(id: user_ids)
-  end
-
-  private
 
   def participant_role
     "participant"
