@@ -25,6 +25,7 @@ class Project < ActiveRecord::Base
     tag_users(users)
   end
 
+  #return string with ids
   def tagged_user_ids
     Tagging.where(context: :roles).
       where(tagger_type: User).collect(&:tagger_id)
