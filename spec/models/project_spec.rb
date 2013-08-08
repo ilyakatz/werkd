@@ -20,7 +20,7 @@ describe Project do
       u = FactoryGirl.create(:user)
       u1 = FactoryGirl.create(:user)
 
-      p.tag_users([u,u1])
+      p.tagged_users=[u,u1]
       p.tagged_users.should eq([u,u1])
     end
 

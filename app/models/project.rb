@@ -13,7 +13,7 @@ class Project < ActiveRecord::Base
     !!embed_url
   end
 
-  def tag_users(users)
+  def tagged_users=(users)
     users.each do |user|
       user.tag(self, with: participant_role, on: :roles)
     end
@@ -21,7 +21,7 @@ class Project < ActiveRecord::Base
 
   def tag_users_by_ids(users_ids)
     users = User.where(id: users_ids)
-    tag_users(users)
+    self.tagged_users=(users)
   end
 
   def tagged_users
