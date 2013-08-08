@@ -40,7 +40,7 @@ describe Project do
       u = FactoryGirl.create(:user)
       u1 = FactoryGirl.create(:user)
 
-      p.tagged_user_ids=("[#{u.id}, #{u1.id}]")
+      p.tagged_user_ids=("#{u.id}, #{u1.id}")
 
       p.tagged_users.should eq([u,u1])
     end

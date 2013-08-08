@@ -1,12 +1,13 @@
 Feature: connections
 
+  #TODO: there is a problem with just showing the first name
+  #when I invite people by email, there is nothing to show
   Scenario: When I send an invitation it shouold show up as pending
     When I login as "ilya@werkd.net"
     And I go to new user invitation page
     And a user exists with email: "ilyakatz@gmail.com", password: "password123"
     And I fill in "Email" with "ilyakatz@gmail.com"
     And I press "Send"
-    And I follow "Connections"
     And I should see "ilyakatz@gmail.com"
     And I should see "pending"
 
@@ -29,7 +30,7 @@ Feature: connections
     When I login as "ilyakatz@gmail.com"
     When they follow "Yes" in the email
     Then I should see "ilya@werkd.net"
-    And I should not see "pending"
+    And I should not see "pending" i c
 
   Scenario: Do not send a duplicate invitation
     When I login as "ilya@werkd.net"

@@ -19,7 +19,7 @@ class Project < ActiveRecord::Base
 
   def tagged_user_ids=(users_ids)
     if users_ids.class == String
-      users_ids = JSON.parse(users_ids)
+      users_ids = users_ids.split(",")
     end
     users = User.where(id: users_ids)
     tag_users(users)

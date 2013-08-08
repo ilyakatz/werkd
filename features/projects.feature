@@ -59,3 +59,14 @@ Feature: Projects
     And I press "Create"
     Then I should see "May 01, 2012"
 
+  Scenario: I should be able to tag people on a project
+    And a user "coworker" exists with email: "coworker@werkd.com"
+    When I login as "ilyakatz@gmail.com"
+    And I go to the users dashboards page
+    And I follow "New Project"
+    And I fill in "Title" with "New Project"
+    And I fill in "Company" with "Coca Cola"
+    And I tag user "coworker" on the project
+    And I press "Create"
+    Then I should see "coworker@werkd.com"
+
