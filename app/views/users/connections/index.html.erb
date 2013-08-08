@@ -1,25 +1,22 @@
-My connections
+<h4 style="text-align:center; font-weight:bold; color:#808080;">KNOWS</h4>
 
-<br/>
+<div class="text-right"><%= link_to "Invite a friend", new_user_invitation_path %></div>
+<br>
 
-<%= link_to "Invite a friend", new_user_invitation_path %>
-<br/>
-<br/>
-
-<table class="table table-striped table-bordered table-hover">
+<table class="table table-hover">
   <% @connections.each do |connection| %>
     <tr>
-      <td>
-        <%= connection.inviter.email %>
+      <td style="backgroud-color:white">
+        <%= connection.invitee.first_name  %> <%= connection.invitee.last_name  %>
       </td>
       <td>
-        <%= connection.invitee.email %>
+        job title
       </td>
-      <td>
+      <!--<td>
         <% unless connection.accepted? %>
           pending
         <%end%>
-      </td>
+      </td>-->
     </tr>
   <% end %>
 </table>
