@@ -50,7 +50,7 @@
         prePopulate: <%=raw(@project.tags.collect{|t|{name: t.name}}.to_json)%>
       });
 
-      $("#project_tagged_user_ids").tokenInput("/tags",
+      $("#project_tagged_user_ids").tokenInput("/users.json",
       {
         tokenValue: "id",
         prePopulate: <%=raw(@project.tagged_users.collect{|u|{name:u.email, id: u.id}}.to_json)%>

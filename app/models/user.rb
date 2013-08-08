@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 
   def self.token(q)
     query = "%#{q}%"
-    User.where("email like ?", query).limit(10)
+    User.where("email like ?", query).select("id, email as name").limit(10)
   end
 
 
