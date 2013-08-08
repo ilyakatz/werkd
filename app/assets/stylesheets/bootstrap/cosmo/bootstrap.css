@@ -740,7 +740,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 10px 0;
+  margin: 5px 0;
   font-family: inherit;
   font-weight: 300;
   line-height: 20px;
@@ -4108,7 +4108,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover,
 .nav-pills > .active > a:focus {
-  color: #ffffff;
+  color: #;
   background-color: #007fff;
 }
 
@@ -6123,11 +6123,11 @@ a.badge:focus {
 }
 
 .hero-unit {
-  padding: 60px;
+  padding: 10px;
   margin-bottom: 30px;
-  font-size: 18px;
+  /*font-size: 18px;
   font-weight: 200;
-  line-height: 30px;
+  line-height: 30px;*/
   color: inherit;
   background-color: #eeeeee;
   -webkit-border-radius: 6px;
@@ -6841,7 +6841,7 @@ a.thumbnail:hover {
     position: relative;
     top: 0;
     left:auto;
-    width: 220px;
+    width: 370px;
 }
 
 .left {
@@ -6856,7 +6856,7 @@ a.thumbnail:hover {
     margin-left: 240px;
 }
 .fluid-fixed {
-    margin-right: 240px;
+    margin-right: 390px;
     margin-left:auto !important;
 }
 .fixed-fixed {
