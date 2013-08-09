@@ -6,10 +6,10 @@
 <table class="table table-hover">
   <% @connections.each do |connection| %>
     <tr>
-      <td style="backgroud-color:white">
+      <td style="text-align:left;">
         <%= connection.invitee.first_name  %> <%= connection.invitee.last_name  %>
       </td>
-      <td>
+      <td style="text-align:right;">
         job title
       </td>
       <!--<td>

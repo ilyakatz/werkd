@@ -4,3 +4,40 @@
 h2 {color:#3f3f3f;}
 h3,h4 {color:#808080;}
 h3 {line-height: 18px; font-size: 23px;}
+
+/* two column, fluid / fixed */
+
+.contacts {
+    padding: 0 0 0 0;
+}
+
+.row-fluid > .contacts {
+    position: relative;
+    width: 260px;
+}
+
+.left {
+    float:left;
+}
+
+.right {
+    float:right;
+}
+
+.fixed-fluid {
+    margin-left: 240px;
+}
+
+.projects {
+	padding: 0 0 0 0;
+    margin-right: 280px;
+    margin-left:auto !important;
+}
+
+.fixed-fixed {
+    margin: 0 0 250px 0px;
+}
+
+.grey-box {
+	  background-color: #eeeeee;
+}
