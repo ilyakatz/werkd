@@ -56,6 +56,19 @@ describe Project do
       p.tagged_users=[u1]
       p.tagged_users.should eq [u1]
     end
+
+    it "should not affect different projects" do
+      p = FactoryGirl.create(:project)
+      p1 = FactoryGirl.create(:project)
+      u = FactoryGirl.create(:user)
+      u1 = FactoryGirl.create(:user)
+
+      p.tagged_users=[u]
+
+      p1.tagged_users=[u, u1]
+      p1.tagged_users.should eq [u, u1]
+      p.tagged_users.should eq [u]
+    end
   end
 end
 

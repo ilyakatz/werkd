@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
   belongs_to :creator, class_name: "User", foreign_key: :user_id
   has_many :collaborations
   has_many :collaborators, through: :collaborations
+  has_many :taggings, conditions: { taggable_type: Project }, class_name: 'Tagging', foreign_key: :taggable_id
 
   acts_as_taggable
   acts_as_taggable_on :roles
@@ -27,7 +28,7 @@ class Project < ActiveRecord::Base
 
   #return string with ids
   def tagged_user_ids
-    Tagging.where(context: :roles).
+    taggings.where(context: participant_role).
       where(tagger_type: User).collect(&:tagger_id)
   end
 
@@ -38,8 +39,15 @@ class Project < ActiveRecord::Base
   private
 
   def tag_users(users)
+    clear_current_tags
     users.each do |user|
-      user.tag(self, with: participant_role, on: :roles)
+      user.tag(self, with: participant_role, on: participant_role)
+    end
+  end
+
+  def clear_current_tags
+    tagged_users.each do |user|
+      user.tag(self, with: "", on: participant_role)
     end
   end
 
