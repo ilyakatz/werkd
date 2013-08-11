@@ -1,9 +1,8 @@
 WeRKD::Application.routes.draw do
 
-
-
   #TODO: need to update
   devise_for :users,
+    path_prefix: "users",
     path: "",
     :controllers => {
       omniauth_callbacks: "users/omniauth_callbacks",
