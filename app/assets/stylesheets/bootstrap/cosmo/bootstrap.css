@@ -3118,7 +3118,7 @@ table th[class*="span"],
   padding: 19px;
   margin-bottom: 20px;
   background-color: #eeeeee;
-  border: 1px solid #dcdcdc;
+  border: 0px solid #dcdcdc;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
           border-radius: 0;
@@ -4443,7 +4443,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-link:hover,
-.navbar-link:focus {
+.navbar-link:focus, {
   color: #ff6633;
 }
 
@@ -4742,28 +4742,29 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar .nav li.dropdown > a:hover .caret,
-.navbar .nav li.dropdown > a:focus .caret {
-  border-top-color: #bbbbbb;
-  border-bottom-color: #bbbbbb;
+.navbar .nav li.dropdown > a:focus .caret
+{
+  border-top-color: #ff6633;
+  border-bottom-color: #ff6633;
 }
 
 .navbar .nav li.dropdown.open > .dropdown-toggle,
 .navbar .nav li.dropdown.active > .dropdown-toggle,
 .navbar .nav li.dropdown.open.active > .dropdown-toggle {
-  color: #ffffff;
+  color: #ff6633;
   background-color: transparent;
 }
 
 .navbar .nav li.dropdown > .dropdown-toggle .caret {
-  border-top-color: #ffffff;
-  border-bottom-color: #ffffff;
+  border-top-color: #808080;
+  border-bottom-color: #808080;
 }
 
 .navbar .nav li.dropdown.open > .dropdown-toggle .caret,
 .navbar .nav li.dropdown.active > .dropdown-toggle .caret,
 .navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
-  border-top-color: #ffffff;
-  border-bottom-color: #ffffff;
+  border-top-color: #ff6633;
+  border-bottom-color: #ff6633;
 }
 
 .navbar .pull-right > li > .dropdown-menu,
@@ -6270,13 +6271,13 @@ a.text-success:hover {
 .navbar .nav li.dropdown.open > .dropdown-toggle,
 .navbar .nav li.dropdown.active > .dropdown-toggle,
 .navbar .nav li.dropdown.open.active > .dropdown-toggle {
-  color: #ffffff;
+  color: #808080;
 }
 
 .navbar .nav li.dropdown.open > .dropdown-toggle:hover,
 .navbar .nav li.dropdown.active > .dropdown-toggle:hover,
 .navbar .nav li.dropdown.open.active > .dropdown-toggle:hover {
-  color: #eeeeee;
+  color: #808080;
 }
 
 .navbar .navbar-search .search-query {
@@ -6831,36 +6832,6 @@ a.thumbnail:hover {
   position: fixed;
 }
 
-/* two column, fluid / fixed */
 
-.sidebar-nav {
-    padding: 9px 0;
-}
-
-.row-fluid > .sidebar-nav {
-    position: relative;
-    top: 0;
-    left:auto;
-    width: 370px;
-}
-
-.left {
-    float:left;
-}
-
-.right {
-    float:right;
-}
-
-.fixed-fluid {
-    margin-left: 240px;
-}
-.fluid-fixed {
-    margin-right: 390px;
-    margin-left:auto !important;
-}
-.fixed-fixed {
-    margin: 0 0 250px 0px;
-}
 
 
