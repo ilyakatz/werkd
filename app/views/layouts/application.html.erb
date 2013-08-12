@@ -59,8 +59,8 @@
                   <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><%= link_to "My contacts", users_connections_path %></li>
-                   <li><%= link_to "Invite more", users_omnicontacts_path %></li>
+                    <li><%= link_to users_connections_path do%><i class="icon-user"></i>My contacts<%end%></li>
+                   <li><%= link_to users_omnicontacts_path do%><i class="icon-plus"></i>Invite more<%end%></li>
                 </ul>
               </li>
 
@@ -70,9 +70,9 @@
                   <b class="caret"></b>
                 <%end%>
                 <ul class="dropdown-menu">
-                   <li><%= link_to('Dashboard', users_dashboards_path) %></li>
-                   <li><%= link_to('Profile', edit_user_registration_path) %></li>
-                   <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+                   <li><%= link_to users_dashboards_path do%><i class="icon-home"></i>Dashboard<%end%></li>
+                   <li><%= link_to edit_user_registration_path do%><i class="icon-edit"></i>Profile<%end%> </li>
+                   <li><%= link_to destroy_user_session_path do%><i class="icon-signout"></i>Sign out<%end%></li>
                 </ul>
                 </li>
 
