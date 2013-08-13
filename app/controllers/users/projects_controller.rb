@@ -1,7 +1,6 @@
 module Users
   class ProjectsController < Users::UsersController
 
-    MINIMUM_PROJECTS_PER_USER = 2
 
     def index
       @projects = current_user.projects
@@ -25,7 +24,7 @@ module Users
       @project.creator = current_user
 
       if @project.save
-        if current_user.projects.count < MINIMUM_PROJECTS_PER_USER
+        if current_user.projects.count < Project::MINIMUM_PROJECTS_PER_USER
           redirect_to new_users_project_path, notice: "Please add one more project"
         else
           redirect_to users_dashboards_path, notice: 'Project was successfully created.'

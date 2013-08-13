@@ -86,5 +86,9 @@ Feature: Projects
     When I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
     And I press "Create"
+    Then I should see "Please add one more project"
+    When I fill in "Title" with "New Project"
+    And I fill in "Company" with "Coca Cola"
+    And I press "Create"
     Then I should be on the users dashboards page
     And I should see "Project was successfully created."
