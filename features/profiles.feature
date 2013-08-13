@@ -9,8 +9,13 @@ Feature: User profile
     And I fill in "Last name" with "Katz"
     And I fill in "Location" with "Brooklyn, NY"
     And I press "Update"
+    Then I should be on the users dashboards page
+    And I should see "Brooklyn, NY"
 
   Scenario: I should be able to update profile from the dashboard
     Given a user "me" exists with email: "ilyakatz@gmail.com"
     And I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
+    And I follow "edit" within ".location"
+    Then I should be on the users profiles page
+
