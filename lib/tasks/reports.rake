@@ -12,7 +12,15 @@ end
 
 namespace :werkd do
   desc 'generate and open reports'
-  task reports: :environment do
+  task reports: [:environment, :setup]
+
+  task :setup do
+    puts "Setting up"
+    Rails.env="test"
+    Rake::Task['db:migrate'].invoke
+  end
+
+  task internal_reports: :environment do
     output = "/tmp/features.html"
 
       puts "Removing old reports"
@@ -22,6 +30,8 @@ namespace :werkd do
     vendored_cucumber_bin="cucumber"
 
     `#{vendored_cucumber_bin} --format html --out #{output} --format progress --profile default`
+
+    `rspec spec/* --format html --out report.html`
 
     `open #{output}`
   end
