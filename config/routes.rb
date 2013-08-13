@@ -6,7 +6,7 @@ WeRKD::Application.routes.draw do
     path: "",
     :controllers => {
       omniauth_callbacks: "users/omniauth_callbacks",
-      invitations: 'users/invitations'
+      invitations: 'users/invitations',
     }
 
   resources :tags, only: [:index]
@@ -15,6 +15,7 @@ WeRKD::Application.routes.draw do
   namespace :users do
     resources :omnicontacts, only: [ :index, :show]
     resources :dashboards, only: [:index]
+    resources :profiles, only: [:index, :update]
     resources :connections, only: [:index] do
       get "accept"
     end

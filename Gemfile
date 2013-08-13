@@ -19,6 +19,7 @@ gem 'rails', '~> 3.2'
 gem "twitter-bootstrap-rails"
 
 gem 'jquery-rails'
+gem 'gmaps4rails'
 gem 'bootstrap-sass'
 
 #user authentication
