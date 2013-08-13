@@ -1,6 +1,8 @@
 module Users
   class ProjectsController < Users::UsersController
 
+    MINIMUM_PROJECTS_PER_USER = 2
+
     def index
       @projects = current_user.projects
     end
@@ -23,7 +25,11 @@ module Users
       @project.creator = current_user
 
       if @project.save
-        redirect_to [:users,@project], notice: 'Project was successfully created.'
+        if current_user.projects.count < MINIMUM_PROJECTS_PER_USER
+          redirect_to new_users_project_path, notice: "Please add one more project"
+        else
+          redirect_to users_dashboards_path, notice: 'Project was successfully created.'
+        end
       else
         render action: "new"
       end
@@ -50,8 +56,8 @@ module Users
 
     def project_params
       params.require(:project).permit(:company, :title, :user_id,
-        :video, :contribution, :media_url,
-        :tag_list, :start_at, :tagged_user_ids
+                                      :video, :contribution, :media_url,
+                                      :tag_list, :start_at, :tagged_user_ids
                                      )
     end
 

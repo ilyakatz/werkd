@@ -14,7 +14,6 @@ Feature: Projects
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
     And I press "Create"
-    Then I should see "Project was successfully created"
     And I go to the users dashboards page
     And I should see "New Project"
     And I should see "Coca Cola"
@@ -36,7 +35,7 @@ Feature: Projects
     And I fill in "Company" with "Coca Cola"
     And I fill in "Contribution" with "Slacked off, mostly"
     And I press "Create"
-    Then I should see "Slacked off, mostly"
+    Then a project should exist with contribution: "Slacked off, mostly"
 
   Scenario: I should be able to add tags to a project
     When I login as "ilyakatz@gmail.com"
@@ -46,6 +45,8 @@ Feature: Projects
     And I fill in "Company" with "Coca Cola"
     And I fill in "Tags" with "graphic design"
     And I press "Create"
+    Then a project should exist
+    When I go to the project's users page
     Then I should see "graphic design"
 
   Scenario: I should be able to add project date
@@ -57,6 +58,8 @@ Feature: Projects
     And I select "2012" from "project_start_at_1i"
     And I select "May" from "project_start_at_2i"
     And I press "Create"
+    Then a project should exist
+    When I go to the project's users page
     Then I should see "May 01, 2012"
 
   Scenario: I should be able to tag people on a project
@@ -68,5 +71,20 @@ Feature: Projects
     And I fill in "Company" with "Coca Cola"
     And I tag user "coworker" on the project
     And I press "Create"
+    Then a project should exist
+    When I go to the project's users page
     Then I should see "coworker@werkd.com"
 
+  Scenario: I am required to enter a few projects
+    When I login as "ilyakatz@gmail.com"
+    And I go to the users dashboards page
+    And I follow "New Project"
+    And I fill in "Title" with "New Project"
+    And I fill in "Company" with "Coca Cola"
+    And I press "Create"
+    Then I should see "Please add one more project"
+    When I fill in "Title" with "New Project"
+    And I fill in "Company" with "Coca Cola"
+    And I press "Create"
+    Then I should be on the users dashboards page
+    And I should see "Project was successfully created."
