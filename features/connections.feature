@@ -8,8 +8,8 @@ Feature: connections
     And a user exists with email: "ilyakatz@gmail.com", password: "password123"
     And I fill in "Email" with "ilyakatz@gmail.com"
     And I press "Send"
-    And I should see "ilyakatz@gmail.com"
-    And I should see "pending"
+    Then I should be on the users dashboards page
+    And I should see "WeRKD user"
 
   Scenario: I send an invitation to existing user to create a meangful connection
     When I login as "ilya@werkd.net"
@@ -20,6 +20,7 @@ Feature: connections
     And I should see "Invitation to connect has been sent"
 
   Scenario: I accept connection invitation
+    Given a user exists with email: "ilya@werked.net"
     When I login as "ilya@werkd.net"
     And I go to new user invitation page
     And a user exists with email: "ilyakatz@gmail.com", password: "password123"
@@ -29,8 +30,7 @@ Feature: connections
     And I am not signed in
     When I login as "ilyakatz@gmail.com"
     When they follow "Yes" in the email
-    Then I should see "ilya@werkd.net"
-    And I should not see "pending" i c
+    Then I should see "WeRKD user"
 
   Scenario: Do not send a duplicate invitation
     When I login as "ilya@werkd.net"
@@ -46,7 +46,7 @@ Feature: connections
  Scenario: Inviter can see that invitee accepted the invitation
     When I login as "ilya@werkd.net"
     And I go to new user invitation page
-    And a user exists with email: "ilyakatz@gmail.com", password: "password123"
+    And a user exists with email: "ilyakatz@gmail.com", password: "password123", first_name: "Katzo"
     And I fill in "Email" with "ilyakatz@gmail.com"
     And I press "Send"
     Then 1 email should be delivered to ilyakatz@gmail.com
@@ -56,8 +56,7 @@ Feature: connections
     Then I am not signed in
     When I login as "ilya@werkd.net"
     And I go to users connections page
-    Then I should see "ilyakatz@gmail.com"
-    And I should not see "pending"
+    Then I should see "Katzo"
 
  Scenario: Inviter gets an email when invitee accepts invitation
     When I login as "ilya@werkd.net"

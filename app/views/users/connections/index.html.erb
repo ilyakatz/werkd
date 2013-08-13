@@ -7,16 +7,11 @@
   <% @connections.each do |connection| %>
     <tr>
       <td style="text-align:left;">
-        <%= connection.invitee.first_name  %> <%= connection.invitee.last_name  %>
+        <%= connection.invitee.public_name  %>
       </td>
       <td style="text-align:right;">
-        job title
+        <%= connection.invitee.job_title%>
       </td>
-      <!--<td>
-        <% unless connection.accepted? %>
-          pending
-        <%end%>
-      </td>-->
     </tr>
   <% end %>
 </table>

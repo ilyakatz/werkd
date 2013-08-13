@@ -30,6 +30,14 @@ class User < ActiveRecord::Base
     User.where("email like ?", query).select("id, email as name").limit(10)
   end
 
+  def public_name
+    if first_name || last_name
+      [first_name, last_name].compact.join(" ")
+    else
+      "WeRKD user"
+    end
+  end
+
 
   def self.find_for_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info

@@ -20,6 +20,7 @@ class Connection < ActiveRecord::Base
     !!self.accepted_at
   end
 
+
   def accept!
     self.accepted_at = Time.now
     self.save
