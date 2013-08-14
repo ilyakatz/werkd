@@ -1,6 +1,17 @@
-<div class="well">
-  This content is inside partial app/views/users/dashboards/_contacts.html.erb
-  <br/>
-  <%= link_to "Connections", users_connections_path %>
-</div>
+<h4 style="text-align:center; font-weight:bold; color:#808080;">KNOWS</h4>
 
+<div class="text-right"><%= link_to "Invite a friend", new_user_invitation_path %></div>
+<br>
+
+<table class="table table-hover">
+  <% @connections.each do |connection| %>
+    <tr>
+      <td style="text-align:left;">
+        <%= connection.invitee.public_name  %>
+      </td>
+      <td style="text-align:right;">
+        <%= connection.invitee.job_title%>
+      </td>
+    </tr>
+  <% end %>
+</table>

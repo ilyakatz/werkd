@@ -113,6 +113,7 @@ Then /^(?:|I )should see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, select
       page.should have_xpath('//*', text: regexp)
     else
       assert page.has_xpath?('//*', text: regexp)
+ find_pickle_path_using_action_segment_combinations(resources, parts)
     end
   end
 end
