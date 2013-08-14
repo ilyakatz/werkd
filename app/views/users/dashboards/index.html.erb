@@ -19,20 +19,25 @@
       <%=link_to "edit", users_profiles_path%>
     </h4>
 
-    <div class="row-fluid">
+    <div class="row">
+      <div class="span12">
+        <div class="row">
 
-      <div class="grey-box contacts right">
-        <div>
-          <%=render partial: "users/dashboards/contacts"%>
-        </div>
-      </div>
-
-      <div class="grey-box projects">
+      <div class="span8 grey-box">
         <div>
           <%=render template: "users/projects/index"%>
         </div>
       </div>
 
+      <div class="span4 grey-box contacts right">
+        <div>
+          <%=render partial: "users/dashboards/contacts"%>
+        </div>
+      </div>
+
+      </div>
+      </div>  
     </div>
+
   </div>
 </div>
