@@ -1,4 +1,4 @@
-if Rais.env.development? or Rails.env.test?
+if Rails.env.development? or Rails.env.test?
   vendored_cucumber_bin = Dir["#{Rails.root}/vendor/{gems,plugins}/cucumber*/bin/cucumber"].first
   $LOAD_PATH.unshift(File.dirname(vendored_cucumber_bin) + '/../lib') unless vendored_cucumber_bin.nil?
 
