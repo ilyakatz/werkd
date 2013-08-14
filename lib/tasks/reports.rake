@@ -11,20 +11,26 @@ if Rais.env.development? or Rails.env.test?
     end
   end
 
-  namespace :werkd do
-    desc 'generate and open reports'
-    task reports: :environment do
-      output = "/tmp/features.html"
+  task :setup do
+    puts "Setting up"
+    Rails.env="test"
+    Rake::Task['db:migrate'].invoke
+  end
 
-      puts "Removing old reports"
-      `rm #{output}`
+  task internal_reports: :environment do
+    output = "/tmp/features.html"
 
-      puts "Running tests"
-      vendored_cucumber_bin="cucumber"
+    puts "Removing old reports"
+    `rm #{output}`
 
-      `#{vendored_cucumber_bin} --format html --out #{output} --format progress --profile default`
+    puts "Running tests"
+    vendored_cucumber_bin="cucumber"
 
-      `open #{output}`
-    end
+    `#{vendored_cucumber_bin} --format html --out #{output} --format progress --profile default`
+
+    `open #{output}`
+    `rspec spec/* --format html --out report.html`
+
+    `open #{output}`
   end
 end
