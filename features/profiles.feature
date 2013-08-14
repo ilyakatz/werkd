@@ -19,3 +19,6 @@ Feature: User profile
     And I fill in "Job title" with "Developer"
     And I press "Update"
     Then I should see "Developer"
+
+  Scenario: I should be able to dashboard if my profile is complete
+     Given pending

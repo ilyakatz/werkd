@@ -38,6 +38,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def profile_status
+    if projects.count < Project::MINIMUM_PROJECTS_PER_USER
+      :projects
+    else
+      :complete
+    end
+  end
+
 
   def self.find_for_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info

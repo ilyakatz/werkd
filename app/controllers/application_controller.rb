@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   add_breadcrumb :index, :root_path
 
   def after_sign_in_path_for(resource)
-    stored_location_for(resource) || users_dashboards_path
+    stored_location_for(resource) || users_profiles_path
   end
 
 end

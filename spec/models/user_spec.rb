@@ -22,4 +22,24 @@ describe User do
     end
 
   end
+
+  describe "#profile_status" do
+    let(:user){FactoryGirl.build(:user)}
+
+    it "should indicate that user needs to add a project" do
+      user.profile_status.should eq :projects
+    end
+
+    it "should indicate the users profile is complete" do
+      projects = [
+        FactoryGirl.build(:project),
+        FactoryGirl.build(:project),
+        FactoryGirl.build(:project)
+      ]
+      user.stub(:projects).and_return(projects)
+      #user.projects<<3.times { FactoryGirl.create(:project) }
+      user.profile_status.should eq :complete
+    end
+
+  end
 end
