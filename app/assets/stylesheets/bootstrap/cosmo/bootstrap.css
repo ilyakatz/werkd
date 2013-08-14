@@ -266,7 +266,7 @@ a:focus {
 }
 
 .row {
-  margin-left: -20px;
+  margin-left: 0px;
   *zoom: 1;
 }
 
@@ -2896,7 +2896,7 @@ table th[class*="span"],
   width: 0;
   height: 0;
   vertical-align: top;
-  border-top: 4px solid #000000;
+  border-top: 4px solid #808080;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
   content: "";

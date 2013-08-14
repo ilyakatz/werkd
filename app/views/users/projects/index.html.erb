@@ -1,29 +1,31 @@
 <h4 style="text-align:center; font-weight:bold; color:#808080;">WeRKD ON</h4>
 <div class="text-right"><%= link_to 'New Project', new_users_project_path %></div>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Company</th>
-    <th>User</th>
-    <th>Video</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= project.title %></td>
-    <td><%= project.company %></td>
-    <td><%= project.user_id %></td>
-    <td><%= project.video %></td>
-    <td><%= link_to 'Show', [:users, project] %></td>
-    <td><%= link_to 'Edit', edit_users_project_path(project) %></td>
-    <td><%= link_to 'Destroy', [:users, project], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
+<ul class="thumbnails">
+<li>
+  <a href="#"><img class "thumbnail" src="http://placekitten.com/304/171"></a>
+</li>
+<li>
+  <a href="#"><img class "thumbnail" src="http://placekitten.com/304/171"></a>
+</li><li>
+  <a href="#"><img class "thumbnail" src="http://placekitten.com/304/171"></a>
+</li><li>
+  <a href="#"><img class "thumbnail" src="http://placekitten.com/304/171"></a>
+</li><li>
+  <a href="#"><img class "thumbnail" src="http://placekitten.com/304/171"></a>
+</li><li>
+  <a href="#"><img class "thumbnail" src="http://placekitten.com/304/171"></a>
+</li><li>
+  <a href="#"><img class "thumbnail" src="http://placekitten.com/304/171"></a>
+</li><li>
+  <a href="#"><img class "thumbnail" src="http://placekitten.com/304/171"></a>
+</li><li>
+  <a href="#"><img class "thumbnail" src="http://placekitten.com/304/171"></a>
+</li><li>
+  <a href="#"><img class "thumbnail" src="http://placekitten.com/304/171"></a>
+</li><li>
+  <a href="#"><img class "thumbnail" src="http://placekitten.com/304/171"></a>
+</li>
+</ul>
 <br />
 
 

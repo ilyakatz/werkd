@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 h2 {color:#3f3f3f;}
 h3,h4 {color:#808080;}
-h3 {line-height: 18px; font-size: 23px;}
+h3 {line-height: 16px; font-size: 20px;}
 .orange {color:#ff6633;}
 
 /* two column, fluid / fixed */
@@ -43,3 +43,216 @@ h3 {line-height: 18px; font-size: 23px;}
 	  background-color: #eeeeee;
 
 }
+
+/* thumbnails customization */
+
+.thumbnails {
+  margin-left: 0px;
+  list-style: none;
+  *zoom: 1;
+}
+
+.thumbnails:before,
+.thumbnails:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.thumbnails:after {
+  clear: both;
+}
+
+.row-fluid .thumbnails {
+  margin-left: 0;
+}
+
+.thumbnails > li {
+  float: left;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+
+.thumbnail {
+  display: block;
+  padding: 0px;
+  line-height: 0px;
+  border: 0px solid #ddd;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.055);
+     -moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.055);
+          box-shadow: 0 0px 0px rgba(0, 0, 0, 0.055);
+  -webkit-transition: all 0.2s ease-in-out;
+     -moz-transition: all 0.2s ease-in-out;
+       -o-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+}
+
+a.thumbnail:hover,
+a.thumbnail:focus {
+  border-color: #007fff;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+     -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+          box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+
+.thumbnail > img {
+  display: block;
+  max-width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.thumbnail .caption {
+  padding: 9px;
+  color: #bbbbbb;
+}
+
+/* well customization */
+
+.dashboard-max{
+max-width: 980px;
+min-width: 640px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.projects-well {
+  min-width: 310px;
+  max-width: 620px;
+  min-height: 0px;
+  padding: 0px;
+  margin-bottom: 0px;
+  background-color: #eeeeee;
+  border: 0px solid #dcdcdc;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.contacts-well {
+  min-width: 310px;
+  max-width: 310px;
+  min-height: 0px;
+  padding: 0px;
+  margin-bottom: 0px;
+  background-color: #eeeeee;
+  border: 0px solid #dcdcdc;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+/* container customization */
+/*
+.container,
+.navbar-static-top .container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+  width: 1200px;
+}
+
+.span12 {
+  width: 1200px;
+}
+
+.span11 {
+  width: 1100px;
+}
+
+.span10 {
+  width: 1000px;
+}
+
+.span9 {
+  width: 900px;
+}
+
+.span8 {
+  width: 800px;
+}
+
+.span7 {
+  width: 700px;
+}
+
+.span6 {
+  width: 600px;
+}
+
+.span5 {
+  width: 500px;
+}
+
+.span4 {
+  width: 400px;
+}
+
+.span3 {
+  width: 300px;
+}
+
+.span2 {
+  width: 200px;
+}
+
+.span1 {
+  width: 100px;
+}
+
+.offset12 {
+  margin-left: 1240px;
+}
+
+.offset11 {
+  margin-left: 1140px;
+}
+
+.offset10 {
+  margin-left: 1040px;
+}
+
+.offset9 {
+  margin-left: 940px;
+}
+
+.offset8 {
+  margin-left: 840px;
+}
+
+.offset7 {
+  margin-left: 740px;
+}
+
+.offset6 {
+  margin-left: 640px;
+}
+
+.offset5 {
+  margin-left: 540px;
+}
+
+.offset4 {
+  margin-left: 440px;
+}
+
+.offset3 {
+  margin-left: 340px;
+}
+
+.offset2 {
+  margin-left: 240px;
+}
+
+.offset1 {
+  margin-left: 140px;
+}
+
+*/

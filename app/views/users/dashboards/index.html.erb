@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="row-fluid dashboard-max">
   <div class="span12">
     <h2 style="text-align:center;">  <%= current_user.first_name %> <%= current_user.last_name %></h2>
     <h3 class="text-center job-title">
@@ -7,7 +7,6 @@
       <%else%>
         Unknown
       <%end%>
-      <%=link_to "edit", users_profiles_path%>
     </h3>
 
     <h4 class="text-center location">
@@ -16,23 +15,24 @@
       <%else%>
         Unknown
       <%end%>
-      <%=link_to "edit", users_profiles_path%>
     </h4>
 
-    <div class="row-fluid">
+    <div class="container-fluid dashboard-max">
 
-      <div class="grey-box contacts right">
-        <div>
-          <%=render partial: "users/dashboards/contacts"%>
-        </div>
-      </div>
-
-      <div class="grey-box projects">
+      <div class="span8 projects-well">
         <div>
           <%=render template: "users/projects/index"%>
         </div>
       </div>
 
-    </div>
+      <div class="span4 grey-box">
+        <div>
+          <%=render partial: "users/dashboards/contacts"%>
+        </div>
+      </div>
+
+      </div>
+
+
   </div>
 </div>

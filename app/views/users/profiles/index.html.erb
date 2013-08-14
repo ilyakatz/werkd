@@ -2,7 +2,8 @@
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" %>
   <%= javascript_include_tag "profile"%>
 <%end%>
-
+<div class="span4 offset4 ">
+	<h3>Edit your profile</h3><br>
 <%= simple_form_for @user, url: users_profile_path(@user) do |f| %>
   <%=f.input :first_name, required: true %>
   <%=f.input :last_name, required: true%>
@@ -10,4 +11,5 @@
   <%=f.input :location, required: true%>
   <%=f.submit%>
 <%end%>
+</div>
 
