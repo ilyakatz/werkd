@@ -39,7 +39,9 @@ class User < ActiveRecord::Base
   end
 
   def profile_status
-    if projects.count < Project::MINIMUM_PROJECTS_PER_USER
+    if !(first_name.present? && last_name.present? and job_title.present?)
+      :basics
+    elsif projects.count < Project::MINIMUM_PROJECTS_PER_USER
       :projects
     else
       :complete

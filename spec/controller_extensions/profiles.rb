@@ -8,7 +8,7 @@ describe Profiles do
     let(:user){ FactoryGirl.build(:user) }
 
     it "should go to the project page if status indicates projects" do
-      user.stub(:profile_status).and_return(:projects)
+er     user.stub(:profile_status).and_return(:projects)
       profile_completions_paths(user).should eq new_users_project_path
     end
 
