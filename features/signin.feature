@@ -30,4 +30,10 @@ Feature: connections
     And I should be on the new users project page
 
   Scenario: After I signin I should be taken to dashboard page if my profile is compelete
-    And pending
+    Given a user "me" exists with email: "ilyakatz@gmail.com", password: "secret"
+    And user "me" has complete profile
+    When I go to the new user session page
+    And I fill in "Email" with "ilyakatz@gmail.com"
+    And I fill in "Password" with "secret"
+    And I press "Sign in"
+    Then I should be on the users dashboards page
