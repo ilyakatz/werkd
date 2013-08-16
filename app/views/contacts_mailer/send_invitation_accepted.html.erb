@@ -10,7 +10,7 @@
           <p class="body"><span class="bold">Hello <%= @inviter.first_name %>,</span>
           <br><br>
           <span class="bold"><%= @invitee.email %></span> accepted your invitation to join
-          <%=link_to "WeRKD", root_url, style: "text-decoration: none;color: #ff6600;"%>, and you're now connected! <br><br>Take a look at <%=link_to @invitee.email, users_connections_url, style:"text-decoration: none;color: #ff6600;"%>'s profile</a>, say hi, and see if there are projects you have worked together on.
+          <%=link_to "WeRKD", root_url, style: "text-decoration: none;color: #ff6600;"%>, and you're now connected! <br><br>Take a look at <%=link_to @invitee.email, users_dashboards_url, style:"text-decoration: none;color: #ff6600;"%>'s profile</a>, say hi, and see if there are projects you have worked together on.
           <br><br><br>
 
           </p>

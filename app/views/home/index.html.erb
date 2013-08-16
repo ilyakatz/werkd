@@ -1,13 +1,32 @@
-<div class="span8 offset2">
-
+<div class="container">
+<div class="row orange-bg white" >
   <% if current_user %>
     <div class="usertitle">
-      <h2>Hello, <%= current_user.first_name %></h2>
+      <h2 class="white">Hello, <%= current_user.first_name %></h2>
     </div>
   <% end %>
 
-  <div class="well">
-    A new professional networking platform that's more about working and less about schmoozing.
+  <div class="span12">
+  	<div class="row">
+  		<div class="span5 offset1 well height-200 grey">
+  			What are my people up to?<br><br>
+  			(This is where I get updates from my connections)
+  		</div>
+  		<div class="span5 well height-200 grey" >
+  			Gig Flash<br><br>
+  			(Job postings tailored to my skillset come up here)
+  		</div>
+  	</div>
+  	<div class="row-fluid">
+  		<div class="span5 offset1 well height-200 grey ">
+  			Yes or No?<br><br>
+  			(Actions items like connection request and tag request appear here)
+  		</div>
+  		<div class="span5 well height-200 grey">
+  			Talk<br><br>
+  			(Messages from my connections show up in this box)
+  		</div>
+  	</div>
   </div>
-
+</div>
 </div>

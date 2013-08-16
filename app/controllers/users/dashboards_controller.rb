@@ -5,8 +5,7 @@ module Users
 
     def index
     	@projects = current_user.projects
-    	@connections = current_user.connections
-
+    	@connections = current_user.connected_users
     end
 
   end

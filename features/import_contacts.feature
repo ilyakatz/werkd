@@ -17,3 +17,7 @@ Feature: invite contacts
     Then I should see "Invitation to connect has been sent"
     And 1 email should be delivered to ilya@werkd.net
     And the email should contain "connect"
+
+  @javascript
+  Scenario: I want to send to multiple people
+    And pending

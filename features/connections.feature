@@ -1,14 +1,13 @@
-Feature: connections
+  Feature: connections
 
-  #TODO: there is a problem with just showing the first name
-  #when I invite people by email, there is nothing to show
-  Scenario: When I send an invitation it shouold show up as pending
+  Scenario: When I send an invitation it should show up as pending
     When I login as "ilya@werkd.net"
     And I go to new user invitation page
     And a user exists with email: "ilyakatz@gmail.com", password: "password123"
     And I fill in "Email" with "ilyakatz@gmail.com"
     And I press "Send"
-    Then I should be on the users dashboards page
+    Then I should be on the users profiles page
+    And I go to the users dashboards page
     And I should see "WeRKD user"
 
   Scenario: I send an invitation to existing user to create a meangful connection
@@ -55,7 +54,7 @@ Feature: connections
     When they follow "Yes" in the email
     Then I am not signed in
     When I login as "ilya@werkd.net"
-    And I go to users connections page
+    And I go to the users dashboards page
     Then I should see "Katzo"
 
  Scenario: Inviter gets an email when invitee accepts invitation

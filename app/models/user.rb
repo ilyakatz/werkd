@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable##, :validatable
 
   devise :invitable, :omniauthable, :omniauth_providers => [:google_oauth2,
     :facebook, :linkedin_oauth2]
@@ -17,12 +17,18 @@ class User < ActiveRecord::Base
   has_many :authentications
   has_many :projects
 
-  has_many :contacts, through: :connections
-
   acts_as_tagger
 
   def connections
-    Connection.where("user_id = ? or connected_to = ? ", self.id, self.id)
+    Connection.where("user_id = ? or connected_to =?", self.id, self.id)
+  end
+
+  def connected_users
+    #connection where I initiated the request
+    users = Connection.where("user_id = ?", self.id).collect(&:invitee)
+
+    #connection where someone else sent request
+    users + Connection.where("connected_to = ?", self.id).collect(&:inviter)
   end
 
   def self.token(q)
@@ -35,6 +41,18 @@ class User < ActiveRecord::Base
       [first_name, last_name].compact.join(" ")
     else
       "WeRKD user"
+    end
+  end
+
+  def profile_status
+    if !(first_name.present? && last_name.present? and job_title.present?)
+      :basics
+    elsif !invited_contacts?
+      :contacts
+    elsif projects.count < Project::MINIMUM_PROJECTS_PER_USER
+      :projects
+    else
+      :complete
     end
   end
 

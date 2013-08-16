@@ -18,6 +18,8 @@ module NavigationHelpers
       "/users/omnicontacts/gmail"
     when /users connections page/
       users_connections_path
+    when /registrations page/
+      new_user_registration_path
 
 
     # the following are examples using path_to_pickle
