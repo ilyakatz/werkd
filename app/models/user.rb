@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable##, :validatable
 
   devise :invitable, :omniauthable, :omniauth_providers => [:google_oauth2,
     :facebook, :linkedin_oauth2]
@@ -35,6 +35,18 @@ class User < ActiveRecord::Base
       [first_name, last_name].compact.join(" ")
     else
       "WeRKD user"
+    end
+  end
+
+  def profile_status
+    if !(first_name.present? && last_name.present? and job_title.present?)
+      :basics
+    elsif !invited_contacts?
+      :contacts
+    elsif projects.count < Project::MINIMUM_PROJECTS_PER_USER
+      :projects
+    else
+      :complete
     end
   end
 
