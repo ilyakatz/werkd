@@ -1,4 +1,4 @@
-Feature: connections
+  Feature: connections
 
   Scenario: When I send an invitation it should show up as pending
     When I login as "ilya@werkd.net"

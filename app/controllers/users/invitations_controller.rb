@@ -33,7 +33,7 @@ module Users
     private
 
     def after_accept_actions(user)
-      connection = Connection.create_pending_connections(user, user.invited_by)
+      connection = Connection.create_pending_connections(user.invited_by, user)
       connection.accept!
       ContactsMailer.send_invitation_accepted(user).deliver!
       WelcomeMailer.send_welcome_email(user).deliver!
