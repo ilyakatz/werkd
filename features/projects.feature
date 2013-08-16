@@ -16,7 +16,6 @@ Feature: Projects
     And I press "Create"
     And I go to the users dashboards page
     And I should see "New Project"
-    And I should see "Coca Cola"
 
   Scenario: I should be able to edit a project
     Given a user "me" exists with email: "ilyakatz@gmail.com"
