@@ -1,3 +1,5 @@
+//= require project
+
 h2 {color:#3f3f3f;}
 h3,h4 {color:#808080;}
 h3 {line-height: 16px; font-size: 20px;}
@@ -39,72 +41,6 @@ h3 {line-height: 16px; font-size: 20px;}
 .grey-box {
 	  background-color: #eeeeee;
 
-}
-
-/* thumbnails customization */
-
-.thumbnails {
-  margin-left: 0px;
-  list-style: none;
-  *zoom: 1;
-}
-
-.thumbnails:before,
-.thumbnails:after {
-  display: table;
-  line-height: 0;
-  content: "";
-}
-
-.thumbnails:after {
-  clear: both;
-}
-
-.row-fluid .thumbnails {
-  margin-left: 0;
-}
-
-.thumbnails > li {
-  float: left;
-  margin-bottom: 0px;
-  margin-left: 0px;
-}
-
-.thumbnail {
-  display: block;
-  padding: 0px;
-  line-height: 0px;
-  border: 0px solid #ddd;
-  -webkit-border-radius: 0;
-     -moz-border-radius: 0;
-          border-radius: 0;
-  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.055);
-     -moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.055);
-          box-shadow: 0 0px 0px rgba(0, 0, 0, 0.055);
-  -webkit-transition: all 0.2s ease-in-out;
-     -moz-transition: all 0.2s ease-in-out;
-       -o-transition: all 0.2s ease-in-out;
-          transition: all 0.2s ease-in-out;
-}
-
-a.thumbnail:hover,
-a.thumbnail:focus {
-  border-color: #007fff;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
-     -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
-          box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
-}
-
-.thumbnail > img {
-  display: block;
-  max-width: 100%;
-  margin-right: 0;
-  margin-left: 0;
-}
-
-.thumbnail .caption {
-  padding: 9px;
-  color: #bbbbbb;
 }
 
 /* well customization */
