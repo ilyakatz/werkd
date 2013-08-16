@@ -17,7 +17,6 @@ Feature: Invitations
     And I press "Update"
     And I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
-    And I follow "Edit Profile"
     Then I should see "katzmopolitan"
 
   Scenario: Inviter gets a notification that invitee accepted invitation

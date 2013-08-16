@@ -54,7 +54,7 @@
     When they follow "Yes" in the email
     Then I am not signed in
     When I login as "ilya@werkd.net"
-    And I go to users connections page
+    And I go to the users dashboards page
     Then I should see "Katzo"
 
  Scenario: Inviter gets an email when invitee accepts invitation

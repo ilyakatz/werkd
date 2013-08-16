@@ -17,12 +17,18 @@ class User < ActiveRecord::Base
   has_many :authentications
   has_many :projects
 
-  has_many :contacts, through: :connections
-
   acts_as_tagger
 
   def connections
-    Connection.where("user_id = ? or connected_to = ? ", self.id, self.id)
+    Connection.where("user_id = ? or connected_to =?", self.id, self.id)
+  end
+
+  def connected_users
+    #connection where I initiated the request
+    users = Connection.where("user_id = ?", self.id).collect(&:invitee)
+
+    #connection where someone else sent request
+    users + Connection.where("connected_to = ?", self.id).collect(&:inviter)
   end
 
   def self.token(q)
