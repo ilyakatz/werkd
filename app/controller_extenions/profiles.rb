@@ -5,6 +5,8 @@ module Profiles
       users_profiles_path
     elsif user.profile_status == :projects
       new_users_project_path
+    elsif user.profile_status == :contacts
+      users_omnicontacts_path
     else
       users_dashboards_path
     end

@@ -33,10 +33,19 @@ describe User do
       user.last_name="present"
       user.profile_status.should eq :basics
     end
+
+    it "shouold indicate that user needs to invite contacts" do
+      user.first_name="present"
+      user.last_name="present"
+      user.job_title="present"
+      user.profile_status.should eq :contacts
+    end
+
     it "should indicate that user needs to add a project" do
       user.first_name="present"
       user.last_name="present"
       user.job_title="present"
+      user.stub(:invited_contacts?).and_return(true)
       user.profile_status.should eq :projects
     end
 
@@ -50,7 +59,7 @@ describe User do
         FactoryGirl.build(:project)
       ]
       user.stub(:projects).and_return(projects)
-      #user.projects<<3.times { FactoryGirl.create(:project) }
+      user.stub(:invited_contacts?).and_return(true)
       user.profile_status.should eq :complete
     end
 

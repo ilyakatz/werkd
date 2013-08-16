@@ -22,7 +22,9 @@ module Users
 
     def after_profile_update
       if current_user.profile_status == :projects
-        redirect_to new_users_project_path, notice: "Please add a project you worked on in the past"
+        redirect_to new_users_project_path
+      elsif current_user.profile_status == :contacts
+        redirect_to users_omnicontacts_path
       else
         redirect_to users_dashboards_path, notice: 'Profile was successfully updated.'
       end
