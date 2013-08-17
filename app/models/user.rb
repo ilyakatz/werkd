@@ -44,6 +44,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  #this is the name used in personal communication with the user
+  #it doesn't make sense to refer to them as WeRKD user if we send them an email
+  def communication_name
+    if first_name || last_name
+      [first_name, last_name].compact.join(" ")
+    else
+      ""
+    end
+  end
+
   def profile_status
     if !(first_name.present? && last_name.present? and job_title.present?)
       :basics
