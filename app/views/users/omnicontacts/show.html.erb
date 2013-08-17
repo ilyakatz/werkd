@@ -2,44 +2,14 @@
   <h3>You have <%= @contacts.count %> contacts from <b><%= @importer %></b> Let's see who you want to invite.</h3>
 </div>
 
-
 <div class="span12">
   <table class="table">
     <tbody>
-
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td>
-          <% if contact[:existing_id] %>
-            <%= link_to "Connect",
-                  user_invitation_path(
-                        user: { email: contact[:email] },
-                        format: :json
-                  ),
-                  remote: true,
-                  data: { method: :post } %>
-          <% else %>
-            <%= link_to "Invite",
-                  user_invitation_path(
-                        user: { email: contact[:email] },
-                        format: :json
-                  ),
-                  remote: true,
-                  data: { method: :post }
-            %>
-          <% end %>
-        </td>
-        <td class="hidden-phone">
-          <%= contact[:first_name] %>
-        </td>
-        <td class="hidden-phone">
-          <%= contact[:last_name] %>
-        </td>
-        <td>
-          <%= contact[:email] %>
-        </td>
-      </tr>
-    <% end %>
+      <% @contacts.each_with_index do |contact, index| %>
+        <%=render partial: "done" if index%10 == 0%>
+        <%=render partial: "contact", locals: {contact: contact}%>
+      <% end %>
     </tbody>
   </table>
+  <%=render partial: "done"%>
 </div>

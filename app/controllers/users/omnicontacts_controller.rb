@@ -1,7 +1,5 @@
 module Users
-  class OmnicontactsController < ApplicationController
-
-    before_filter :authenticate_user!
+  class OmnicontactsController < Users::UsersController
 
     def callback
       Rails.logger.info("Storing contacts into #{cachekey}")
@@ -16,6 +14,7 @@ module Users
       Rails.logger.info("Reading contacts from #{cachekey}")
       @importer = params[:id]
       @contacts = mark_existing(load_and_persist)
+      @done_link = profile_completions_paths(current_user)
 
       unless @contacts.present?
         redirect_to action: :index
