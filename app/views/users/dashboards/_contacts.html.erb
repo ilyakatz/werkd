@@ -7,7 +7,7 @@
   <% @connections.each do |connection| %>
     <tr>
       <td style="text-align:left;">
-        <%= connection.public_name  %>
+        <%=link_to connection.public_name, user_path(connection)  %>
       </td>
       <td style="text-align:right;">
         <%= connection.job_title%>

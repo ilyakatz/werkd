@@ -115,7 +115,7 @@ class User < ActiveRecord::Base
 
   #create a meaningful professional connection
   def connect_to!(user)
-    self.contacts << user
+    Connection.create_pending_connections(self, user)
   end
 
 end
