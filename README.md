@@ -12,6 +12,10 @@ https://www.codeship.io/projects/4271
 
     `gem install spring`
 
+1. Install phontom.js (for JS testing)
+
+    `brew install phantomjs`
+
 1. Run tests
 
     `spring cucumber features`

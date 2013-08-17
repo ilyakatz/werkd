@@ -7,4 +7,3 @@ Given(/^#{capture_model} has complete profile$/) do |u|
   user.save
   user.projects<<3.times.collect{FactoryGirl.create(:project)}
 end
-

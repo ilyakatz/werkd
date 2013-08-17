@@ -1,22 +1,7 @@
 <div class="row-fluid dashboard-max">
   <div class="span12">
-    <h2 style="text-align:center;">  <%= current_user.first_name %> <%= current_user.last_name %></h2>
-    <h3 class="text-center job-title">
-      <% if current_user.job_title%>
-        <%=current_user.job_title%>
-      <%else%>
-        Unknown
-      <%end%>
-    </h3>
 
-    <h4 class="text-center location">
-      <% if current_user.location%>
-        <%=current_user.location%>
-      <%else%>
-        Unknown
-      <%end%>
-    </h4>
-
+    <%= render partial: "users/dashboards/personal_info", locals: { user: @user } %>
     <div class="container-fluid dashboard-max">
 
       <div class="span8 projects-well">

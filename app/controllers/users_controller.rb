@@ -12,5 +12,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    @projects = @user.projects
+    @connections = @user.connected_users
+    render template: "users/dashboards/index"
+  end
+
 end
 

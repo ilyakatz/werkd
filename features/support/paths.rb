@@ -12,18 +12,20 @@ module NavigationHelpers
       '/'
 
       # custom
+      new_user_invitation_path
     when /new user invitation page/
       new_user_invitation_path
     when /import google contacts page/
       "/users/omnicontacts/gmail"
     when /users connections page/
       users_connections_path
+    when /users dashboards page/
+      return users_dashboards_path
     when /registrations page/
       new_user_registration_path
 
 
     # the following are examples using path_to_pickle
-
     when /^#{capture_model}(?:'s)? page$/                           # eg. the forum's page
       path_to_pickle $1
 

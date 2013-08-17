@@ -10,7 +10,6 @@ WeRKD::Application.routes.draw do
     }
 
   resources :tags, only: [:index]
-  resources :users, only: [:index]
   match "/contacts/:importer/callback" => "users/omnicontacts#callback"
   namespace :users do
     resources :omnicontacts, only: [ :index, :show]
@@ -21,6 +20,7 @@ WeRKD::Application.routes.draw do
     end
     resources :projects
   end
+  resources :users, only: [:index, :show]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

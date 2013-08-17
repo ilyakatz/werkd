@@ -1,11 +1,10 @@
 module Users
-  class DashboardsController < ApplicationController
-
-    before_filter :authenticate_user!
+  class DashboardsController < UsersController
 
     def index
-    	@projects = current_user.projects
-    	@connections = current_user.connected_users
+      @user = current_user
+      @projects = current_user.projects
+      @connections = current_user.connected_users
     end
 
   end
