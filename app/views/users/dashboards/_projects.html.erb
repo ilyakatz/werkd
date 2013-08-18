@@ -9,7 +9,8 @@
       <%=project.title%>
     </label>
     <%=link_to project_path(project) do %>
-      <%=image_tag "kitten.jpg",
+      <%= render "projects/preview", project: project%>
+      <%image_tag "kitten.jpg",
         alt: project.title,
         size:"304x171",
         class: "thumbnail"%>

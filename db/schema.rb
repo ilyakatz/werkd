@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130816003351) do
+ActiveRecord::Schema.define(:version => 20130818152231) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130816003351) do
     t.string   "embed_url"
     t.string   "contribution"
     t.date     "start_at"
+    t.string   "embed_html"
   end
 
   create_table "taggings", :force => true do |t|
