@@ -1,10 +1,6 @@
 module Users
   class ProjectsController < Users::UsersController
 
-    def show
-      @project = current_user.projects.find(params[:id])
-    end
-
     def new
       @project = Project.new
       @project.creator = current_user
@@ -33,7 +29,7 @@ module Users
       @project = current_user.projects.find(params[:id])
 
       if @project.update_attributes(project_params)
-        redirect_to [:users, @project], notice: 'Project was successfully updated.'
+        redirect_to @project, notice: 'Project was successfully updated.'
       else
         render action: "edit"
       end

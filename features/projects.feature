@@ -46,7 +46,7 @@ Feature: Projects
     And I fill in "Tags" with "graphic design"
     And I press "Create"
     Then a project should exist
-    When I go to the project's users page
+    When I go to the project's page
     Then I should see "graphic design"
 
   Scenario: I should be able to add project date
@@ -59,7 +59,7 @@ Feature: Projects
     And I select "May" from "project_start_at_2i"
     And I press "Create"
     Then a project should exist
-    When I go to the project's users page
+    When I go to the project's page
     Then I should see "May 01, 2012"
 
   Scenario: I should be able to tag people on a project
@@ -72,7 +72,7 @@ Feature: Projects
     And I tag user "coworker" on the project
     And I press "Create"
     Then a project should exist
-    When I go to the project's users page
+    When I go to the project's page
     Then I should see "coworker@werkd.com"
 
   Scenario: I am required to enter a few projects
@@ -92,3 +92,13 @@ Feature: Projects
     And I press "Create"
     Then I should be on the users dashboards page
     And I should see "Project was successfully created."
+
+  Scenario: A visitor should be able to view a project
+    Given a project exists with title: "Cool project", company: "Coca Kola"
+    When I go to the project's page
+    Then I should see "Cool project"
+
+  Scenario: A visitor should not be able to see edit link for a project
+    Given a project exists with title: "Cool project", company: "Coca Kola"
+    When I go to the project's page
+    Then I should not see "Edit"

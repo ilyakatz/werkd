@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
   acts_as_taggable_on :roles
   validates_presence_of :title, :company
 
-  after_save :extract_embed
+  before_save :extract_embed
 
   def preview_available?
     !!embed_url
@@ -59,14 +59,18 @@ class Project < ActiveRecord::Base
   end
 
   def extract_embed
-    if media_url_changed?
-      extract_embed_url(media_url)
-    end
+    #if media_url_changed?
+    extract_embed_url(media_url)
+    #end
   end
 
   def extract_embed_url(media_url)
     embed = @@embedly_api.oembed(url: media_url)
-    self.embed_url = embed.first.html
+    if embed.first.try(:html)
+      self.embed_url = embed.first.html
+    elsif embed.first.try(:url)
+      self.embed_url = embed.first.url
+    end
   rescue
     Rails.logger.info("Unable to extract oembed from #{media_url}")
     nil

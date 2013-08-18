@@ -1,0 +1,52 @@
+<p>
+<b>Title:</b>
+<%= @project.title %>
+</p>
+
+<p>
+<b>Company:</b>
+<%= @project.company %>
+</p>
+
+<% if @project.contribution.present? %>
+  <p>
+  <b>Contribution:</b>
+  <%= @project.contribution %>
+  </p>
+<% end %>
+
+TODO: this can be an image or video
+<% if @project.preview_available? %>
+  <p>
+  <b>Video:</b>
+  <%= @project.embed_url.html_safe %>
+  </p>
+<% end %>
+
+<% if @project.tags.any? %>
+  <p><b>Tags:</b></p>
+  <ul>
+    <%@project.tags.each do |t|%>
+      <li><%=t.name%></li>
+    <%end%>
+  </ul>
+<%end%>
+
+<% if @project.start_at %>
+  <p><b>Starting</b>
+  <%=l @project.start_at, format: :long%>
+  </p>
+<%end%>
+
+<% if @project.tagged_user_ids %>
+  <p><b>Collaborators</b></p>
+  <ul>
+    <%@project.tagged_users.each do |u|%>
+      <li><%=u.email%></li>
+    <%end%>
+  </ul>
+<%end%>
+
+<% if current_user && @project.creator == current_user %>
+  <%= link_to 'Edit', edit_users_project_path(@project) %>
+<%end%>

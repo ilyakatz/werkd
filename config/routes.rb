@@ -17,9 +17,10 @@ WeRKD::Application.routes.draw do
     resources :connections, only: [:index] do
       get "accept"
     end
-    resources :projects, only: [:new, :show, :create, :update, :edit]
+    resources :projects, only: [:new, :create, :update, :edit]
   end
   resources :users, only: [:index, :show]
+  resources :projects, only: [:show]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
