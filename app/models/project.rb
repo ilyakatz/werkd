@@ -61,9 +61,9 @@ class Project < ActiveRecord::Base
   end
 
   def extract_embed
-    #if media_url_changed?
-    extract_embed_url(media_url)
-    #end
+    if media_url_changed?
+      extract_embed_url(media_url)
+    end
   end
 
   def extract_embed_url(media_url)

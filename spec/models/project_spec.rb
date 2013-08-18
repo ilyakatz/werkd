@@ -6,9 +6,11 @@ describe Project do
     it "should extract embed url when media url changes" do
       p = FactoryGirl.build(:project, media_url: "http://www.youtube.com/watch?v=obuV1KrvEYo")
       p.save
-      p.embed_url.should =~ /iframe/
+      p.embed_html.should =~ /iframe/
+    end
 
-
+    it "shouold extract image" do
+      pending
     end
 
   end

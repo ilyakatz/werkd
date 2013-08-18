@@ -1,13 +1,9 @@
-<% if project.preview_available? %>
-  <p>
-  <%if project.embed_html%>
-    <%= project.embed_html.html_safe %>
-  <%elsif project.embed_url%>
-    <%=image_tag @project.embed_url, alt: "#{project.title} preview",
-      class: "thumbnail",
-        width: Project::PREVIEW_MAX_WIDTH,
-        height: Project::PREVIEW_MAX_HEIGHT %>
-      <%end%>
-      </p>
-    <% end %>
-
+<p>
+<%if project.embed_html.present?%>
+  <%= project.embed_html.html_safe %>
+<%elsif project.embed_url.present?%>
+  <%=image_tag project.embed_url, alt: "#{project.title} preview", class: "thumbnail", width: Project::PREVIEW_MAX_WIDTH, height: Project::PREVIEW_MAX_HEIGHT %>
+<%else%>
+  <%=image_tag "werkd.png", alt: "#{project.title} preview", class: "thumbnail", width: Project::PREVIEW_MAX_WIDTH, height: Project::PREVIEW_MAX_HEIGHT %>
+<%end%>
+</p>
