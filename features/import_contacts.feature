@@ -34,6 +34,6 @@ Feature: invite contacts
     When I follow the first "Done"
     Then I should be on the users dashboards page
 
-  @javascript
+  @javascript @wip
   Scenario: I want to send to multiple people
     And pending

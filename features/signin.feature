@@ -1,4 +1,7 @@
-Feature: connections
+Feature: Signing up and signin in
+ In order to have a system with permissions
+ As a Werkd user
+ I want to be able to sign up and sign in to WeRKD
 
   Scenario: I should be able to log out
     When I login as "ilya@werkd.net"
@@ -42,5 +45,6 @@ Feature: connections
     And I press "Sign in"
     Then I should be on the users dashboards page
 
+  @wip
   Scenario: After I signup with facebook I should be taken to the profiles page
     And pending

@@ -57,6 +57,3 @@ Feature: Invitations
     Then 1 email should be delivered to ilyakatz@gmail.com
     And email should contain "Thanks again for being one of the first"
 
-  @javascript
-  Scenario: I should be able to invite multiple people from the contacts page
-    And pending
