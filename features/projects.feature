@@ -22,6 +22,7 @@ Feature: Projects
     And a project "project" exists with creator: user "me", title: "Cool project"
     And I login as "ilyakatz@gmail.com"
     When I go to the users dashboards page
+    And I follow "Cool project"
     And I follow "Edit"
     And I fill in "Title" with "New cool project"
     And I press "Update"
