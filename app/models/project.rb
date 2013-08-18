@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
 
   MINIMUM_PROJECTS_PER_USER = 3
+  PREVIEW_MAX_WIDTH = 304
+  PREVIEW_MAX_HEIGHT = 171
 
   belongs_to :creator, class_name: "User", foreign_key: :user_id
   has_many :collaborations
@@ -14,7 +16,7 @@ class Project < ActiveRecord::Base
   before_save :extract_embed
 
   def preview_available?
-    !!embed_url
+    !!embed_url || !!embed_html
   end
 
   def tagged_users=(users)
@@ -65,9 +67,11 @@ class Project < ActiveRecord::Base
   end
 
   def extract_embed_url(media_url)
-    embed = @@embedly_api.oembed(url: media_url)
+    embed = @@embedly_api.oembed(url: media_url,
+                                 maxheight: PREVIEW_MAX_HEIGHT,
+                                 maxwidth: PREVIEW_MAX_WIDTH)
     if embed.first.try(:html)
-      self.embed_url = embed.first.html
+      self.embed_html = embed.first.html
     elsif embed.first.try(:url)
       self.embed_url = embed.first.url
     end

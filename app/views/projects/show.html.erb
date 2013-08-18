@@ -15,13 +15,7 @@
   </p>
 <% end %>
 
-TODO: this can be an image or video
-<% if @project.preview_available? %>
-  <p>
-  <b>Video:</b>
-  <%= @project.embed_url.html_safe %>
-  </p>
-<% end %>
+<%= render "preview", project: @project%>
 
 <% if @project.tags.any? %>
   <p><b>Tags:</b></p>
