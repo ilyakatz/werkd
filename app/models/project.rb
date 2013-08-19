@@ -62,6 +62,7 @@ class Project < ActiveRecord::Base
 
   def extract_embed
     if media_url_changed?
+      Rails.logger.info("Extracting media url #{media_url}")
       extract_embed_url(media_url)
     end
   end
