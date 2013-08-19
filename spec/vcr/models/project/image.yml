@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.embed.ly/1/oembed?urls=http%3A%2F%2Fwww.whitegadget.com%2Fattachments%2Fpc-wallpapers%2F14134d1219229281-sports-bikes-wallpaper-bikes-wallpaper1.jpg&key=6302cfbf429e4309b6235dbee0c051a1&maxheight=171&maxwidth=304
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; werkd/1.0; my@email.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 19 Aug 2013 13:31:34 GMT
+      Connection:
+      - keep-alive
+      X-Embedly-From-Cache:
+      - '0'
+      Access-Control-Max-Age:
+      - '86400'
+      Server:
+      - TornadoServer/2.1
+      Etag:
+      - '"bf41d57dd77b89d937bd57ed73de7d309cf93684"'
+      X-Embedly-Process-Time:
+      - '47'
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      X-Embedly-Host:
+      - api24
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '268'
+    body:
+      encoding: UTF-8
+      string: '[{"provider_url": "http://www.whitegadget.com", "height": 600, "width":
+        800, "version": "1.0", "url": "http://www.whitegadget.com/attachments/pc-wallpapers/14134d1219229281-sports-bikes-wallpaper-bikes-wallpaper1.jpg",
+        "provider_name": "Whitegadget", "type": "photo"}]'
+    http_version: '1.1'
+  recorded_at: Mon, 19 Aug 2013 13:31:35 GMT
+recorded_with: VCR 2.5.0

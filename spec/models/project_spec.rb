@@ -3,14 +3,23 @@ require 'spec_helper'
 describe Project do
   describe "#extract_embed" do
 
-    it "should extract embed url when media url changes" do
-      p = FactoryGirl.build(:project, media_url: "http://www.youtube.com/watch?v=obuV1KrvEYo")
-      p.save
-      p.embed_html.should =~ /iframe/
+    it "should extract embed url when media url changes"  do
+      VCR.use_cassette("models/project") do
+        p = FactoryGirl.build(:project, media_url: "http://www.youtube.com/watch?v=obuV1KrvEYo")
+        p.save
+        p.embed_html.should =~ /iframe/
+          p.thumbnail_url.should eq "http://i1.ytimg.com/vi/obuV1KrvEYo/hqdefault.jpg"
+      end
     end
 
     it "shouold extract image" do
-      pending
+      VCR.use_cassette("models/project/image") do
+        p = FactoryGirl.build(:project,
+                              media_url: "http://www.whitegadget.com/attachments/pc-wallpapers/14134d1219229281-sports-bikes-wallpaper-bikes-wallpaper1.jpg")
+        p.save
+        p.embed_html.should be_nil
+        p.thumbnail_url.should eq "http://www.whitegadget.com/attachments/pc-wallpapers/14134d1219229281-sports-bikes-wallpaper-bikes-wallpaper1.jpg"
+      end
     end
 
   end

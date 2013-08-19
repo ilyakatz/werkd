@@ -71,13 +71,14 @@ class Project < ActiveRecord::Base
                                  maxheight: PREVIEW_MAX_HEIGHT,
                                  maxwidth: PREVIEW_MAX_WIDTH)
     if embed.first.try(:html)
-      self.embed_html = embed.first.html
+      self.embed_html   = embed.first.html
+      self.thumbnail_url= embed.first.thumbnail_url
     elsif embed.first.try(:url)
-      self.embed_url = embed.first.url
+      self.thumbnail_url=embed.first.url
     end
-  rescue
-    Rails.logger.info("Unable to extract oembed from #{media_url}")
-    nil
+    #rescue
+    #  Rails.logger.info("Unable to extract oembed from #{media_url}")
+    #  nil
   end
 
 end

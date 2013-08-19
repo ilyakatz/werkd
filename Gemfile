@@ -88,4 +88,5 @@ group :development, :test do
   gem "pry"
   gem "pry-debugger"
   gem 'email_preview'
+  gem 'vcr'
 end

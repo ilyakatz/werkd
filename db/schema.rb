@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130818152231) do
+ActiveRecord::Schema.define(:version => 20130819125451) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -67,13 +67,13 @@ ActiveRecord::Schema.define(:version => 20130818152231) do
     t.string   "company"
     t.integer  "user_id"
     t.string   "video"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "media_url"
-    t.string   "embed_url"
     t.string   "contribution"
     t.date     "start_at"
     t.string   "embed_html"
+    t.string   "thumbnail_url"
   end
 
   create_table "taggings", :force => true do |t|

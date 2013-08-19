@@ -1,8 +1,8 @@
 <p>
-<%if project.embed_html.present?%>
+<%if project.embed_html.present? && local_assigns[:show_video] %>
   <%= project.embed_html.html_safe %>
-<%elsif project.embed_url.present?%>
-  <%=image_tag project.embed_url, alt: "#{project.title} preview", class: "thumbnail", width: Project::PREVIEW_MAX_WIDTH, height: Project::PREVIEW_MAX_HEIGHT %>
+<%elsif project.thumbnail_url.present?%>
+  <%=image_tag project.thumbnail_url, alt: "#{project.title} preview", class: "thumbnail", width: Project::PREVIEW_MAX_WIDTH, height: Project::PREVIEW_MAX_HEIGHT %>
 <%else%>
   <%=image_tag "werkd.png", alt: "#{project.title} preview", class: "thumbnail", width: Project::PREVIEW_MAX_WIDTH, height: Project::PREVIEW_MAX_HEIGHT %>
 <%end%>
