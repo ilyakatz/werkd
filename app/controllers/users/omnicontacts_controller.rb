@@ -8,9 +8,11 @@ module Users
     end
 
     def index
+      current_user.set_invited_contacts
     end
 
     def show
+      current_user.set_invited_contacts
       Rails.logger.info("Reading contacts from #{cachekey}")
       @importer = params[:id]
       @contacts = mark_existing(load_and_persist)

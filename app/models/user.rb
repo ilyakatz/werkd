@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def set_invited_contacts
+    update_attribute(:invited_contacts, Time.now) unless invited_contacts?
+  end
+
   #this is the name used in personal communication with the user
   #it doesn't make sense to refer to them as WeRKD user if we send them an email
   def communication_name

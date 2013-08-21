@@ -9,7 +9,6 @@ Feature: Signing up and signin in
     And I follow "Sign out"
     Then I should see "Signed out successfully"
 
-
   Scenario: I should be able to sign up
     When I go to the root page
     And I follow "Join now"
@@ -31,10 +30,20 @@ Feature: Signing up and signin in
     And I should be on the users omnicontacts page
 
   Scenario: After I sign in with completed profile I should be taken to the contacts page
-    Given a user exists with email: "ilyakatz@gmail.com", password: "secret", first_name: "ilya", last_name: "katz", job_title: "none"
+    Given a user "me" exists with email: "ilyakatz@gmail.com"
+    And user "me" has basic profile
     When I login as "ilyakatz@gmail.com"
     When I go to the new user session page
     Then I should be on the users omnicontacts page
+    And user "me" should be marked as having invited contacts
+
+  Scenario: After sign in, completing profile and contacts I should be taken to add projects_controller
+    Given a user "me" exists with email: "ilyakatz@gmail.com"
+    And user "me" has basic profile
+    And user "me" invited_contacts
+    When I login as "ilyakatz@gmail.com"
+    When I go to the new user session page
+    Then I should be on the new users project page
 
   Scenario: After I signin I should be taken to dashboard page if my profile is compelete
     Given a user "me" exists with email: "ilyakatz@gmail.com", password: "secret"
