@@ -64,4 +64,17 @@ describe User do
     end
 
   end
+
+  describe "#token" do
+    let(:u1){create(:user, email: "ilyak@gmail.com")}
+    let(:u2){create(:user, email: "will@gmail.com")}
+    let(:u3){create(:user, email: "ilyas@gmail.com")}
+
+    it "should find user by email" do
+      res = User.token("ilya")
+      res.should include(u1)
+      res.should include(u3)
+      res.count.should eq 2
+    end
+  end
 end
