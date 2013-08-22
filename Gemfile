@@ -55,6 +55,7 @@ group :test, :development do
 end
 
 group :test do
+  gem 'faker'
   gem 'rspec-rails', '~> 2'
   gem 'factory_girl', '~> 3'
   gem 'factory_girl_rails'
@@ -64,6 +65,7 @@ group :test do
   gem 'pickle'
   gem 'launchy'
   gem 'rspec-mocks'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -83,6 +85,12 @@ end
 group :development, :test do
   gem "hirb"
   gem "hpricot"
+  
+  # Jasmin JS testing:
+  gem 'guard-jasmine'
+  gem 'jasmine'
+  gem 'jasminerice'
+  gem 'jasmine-headless-webkit'
 
   #debugging
   gem "pry"
