@@ -31,6 +31,18 @@ class Project < ActiveRecord::Base
     tag_users(users)
   end
 
+  #return string with ids
+  def tagged_user_ids
+    taggings.where(context: participant_role).
+      where(tagger_type: User).collect(&:tagger_id)
+  end
+
+  def tagged_users
+    User.where(id: tagged_user_ids)
+  end
+
+  private
+
   def user_ids_from_string(users_ids)
     users_ids = users_ids.split(",")
     #go through each element and if it's an email
@@ -46,17 +58,6 @@ class Project < ActiveRecord::Base
     end
     ids
   end
-  #return string with ids
-  def tagged_user_ids
-    taggings.where(context: participant_role).
-      where(tagger_type: User).collect(&:tagger_id)
-  end
-
-  def tagged_users
-    User.where(id: tagged_user_ids)
-  end
-
-  private
 
   def tag_users(users)
     clear_current_tags
