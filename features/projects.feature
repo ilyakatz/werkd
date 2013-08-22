@@ -63,7 +63,7 @@ Feature: Projects
     Then I should see "May 01, 2012"
 
   Scenario: I should be able to tag people on a project
-    And a user "coworker" exists with email: "coworker@werkd.com"
+    And a user "coworker" exists with email: "coworker@werkd.com", first_name: "Worker"
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
     And I follow "New Project"
@@ -73,7 +73,8 @@ Feature: Projects
     And I press "Create"
     Then a project should exist
     When I go to the project's page
-    Then I should see "coworker@werkd.com"
+    Then I should see "Worker"
+
 
   Scenario: I am required to enter a few projects
     When I login as "ilyakatz@gmail.com"

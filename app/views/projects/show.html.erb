@@ -36,7 +36,7 @@
   <p><b>Collaborators</b></p>
   <ul>
     <%@project.tagged_users.each do |u|%>
-      <li><%=u.email%></li>
+      <li><%=u.public_name%></li>
     <%end%>
   </ul>
 <%end%>
