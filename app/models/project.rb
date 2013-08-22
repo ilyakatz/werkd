@@ -39,7 +39,7 @@ class Project < ActiveRecord::Base
       id.gsub!(/\s+/, "")
       #id is an email
       if id.to_i.to_s != id
-        User.create!(email: id).id
+        User.find_or_create_by_email(id).id
       else
         id
       end
