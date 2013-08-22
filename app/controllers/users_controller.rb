@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
       respond_to do |format|
         format.json{
-          render json: User.token(params[:q]).to_json
+          render json: User.json_token(params[:q])
         }
       end
 
