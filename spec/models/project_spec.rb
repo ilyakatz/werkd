@@ -24,7 +24,7 @@ describe Project do
 
   end
 
-  describe "#tagged_user_ids" do
+  describe "#tagged_user_ids=" do
 
     it "should be able to invite new users who were tagged" do
       p = FactoryGirl.create(:project)
