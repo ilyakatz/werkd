@@ -24,15 +24,15 @@ describe Project do
 
   end
 
-  describe "tagging" do
+  describe "#tagged_user_ids" do
 
-    it "should tag users" do
+    it "should be able to invite new users who were tagged" do
       p = FactoryGirl.create(:project)
-      u = FactoryGirl.create(:user)
-      u1 = FactoryGirl.create(:user)
+      p.tagged_user_ids=("ilyakatz@gmail.com")
 
-      p.tagged_users=[u,u1]
-      p.tagged_users.should eq([u,u1])
+      u=User.find_by_email!("ilyakatz@gmail.com")
+
+      p.tagged_users.should eq([u])
     end
 
     it "should tag by user ids" do
@@ -52,7 +52,18 @@ describe Project do
       u1 = FactoryGirl.create(:user)
 
       p.tagged_user_ids=("#{u.id}, #{u1.id}")
+      p.tagged_users.should eq([u,u1])
+    end
+  end
 
+  describe "#tagged_users" do
+
+    it "should tag users" do
+      p = FactoryGirl.create(:project)
+      u = FactoryGirl.create(:user)
+      u1 = FactoryGirl.create(:user)
+
+      p.tagged_users=[u,u1]
       p.tagged_users.should eq([u,u1])
     end
 

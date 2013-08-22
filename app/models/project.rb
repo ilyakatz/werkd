@@ -25,12 +25,27 @@ class Project < ActiveRecord::Base
 
   def tagged_user_ids=(users_ids)
     if users_ids.class == String
-      users_ids = users_ids.split(",")
+      users_ids = user_ids_from_string(users_ids)
     end
     users = User.where(id: users_ids)
     tag_users(users)
   end
 
+  def user_ids_from_string(users_ids)
+    users_ids = users_ids.split(",")
+    #go through each element and if it's an email
+    #create a User
+    ids = users_ids.collect do |id|
+      id.gsub!(/\s+/, "")
+      #id is an email
+      if id.to_i.to_s != id
+        User.create!(email: id).id
+      else
+        id
+      end
+    end
+    ids
+  end
   #return string with ids
   def tagged_user_ids
     taggings.where(context: participant_role).

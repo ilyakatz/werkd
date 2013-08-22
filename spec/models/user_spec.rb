@@ -98,7 +98,7 @@ describe User do
     end
   end
 
-  describe "json_token" do
+  describe "#json_token" do
     let!(:u1){create(:user, first_name: "batman", last_name: "werkd", email: "ilyak@gmail.com")}
 
     it "should return name" do
@@ -106,9 +106,10 @@ describe User do
       res.should eq [{id: u1.id, name: u1.public_name}].to_json
     end
 
-    it "should retrurn query back if email not found" do
+    it "should return query back if email not found" do
+      email = "booyakasha@gmail.com"
       res = User.json_token("booyakasha@gmail.com")
-      res.should eq [{id: u1.id, name: u1.public_name}].to_json
+      res.should eq [{id: "booyakasha@gmail.com", name: "booyakasha@gmail.com"}].to_json
     end
 
     it "should not return anything if nothing found non-email query" do

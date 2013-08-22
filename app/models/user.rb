@@ -43,7 +43,8 @@ class User < ActiveRecord::Base
         {id: user.id, name: user.public_name}
       end.to_json
     else
-      if q =~ /@/
+      if q =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+        [{id: q, name: q}].to_json
       else
       [].to_json
       end
