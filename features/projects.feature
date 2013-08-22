@@ -75,6 +75,17 @@ Feature: Projects
     When I go to the project's page
     Then I should see "Worker"
 
+  Scenario: I should be able to tag new people by their email address
+    When I login as "ilyakatz@gmail.com"
+    And I go to the users dashboards page
+    And I follow "New Project"
+    And I fill in "Title" with "New Project"
+    And I fill in "Company" with "Coca Cola"
+    And I fill in "Collaborators" with "cowerker@werked.net"
+    And I press "Create"
+    Then a project should exist
+    When I go to the project's page
+    Then I should see "WeRKD user"
 
   Scenario: I am required to enter a few projects
     When I login as "ilyakatz@gmail.com"
