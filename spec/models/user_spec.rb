@@ -2,6 +2,21 @@ require 'spec_helper'
 
 describe User do
 
+  describe "#communication_name" do
+
+    it "should show email if name is not available" do
+      user = FactoryGirl.create(:user, email:"ilya@gmail.com",
+                                first_name: "", last_name: "")
+      user.communication_name.should eq "ilya@gmail.com"
+    end
+
+    it "should show name if available" do
+      user = FactoryGirl.create(:user, email:"i@gmail.com",
+                                first_name: "ilya", last_name: "k")
+      user.communication_name.should eq "ilya k"
+    end
+  end
+
   describe "#public_name" do
 
     it "should show only first name if present" do
