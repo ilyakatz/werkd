@@ -10,7 +10,7 @@ Feature: Projects
   Scenario: I should be able to add a new project
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
-    And I follow "New Project"
+    And I click ".icon-plus-sign" icon within ".new-project"
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
     And I press "Create"
@@ -30,7 +30,7 @@ Feature: Projects
   Scenario: I should be able to add my contribution
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
-    And I follow "New Project"
+    And I click ".icon-plus-sign" icon within ".new-project"
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
     And I fill in "Contribution" with "Slacked off, mostly"
@@ -40,7 +40,7 @@ Feature: Projects
   Scenario: I should be able to add tags to a project
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
-    And I follow "New Project"
+    And I click ".icon-plus-sign" icon within ".new-project"
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
     And I fill in "Tags" with "graphic design"
@@ -52,7 +52,7 @@ Feature: Projects
   Scenario: I should be able to add project date
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
-    And I follow "New Project"
+    And I click ".icon-plus-sign" icon within ".new-project"
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
     And I select "2012" from "project_start_at_1i"
@@ -66,7 +66,7 @@ Feature: Projects
     And a user "coworker" exists with email: "coworker@werkd.com", first_name: "Worker"
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
-    And I follow "New Project"
+    And I click ".icon-plus-sign" icon within ".new-project"
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
     And I tag user "coworker" on the project
@@ -79,7 +79,7 @@ Feature: Projects
   Scenario: Visitor should not be able to see emails
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
-    And I follow "New Project"
+    And I click ".icon-plus-sign" icon within ".new-project"
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
     And I fill in "Collaborators" with "cowerker@werked.net"
@@ -92,7 +92,7 @@ Feature: Projects
   Scenario: I should be able to tag new people by their email address
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
-    And I follow "New Project"
+    And I click ".icon-plus-sign" icon within ".new-project"
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
     And I fill in "Collaborators" with "cowerker@werked.net"
@@ -104,7 +104,7 @@ Feature: Projects
   Scenario: I am required to enter a few projects
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
-    And I follow "New Project"
+    And I click ".icon-plus-sign" icon within ".new-project"
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
     And I press "Create"
