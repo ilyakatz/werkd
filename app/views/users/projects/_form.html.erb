@@ -57,6 +57,7 @@
 
       $("#project_tagged_user_ids").tokenInput("/users.json",
       {
+        hintText: "Type in name or email",
         tokenValue: "id",
         prePopulate: <%=raw(@project.tagged_users.collect{|u|{name:u.email, id: u.id}}.to_json)%>
       });
