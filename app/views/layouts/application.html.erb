@@ -134,5 +134,7 @@
     <%= javascript_include_tag "application" %>
     <%= yield :dom_ready %>
     <%= render partial: "layouts/mouseflow" if Rails.env.production?%>
-  </body>
+    <%= render "layouts/clicktale_body"%>
+    </body>
+    <%= render "layouts/clicktale_end" %>
 </html>
