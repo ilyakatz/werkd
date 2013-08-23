@@ -74,6 +74,20 @@ Feature: Projects
     Then a project should exist
     When I go to the project's page
     Then I should see "Worker"
+    And I should see "coworker@werkd.com"
+
+  Scenario: Visitor should not be able to see emails
+    When I login as "ilyakatz@gmail.com"
+    And I go to the users dashboards page
+    And I follow "New Project"
+    And I fill in "Title" with "New Project"
+    And I fill in "Company" with "Coca Cola"
+    And I fill in "Collaborators" with "cowerker@werked.net"
+    And I press "Create"
+    Then a project should exist
+    And I am not signed in
+    When I go to the project's page
+    And I should not see "cowerker@werked.net"
 
   Scenario: I should be able to tag new people by their email address
     When I login as "ilyakatz@gmail.com"
