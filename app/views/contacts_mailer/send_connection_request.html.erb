@@ -5,7 +5,7 @@
       </td></tr>
       <tr>
         <td class="whitecell">
-          <p class="body"><span class="bold">Hello <%= @invitee.first_name %>,</span>
+          <p class="body"><span class="bold">Hello <%= @invitee.communication_name %>,</span>
           <br><br>
           <span class="bold"><%=@inviter.email%></span> wants to connect with you on <%=link_to "WeRKD", root_url, style: "text-decoration: none;color: #ff6600;"%>. <br><br>Take a look at <%=link_to @inviter.email, users_connections_url, style:"text-decoration: none;color: #ff6600;"%>'s profile and see if you want to connect.
 
