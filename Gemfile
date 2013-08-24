@@ -21,6 +21,8 @@ gem "twitter-bootstrap-rails"
 gem 'jquery-rails'
 gem 'gmaps4rails'
 gem 'bootstrap-sass'
+gem 'rails-backbone'
+gem 'eco'
 
 #user authentication
 gem 'devise', '~> 2'

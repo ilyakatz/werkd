@@ -101,6 +101,12 @@ GEM
       railties (~> 3.0)
     diff-lcs (1.2.4)
     dotenv (0.7.0)
+    eco (1.0.0)
+      coffee-script
+      eco-source
+      execjs
+    eco-source (1.1.0.rc.1)
+    ejs (1.0.0)
     email_preview (1.5.3)
       rails (>= 3.0)
     embedly (1.8.0)
@@ -264,6 +270,10 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
+    rails-backbone (0.7.2)
+      coffee-script (~> 2.2.0)
+      ejs (~> 1.0.0)
+      railties (>= 3.1.0)
     railties (3.2.13)
       actionpack (= 3.2.13)
       activesupport (= 3.2.13)
@@ -382,6 +392,7 @@ DEPENDENCIES
   database_cleaner
   devise (~> 2)
   devise_invitable
+  eco
   email_preview
   embedly
   factory_girl (~> 3)
@@ -415,6 +426,7 @@ DEPENDENCIES
   pry-debugger
   quiet_assets
   rails (~> 3.2)
+  rails-backbone
   rails-dev-boost!
   roadie
   rspec-mocks
