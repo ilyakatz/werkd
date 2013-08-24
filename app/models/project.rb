@@ -60,14 +60,17 @@ class Project < ActiveRecord::Base
   end
 
   def tag_users(users)
-    clear_current_tags
-    users.each do |user|
+    users_to_remove = tagged_users - users
+    users_to_add = users - tagged_users
+    clear_current_tags(users_to_remove)
+    users_to_add.each do |user|
+      ContactsMailer.send_tag_created(self.id, user.id)
       user.tag(self, with: participant_role, on: participant_role)
     end
   end
 
-  def clear_current_tags
-    tagged_users.each do |user|
+  def clear_current_tags(users)
+    users.each do |user|
       user.tag(self, with: "", on: participant_role)
     end
   end
