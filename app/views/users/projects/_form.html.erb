@@ -5,30 +5,30 @@
     hint: "(optional) What was your contribution to the project?",
     as: :text
   %>
-  <%= f.input :tag_list, label: "Tags" %>
-  <%#= f.association :collaborators,
-    as: :select,
-    hint: "(optional) Who worked with you on this project"
-  %>
+<%= f.input :tag_list, label: "Tags" %>
+<%#= f.association :collaborators,
+  as: :select,
+  hint: "(optional) Who worked with you on this project"
+%>
   <%= f.input :media_url,
     hint: "(optional) Any videos or picture link that visualizes the project",
     input_html:
     { class: "embed-link" }
   %>
 
-  <div id="embedly-preview" class="selector-wrapper"></div>
+<div id="embedly-preview" class="selector-wrapper"></div>
 
-  <%= f.input :tagged_user_ids,
-    label: "Collaborators",
-    hint: "(optional)Tag your collaborators",
-    input_html:{
+<%= f.input :tagged_user_ids,
+  label: "Collaborators",
+  hint: "(optional)Tag your collaborators",
+  input_html:{
     value: @project.tagged_user_ids.join(",")
   } %>
-  <%= f.input :start_at,
-    label: "Starting",
-    hint: "(optional) When did you start working on this project?",
-    order: [:month, :year]
-  %>
+<%= f.input :start_at,
+  label: "Starting",
+  hint: "(optional) When did you start working on this project?",
+  order: [:month, :year]
+%>
 
   <br/>
   <%= f.submit %>
@@ -53,13 +53,20 @@
       {
         tokenValue: "name",
         prePopulate: <%=raw(@project.tags.collect{|t|{name: t.name}}.to_json)%>
-      });
+    });
 
-      $("#project_tagged_user_ids").tokenInput("/users.json",
+    $("#project_tagged_user_ids").tokenInput("/users.json",
+    {
+      hintText: "Type in name or email",
+      tokenValue: "id",
+      prePopulate: <%=
+    raw(@project.tagged_users.collect do |u|
       {
-        hintText: "Type in name or email",
-        tokenValue: "id",
-        prePopulate: <%=raw(@project.tagged_users.collect{|u|{name:u.email, id: u.id}}.to_json)%>
+        name: display_user_name(u, @project.creator != current_user) ,
+        id: u.id
+      }
+    end.to_json)
+  %>
       });
 
     });

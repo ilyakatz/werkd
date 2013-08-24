@@ -39,10 +39,7 @@
   <ul>
     <%@project.tagged_users.each do |u|%>
       <li>
-        <%=u.public_name%>
-        <% if @project.creator == current_user %>
-          (<%=u.email%>)
-        <%end%>
+        <%=display_user_name(u, @project.creator != current_user)%>
       </li>
     <%end%>
   </ul>
