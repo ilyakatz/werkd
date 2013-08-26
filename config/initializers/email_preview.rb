@@ -9,6 +9,7 @@ if Rails.env.development?
     u = User.new :email => 'invitee@example.com', first_name: "Ilya"
     u1 = User.new :email => 'inviter@example.com', last_name: "Will"
     u.invited_by = u1
+    u.id=1
     ContactsMailer.send_invitation_accepted(u)
   end
 

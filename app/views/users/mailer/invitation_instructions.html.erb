@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "email", :media => "all" %>
+<link href="/assets/email.css" media="all" rel="stylesheet" type="text/css" />
 
 <div style="background-color:#cccccc;">
   <div align="center">
@@ -8,7 +8,7 @@
       </td></tr>
       <tr>
         <td class="whitecell">
-          <p class="body"><span class="bold">Hello, <%= @resource.email%>,</span>
+          <p class="body"><span class="bold">Hello, <%= @resource.communication_name%>,</span>
           <br><br>
           It's <a href="http://www.werkd.net/username" style="text-decoration: none;color: #ff6644;"><%= @resource.invited_by.email %></a>. I'd like you to join me on <a href="http://www.werkd.net" style="text-decoration: none;color: #ff6644;">WeRKD</a>,
           <span class="body">where professionals network through projects to build meaningful connections.</span>
