@@ -43,7 +43,7 @@ gem 'typhoeus'
 gem 'activerecord-import'
 gem 'strong_parameters'
 
-gem 'nokogiri'
+gem 'nokogiri', "1.5.9"
 gem 'roadie'
 
 gem 'simple_form'
