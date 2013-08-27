@@ -79,6 +79,28 @@ describe Project do
       p.tagged_users.should eq [u1]
     end
 
+    it "should send emails to tagged users" do
+      p = FactoryGirl.create(:project)
+      u = FactoryGirl.create(:user)
+      u1 = FactoryGirl.create(:user)
+
+      ContactsMailer.should_receive(:send_tag_created).with(p.id, u.id)
+      ContactsMailer.should_receive(:send_tag_created).with(p.id, u1.id)
+
+      p.tagged_users=[u, u1]
+    end
+
+    it "should not send duplicate emails" do
+      p = FactoryGirl.create(:project)
+      u = FactoryGirl.create(:user)
+      u1 = FactoryGirl.create(:user)
+      ContactsMailer.should_receive(:send_tag_created).with(p.id, u.id)
+      p.tagged_users=[u]
+      ContactsMailer.should_not_receive(:send_tag_created).with(p.id, u.id)
+      ContactsMailer.should_receive(:send_tag_created).with(p.id, u1.id)
+      p.tagged_users=[u, u1]
+    end
+
     it "should not affect different projects" do
       p = FactoryGirl.create(:project)
       p1 = FactoryGirl.create(:project)

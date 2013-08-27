@@ -1,6 +1,9 @@
 class ContactsMailer < ActionMailer::Base
   default css: 'email'
 
+  def send_tag_created(project_id, user_id)
+  end
+
   def send_connection_accepted(connection)
     @invitee = connection.invitee
     @inviter = connection.inviter
