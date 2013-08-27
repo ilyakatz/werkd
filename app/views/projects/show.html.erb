@@ -1,17 +1,17 @@
 <p>
-<b>Title:</b>
-<%= @project.title %>
+  <b>Title:</b>
+  <%= @project.title %>
 </p>
 
 <p>
-<b>Company:</b>
-<%= @project.company %>
+  <b>Company:</b>
+  <%= @project.company %>
 </p>
 
 <% if @project.contribution.present? %>
   <p>
-  <b>Contribution:</b>
-  <%= @project.contribution %>
+    <b>Contribution:</b>
+    <%= @project.contribution %>
   </p>
 <% end %>
 
@@ -21,14 +21,16 @@
   <p><b>Tags:</b></p>
   <ul>
     <%@project.tags.each do |t|%>
-      <li><%=t.name%></li>
+      <li>
+        <%=t.name%>
+      </li>
     <%end%>
   </ul>
 <%end%>
 
 <% if @project.start_at %>
   <p><b>Starting</b>
-  <%=l @project.start_at, format: :long%>
+    <%=l @project.start_at, format: :long%>
   </p>
 <%end%>
 
@@ -36,7 +38,9 @@
   <p><b>Collaborators</b></p>
   <ul>
     <%@project.tagged_users.each do |u|%>
-      <li><%=u.email%></li>
+      <li>
+        <%=display_user_name(u, @project.creator != current_user)%>
+      </li>
     <%end%>
   </ul>
 <%end%>

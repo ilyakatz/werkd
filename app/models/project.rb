@@ -25,7 +25,7 @@ class Project < ActiveRecord::Base
 
   def tagged_user_ids=(users_ids)
     if users_ids.class == String
-      users_ids = users_ids.split(",")
+      users_ids = user_ids_from_string(users_ids)
     end
     users = User.where(id: users_ids)
     tag_users(users)
@@ -43,15 +43,34 @@ class Project < ActiveRecord::Base
 
   private
 
+  def user_ids_from_string(users_ids)
+    users_ids = users_ids.split(",")
+    #go through each element and if it's an email
+    #create a User
+    ids = users_ids.collect do |id|
+      id.gsub!(/\s+/, "")
+      #id is an email
+      if id.to_i.to_s != id
+        User.find_or_create_by_email(id).id
+      else
+        id
+      end
+    end
+    ids
+  end
+
   def tag_users(users)
-    clear_current_tags
-    users.each do |user|
+    users_to_remove = tagged_users - users
+    users_to_add = users - tagged_users
+    clear_current_tags(users_to_remove)
+    users_to_add.each do |user|
+      ContactsMailer.send_tag_created(self.id, user.id)
       user.tag(self, with: participant_role, on: participant_role)
     end
   end
 
-  def clear_current_tags
-    tagged_users.each do |user|
+  def clear_current_tags(users)
+    users.each do |user|
       user.tag(self, with: "", on: participant_role)
     end
   end

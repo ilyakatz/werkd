@@ -20,6 +20,8 @@ https://www.codeship.io/projects/4271
 
     `spring cucumber features`
 
+    `spring rspec spec`
+
 # In the wild
 
 You can access your server from the outside world:

@@ -52,6 +52,17 @@
             <ul class="nav nav-pills pull-right">
               <% if current_user %>
 
+                <li>
+                <%= link_to root_path do%>
+                  <div class="dropdown-toggle">What's Up?</div>
+                <%end%>
+                </li>
+
+                <li>
+                  <%= link_to users_dashboards_path do%>
+                    Dashboard
+                  <%end%>
+                </li>
 
                 <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -70,11 +81,6 @@
                   <b class="caret"></b>
                 <%end%>
                 <ul class="dropdown-menu">
-                  <li>
-                  <%= link_to users_dashboards_path do%>
-                    <i class="icon-home"></i>Dashboard
-                  <%end%>
-                  </li>
                   <li>
                   <%= link_to users_profiles_path do%>
                     <i class="icon-edit"></i>Edit Profile
@@ -127,5 +133,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
     <%= yield :dom_ready %>
-  </body>
+    <%= render partial: "layouts/mouseflow" if Rails.env.production?%>
+    <%= render "layouts/clicktale_body"%>
+    </body>
+    <%= render "layouts/clicktale_end" %>
 </html>

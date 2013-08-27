@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable##, :validatable
 
   devise :invitable, :omniauthable, :omniauth_providers => [:google_oauth2,
-    :facebook, :linkedin_oauth2]
+                                                            :facebook, :linkedin_oauth2]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :first_name, :last_name,
@@ -33,7 +33,22 @@ class User < ActiveRecord::Base
 
   def self.token(q)
     query = "%#{q}%"
-    User.where("email like ?", query).select("id, email as name").limit(10)
+    res = User.where("email LIKE ? OR first_name LIKE ? or last_name LIKE ?", query, query, query).limit(10)
+  end
+
+  def self.json_token(q)
+    res = token(q)
+    if res.present?
+      res.collect do |user|
+        {id: user.id, name: user.public_name}
+      end.to_json
+    else
+      if q =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+        [{id: q, name: q}].to_json
+      else
+      [].to_json
+      end
+    end
   end
 
   def public_name
@@ -51,10 +66,10 @@ class User < ActiveRecord::Base
   #this is the name used in personal communication with the user
   #it doesn't make sense to refer to them as WeRKD user if we send them an email
   def communication_name
-    if first_name || last_name
+    if first_name.present? || last_name.present?
       [first_name, last_name].compact.join(" ")
     else
-      ""
+      email
     end
   end
 

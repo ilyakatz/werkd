@@ -1,25 +1,27 @@
 <h4 style="text-align:center; font-weight:bold; color:#808080;">WeRKD ON</h4>
-<div class="text-right"><%= link_to 'New Project', new_users_project_path %></div>
+<div class="text-right new-project">
+  <%= link_to '', new_users_project_path, class: "new-project-link icon-plus-sign" %>
+</div>
 
 <ul class="project-thumbnails thumbnails">
 
   <%@projects.each do |project|%>
     <li class="project">
-    <label>
-      <%=project.title%>
-    </label>
-    <%=link_to project_path(project) do %>
-      <%= render "projects/preview", project: project%>
-      <%image_tag "kitten.jpg",
-        alt: project.title,
-        size:"304x171",
-        class: "thumbnail"%>
-    <%end%>
+  <label>
+    <%=project.title%>
+  </label>
+  <%=link_to project_path(project) do %>
+    <%= render "projects/preview", project: project%>
+  <%image_tag "kitten.jpg",
+    alt: project.title,
+    size:"304x171",
+    class: "thumbnail"%>
+<%end%>
     </li>
   <%end%>
 
-</ul>
-<br />
+  </ul>
+  <br />
 
 
 
