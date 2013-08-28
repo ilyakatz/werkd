@@ -18,6 +18,14 @@ Feature: invite contacts
     And 1 email should be delivered to ilya@werkd.net
     And the email should contain "connect"
 
+  Scenario: I want to be able to skip user import
+    Given a user "me" exists with email: "ilya@werkd.net"
+    And user "me" has complete profile
+    When I login as "ilya@werkd.net"
+    And I go to users omnicontacts page
+    And I follow "Skip"
+    And I should be on the users dashboards page
+
   Scenario: If I skip import I should be taken to the projects page
     When I login as "ilya@werkd.net"
     And google returns my contact list
