@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # This is a manifest file that'll be compiled into application.js, which will include all the files
 # listed below.
 #
@@ -19,4 +20,6 @@
 #= require backbone_datalink
 #= require backbone/werkd
 #= require ajax
+#= require alerts
+#= require global/forms
 #= require_self

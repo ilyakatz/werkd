@@ -9,6 +9,7 @@ module Users
 
     def index
       current_user.set_invited_contacts
+      @done_link = profile_completions_paths(current_user)
     end
 
     def show

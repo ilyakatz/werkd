@@ -1,6 +1,16 @@
 require 'spec_helper'
 
 describe Project do
+
+  describe "#tag_list" do
+    it "should be require" do
+      p = FactoryGirl.build(:project)
+      p.tag_list=""
+      p.save.should be_false
+      p.errors[:tag_list].should_not be_empty
+    end
+  end
+
   describe "#extract_embed" do
 
     it "should extract embed url when media url changes"  do
@@ -13,12 +23,14 @@ describe Project do
     end
 
     it "shouold extract image" do
-      VCR.use_cassette("models/project/image") do
+      VCR.use_cassette("models/project/image_embed") do
+        #vcr doesn't seem to work with multiple requests
+        Cloudinary::Uploader.stub(:upload).and_return({"url"=>"asdf"})
         p = FactoryGirl.build(:project,
-                              media_url: "http://www.whitegadget.com/attachments/pc-wallpapers/14134d1219229281-sports-bikes-wallpaper-bikes-wallpaper1.jpg")
+                              media_url: "http://affinitycycles.com/wp-content/uploads/2012/12/Affinity-Raekwon-Wu-Charity-bike-web-e1355153507540.jpg")
         p.save
         p.embed_html.should be_nil
-        p.thumbnail_url.should eq "http://www.whitegadget.com/attachments/pc-wallpapers/14134d1219229281-sports-bikes-wallpaper-bikes-wallpaper1.jpg"
+        p.thumbnail_url.should eq "asdf"
       end
     end
 

@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
 
   acts_as_taggable
   acts_as_taggable_on :roles
-  validates_presence_of :title, :company
+  validates_presence_of :title, :company, :tag_list
 
   before_save :extract_embed
 
@@ -94,7 +94,9 @@ class Project < ActiveRecord::Base
       self.embed_html   = embed.first.html
       self.thumbnail_url= embed.first.thumbnail_url
     elsif embed.first.try(:url)
-      self.thumbnail_url=embed.first.url
+      #this is an image
+      cu = Cloudinary::Uploader.upload(embed.first.url, width: Project::PREVIEW_MAX_WIDTH, height: Project::PREVIEW_MAX_HEIGHT, crop: :limit)
+      self.thumbnail_url=cu["url"]
     end
     #rescue
     #  Rails.logger.info("Unable to extract oembed from #{media_url}")

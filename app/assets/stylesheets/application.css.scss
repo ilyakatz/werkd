@@ -10,6 +10,7 @@
  *
  *= require bootstrap_and_overrides
  *= require dashboard
+ *= require global/_forms
  */
 h2 {color:#3f3f3f;}
 
@@ -34,6 +35,6 @@ margin-bottom: -99999px;
 padding-bottom: 99999px;
 }
 
-.col-wrap{  
-overflow: hidden;   
-}  
+.col-wrap{
+overflow: hidden;
+}

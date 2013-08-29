@@ -39,12 +39,14 @@
   <ul>
     <%@project.tagged_users.each do |u|%>
       <li>
-        <%=display_user_name(u, @project.creator != current_user)%>
+        <%=link_to display_user_name(u, @project.creator != current_user), user_path(u)%>
       </li>
     <%end%>
   </ul>
 <%end%>
 
 <% if current_user && @project.creator == current_user %>
-  <%= link_to 'Edit', edit_users_project_path(@project) %>
+  <%= link_to 'Edit', edit_users_project_path(@project),
+      tabindex: "1"
+  %>
 <%end%>

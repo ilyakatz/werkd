@@ -17,6 +17,8 @@ module NavigationHelpers
       new_user_invitation_path
     when /import google contacts page/
       "/users/omnicontacts/gmail"
+    when /users omnicontacts page/
+      "/users/omnicontacts"
     when /users connections page/
       users_connections_path
     when /users dashboards page/

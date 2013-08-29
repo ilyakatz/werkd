@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.embed.ly/1/oembed?urls=http%3A%2F%2Faffinitycycles.com%2Fwp-content%2Fuploads%2F2012%2F12%2FAffinity-Raekwon-Wu-Charity-bike-web-e1355153507540.jpg&key=6302cfbf429e4309b6235dbee0c051a1&maxheight=171&maxwidth=304
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; werkd/1.0; my@email.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 29 Aug 2013 17:49:53 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '265'
+      Connection:
+      - keep-alive
+      X-Embedly-From-Cache:
+      - '0'
+      Access-Control-Max-Age:
+      - '86400'
+      Server:
+      - TornadoServer/2.1
+      Etag:
+      - '"5d867ca8847ac3ee39c966268cc885b8466825dd"'
+      X-Embedly-Process-Time:
+      - '57'
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      X-Embedly-Host:
+      - api14
+    body:
+      encoding: UTF-8
+      string: '[{"provider_url": "http://affinitycycles.com", "height": 388, "width":
+        600, "version": "1.0", "url": "http://affinitycycles.com/wp-content/uploads/2012/12/Affinity-Raekwon-Wu-Charity-bike-web-e1355153507540.jpg",
+        "provider_name": "Affinitycycles", "type": "photo"}]'
+    http_version: '1.1'
+  recorded_at: Thu, 29 Aug 2013 17:49:53 GMT
+recorded_with: VCR 2.5.0
