@@ -15,6 +15,7 @@ FactoryGirl.define do
   factory :project do
     title "Some new project"
     company "No company"
+    tag_list "design"
   end
 
   factory :tag do
