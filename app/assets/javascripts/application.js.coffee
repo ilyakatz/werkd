@@ -3,3 +3,4 @@
 #= require twitter/bootstrap
 #= require ajax
 #= require alerts
+#= require global/forms

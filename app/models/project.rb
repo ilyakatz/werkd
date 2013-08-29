@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
 
   acts_as_taggable
   acts_as_taggable_on :roles
-  validates_presence_of :title, :company
+  validates_presence_of :title, :company, :tag_list
 
   before_save :extract_embed
 

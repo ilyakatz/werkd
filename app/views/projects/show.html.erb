@@ -46,5 +46,7 @@
 <%end%>
 
 <% if current_user && @project.creator == current_user %>
-  <%= link_to 'Edit', edit_users_project_path(@project) %>
+  <%= link_to 'Edit', edit_users_project_path(@project),
+      tabindex: "1"
+  %>
 <%end%>
