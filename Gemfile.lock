@@ -43,6 +43,7 @@ GEM
       rails (>= 3, < 5)
     addressable (2.3.5)
     arel (3.0.2)
+    aws_cf_signer (0.1.2)
     bcrypt-ruby (3.0.1)
     better_errors (0.9.0)
       coderay (>= 1.0.0)
@@ -58,6 +59,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    cloudinary (1.0.63)
+      aws_cf_signer
+      rest-client
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -336,6 +340,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  cloudinary
   coffee-rails (~> 3.2)
   cucumber-rails
   database_cleaner

@@ -1,0 +1,18 @@
+development:
+  cloud_name: werkd
+  api_key: '481258287557557'
+  api_secret: wikO8kAlLg1yLHuUckhtaj0Aako
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: werkd
+  api_key: '481258287557557'
+  api_secret: wikO8kAlLg1yLHuUckhtaj0Aako
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: werkd
+  api_key: test
+  api_secret: test
+  enhance_image_tag: true
+  static_image_support: false
