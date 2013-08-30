@@ -4,7 +4,7 @@ describe Api::UsersController do
   render_views
 
   describe :show do
-    let(:user) { create(:user) }
+    let(:user) { create(:user_with_projects_and_connections) }
     let(:get_params) { {id: user.id} }
     let(:action_response) { get(:show, get_params) }
     subject { action_response }

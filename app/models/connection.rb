@@ -5,6 +5,8 @@ class Connection < ActiveRecord::Base
   belongs_to :invitee, class_name: "User", :foreign_key => :connected_to
   has_one :user
 
+  # Scopes:
+
   validates_uniqueness_of :connected_to, scope: :user_id
 
   def self.create_pending_connections(inviter, invitee)
@@ -25,4 +27,15 @@ class Connection < ActiveRecord::Base
     self.accepted_at = Time.now
     self.save
   end
+
+  # Methods:
+
+  def other_user(user)
+    if inviter == user
+      invitee
+    else
+      inviter
+    end
+  end
+
 end
