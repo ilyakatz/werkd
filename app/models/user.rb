@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
 
   has_many :authentications
   has_many :projects
+  has_many :collaborations
+  has_many :collaborated_projects, through: :collaborations, class_name: 'Project', source: :project
 
   acts_as_tagger
 

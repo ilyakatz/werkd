@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe User do
 
+  describe :collections do
+    it { should have_many(:collaborations) }
+    it { should have_many(:collaborated_projects) }
+  end # collections
+
   describe "#communication_name" do
 
     it "should show email if name is not available" do
@@ -144,17 +149,30 @@ describe User do
     describe :user_with_projects_and_connections do
       let(:user) { create(:user_with_projects_and_connections) }
       subject { user }
-      it { should be_valid }
 
-      context :projects do
-        subject { user.projects }
-        it { should have(3).items }
+      context :collaborated_projects do
+        let(:collaborated_projects) { user.collaborated_projects }
+        subject { collaborated_projects }
+        it { should have(4).items }
+
+        context :project_1 do
+          let(:project_1) { collaborated_projects[0] }
+          subject { project_1 }
+          its(:collaborators) { should have(1).items }
+        end
+
+        context :project_4 do
+          let(:project_4) { collaborated_projects[3] }
+          subject { project_4 }
+          its(:collaborators) { should have(4).items }
+        end
+
       end # projects
 
       context :conntections do
         subject { user.connections }
         it { should have(6).items }
-      end
+      end # connections
 
     end # user_with_projects_and_connections
 
