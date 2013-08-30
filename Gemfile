@@ -52,6 +52,7 @@ gem 'simple_form'
 gem 'embedly'
 gem 'acts-as-taggable-on'
 gem 'cloudinary'
+gem 'rabl'
 
 group :test, :development do
   gem "mysql2"

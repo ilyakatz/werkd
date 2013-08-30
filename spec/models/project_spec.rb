@@ -126,5 +126,15 @@ describe Project do
       p.tagged_users.should eq [u]
     end
   end
+
+  describe :factories do
+
+    describe :project do
+      subject { build(:project) }
+      it { should be_valid }
+    end # project
+
+  end # factories
+
 end
 

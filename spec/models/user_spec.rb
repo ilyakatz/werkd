@@ -133,4 +133,30 @@ describe User do
     end
 
   end
+
+  describe :factories do
+
+    describe :user do
+      subject { build(:user) }
+      it { should be_valid }
+    end # user
+
+    describe :user_with_projects_and_connections do
+      let(:user) { create(:user_with_projects_and_connections) }
+      subject { user }
+      it { should be_valid }
+
+      context :projects do
+        subject { user.projects }
+        it { should have(3).items }
+      end # projects
+
+      context :conntections do
+        subject { user.connections }
+        it { should have(6).items }
+      end
+
+    end # user_with_projects_and_connections
+
+  end # factories
 end
