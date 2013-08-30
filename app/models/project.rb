@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id            :integer          not null, primary key
+#  title         :string(255)
+#  company       :string(255)
+#  user_id       :integer
+#  video         :string(255)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  media_url     :string(255)
+#  contribution  :string(255)
+#  start_at      :date
+#  embed_html    :string(255)
+#  thumbnail_url :string(255)
+#
+
 class Project < ActiveRecord::Base
 
   MINIMUM_PROJECTS_PER_USER = 3
