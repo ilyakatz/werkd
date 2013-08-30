@@ -1,13 +1,25 @@
-class Werkd.Models.User extends Backbone.Model
+class Werkd.Models.User extends Supermodel.Model
   @include Werkd.Mixins.Properties
 
   paramRoot: 'user'
 
   defaults:
-    id:     null
+    id: null
+    first_name: null
+    last_name: null
+
+  # Collections:
+
+  getProjects: ->
+    @projects()
+
+  getContacts: ->
+    @contacts()
 
 Werkd.Models.User.initializeProperties()
 
-class Werkd.Collections.UsersCollection extends Backbone.Collection
-  model: Werkd.Models.User
+class Werkd.Collections.Users extends Backbone.Collection
   url: '/users'
+  
+  model: (attrs, options) ->
+    Werkd.Models.User.create(attrs, options)

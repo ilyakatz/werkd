@@ -42,7 +42,9 @@ FactoryGirl.define do
   end
 
   factory :user do
-    email
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    email { Faker::Internet.email }
     password "toto42"
     unconfirmed_email nil
     confirmed_at "2013-04-13 18:28:12"

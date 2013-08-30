@@ -62,7 +62,7 @@ describe User do
   describe "#public_name" do
 
     it "should show only first name if present" do
-      user = FactoryGirl.build(:user, first_name: "Ilya")
+      user = FactoryGirl.build(:user, first_name: "Ilya", last_name: nil)
       user.public_name.should eq "Ilya"
     end
 
@@ -74,7 +74,7 @@ describe User do
     end
 
     it "should show generic name if not present" do
-      user = FactoryGirl.build(:user)
+      user = FactoryGirl.build(:user, first_name: nil, last_name: nil)
       user.public_name.should eq "WeRKD user"
     end
 

@@ -3,12 +3,12 @@ extends('/api/users/base')
 
 child(:collaborated_projects) do
   extends('/api/projects/base')
-  child(:collaborations) do
+  child(:collaborations, object_root: false) do
     extends('/api/collaborations/base')
   end
 end
 
-child(:connections) do
+child(:connections, object_root: false) do
   extends('/api/connections/base')
   node(:user) do |connection|
     user = connection.other_user(@user)

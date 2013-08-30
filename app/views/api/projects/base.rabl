@@ -1,5 +1,5 @@
 object @project
 attributes(
   :id,
-  :name
+  :title
 )

@@ -1,0 +1,19 @@
+<div class="span8 projects-well">
+  <div>
+    <h4 style="text-align:center; font-weight:bold; color:#808080;">WeRKD ON</h4>
+    <div class="text-right new-project">
+      <a href="/users/projects/new" class="new-project-link icon-plus-sign"></a>
+    </div>
+    <ul class="project-thumbnails thumbnails">
+    </ul>
+  </div>
+</div>
+<div class="span4 grey-bg">
+  <div>
+    <h4 style="text-align:center; font-weight:bold; color:#808080;">KNOWS</h4>
+    <div class="text-right"><a href="/users/invitation/new">Invite a friend</a></div>
+    <br/>
+    <table class="table table-hover">
+    </table>
+  </div>
+</div>

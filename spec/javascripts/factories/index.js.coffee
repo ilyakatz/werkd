@@ -1,5 +1,6 @@
 #= require_self
-# require ./date_factory
+#= require ./user_factory
+#= require ./project_factory
 
 # Sequences:
 
