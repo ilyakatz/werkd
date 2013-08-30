@@ -59,10 +59,7 @@ group :test, :development do
 end
 
 group :test do
-  gem 'faker'
   gem 'rspec-rails', '~> 2'
-  gem 'factory_girl', '~> 3'
-  gem 'factory_girl_rails'
   gem 'webrat'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
@@ -87,6 +84,11 @@ group :development do
 end
 
 group :development, :test do
+  gem 'annotate', '>=2.5.0'
+  gem 'faker'
+  gem 'factory_girl', '~> 3'
+  gem 'factory_girl_rails'
+
   gem "hirb"
   gem "hpricot"
   

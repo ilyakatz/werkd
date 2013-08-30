@@ -42,6 +42,8 @@ GEM
     acts-as-taggable-on (2.4.1)
       rails (>= 3, < 5)
     addressable (2.3.5)
+    annotate (2.5.0)
+      rake
     arel (3.0.2)
     aws_cf_signer (0.1.2)
     bcrypt-ruby (3.0.1)
@@ -390,6 +392,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-import
   acts-as-taggable-on
+  annotate (>= 2.5.0)
   better_errors
   binding_of_caller
   bootstrap-sass
