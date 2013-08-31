@@ -15,6 +15,7 @@ describe 'Werkd.Models.Project', ->
   it 'has defaults set', ->
     expect(@model.getId()).toBeNull()
     expect(@model.getTitle()).toBeNull()
+    expect(@model.getThumbnailUrl()).toBeNull()
 
 
 describe 'Werkd.Collections.Projects', ->

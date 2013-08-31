@@ -1,6 +1,7 @@
 #= require_self
 #= require ./user_factory
 #= require ./project_factory
+#= require ./connection_factory
 
 # Sequences:
 

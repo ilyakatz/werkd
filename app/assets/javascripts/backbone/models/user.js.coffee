@@ -13,8 +13,8 @@ class Werkd.Models.User extends Supermodel.Model
   getProjects: ->
     @projects()
 
-  getContacts: ->
-    @contacts()
+  getConnections: ->
+    @connections()
 
 Werkd.Models.User.initializeProperties()
 

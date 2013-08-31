@@ -24,8 +24,26 @@ describe 'Werkd.Models.User', ->
       expect(@model.getProjects().models).toEqual([])
 
     it 'should have contacts', ->
-      expect(@model.getContacts()).toBeDefined()
-      expect(@model.getContacts().models).toEqual([])
+      expect(@model.getConnections()).toBeDefined()
+      expect(@model.getConnections().models).toEqual([])
+
+  describe 'factories', ->
+
+    describe 'user', ->
+      beforeEach ->
+        @model = createUserModel()
+
+      it 'should be defined', ->
+        expect(@model).toBeDefined()
+
+    describe 'user with projects and connections', ->
+      beforeEach ->
+        @model = createUserWithProjectsAndConnectionsModel()
+
+      it 'should have projects', ->
+        expect(@model.getProjects().length).toEqual(3)
+
+
 
 
 describe 'Werkd.Collections.Users', ->

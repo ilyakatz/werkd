@@ -6,6 +6,7 @@ class Werkd.Models.Project extends Supermodel.Model
   defaults:
     id: null
     title: null
+    thumbnail_url: null
 
 Werkd.Models.Project.initializeProperties()
 

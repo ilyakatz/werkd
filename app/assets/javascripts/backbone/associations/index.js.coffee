@@ -7,8 +7,17 @@ Werkd.Models.User.has().many('projects', {
   collection: Werkd.Collections.Projects
 })
 
-Werkd.Models.User.has().many('contacts', {
-  inverse: 'contactee'
-  source: 'contacts'
-  collection: Werkd.Collections.Users
+Werkd.Models.User.has().many('connections', {
+  inverse: 'connectee'
+  source: 'connections'
+  collection: Werkd.Collections.Connections
+})
+
+
+# Connection:
+
+Werkd.Models.Connection.has().one('user', {
+  inverse: 'connections'
+  source: 'user'
+  model: Werkd.Models.User
 })
