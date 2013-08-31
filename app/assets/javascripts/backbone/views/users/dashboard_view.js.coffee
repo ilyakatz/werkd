@@ -19,11 +19,11 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
   # Render methods:
 
   renderProjectModalView: ->
-    @$el.append(@getProjectModalView().el)
+    @$el.parent().append(@getProjectModalView().el)
     @getProjectModalView().render()
 
   render: ->
     super
-    @$el.html(@template(user: @getUser()))
+    @$el.html(@template(user: @getUser())).addClass('row-fluid')
     @renderProjectModalView()
   

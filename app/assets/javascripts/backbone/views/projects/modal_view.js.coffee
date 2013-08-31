@@ -14,5 +14,5 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
 
   render: ->
     super
-    @$el.html(@template(project: @getProject()))
+    @$el.html(@template(project: @getProject())).addClass('row')
   
