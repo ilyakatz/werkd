@@ -1,9 +1,9 @@
 createView = (args) ->
-  new Werkd.Views.Users.DashboardView(args)
+  new Werkd.Views.Projects.ModalView(args)
 
-describe 'Werkd.Views.Users.DashboardView', ->
+describe 'Werkd.Views.Projects.ModalView', ->
   beforeEach ->
-    @model = createUserWithProjectsAndConnectionsModel()
+    @model = createProjectModel()
     @view = createView(model: @model)
     @server = sinon.fakeServer.create()
 
@@ -11,16 +11,13 @@ describe 'Werkd.Views.Users.DashboardView', ->
     @server.restore()
   
   it 'should have model defined', ->
-    expect(Werkd.Views.Users.DashboardView).toBeDefined()
+    expect(Werkd.Views.Projects.ModalView).toBeDefined()
 
   it 'can be instantiated', ->
     expect(@view).not.toBeNull()
 
   it 'has defaults set', ->
-    expect(@view.getUser()).toEqual(@model)
-
-  it 'should have project modal view', ->
-    expect(@view.getProjectModalView()).toBeDefined()
+    expect(@view.getProject()).toEqual(@model)
 
   describe 'render', ->
     beforeEach ->
