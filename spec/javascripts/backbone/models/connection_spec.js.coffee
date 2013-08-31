@@ -14,8 +14,6 @@ describe 'Werkd.Models.Connection', ->
 
   it 'has defaults set', ->
     expect(@model.getId()).toBeNull()
-    expect(@model.getPublicName()).toBeNull()
-    expect(@model.getJobTitle()).toBeNull()
 
 
   describe 'associations', ->

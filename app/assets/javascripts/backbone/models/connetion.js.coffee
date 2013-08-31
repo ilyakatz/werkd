@@ -5,8 +5,6 @@ class Werkd.Models.Connection extends Supermodel.Model
 
   defaults:
     id: null
-    public_name: null
-    job_title: null
 
   # Assocations:
 

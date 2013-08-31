@@ -24,7 +24,7 @@
 <% content_for :scripts do %>
   <script type="text/javascript">
     $(function() {
-      user = new Werkd.Models.User();
+      user = new Werkd.Models.User(<%= @user_json.html_safe %>);
       window.user = user;
       dashboardView = new Werkd.Views.Users.DashboardView({model: user});
       window.dashboardView = dashboardView;

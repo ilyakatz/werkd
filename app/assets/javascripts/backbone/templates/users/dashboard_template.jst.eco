@@ -10,12 +10,12 @@
           <label>
             <%= project.getTitle() %>
           </label>
-          <a href="project_link">
+          <a href="/projects/<%= project.getId() %>">
             <p>
               <% if project.getThumbnailUrl(): %>
-                <img src="<%= project.getThumbnailUrl() %>" alt="<%= project.title %> preview" class="thumbnail" />
+                <img src="<%= project.getThumbnailUrl() %>" width="304" height="171" alt="<%= project.title %> preview" class="thumbnail" />
               <% else: %>
-                <img src="/assets/werkd.png" alt="<%= project.title %> preview" class="thumbnail" />
+                <img src="/assets/werkd.png" width="304" height="171" alt="<%= project.title %> preview" class="thumbnail" />
               <% end %>
             </p>
           </a>
@@ -31,12 +31,13 @@
       <br/>
       <table class="table table-hover">
         <% for connection in @user.getConnections().models: %>
+          <% user = connection.getUser() %>
           <tr>
             <td style="text-align:left;">
-              <a href="conection"><%= connection.getPublicName() %></a>
+              <a href="/users/<%= user.getId() %>"><%= user.getPublicName() %></a>
             </td>
             <td style="text-align:right;">
-              <%= connection.getJobTitle() %>
+              <%= user.getJobTitle() %>
             </td>
           </tr>
         <% end %>

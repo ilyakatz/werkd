@@ -15,4 +15,4 @@ class Werkd.Collections.Projects extends Backbone.Collection
   url: '/projects'
 
   model: (attrs, options) ->
-    Dabtab.Models.Project.create(attrs, options)
+    Werkd.Models.Project.create(attrs, options)

@@ -1,5 +1,6 @@
 object @project
 attributes(
   :id,
-  :title
+  :title,
+  :thumbnail_url
 )

@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @projects = @user.projects
     @connections = @user.connected_users
+    @user_json = Rabl.render(@user, 'api/users/show', view_path: 'app/views', format: :json)
     render template: "users/dashboards/index"
   end
 
