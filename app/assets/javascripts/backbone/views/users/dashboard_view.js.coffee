@@ -14,7 +14,7 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
     @getUser().getProjects().models[0] || new Werkd.Models.Project()
 
   getProjectModalView: ->
-    @projectModalView ||= new Werkd.Views.Projects.ModalView(model: @getProject())
+    @projectModalView ||= new Werkd.Views.Projects.ModalView()
 
   # View properties:
 
@@ -23,9 +23,12 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
 
   # Render methods:
 
-  renderProjectModalView: ->
-    @$el.parent().append(@getProjectModalView().el)
+  renderProjectModalView: (project) ->
+    if @getProjectModalView().isNotAttached()
+      @$el.parent().append(@getProjectModalView().el)
+    @getProjectModalView().setProject(project)
     @getProjectModalView().render()
+    @getProjectModalView().open()
 
   renderProjectListItemViews: ->
     _.each(@getUser().getProjects().models, (project) =>
@@ -45,3 +48,5 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
 
   onClickProject: (event, project) =>
     console.log('onClickProject', arguments)
+    @renderProjectModalView(project)
+
