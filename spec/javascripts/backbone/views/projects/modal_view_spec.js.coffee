@@ -19,6 +19,15 @@ describe 'Werkd.Views.Projects.ModalView', ->
   it 'has defaults set', ->
     expect(@view.getProject()).toEqual(@model)
 
+
+  describe 'view properties', ->
+    beforeEach ->
+      @view.render()
+
+    it 'should have background blocker', ->
+      expect(@view.getBackgroundBlockerEl()[0]).toBeDefined()
+
+
   describe 'render', ->
     beforeEach ->
       @oldHtml = @view.html()
@@ -27,3 +36,18 @@ describe 'Werkd.Views.Projects.ModalView', ->
 
     it 'should render the template', ->
       expect(@newHtml).toNotEqual(@oldHtml)
+
+    it 'should have display initially as none', ->
+      expect(@view.$el.css('display')).toEqual('none')
+
+  describe 'view events', ->
+    beforeEach ->
+      @view.render()
+
+    describe 'onClickBackgroundBlocker', ->
+      beforeEach ->
+        @close = spyOn(@view, 'close')
+        @view.getBackgroundBlockerEl().click()
+
+      it 'should close the moda', ->
+        expect(@close).toHaveBeenCalled()

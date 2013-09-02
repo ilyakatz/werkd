@@ -22,6 +22,15 @@ describe 'Werkd.Views.Users.DashboardView', ->
   it 'should have project modal view', ->
     expect(@view.getProjectModalView()).toBeDefined()
 
+
+  describe 'view properties', ->
+    beforeEach ->
+      @view.render()
+
+    it 'should have projects el', ->
+      expect(@view.getProjectsEl()[0]).toBeDefined()
+
+
   describe 'render', ->
     beforeEach ->
       @oldHtml = @view.html()
@@ -30,3 +39,6 @@ describe 'Werkd.Views.Users.DashboardView', ->
 
     it 'should render the template', ->
       expect(@newHtml).toNotEqual(@oldHtml)
+
+    it 'should render the projects', ->
+      expect(@view.$el.find('.project').length).toEqual(3)

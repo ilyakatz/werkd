@@ -1,6 +1,9 @@
-<div class="span8 grey-bg">
-  Some content here
+<div class="row">
+  <div class="span8 grey-bg">
+    Some content here
+  </div>
+  <div class="span4 grey-bg">
+    Some content here
+  </div>
 </div>
-<div class="span4 grey-bg">
-  Some content here
-</div>
+<div class="background-blocker" />

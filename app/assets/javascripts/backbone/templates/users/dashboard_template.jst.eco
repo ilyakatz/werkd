@@ -1,26 +1,10 @@
 <div class="span8">
-  <div>
+  <div style="background-color: #eee;">
     <h4 style="text-align:center; font-weight:bold; color:#808080;">WeRKD ON</h4>
     <div class="text-right new-project">
       <a href="/users/projects/new" class="new-project-link icon-plus-sign"></a>
     </div>
-    <ul class="project-thumbnails thumbnails">
-      <% for project in @user.getProjects().models: %>
-        <li class="project">
-          <label>
-            <%= project.getTitle() %>
-          </label>
-          <a href="/projects/<%= project.getId() %>">
-            <p>
-              <% if project.getThumbnailUrl(): %>
-                <img src="<%= project.getThumbnailUrl() %>" width="304" height="171" alt="<%= project.title %> preview" class="thumbnail" />
-              <% else: %>
-                <img src="/assets/werkd.png" width="304" height="171" alt="<%= project.title %> preview" class="thumbnail" />
-              <% end %>
-            </p>
-          </a>
-        </li>
-      <% end %>
+    <ul class="project-dashboard-list-item-views project-thumbnails thumbnails">
     </ul>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="row-fluid dashboard-max">
-  <div id="main-content" class="span12">
+  <div id="dashboard-content" class="span12" style="position">
     <%= render partial: "users/dashboards/personal_info", locals: { user: @user } %>
     <!--div class="container-fluid dashboard-max">
 
@@ -27,7 +27,7 @@
       window.user = user;
       dashboardView = new Werkd.Views.Users.DashboardView({model: user});
       window.dashboardView = dashboardView;
-      $('#main-content').append(dashboardView.el);
+      $('#dashboard-content').append(dashboardView.el);
       dashboardView.render();
     })
   </script>
