@@ -24,11 +24,13 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
   # Render methods:
 
   renderProjectModalView: (project) ->
-    if @getProjectModalView().isNotAttached()
-      @$el.parent().append(@getProjectModalView().el)
-    @getProjectModalView().setProject(project)
-    @getProjectModalView().render()
-    @getProjectModalView().open()
+    modalView = @getProjectModalView()
+    if modalView.isNotAttached()
+      @$el.parent().append(modalView.el)
+      modalView.$el.offset(top: @$el.offset().top)
+    modalView.setProject(project)
+    modalView.render()
+    modalView.show()
 
   renderProjectListItemViews: ->
     _.each(@getUser().getProjects().models, (project) =>

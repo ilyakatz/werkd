@@ -25,13 +25,15 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
 
   # Methods:
 
-  open: ->
+  show: ->
     console.log('open')
-    @$el.css('display', 'block')
+    # @$el.css('display', 'block')
+    @$el.fadeIn()
 
-  close: ->
+  hide: ->
     console.log('close')
-    @$el.css('display', 'none')
+    # @$el.css('display', 'none')
+    @$el.fadeOut()
 
 
   # Render methods:
@@ -46,4 +48,4 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
 
   onClickBackgroundBlocker: (event) ->
     console.log('onClickBackgroundBlocker', event)
-    @close()
+    @hide()

@@ -46,8 +46,8 @@ describe 'Werkd.Views.Projects.ModalView', ->
 
     describe 'onClickBackgroundBlocker', ->
       beforeEach ->
-        @close = spyOn(@view, 'close')
+        @hide = spyOn(@view, 'hide')
         @view.getBackgroundBlockerEl().click()
 
-      it 'should close the moda', ->
-        expect(@close).toHaveBeenCalled()
+      it 'should hide the moda', ->
+        expect(@hide).toHaveBeenCalled()
