@@ -6,6 +6,7 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
   className: 'project-modal-view'
 
   events:
+    'click .close-modal a':         'onClickCloseButton'
     'click .background-blocker':    'onClickBackgroundBlocker'
 
 
@@ -22,6 +23,8 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
   getBackgroundBlockerEl: ->
     @$el.find('.background-blocker')
 
+  getCloseButtonEl: ->
+    @$el.find('.close-modal a')
 
   # Methods:
 
@@ -45,6 +48,10 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
   
 
   # Events:
+
+  onClickCloseButton: (event) ->
+    console.log('onClickCloseButton', event)
+    @hide()
 
   onClickBackgroundBlocker: (event) ->
     console.log('onClickBackgroundBlocker', event)

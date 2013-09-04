@@ -24,6 +24,9 @@ describe 'Werkd.Views.Projects.ModalView', ->
     beforeEach ->
       @view.render()
 
+    it 'should have close button', ->
+      expect(@view.getCloseButtonEl()[0]).toBeDefined()
+
     it 'should have background blocker', ->
       expect(@view.getBackgroundBlockerEl()[0]).toBeDefined()
 
@@ -48,6 +51,14 @@ describe 'Werkd.Views.Projects.ModalView', ->
       beforeEach ->
         @hide = spyOn(@view, 'hide')
         @view.getBackgroundBlockerEl().click()
+
+      it 'should hide the moda', ->
+        expect(@hide).toHaveBeenCalled()
+
+    describe 'onClickCloseButton', ->
+      beforeEach ->
+        @hide = spyOn(@view, 'hide')
+        @view.getCloseButtonEl().click()
 
       it 'should hide the moda', ->
         expect(@hide).toHaveBeenCalled()
