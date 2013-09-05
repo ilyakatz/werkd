@@ -91,12 +91,13 @@ group :development, :test do
 
   gem "hirb"
   gem "hpricot"
-  
+
   # Jasmin JS testing:
   gem 'guard-jasmine'
   gem 'jasmine'
   gem 'jasminerice'
   gem 'jasmine-headless-webkit'
+  gem 'poltergeist'
 
   #debugging
   gem "pry"

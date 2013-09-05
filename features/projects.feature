@@ -1,5 +1,6 @@
 Feature: Projects
 
+  @javascript
   Scenario: I should be able to list my projects
     Given a user "me" exists with email: "ilyakatz@gmail.com"
     And a project "project" exists with creator: user "me", title: "Cool project"
@@ -7,17 +8,14 @@ Feature: Projects
     When I go to the users dashboards page
     Then I should see "Cool project"
 
+  @javascript
   Scenario: I should be able to add a new project
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
     And I click ".icon-plus-sign" icon within ".new-project"
-    And I fill in "Title" with "New Project"
-    And I fill in "Company" with "Coca Cola"
-    And I fill in "Tags" with "Design"
-    And I press "Create"
-    And I go to the users dashboards page
-    And I should see "New Project"
+    And I should see "What was your role on this project?"
 
+  @javascript
   Scenario: I should be able to edit a project
     Given a user "me" exists with email: "ilyakatz@gmail.com"
     And a project "project" exists with creator: user "me", title: "Cool project"
