@@ -17,6 +17,11 @@ describe 'Werkd.Models.Project', ->
     expect(@model.getTitle()).toBeNull()
     expect(@model.getThumbnailUrl()).toBeNull()
 
+  describe 'associations', ->
+
+    it 'should have creator', ->
+      expect(@model.getCreator()).toBeUndefined()
+
 
 describe 'Werkd.Collections.Projects', ->
   beforeEach ->

@@ -9,6 +9,13 @@ class Werkd.Models.Project extends Supermodel.Model
     thumbnail_url: null
     user_id: null
 
+
+  # Associations:
+
+  getCreator: ->
+    @creator()
+
+
 Werkd.Models.Project.initializeProperties()
 
 

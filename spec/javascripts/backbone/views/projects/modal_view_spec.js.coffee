@@ -4,7 +4,10 @@ createView = (args) ->
 describe 'Werkd.Views.Projects.ModalView', ->
   beforeEach ->
     @model = createProjectModel()
-    @view = createView(model: @model)
+    @currentUser = createUserModel()
+    @view = createView()
+    @view.setProject(@model)
+    @view.setCurrentUser(@currentUser)
     @server = sinon.fakeServer.create()
 
   afterEach ->
@@ -17,7 +20,8 @@ describe 'Werkd.Views.Projects.ModalView', ->
     expect(@view).not.toBeNull()
 
   it 'has defaults set', ->
-    expect(@view.getProject()).toEqual(@model)
+    expect(@view.getProject().getId()).toEqual(@model.getId())
+    expect(@view.getCurrentUser().getId()).toEqual(@currentUser.getId())
 
 
   describe 'view properties', ->

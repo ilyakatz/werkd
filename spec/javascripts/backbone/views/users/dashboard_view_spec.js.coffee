@@ -4,7 +4,8 @@ createView = (args) ->
 describe 'Werkd.Views.Users.DashboardView', ->
   beforeEach ->
     @model = createUserWithProjectsAndConnectionsModel()
-    @view = createView(model: @model)
+    @currentUser = createUserModel()
+    @view = createView(model: @model, currentUser: @currentUser)
     @server = sinon.fakeServer.create()
 
   afterEach ->
@@ -18,6 +19,7 @@ describe 'Werkd.Views.Users.DashboardView', ->
 
   it 'has defaults set', ->
     expect(@view.getUser()).toEqual(@model)
+    expect(@view.getCurrentUser()).toEqual(@currentUser)
 
   it 'should have project modal view', ->
     expect(@view.getProjectModalView()).toBeDefined()
