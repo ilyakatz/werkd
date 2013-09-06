@@ -22,10 +22,11 @@
 </div>
 <% content_for :scripts do %>
   <script type="text/javascript">
-    $(function() {
-      user = new Werkd.Models.User(<%= @user_json.html_safe %>);
+  $(function() {
+      currentUser = Werkd.Models.User.create(<%= @current_user_json.html_safe %>);
+      user = Werkd.Models.User.create(<%= @user_json.html_safe %>);
       window.user = user;
-      dashboardView = new Werkd.Views.Users.DashboardView({model: user});
+      dashboardView = new Werkd.Views.Users.DashboardView({model: user, currentUser: currentUser});
       window.dashboardView = dashboardView;
       $('#dashboard-content').append(dashboardView.el);
       dashboardView.render();

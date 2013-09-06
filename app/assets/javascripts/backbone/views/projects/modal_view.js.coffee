@@ -9,6 +9,8 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
     'click .close-modal a':         'onClickCloseButton'
     'click .background-blocker':    'onClickBackgroundBlocker'
 
+  initialize: ->
+    @currentUser = @options.currentUser
 
   # Properties:
   
@@ -17,6 +19,12 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
 
   setProject: (project) ->
     @model = project
+
+  getCurrentUser: ->
+    @currentUser
+
+  setCurrentUser: (currentUser) ->
+    @currentUser = currentUser
 
   # View properties:
 
@@ -44,7 +52,7 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
   render: ->
     super
     @$el.css('display', 'none')
-    @$el.html(@template(project: @getProject()))
+    @$el.html(@template(project: @getProject(), currentUser: @getCurrentUser()))
   
 
   # Events:

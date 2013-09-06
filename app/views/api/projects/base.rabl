@@ -4,3 +4,7 @@ attributes(
   :title,
   :thumbnail_url
 )
+
+child(creator: :creator) do
+  extends('/api/users/base')
+end

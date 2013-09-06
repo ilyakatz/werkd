@@ -10,6 +10,9 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
   getUser: ->
     @model
 
+  getCurrentUser: ->
+    @options.currentUser
+
   getProject: ->
     @getUser().getProjects().models[0] || new Werkd.Models.Project()
 
@@ -29,6 +32,7 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
       @$el.parent().append(modalView.el)
       modalView.$el.offset(top: @$el.offset().top)
     modalView.setProject(project)
+    modalView.setCurrentUser(@getCurrentUser())
     modalView.render()
     modalView.show()
 
