@@ -7,7 +7,7 @@
     And I go to new user invitation page
     And a user exists with email: "ilyakatz@gmail.com", password: "password123", first_name: "Ilya", last_name: "Morpheus"
     And I fill in "Email" with "ilyakatz@gmail.com"
-    And I press "Send"
+    And I press "Send an invitation"
     Then I should be on the users profiles page
     And I go to the users dashboards page
     And I should see "Ilya Morpheus"
@@ -17,7 +17,7 @@
     And I go to new user invitation page
     And a user exists with email: "ilyakatz@gmail.com", password: "password123"
     And I fill in "Email" with "ilyakatz@gmail.com"
-    And I press "Send"
+    And I press "Send an invitation"
     And I should see "Invitation to connect has been sent"
 
   Scenario: I accept connection invitation
