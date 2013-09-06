@@ -31,7 +31,7 @@ Feature: Projects
     And I go to the new users project page
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
-    And I fill in "Tags" with "Design"
+    And I fill in "Skills tags" with "Design"
     And I fill in "Contribution" with "Slacked off, mostly"
     And I press "Create"
     Then a project should exist with contribution: "Slacked off, mostly"
@@ -41,8 +41,8 @@ Feature: Projects
     And I go to the new users project page
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
-    And I fill in "Tags" with "Design"
-    And I fill in "Tags" with "graphic design"
+    And I fill in "Skills tags" with "Design"
+    And I fill in "Skills tags" with "graphic design"
     And I press "Create"
     Then a project should exist
     When I go to the project's page
@@ -53,7 +53,7 @@ Feature: Projects
     And I go to the new users project page
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
-    And I fill in "Tags" with "Design"
+    And I fill in "Skills tags" with "Design"
     And I select "2012" from "project_start_at_1i"
     And I select "May" from "project_start_at_2i"
     And I press "Create"
@@ -67,7 +67,7 @@ Feature: Projects
     And I go to the new users project page
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
-    And I fill in "Tags" with "Design"
+    And I fill in "Skills tags" with "Design"
     And I tag user "coworker" on the project
     And I press "Create"
     Then a project should exist
@@ -80,7 +80,7 @@ Feature: Projects
     And I go to the new users project page
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
-    And I fill in "Tags" with "Design"
+    And I fill in "Skills tags" with "Design"
     And I fill in "Collaborators" with "cowerker@werked.net"
     And I press "Create"
     Then a project should exist
@@ -93,7 +93,7 @@ Feature: Projects
     And I go to the new users project page
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
-    And I fill in "Tags" with "Design"
+    And I fill in "Skills tags" with "Design"
     And I fill in "Collaborators" with "cowerker@werked.net"
     And I press "Create"
     Then a project should exist
@@ -105,17 +105,17 @@ Feature: Projects
     And I go to the new users project page
     And I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
-    And I fill in "Tags" with "Design"
+    And I fill in "Skills tags" with "Design"
     And I press "Create"
     Then I should see "Please add one more project"
     When I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
-    And I fill in "Tags" with "Design"
+    And I fill in "Skills tags" with "Design"
     And I press "Create"
     Then I should see "Please add one more project"
     When I fill in "Title" with "New Project"
     And I fill in "Company" with "Coca Cola"
-    And I fill in "Tags" with "Design"
+    And I fill in "Skills tags" with "Design"
     And I press "Create"
     Then I should be on the users dashboards page
     And I should see "Project was successfully created."
