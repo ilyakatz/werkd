@@ -28,9 +28,6 @@
     <div class="span8">
       <div class="project-details">
         <h5><%= @project.getTitle() %></h5>
-        <h6>
-          <%= @project.getUserId()%>
-        </h6>
         <h6>produced at The Mill</h6>
         <img class="main" src="<%= if @project.getThumbnailUrl() then @project.getThumbnailUrl() else '/assets/werkd.png' %>" />
         <% if @project.getCreator().getId() == @currentUser.getId(): %>
