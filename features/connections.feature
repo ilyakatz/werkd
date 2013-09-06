@@ -1,5 +1,6 @@
   Feature: connections
 
+  @javascript
   Scenario: When I send an invitation it should show up as pending
     When I login as "ilya@werkd.net"
     And I go to new user invitation page
@@ -8,6 +9,7 @@
     And I press "Send"
     Then I should be on the users profiles page
     And I go to the users dashboards page
+    And show me the page
     And I should see "WeRKD user"
 
   Scenario: I send an invitation to existing user to create a meangful connection
