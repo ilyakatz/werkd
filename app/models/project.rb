@@ -33,12 +33,11 @@ class Project < ActiveRecord::Base
 
   #return string with ids
   def tagged_user_ids
-    taggings.where(context: participant_role).
-      where(tagger_type: User).collect(&:tagger_id)
+    collaborators.collect(&:id)
   end
 
   def tagged_users
-    User.where(id: tagged_user_ids)
+    collaborators
   end
 
   private
@@ -65,18 +64,12 @@ class Project < ActiveRecord::Base
     clear_current_tags(users_to_remove)
     users_to_add.each do |user|
       ContactsMailer.send_tag_created(self.id, user.id)
-      user.tag(self, with: participant_role, on: participant_role)
+      self.collaborators << user
     end
   end
 
   def clear_current_tags(users)
-    users.each do |user|
-      user.tag(self, with: "", on: participant_role)
-    end
-  end
-
-  def participant_role
-    "participant"
+    collaborations.where(user_id: users.collect(&:id)).destroy_all
   end
 
   def extract_embed
