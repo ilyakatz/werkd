@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819125451) do
+ActiveRecord::Schema.define(:version => 20130907151041) do
+
+  create_table "active_admin_comments", :force => true do |t|
+    t.string   "resource_id",   :null => false
+    t.string   "resource_type", :null => false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.text     "body"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "namespace"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
+  add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -40,6 +55,17 @@ ActiveRecord::Schema.define(:version => 20130819125451) do
   end
 
   add_index "connections", ["user_id", "connected_to"], :name => "index_connections_on_user_id_and_connected_to", :unique => true
+
+  create_table "friendly_id_slugs", :force => true do |t|
+    t.string   "slug",                         :null => false
+    t.integer  "sluggable_id",                 :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "imported_contacts", :force => true do |t|
     t.string   "first_name"
@@ -72,6 +98,7 @@ ActiveRecord::Schema.define(:version => 20130819125451) do
     t.string   "media_url"
     t.string   "contribution"
     t.date     "start_at"
+    t.string   "thubnail_url"
     t.string   "embed_html"
     t.string   "thumbnail_url"
   end
@@ -125,11 +152,13 @@ ActiveRecord::Schema.define(:version => 20130819125451) do
     t.string   "location"
     t.string   "job_title"
     t.datetime "invited_contacts"
+    t.string   "slug"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token", :unique => true
   add_index "users", ["invited_by_id"], :name => "index_users_on_invited_by_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
 
 end

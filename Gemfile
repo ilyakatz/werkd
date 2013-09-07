@@ -51,6 +51,8 @@ gem 'embedly'
 gem 'acts-as-taggable-on'
 gem 'cloudinary'
 
+gem 'activeadmin'
+
 group :test, :development do
   gem "mysql2"
 end
