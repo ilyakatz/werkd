@@ -90,4 +90,5 @@ group :development, :test do
   gem "pry-debugger"
   gem 'email_preview'
   gem 'vcr'
+  gem 'letter_opener'
 end
