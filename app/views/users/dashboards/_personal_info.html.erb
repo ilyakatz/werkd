@@ -1,17 +1,20 @@
-<h2 class="name" style="text-align:center;">
-  <%= user.first_name %> <%= user.last_name %>
-</h2>
+<div class="row">
+  <div class="span12">
+    <h2 class="name" style="text-align:center;">
+      <%= user.first_name %> <%= user.last_name %>
+    </h2>
 
-<% if user.job_title%>
-  <h3 class="text-center job-title">
-    <%=user.job_title%>
-  </h3>
-<%end%>
+    <% if user.job_title%>
+      <h3 class="text-center job-title">
+        <%=user.job_title%>
+      </h3>
+    <%end%>
 
-<% if user.location%>
-  <h4 class="text-center location">
-    <%=user.location%>
-  </h4>
-<%end%>
-
+    <% if user.location%>
+      <h4 class="text-center location">
+        <%=user.location%>
+      </h4>
+    <%end%>
+  </div>
+</div>
 

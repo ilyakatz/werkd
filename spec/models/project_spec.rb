@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id            :integer          not null, primary key
+#  title         :string(255)
+#  company       :string(255)
+#  user_id       :integer
+#  video         :string(255)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  media_url     :string(255)
+#  contribution  :string(255)
+#  start_at      :date
+#  embed_html    :string(255)
+#  thumbnail_url :string(255)
+#
+
 require 'spec_helper'
 
 describe Project do
@@ -126,5 +144,15 @@ describe Project do
       p.tagged_users.should eq [u]
     end
   end
+
+  describe :factories do
+
+    describe :project do
+      subject { build(:project) }
+      it { should be_valid }
+    end # project
+
+  end # factories
+
 end
 

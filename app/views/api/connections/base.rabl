@@ -1,0 +1,4 @@
+object @connection
+attributes(
+  :id
+)

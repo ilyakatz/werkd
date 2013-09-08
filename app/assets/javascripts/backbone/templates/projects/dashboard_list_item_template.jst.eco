@@ -1,0 +1,12 @@
+<label>
+  <%= @project.getTitle() %>
+</label>
+<a href="#/projects/<%= @project.getId() %>">
+  <p>
+    <% if @project.getThumbnailUrl(): %>
+      <img src="<%= @project.getThumbnailUrl() %>" width="304" height="171" alt="<%= @project.getTitle() %> preview" class="thumbnail" />
+    <% else: %>
+      <img src="/assets/werkd.png" width="304" height="171" alt="<%= @project.getTitle() %> preview" class="thumbnail" />
+    <% end %>
+  </p>
+</a>
