@@ -31,9 +31,7 @@
         <h6>produced at The Mill</h6>
         <img class="main" src="<%= if @project.getThumbnailUrl() then @project.getThumbnailUrl() else '/assets/werkd.png' %>" />
         <% if @project.getCreator().getId() == @currentUser.getId(): %>
-          I made this! :)
-        <% else: %>
-          I didn't make this :(
+        <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
         <% end %>
       </div>
     </div>

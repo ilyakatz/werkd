@@ -8,16 +8,12 @@
     hint: "(optional) What was your contribution to the project?",
     as: :text
   %>
-<%= f.input :tag_list, label: "Tags" %>
-<%#= f.association :collaborators,
-  as: :select,
-  hint: "(optional) Who worked with you on this project"
-%>
-  <%= f.input :media_url,
+<%= f.input :tag_list, label: "Skills tags" %>
+<%= f.input :media_url,
     hint: "(optional) Any videos or picture link that visualizes the project",
     input_html:
     { class: "embed-link" }
-  %>
+%>
 
 <div id="embedly-preview" class="selector-wrapper"></div>
 

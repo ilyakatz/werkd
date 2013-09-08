@@ -8,7 +8,6 @@ class Werkd.Models.Project extends Supermodel.Model
     title: null
     thumbnail_url: null
 
-
   # Associations:
 
   getCreator: ->
