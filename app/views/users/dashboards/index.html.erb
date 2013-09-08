@@ -1,23 +1,6 @@
 <div class="row-fluid dashboard-max">
   <div id="dashboard-content" class="span12" style="position">
     <%= render partial: "users/dashboards/personal_info", locals: { user: @user } %>
-    <!--div class="container-fluid dashboard-max">
-
-      <div class="span8 projects-well">
-        <div>
-          <%#=render partial: "users/dashboards/projects"%>
-        </div>
-      </div>
-
-      <div class="span4 grey-bg">
-        <div>
-          <%#=render partial: "users/dashboards/contacts"%>
-        </div>
-      </div>
-
-      </div>
-
-    </div-->
   </div>
 </div>
 <% content_for :scripts do %>
