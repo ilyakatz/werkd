@@ -20,7 +20,7 @@
     </div>
     <div class="span4">
       <div class="right-column">
-        Contributors | Contacts
+        <!--Contributors | Contacts-->
       </div>
     </div>
   </div>
@@ -28,15 +28,21 @@
     <div class="span8">
       <div class="project-details">
         <h5><%= @project.getTitle() %></h5>
-        <h6>produced at The Mill</h6>
+        <h6>produced at <%= @project.getCompany() %></h6>
         <img class="main" src="<%= if @project.getThumbnailUrl() then @project.getThumbnailUrl() else '/assets/werkd.png' %>" />
         <% if @project.getCreator().getId() == @currentUser.getId(): %>
         <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
         <% end %>
       </div>
     </div>
-    <div class="span4">
-      Contributors here
+    <div class="span4 user-dashboard-list-view">
+      <ul class="user-dashboard-list-item-views">
+        <% for user in @project.getContributors().models: %>
+          <li>
+            <a href="#"><%= user.getPublicName() %></a>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
