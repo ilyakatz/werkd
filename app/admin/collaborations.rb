@@ -13,16 +13,17 @@ ActiveAdmin.register Collaboration do
 
     column :action do |c|
       if c.pending?
-        link_to 'accept', accept_admin_collaboratio_path(c)
+        link_to 'accept', accept_admin_collaboration_path(c)
       else
         "accepted"
       end
     end
   end
 
-  member_action :accept do |c|
+  member_action :accept do
+    c = Collaboration.find(params[:id])
     c.accept!
-    redirect_to :back, "Accepted"
+    redirect_to admin_collaborations_path, notice: "Accepted"
   end
 
   show do |c|
