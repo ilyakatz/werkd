@@ -3,9 +3,6 @@ extends('/api/users/base')
 
 child(:projects, object_root: false) do
   extends('/api/projects/base')
-  # child(:collaborations, object_root: false) do
-    # extends('/api/collaborations/base')
-  # end
 end
 
 child(:connections, object_root: false) do
