@@ -95,6 +95,22 @@ Feature: Projects
     When I go to the project's page
     And I should not see "cowerker@werked.net"
 
+  Scenario: Visitors shouold able to see accepted collaborators
+    Given a user "me" exists with first_name: "Ilya"
+    And a project "p" exists with title: "My project", creator: user "me"
+    And a collaboration exists with collaborator: user "me", project: project "p", accepted_at: "10 Dec 2013"
+    And I go to user "me"'s page
+    And I follow "My project preview"
+    And I should see "Ilya"
+
+  Scenario: Visitors shouold not be able to see pending Collaborators
+    Given a user "me" exists with first_name: "Ilya"
+    And a project "p" exists with title: "My project", creator: user "me"
+    And a collaboration exists with collaborator: user "me", project: project "p"
+    And I go to user "me"'s page
+    And I follow "My project preview"
+    And I should not see "Ilya"
+
   Scenario: I should be able to tag new people by their email address
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
