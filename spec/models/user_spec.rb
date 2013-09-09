@@ -1,6 +1,48 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  email                  :string(255)      default(""), not null
+#  encrypted_password     :string(255)      default("")
+#  reset_password_token   :string(255)
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0)
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string(255)
+#  last_sign_in_ip        :string(255)
+#  confirmation_token     :string(255)
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string(255)
+#  failed_attempts        :integer          default(0)
+#  unlock_token           :string(255)
+#  locked_at              :datetime
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  first_name             :string(255)
+#  last_name              :string(255)
+#  invitation_token       :string(60)
+#  invitation_sent_at     :datetime
+#  invitation_accepted_at :datetime
+#  invitation_limit       :integer
+#  invited_by_id          :integer
+#  invited_by_type        :string(255)
+#  location               :string(255)
+#  job_title              :string(255)
+#  invited_contacts       :datetime
+#
+
 require 'spec_helper'
 
 describe User do
+
+  describe :collections do
+    it { should have_many(:collaborations) }
+    it { should have_many(:collaborated_projects) }
+  end # collections
 
   describe "#communication_name" do
 
@@ -20,7 +62,7 @@ describe User do
   describe "#public_name" do
 
     it "should show only first name if present" do
-      user = FactoryGirl.build(:user, first_name: "Ilya")
+      user = FactoryGirl.build(:user, first_name: "Ilya", last_name: nil)
       user.public_name.should eq "Ilya"
     end
 
@@ -32,7 +74,7 @@ describe User do
     end
 
     it "should show generic name if not present" do
-      user = FactoryGirl.build(:user)
+      user = FactoryGirl.build(:user, first_name: nil, last_name: nil)
       user.public_name.should eq "WeRKD user"
     end
 
@@ -133,4 +175,43 @@ describe User do
     end
 
   end
+
+  describe :factories do
+
+    describe :user do
+      subject { build(:user) }
+      it { should be_valid }
+    end # user
+
+    describe :user_with_projects_and_connections do
+      let(:user) { create(:user_with_projects_and_connections) }
+      subject { user }
+
+      context :collaborated_projects do
+        let(:collaborated_projects) { user.collaborated_projects }
+        subject { collaborated_projects }
+        it { should have(4).items }
+
+        context :project_1 do
+          let(:project_1) { collaborated_projects[0] }
+          subject { project_1 }
+          its(:collaborators) { should have(1).items }
+        end
+
+        context :project_4 do
+          let(:project_4) { collaborated_projects[3] }
+          subject { project_4 }
+          its(:collaborators) { should have(4).items }
+        end
+
+      end # projects
+
+      context :conntections do
+        subject { user.connections }
+        it { should have(6).items }
+      end # connections
+
+    end # user_with_projects_and_connections
+
+  end # factories
 end

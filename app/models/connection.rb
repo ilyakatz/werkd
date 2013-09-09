@@ -1,9 +1,24 @@
+# == Schema Information
+#
+# Table name: connections
+#
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  connected_to :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  sent_at      :time
+#  accepted_at  :time
+#
+
 class Connection < ActiveRecord::Base
   attr_accessible :connected_to, :user_id
 
   belongs_to :inviter, class_name: "User", :foreign_key => :user_id
   belongs_to :invitee, class_name: "User", :foreign_key => :connected_to
   has_one :user
+
+  # Scopes:
 
   validates_uniqueness_of :connected_to, scope: :user_id
 
@@ -25,4 +40,15 @@ class Connection < ActiveRecord::Base
     self.accepted_at = Time.now
     self.save
   end
+
+  # Methods:
+
+  def other_user(user)
+    if inviter == user
+      invitee
+    else
+      inviter
+    end
+  end
+
 end

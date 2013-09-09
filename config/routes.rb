@@ -22,6 +22,10 @@ WeRKD::Application.routes.draw do
   resources :users, only: [:index, :show]
   resources :projects, only: [:show]
 
+  namespace :api do
+    resources :users
+  end
+
   root :to => 'home#index'
 
   ActiveAdmin.routes(self)

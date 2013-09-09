@@ -21,6 +21,8 @@ gem "twitter-bootstrap-rails"
 gem 'jquery-rails'
 gem 'gmaps4rails'
 gem 'bootstrap-sass'
+gem 'rails-backbone'
+gem 'eco'
 
 #user authentication
 gem 'devise', '~> 2'
@@ -50,6 +52,7 @@ gem 'simple_form'
 gem 'embedly'
 gem 'acts-as-taggable-on'
 gem 'cloudinary'
+gem 'rabl'
 
 gem 'activeadmin'
 
@@ -59,14 +62,13 @@ end
 
 group :test do
   gem 'rspec-rails', '~> 2'
-  gem 'factory_girl', '~> 3'
-  gem 'factory_girl_rails'
   gem 'webrat'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'pickle'
   gem 'launchy'
   gem 'rspec-mocks'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -84,8 +86,20 @@ group :development do
 end
 
 group :development, :test do
+  gem 'annotate', '>=2.5.0'
+  gem 'faker'
+  gem 'factory_girl', '~> 3'
+  gem 'factory_girl_rails'
+
   gem "hirb"
   gem "hpricot"
+
+  # Jasmin JS testing:
+  gem 'guard-jasmine'
+  gem 'jasmine'
+  gem 'jasminerice'
+  gem 'jasmine-headless-webkit'
+  gem 'poltergeist'
 
   #debugging
   gem "pry"

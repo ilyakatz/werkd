@@ -1,0 +1,43 @@
+<div class="project-modal-content">
+  <div class="row heading">
+    <div class="span8 grey-bg">
+      <div class="panel-heading">
+        <h4>WeRKD On</h4>
+      </div>
+    </div>
+    <div class="span4 grey-bg">
+      <div class="panel-heading">
+        <h4>With</h4>
+      </div>
+    </div>
+  </div>
+  <div class="row navigation">
+    <div class="span8">
+      <div class="close-modal"><a href="#close">&times;</a></div>
+      <div class="project-tags">
+        Design, Illustration, Video Editing
+      </div>
+    </div>
+    <div class="span4">
+      <div class="right-column">
+        Contributors | Contacts
+      </div>
+    </div>
+  </div>
+  <div class="row info">
+    <div class="span8">
+      <div class="project-details">
+        <h5><%= @project.getTitle() %></h5>
+        <h6>produced at The Mill</h6>
+        <img class="main" src="<%= if @project.getThumbnailUrl() then @project.getThumbnailUrl() else '/assets/werkd.png' %>" />
+        <% if @project.getCreator().getId() == @currentUser.getId(): %>
+        <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
+        <% end %>
+      </div>
+    </div>
+    <div class="span4">
+      Contributors here
+    </div>
+  </div>
+</div>
+<div class="background-blocker" />
