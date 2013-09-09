@@ -5,7 +5,7 @@ Given(/^#{capture_model} has complete profile$/) do |u|
   user.job_title="doer" unless user.job_title
   user.invited_contacts = Time.now
   user.save
-  user.projects<<3.times.collect{FactoryGirl.create(:project)}
+  3.times.collect{FactoryGirl.create(:project, creator: user)}
 end
 
 Given(/^#{capture_model} has a connection #{capture_model}$/) do |u1, u2|
