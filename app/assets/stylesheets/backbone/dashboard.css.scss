@@ -69,8 +69,6 @@
     top: 0;
     right: 0;
     left: 0;
-    bottom: 0;
-    height: 500px;
     z-index: 100;
     background-color: #333;
 
@@ -109,6 +107,8 @@
     }
 
     .row.info {
+      position: relative;
+
       .project-details {
         padding: 0 12px 0 12px;
 
@@ -132,6 +132,13 @@
           border: 1px #aaa solid;
         }
       } // project-details
+
+      .user-dashboard-list-view {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+      }
 
     } // row.info
 

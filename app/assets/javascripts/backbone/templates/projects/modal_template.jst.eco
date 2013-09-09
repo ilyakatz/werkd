@@ -35,10 +35,12 @@
         <% end %>
       </div>
     </div>
-    <div class="span4">
-      <ul>
+    <div class="span4 user-dashboard-list-view">
+      <ul class="user-dashboard-list-item-views">
         <% for user in @project.getContributors().models: %>
-          <li><%= user.getPublicName() %></li>
+          <li>
+            <a href="#"><%= user.getPublicName() %></a>
+          </li>
         <% end %>
       </ul>
     </div>
