@@ -11,10 +11,24 @@ ActiveAdmin.register Collaboration do
       c.collaborator.email
     end
 
-    column "status" do |c|
-      !!c.accepted_at ? "accepted" : "pending"
+    column :action do |c|
+      if c.pending?
+        link_to 'accept', accept_admin_collaboratio_path(c)
+      else
+        "accepted"
+      end
     end
-    default_actions
+  end
+
+  member_action :accept do |c|
+    c.accept!
+    redirect_to :back, "Accepted"
+  end
+
+  show do |c|
+    attributes_table do
+      row(:project)
+    end
   end
 
 end
