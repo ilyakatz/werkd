@@ -10,6 +10,7 @@ class Werkd.Models.User extends Supermodel.Model
     public_name: null
     email: null
     job_title: null
+    skills: null
 
   # Collections:
 
@@ -23,6 +24,6 @@ Werkd.Models.User.initializeProperties()
 
 class Werkd.Collections.Users extends Backbone.Collection
   url: '/users'
-  
+
   model: (attrs, options) ->
     Werkd.Models.User.create(attrs, options)

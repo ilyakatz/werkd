@@ -75,6 +75,10 @@ class User < ActiveRecord::Base
     res = User.where("email LIKE ? OR first_name LIKE ? or last_name LIKE ?", query, query, query).limit(10)
   end
 
+  def skills
+    projects.collect(&:tags).flatten.collect(&:name).uniq
+  end
+
   def self.json_token(q)
     res = token(q)
     if res.present?
