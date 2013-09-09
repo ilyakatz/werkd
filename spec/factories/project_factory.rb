@@ -19,6 +19,7 @@
 FactoryGirl.define do
 
   factory :project do
+    association :creator, factory: :user
     sequence(:title) { |n| "Project #{n}" }
     company { Faker::Company.name }
     tag_list "design"

@@ -5,5 +5,7 @@ attributes(
   :first_name,
   :last_name,
   :public_name,
-  :job_title
+  :job_title,
+
+  :skills
 )
