@@ -6,12 +6,18 @@ class Werkd.Models.Project extends Supermodel.Model
   defaults:
     id: null
     title: null
+    company: null
     thumbnail_url: null
 
   # Associations:
 
   getCreator: ->
     @creator()
+
+  # Collections:
+
+  getContributors: ->
+    @contributors()
 
 
 Werkd.Models.Project.initializeProperties()

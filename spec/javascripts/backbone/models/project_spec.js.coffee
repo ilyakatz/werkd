@@ -15,12 +15,37 @@ describe 'Werkd.Models.Project', ->
   it 'has defaults set', ->
     expect(@model.getId()).toBeNull()
     expect(@model.getTitle()).toBeNull()
+    expect(@model.getCompany()).toBeNull()
     expect(@model.getThumbnailUrl()).toBeNull()
+
 
   describe 'associations', ->
 
     it 'should have creator', ->
       expect(@model.getCreator()).toBeUndefined()
+
+
+  describe 'collections', ->
+
+    it 'should have contributors', ->
+      expect(@model.getContributors().models).toEqual([])
+
+
+  describe 'factories', ->
+
+    describe 'project', ->
+      beforeEach ->
+        @model = createProjectModel()
+
+      it 'should have properties set', ->
+        expect(@model.getId()).not.toBeNull()
+        expect(@model.getTitle()).not.toBeNull()
+        expect(@model.getCompany()).not.toBeNull()
+        expect(@model.getThumbnailUrl()).not.toBeNull()
+        expect(@model.getCreator()).not.toBeNull()
+
+      it 'should have collections set', ->
+        expect(@model.getContributors().length).toEqual(3)
 
 
 describe 'Werkd.Collections.Projects', ->
