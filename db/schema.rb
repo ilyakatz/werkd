@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819125451) do
+ActiveRecord::Schema.define(:version => 20130907215244) do
+
+  create_table "active_admin_comments", :force => true do |t|
+    t.string   "resource_id",   :null => false
+    t.string   "resource_type", :null => false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.text     "body"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "namespace"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
+  add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -21,11 +36,14 @@ ActiveRecord::Schema.define(:version => 20130819125451) do
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "authentications", ["provider", "user_id"], :name => "index_authentications_on_provider_and_user_id", :unique => true
+
   create_table "collaborations", :force => true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.datetime "accepted_at"
   end
 
   add_index "collaborations", ["user_id", "project_id"], :name => "index_collaborations_on_user_id_and_project_id", :unique => true

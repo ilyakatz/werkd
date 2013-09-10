@@ -10,6 +10,6 @@ child(creator: :creator) do
   extends('/api/users/base')
 end
 
-child(tagged_users: :contributors) do
+child(accepted_collaborators: :contributors) do
   extends('/api/users/base')
 end

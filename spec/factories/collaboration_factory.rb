@@ -17,5 +17,3 @@ FactoryGirl.define do
   end # collabortaion
 
 end
-
-

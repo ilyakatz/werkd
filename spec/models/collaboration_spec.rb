@@ -13,15 +13,18 @@ require 'spec_helper'
 
 describe Collaboration do
 
-  describe :factories do
+  describe "#pending" do
 
-    describe :collaboration do
-      subject { build(:collaboration) }
-      it { should be_valid }
-      its(:collaborator) { should be }
-      its(:project) { should be }
-    end # connection
+    it "should be pending by default" do
+      c = Collaboration.new
+      c.pending?.should be_true
+    end
 
-  end # factories
+    it "should not be pending after it was accepted" do
+      c = FactoryGirl.create(:collaboration)
+      c.accept!
+      c.pending?.should be_false
 
+    end
+  end
 end

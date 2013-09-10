@@ -106,7 +106,7 @@ describe Project do
       p.tagged_users.should eq [u]
 
       p.tagged_users=[u1]
-      p.tagged_users.should eq [u1]
+      p.tagged_users.reload.should eq [u1]
     end
 
     it "should send emails to tagged users" do

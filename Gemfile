@@ -54,6 +54,8 @@ gem 'acts-as-taggable-on'
 gem 'cloudinary'
 gem 'rabl'
 
+gem 'activeadmin'
+
 group :test, :development do
   gem "mysql2"
 end
@@ -104,4 +106,5 @@ group :development, :test do
   gem "pry-debugger"
   gem 'email_preview'
   gem 'vcr'
+  gem 'letter_opener'
 end

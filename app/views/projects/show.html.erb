@@ -37,10 +37,12 @@
 <% if @project.tagged_user_ids %>
   <p><b>Collaborators</b></p>
   <ul>
-    <%@project.tagged_users.each do |u|%>
-      <li>
-        <%=link_to display_user_name(u, @project.creator != current_user), user_path(u)%>
-      </li>
+    <%@project.collaborations.each do |c|%>
+        <% if !c.pending? or @project.creator == current_user %>
+          <li>
+          <%=link_to display_user_name(c.collaborator, @project.creator != current_user), user_path(c.collaborator)%>
+        </li>
+        <% end %>
     <%end%>
   </ul>
 <%end%>
