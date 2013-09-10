@@ -1,31 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WeRKD <%= content_for?(:title) ? yield(:title) : "" %></title>
+<%= stylesheet_link_tag "application", :media => "all" %>
+</head>
+<body>
+
 <div class="container">
-<div class="row orange-bg white" >
-  <% if current_user %>
-    <div class="usertitle">
-      <h2 class="white">Hello, <%= current_user.first_name %></h2>
+
+  <%= link_to root_path do %>
+    <%= image_tag "logos/logo_brand.png" %>
+<% end  %>
+
+  <div class="row-fluid">
+    <div class="span8">
+      <h1>Project-based, Skill-driven Professional Network for the Creative Comminities</h1>
     </div>
-  <div class="span12">
-  	<div class="row">
-  		<div class="span5 offset1 well height-200 grey">
-  			What are my people up to?<br><br>
-  			(This is where I get updates from my connections)
-  		</div>
-  		<div class="span5 well height-200 grey" >
-  			Gig Flash<br><br>
-  			(Job postings tailored to my skillset come up here)
-  		</div>
-  	</div>
-  	<div class="row-fluid">
-  		<div class="span5 offset1 well height-200 grey ">
-  			Yes or No?<br><br>
-  			(Actions items like connection request and tag request appear here)
-  		</div>
-  		<div class="span5 well height-200 grey">
-  			Talk<br><br>
-  			(Messages from my connections show up in this box)
-  		</div>
-  	</div>
   </div>
-    <% end %>
+
+  <div class="row-fluid">
+    <div class="video span1">
+    </div>
+  </div>
+
+
+  <div class="row-fluid">
+    <div class="span9 offset3">
+      <h2>Join Now. It's free!</h2>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span8">
+      <%= form_for(User.new, html: { class: "form-inline" }) do |f| %>
+        <%= f.text_field :email, placeholder: "Email", class: "input-small" %>
+      <%= f.password_field :password, placeholder: "Password", class: "input-small" %>
+      <%= f.submit "Sign in", :class => 'btn btn-primary' %>
+    <%end%>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span9">
+      <%= render partial: "users/shared/links" %>
+    </div>
+  </div>
+
+  <div class="row-fluid show-grid">
+    <div class="span12">
+      Fluid 12
+      <div class="row-fluid">
+        <div class="span6">
+          Fluid 6
+          <div class="row-fluid">
+            <div class="span6">Fluid 6</div>
+            <div class="span6">Fluid 6</div>
+          </div>
+        </div>
+        <div class="span6">Fluid 6</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-fluid show-grid">
+    <div class="span3">
+      <h4>Network with ease</h4>
+      <p>Use shared projects and skills as icebreake.
+      No more awkward introductions, shameless schmoozing and empty endorsements!
+      </p>
+    </div>
+    <div class="span3">
+      <h4>Build project archive</h4>
+      <p>
+      Collectively build a sharable archive of projects through the power of creative community. Credit yourself and your peers for the work you have done.
+      </p>
+    </div>
+    <div class="span3">
+      <h4>Know your connections</h4>
+      <p>Understand people through projects and skills in the right context, and connect with confidence and clarity.
+      </p>
+    </div>
+  </div>
+
 </div>
-</div>
+</body>
+</html>

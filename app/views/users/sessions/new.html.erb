@@ -3,7 +3,7 @@
 <div class="span6 offset3">
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
 
-  <div class="control-group">
+    <div class="control-group">
     <%= f.label :email, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :email, :class => 'text_field' %>
@@ -15,28 +15,21 @@
       <%= f.password_field :password, :class => 'text_field' %>
     </div>
   </div>
-  <% if devise_mapping.rememberable? -%>
   <div class="control-group">
     <div class="controls">
-      <label for="user_remember_me" class="checkbox">
-        <%= f.check_box :remember_me %> Remember me
-      </label>
-    </div>
-    <div class="controls">
-    <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-      <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name) %>
     <% end -%>
     </div>
   </div>
-  <% end -%>
   <div class="form-actions">
     <%= f.submit "Sign in", :class => 'btn btn-primary' %>
   </div>
-  <% end %>
+<% end %>
 </div>
 
 <div class="control-group">
-    <div style="text-align:center;">
-<%= render partial: "users/shared/links" %>
-    </div>
+  <div style="text-align:center;">
+    <%= render partial: "users/shared/links" %>
+  </div>
 </div>
