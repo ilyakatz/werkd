@@ -75,18 +75,14 @@ Feature: Projects
     Then I should see "Worker"
     And I should see "coworker@werkd.com"
 
-  Scenario: Visitor should not be able to see emails
-    When I login as "ilyakatz@gmail.com"
-    And I go to the new users project page
-    And I fill in "Title" with "New Project"
-    And I fill in "Company" with "Coca Cola"
-    And I fill in "Skills tags" with "Design"
-    And I fill in "Collaborators" with "cowerker@werked.net"
-    And I press "Create"
-    Then a project should exist
-    And I am not signed in
-    When I go to the project's page
-    And I should not see "cowerker@werked.net"
+  @javascript
+  Scenario: Visitor should not be able to see collaborators' emails
+    And a user "me" exists with first_name: "Ilya"
+    And a user "collaborator" exists with email: "cowerker@werked.net"
+    And a project "p" exists with title: "My project", creator: user "me"
+    And a collaboration exists with collaborator: user "collaborator", project: project "p"
+    When I go to user "me"'s page
+    Then I should not see "cowerker@werked.net"
 
   @javascript
   Scenario: Visitors shouold able to see accepted collaborators
