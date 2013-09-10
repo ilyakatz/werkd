@@ -95,16 +95,15 @@ Feature: Projects
     And a project "p" exists with title: "My project", creator: user "me"
     And a collaboration exists with collaborator: user "collaborator", project: project "p", accepted_at: "10 Dec 2013"
     And I go to user "me"'s page
-    And show me the page
     And I follow "My project preview"
     Then I should see "Collaborator"
 
   @javascript
-  Scenario: Visitors shouold not be able to see pending Collaborators
+  Scenario: Visitors should not be able to see pending Collaborators
     Given a user "me" exists with first_name: "Ilya"
     Given a user "collaborator" exists with first_name: "Collaborator"
     And a project "p" exists with title: "My project", creator: user "me"
-    And a collaboration exists with collaborator: user "collaborator", project: project "p", accepted_at: "10 Dec 2013"
+    And a collaboration exists with collaborator: user "collaborator", project: project "p"
     And I go to user "me"'s page
     And I follow "My project preview"
     Then I should not see "Collaborator"
