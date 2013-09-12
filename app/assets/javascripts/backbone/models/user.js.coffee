@@ -24,7 +24,7 @@ class Werkd.Models.User extends Supermodel.Model
     if @getFirstName() || @getLastName()
       _.compact([@getFirstName(), @getLastName()]).join(" ")
     else
-      null
+      "WeRKD User"
 
 Werkd.Models.User.initializeProperties()
 
