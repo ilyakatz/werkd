@@ -7,7 +7,6 @@ class Werkd.Models.User extends Supermodel.Model
     id: null
     first_name: null
     last_name: null
-    public_name: null
     email: null
     job_title: null
     skills: null
@@ -19,6 +18,13 @@ class Werkd.Models.User extends Supermodel.Model
 
   getConnections: ->
     @connections()
+
+  #Name as can be displayed on the site
+  getPublicName: ->
+    if @getFirstName() || @getLastName()
+      _.compact([@getFirstName(), @getLastName()]).join(" ")
+    else
+      null
 
 Werkd.Models.User.initializeProperties()
 
