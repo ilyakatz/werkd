@@ -46,7 +46,9 @@
       <ul class="user-dashboard-list-item-views">
         <% for user in @project.getPendingContributors().models: %>
           <li>
-            <a href="#"><%= user.getPublicName() %> (pending)</a>
+            <% if @project.getCreator().getId() == @currentUser.getId(): %>
+              <a href="#"><%= user.getPublicName() %> (pending)</a>
+            <% end %>
           </li>
         <% end %>
       </ul>

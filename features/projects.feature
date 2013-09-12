@@ -85,7 +85,7 @@ Feature: Projects
     Then I should not see "cowerker@werked.net"
 
   @javascript
-  Scenario: Visitors shouold able to see accepted collaborators
+  Scenario: Visitors should able to see accepted collaborators
     Given a user "me" exists with first_name: "Ilya"
     Given a user "collaborator" exists with first_name: "Collaborator"
     And a project "p" exists with title: "My project", creator: user "me"
@@ -93,6 +93,17 @@ Feature: Projects
     And I go to user "me"'s page
     And I follow "My project preview"
     Then I should see "Collaborator"
+
+  @javascript
+  Scenario: I should should be able to see pending Collaborators
+    Given a user "me" exists with first_name: "Ilya", email: "ilyakatz@gmail.com"
+    Given a user "collaborator" exists with first_name: "Collaborator", last_name: ""
+    And a project "p" exists with title: "My project", creator: user "me"
+    And a collaboration exists with collaborator: user "collaborator", project: project "p"
+    When I login as "ilyakatz@gmail.com"
+    And I go to user "me"'s page
+    And I follow "My project preview"
+    Then I should see "Collaborator (pending)"
 
   @javascript
   Scenario: Visitors should not be able to see pending Collaborators
