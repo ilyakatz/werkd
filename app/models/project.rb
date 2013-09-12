@@ -36,6 +36,11 @@ class Project < ActiveRecord::Base
   def accepted_collaborators
     collaborators.where("accepted_at IS NOT NULL")
   end
+
+  def pending_contributors
+    collaborators.where("accepted_at IS NULL")
+  end
+
   def preview_available?
     !!embed_url || !!embed_html
   end

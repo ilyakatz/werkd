@@ -43,6 +43,14 @@
           </li>
         <% end %>
       </ul>
+      <ul class="user-dashboard-list-item-views">
+        <% for user in @project.getPendingContributors().models: %>
+          <li>
+            <a href="#"><%= user.getPublicName() %> (pending)</a>
+          </li>
+        <% end %>
+      </ul>
+
     </div>
   </div>
 </div>
