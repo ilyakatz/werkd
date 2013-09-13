@@ -1,0 +1,42 @@
+.homepage {
+
+  color: white;
+  h1 {
+    color: grey;
+  }
+
+  h2, h3, h4, h5, h6 {
+    color: white;
+  }
+
+  .werkd-logo {
+    margin-bottom: 8em;
+  }
+
+  #signup {
+    background: $primary-color;
+  }
+
+  #distinctions {
+    padding-top: 2em;
+    background: $primary-color;
+
+    h4 {
+      font-size: 25px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+
+  #alternative-signup {
+    h5 {
+      color: $primary-color;
+      font-size: 20px;
+    }
+  }
+
+  #play {
+    padding: 1em;
+  }
+}
+
