@@ -11,7 +11,6 @@ Feature: Signing up and signin in
 
   Scenario: I should be able to sign up
     When I go to the root page
-    And I follow "Join now"
     And I fill in "Email" with "ilykatz@gmail.com"
     And I fill in "Password" with "secret"
     And I press "Let's get started"
