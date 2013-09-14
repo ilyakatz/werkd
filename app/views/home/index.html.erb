@@ -19,15 +19,19 @@
     </div>
   </div>
 
-  <header class="row-fluid logo">
-    <div class="text-center">
-      <h1>Project-based, Skill-driven Professional Network for the Creative Comminities</h1>
-    </div>
-  </header>
+  <section id="intro-video">
+    <header class="row-fluid logo">
+      <div class="text-center">
+        <h1>Project-based, Skill-driven<br>
+          Professional Network<br>
+        for the Creative Comminities</h1>
+      </div>
+    </header>
 
-  <div id="play" class="row-fluid text-center">
-    <%= image_tag "homepage/play.png"%>
-  </div>
+    <div id="play" class="row-fluid text-center">
+      <%= image_tag "homepage/play.png"%>
+    </div>
+  </section>
 
   <section id="signup">
     <div class="row-fluid text-center">
@@ -41,7 +45,7 @@
         <%= form_for(User.new, html: { class: "form-inline" }) do |f| %>
           <%= f.text_field :email, placeholder: "Email", class: "input-small" %>
         <%= f.password_field :password, placeholder: "Password", class: "input-small" %>
-        <%= f.submit "Sign in", :class => 'btn btn-primary' %>
+        <%= f.submit "Let's get started", :class => 'btn btn-primary' %>
       <%end%>
       </div>
     </div>
