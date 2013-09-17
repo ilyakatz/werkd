@@ -41,6 +41,9 @@
   #intro-video {
     height: 454px;
 
+    iframe {
+      width: 100%;
+    }
     h1 {
       color: grey;
       font-size: 4em;
