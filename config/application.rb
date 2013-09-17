@@ -65,6 +65,7 @@ module WeRKD
     config.action_mailer.postmark_settings = { api_key: "3a6e6a88-73e7-4a08-9b89-1178492a3a64" }
 
     config.assets.precompile += %w( project.js project.css  email.css twitter.css profile.js project.js )
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
 
