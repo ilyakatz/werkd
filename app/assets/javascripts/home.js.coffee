@@ -12,7 +12,7 @@ Froogaloop( $('#intro-video-player')[0] ).addEvent('ready', ->
   window.vimeoPlayer = f
 )
 
-$("#play").on("click", ->
+$("#intro-text").on("click", ->
   $("#intro-text").hide()
   $('#intro-video-player').show()
   window.vimeoPlayer.api("play")

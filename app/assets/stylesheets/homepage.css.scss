@@ -40,6 +40,9 @@
 
   #intro-video {
     height: 454px;
+    &:hover {
+      cursor: pointer;
+    }
 
     iframe {
       width: 100%;
