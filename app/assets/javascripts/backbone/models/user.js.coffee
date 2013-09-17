@@ -10,7 +10,7 @@ class Werkd.Models.User extends Supermodel.Model
     public_name: null
     email: null
     job_title: null
-    skills: null
+    skills: []
 
   # Collections:
 

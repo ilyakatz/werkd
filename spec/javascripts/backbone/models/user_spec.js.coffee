@@ -19,6 +19,7 @@ describe 'Werkd.Models.User', ->
     expect(@model.getPublicName()).toBeNull()
     expect(@model.getEmail()).toBeNull()
     expect(@model.getJobTitle()).toBeNull()
+    expect(@model.getSkills()).toEqual([])
 
   describe 'collections', ->
 
