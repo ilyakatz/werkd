@@ -6,6 +6,5 @@ attributes(
   :last_name,
   :public_name,
   :job_title,
-
   :skills
 )

@@ -15,7 +15,11 @@
     <div class="span8">
       <div class="close-modal"><a href="#close">&times;</a></div>
       <div class="project-tags">
-        Design, Illustration, Video Editing
+        <ul class="user-skills project-skills">
+          <% for skill in @project.getSkills(): %>
+            <li><%= skill %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
     <div class="span4">

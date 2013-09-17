@@ -8,6 +8,7 @@ class Werkd.Models.Project extends Supermodel.Model
     title: null
     company: null
     thumbnail_url: null
+    skills: []
 
   # Associations:
 
