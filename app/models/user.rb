@@ -56,6 +56,8 @@ class User < ActiveRecord::Base
   has_many :collaborations
   has_many :collaborated_projects, through: :collaborations, class_name: 'Project', source: :project
 
+  validates_presence_of :email
+  validates_uniqueness_of :email
   acts_as_tagger
 
   def connections
