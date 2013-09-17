@@ -9,6 +9,9 @@
 
   .werkd-logo {
     margin-bottom: 8em;
+    @media only screen and (max-width: 400px) {
+      margin-bottom: 2em;
+    }
   }
 
   #signup {
@@ -40,17 +43,26 @@
 
   #intro-video {
     height: 454px;
+    @media only screen and (max-width: 400px) {
+      height: 22em;
+    }
     &:hover {
       cursor: pointer;
     }
 
     iframe {
       width: 100%;
+      @media only screen and (max-width: 400px) {
+        height: 22em;
+      }
     }
     h1 {
       color: grey;
       font-size: 4em;
       line-height: 1em;
+      @media only screen and (max-width: 400px) {
+        font-size: 2em;
+      }
     }
 
     #play {
