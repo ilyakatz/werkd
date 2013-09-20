@@ -56,6 +56,8 @@ gem 'rabl'
 
 gem 'activeadmin',  github: "gregbell/active_admin"
 
+gem 'rails_12factor'
+
 group :test, :development do
   gem "mysql2"
 end
