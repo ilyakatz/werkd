@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   include Profiles
+  http_basic_authenticate_with name: "werkdmvp",
+    password: "4success",
+    unless: -> { !Rails.env.development? }
 
   protect_from_forgery
 
@@ -14,6 +17,5 @@ class ApplicationController < ActionController::Base
   def current_admin_user
     current_user
   end
-
 
 end
