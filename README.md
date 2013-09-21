@@ -79,9 +79,11 @@ You can access your server from the outside world:
 - (optional) Git GUI http://www.sourcetreeapp.com/download/
 - Set up heroku environment
 
-    https://toolbelt.heroku.com/
+      https://toolbelt.heroku.com/
 
 - Add heroku remote repostory
+
+      git remote add heroku git@heroku.com:werkd.git
 
 # Work flow
 
