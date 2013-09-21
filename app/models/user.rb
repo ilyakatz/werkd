@@ -130,6 +130,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  def missing_project_message
+    Project.missing_project_message(Project::MINIMUM_PROJECTS_PER_USER  - self.projects.count)
+  end
 
   def self.find_for_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info

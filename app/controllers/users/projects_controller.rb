@@ -16,7 +16,7 @@ module Users
 
       if @project.save
         if current_user.projects.count < Project::MINIMUM_PROJECTS_PER_USER
-          redirect_to new_users_project_path, notice: "Please add one more project"
+          redirect_to new_users_project_path, notice: current_user.missing_project_message
         else
           redirect_to users_dashboards_path, notice: 'Project was successfully created.'
         end

@@ -18,3 +18,7 @@ Feature: Homepage
     And I press "Sign in"
     Then I should see "Signed in successfully"
 
+  Scenario: Logged in users should be redirected to the dashboard
+    Given I login as "ilya@werkd.net"
+    When I go to the homepage
+    Then I should be on the users dashboards page
