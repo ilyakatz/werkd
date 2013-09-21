@@ -45,13 +45,13 @@
         <div id="signup-form" class="text-center">
 
           <header>
-            <h2>Join Now. It's free!</h2>
+            <h2>Join for Free Now</h2>
           </header>
 
           <%= form_for(User.new, html: { class: "form-inline" }) do |f| %>
             <%= f.text_field :email, placeholder: "Email", class: "input-small" %>
           <%= f.password_field :password, placeholder: "Password", class: "input-small" %>
-          <%= f.submit "Let's get started", :class => 'btn btn-primary' %>
+          <%= f.submit "Let's get started!", :class => 'btn btn-primary' %>
         <%end%>
 
           <header id="existing" class="action text-right">
