@@ -1,5 +1,6 @@
 .homepage {
 
+  font-family: ralewaymedium, Calibri, Candara, Arial, sans-serif;
   padding-top: 2em;
 
   color: white;
@@ -19,6 +20,10 @@
     .btn {
       background-color: white;
       color: $primary-color;
+    }
+
+    h2 {
+      font-family: ralewaylight, Calibri, Candara, Arial, sans-serif;
     }
   }
 
