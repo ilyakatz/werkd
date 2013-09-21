@@ -13,7 +13,7 @@ Feature: Projects
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
     And I click ".icon-plus-sign" icon within ".new-project"
-    And I should see "What was your role on this project?"
+    Then I should be on the new users project page
 
   @javascript
   Scenario: I should be able to edit a project
