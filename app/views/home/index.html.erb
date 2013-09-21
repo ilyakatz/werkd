@@ -22,9 +22,6 @@
   </div>
 
   <section id="intro-video">
-    <iframe id="intro-video-player" src="http://player.vimeo.com/video/74688795?api=1&amp;player_id=intro-video-player"
-      width="800" height="454" frameborder="0"
-      webkitallowfullscreen style="display:none"></iframe>
     <div id="intro-text">
       <header class="row-fluid logo">
         <div class="text-center">
@@ -37,30 +34,56 @@
       <div id="play" class="row-fluid text-center">
         <%= image_tag "homepage/play.png"%>
       </div>
-    </div>
+      j   </div>
   </section>
 
-  <section id="signup">
-    <div class="row-fluid text-center">
-      <div class="">
-        <h2>Join Now. It's free!</h2>
-      </div>
-    </div>
+  <div class="row-fluid">
+    <section class="offset2 span8" id="signup">
 
-    <div class="row-fluid text-center">
-      <div class="">
-        <%= form_for(User.new, html: { class: "form-inline" }) do |f| %>
-          <%= f.text_field :email, placeholder: "Email", class: "input-small" %>
-        <%= f.password_field :password, placeholder: "Password", class: "input-small" %>
-        <%= f.submit "Let's get started", :class => 'btn btn-primary' %>
-      <%end%>
-      </div>
-    </div>
-  </section>
+      <div class="text-center">
 
-  <div id="alternative-signup" class=" row-fluid text-center">
+        <div id="signup-form" class="text-center">
+
+          <header>
+            <h2>Join Now. It's free!</h2>
+          </header>
+
+          <%= form_for(User.new, html: { class: "form-inline" }) do |f| %>
+            <%= f.text_field :email, placeholder: "Email", class: "input-small" %>
+          <%= f.password_field :password, placeholder: "Password", class: "input-small" %>
+          <%= f.submit "Let's get started", :class => 'btn btn-primary' %>
+        <%end%>
+
+          <header id="existing" class="action text-right">
+            <a data-role="existing-user">Already a member?</a>
+          </header>
+        </div>
+
+
+        <div id="signin-form" style="display:none" class="text-center">
+          <header>
+            <h2>Welcome back.</h2>
+          </header>
+
+          <%= form_for(User.new, html: { class: "form-inline" }, url: user_session_path) do |f| %>
+            <%= f.text_field :email, placeholder: "Email", class: "input-small" %>
+          <%= f.password_field :password, placeholder: "Password", class: "input-small" %>
+          <%= f.submit "Sign in", :class => 'btn btn-primary' %>
+        <%end%>
+
+          <header id="new-user" class="action text-right">
+            <a data-role="new-user">New to WeRKD?</a>
+          </header>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <div id="alternative-signup" class="row-fluid text-center">
     <%= render partial: "users/shared/links" %>
   </div>
+
 
   <section id="distinctions">
     <div class="row-fluid text-center">

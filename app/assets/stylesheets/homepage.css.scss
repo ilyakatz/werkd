@@ -1,3 +1,5 @@
+@import "bourbon";
+
 .homepage {
 
   font-family: ralewaymedium, Calibri, Candara, Arial, sans-serif;
@@ -17,29 +19,58 @@
 
   #signup {
     background: $primary-color;
+    padding-top: 20px;
+    padding-bottom: 10px;
     .btn {
       background-color: white;
       color: $primary-color;
     }
 
-    h2 {
+    h2 {;
       font-family: ralewaylight, Calibri, Candara, Arial, sans-serif;
+      font-size: 51px;
+    }
+
+    form {
+      padding-top: 16px;
+      input {
+        min-width: 140px;
+        border-radius: 6px;
+        &.btn {
+          @include linear-gradient(#FEFEFE, #E7E7E7);
+        }
+      }
+    }
+
+    .action {
+      margin-right: 12px;
+      a {
+        color: white;
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
   }
 
   #distinctions {
+    margin-top: 40px;
     padding: 2em 20px 20px 2em;
     background: $primary-color;
 
     h4 {
       font-family: oswaldbold, Calibri, Candara, Arial, sans-serif;
       font-size: 25px;
+      font-spacing: 2px;
       padding-top: 10px;
       padding-bottom: 10px;
     }
   }
 
   #alternative-signup {
+
+    padding-top: 25px;
+
     h5 {
       color: $primary-color;
       font-size: 20px;
@@ -56,7 +87,6 @@
     }
 
     iframe {
-      width: 100%;
       @media only screen and (max-width: 400px) {
         height: 22em;
       }

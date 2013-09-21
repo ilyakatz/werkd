@@ -13,7 +13,7 @@ Feature: Projects
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
     And I click ".icon-plus-sign" icon within ".new-project"
-    And I should see "What was your role on this project?"
+    Then I should be on the new users project page
 
   @javascript
   Scenario: I should be able to edit a project
@@ -134,18 +134,7 @@ Feature: Projects
     And I fill in "Company" with "Coca Cola"
     And I fill in "Skills tags" with "Design"
     And I press "Create"
-    Then I should see "Please add one more project"
-    When I fill in "Title" with "New Project"
-    And I fill in "Company" with "Coca Cola"
-    And I fill in "Skills tags" with "Design"
-    And I press "Create"
-    Then I should see "Please add one more project"
-    When I fill in "Title" with "New Project"
-    And I fill in "Company" with "Coca Cola"
-    And I fill in "Skills tags" with "Design"
-    And I press "Create"
-    Then I should be on the users dashboards page
-    And I should see "Project was successfully created."
+    Then I should see "Only 2 more to go"
 
   Scenario: A visitor should be able to view a project
     Given a project exists with title: "Cool project", company: "Coca Kola"
