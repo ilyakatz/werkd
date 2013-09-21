@@ -66,6 +66,19 @@ class Project < ActiveRecord::Base
     collaborators
   end
 
+  #@params
+  # number_of_projects - how many more projects
+  def self.missing_project_message(number_of_projects)
+    case number_of_projects
+    when 3
+      "Add three projects to get started, because nobody wants an empty page..."
+    when 2
+      "Only 2 more to go!"
+    when 1
+      "Great. The last one!!"
+    end
+  end
+
   private
 
   def user_ids_from_string(users_ids)
