@@ -1,16 +1,17 @@
 <%= simple_form_for([:users, @project], html: {novalidate: true}) do |f| %>
   <%= f.input :title,
-    hint: "What was your role on this project?",
+    placeholder: "The name of the project?",
     input_html: { autofocus: true }
   %>
-  <%= f.input :company, hint: "What company was this project for?" %>
+  <%= f.input :company, placeholder: "Where was this project produced?" %>
   <%= f.input :contribution,
-    hint: "(optional) What was your contribution to the project?",
+    placeholder: "Your contribution to the project?",
     as: :text
   %>
-<%= f.input :tag_list, label: "Skills tags" %>
-<%= f.input :media_url,
-    hint: "(optional) Any videos or picture link that visualizes the project",
+<%= f.input :tag_list, label: "Skills tags", 
+    placeholder: "Skills you used on the project?"%>
+<%= f.input :media_url, placeholder:"add an image or video link", 
+    hint: "we support vimeo and youtube videos for now",
     input_html:
     { class: "embed-link" }
 %>
@@ -19,13 +20,13 @@
 
 <%= f.input :tagged_user_ids,
   label: "Collaborators",
-  hint: "(optional)Tag your collaborators",
+  placeholder: "Tag people you worked with",
   input_html:{
     value: @project.tagged_user_ids.join(",")
   } %>
 <%= f.input :start_at,
-  label: "Starting",
-  hint: "(optional) When did you start working on this project?",
+  label: "Project date",
+  hint: "When did you work on this project?",
   order: [:month, :year]
 %>
 
