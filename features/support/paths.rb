@@ -10,9 +10,6 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
-
-      # custom
-      new_user_invitation_path
     when /new user invitation page/
       new_user_invitation_path
     when /import google contacts page/

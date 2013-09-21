@@ -41,6 +41,16 @@
         }
       }
     }
+
+    .action {
+      margin-right: 12px;
+      a {
+        color: white;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
   }
 
   #distinctions {
@@ -77,7 +87,6 @@
     }
 
     iframe {
-      width: 100%;
       @media only screen and (max-width: 400px) {
         height: 22em;
       }
