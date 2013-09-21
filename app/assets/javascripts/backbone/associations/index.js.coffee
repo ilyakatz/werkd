@@ -28,11 +28,18 @@ Werkd.Models.Project.has().one('creator', {
   inverse: 'created_projects'
   source: 'creator'
   model: Werkd.Models.User
-}
+})
 
 Werkd.Models.Project.has().many('contributors', {
   inverse: 'contributed_projects'
   source: 'contributors'
   collection: Werkd.Collections.Users
-}))
+})
+
+Werkd.Models.Project.has().many('pendingContributors', {
+  inverse: 'contributed_projects'
+  source: 'pending_contributors'
+  collection: Werkd.Collections.Users
+})
+
 

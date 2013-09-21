@@ -75,36 +75,42 @@ Feature: Projects
     Then I should see "Worker"
     And I should see "coworker@werkd.com"
 
-  Scenario: Visitor should not be able to see emails
-    When I login as "ilyakatz@gmail.com"
-    And I go to the new users project page
-    And I fill in "Title" with "New Project"
-    And I fill in "Company" with "Coca Cola"
-    And I fill in "Skills tags" with "Design"
-    And I fill in "Collaborators" with "cowerker@werked.net"
-    And I press "Create"
-    Then a project should exist
-    And I am not signed in
-    When I go to the project's page
-    And I should not see "cowerker@werked.net"
+  @javascript
+  Scenario: Visitor should not be able to see collaborators' emails
+    And a user "me" exists with first_name: "Ilya"
+    And a user "collaborator" exists with email: "cowerker@werked.net"
+    And a project "p" exists with title: "My project", creator: user "me"
+    And a collaboration exists with collaborator: user "collaborator", project: project "p"
+    When I go to user "me"'s page
+    Then I should not see "cowerker@werked.net"
 
   @javascript
-  Scenario: Visitors shouold able to see accepted collaborators
+  Scenario: Visitors should able to see accepted collaborators
     Given a user "me" exists with first_name: "Ilya"
     Given a user "collaborator" exists with first_name: "Collaborator"
     And a project "p" exists with title: "My project", creator: user "me"
     And a collaboration exists with collaborator: user "collaborator", project: project "p", accepted_at: "10 Dec 2013"
     And I go to user "me"'s page
-    And show me the page
     And I follow "My project preview"
     Then I should see "Collaborator"
 
   @javascript
-  Scenario: Visitors shouold not be able to see pending Collaborators
+  Scenario: I should should be able to see pending Collaborators
+    Given a user "me" exists with first_name: "Ilya", email: "ilyakatz@gmail.com"
+    Given a user "collaborator" exists with first_name: "Collaborator", last_name: ""
+    And a project "p" exists with title: "My project", creator: user "me"
+    And a collaboration exists with collaborator: user "collaborator", project: project "p"
+    When I login as "ilyakatz@gmail.com"
+    And I go to user "me"'s page
+    And I follow "My project preview"
+    Then I should see "Collaborator (pending)"
+
+  @javascript
+  Scenario: Visitors should not be able to see pending Collaborators
     Given a user "me" exists with first_name: "Ilya"
     Given a user "collaborator" exists with first_name: "Collaborator"
     And a project "p" exists with title: "My project", creator: user "me"
-    And a collaboration exists with collaborator: user "collaborator", project: project "p", accepted_at: "10 Dec 2013"
+    And a collaboration exists with collaborator: user "collaborator", project: project "p"
     And I go to user "me"'s page
     And I follow "My project preview"
     Then I should not see "Collaborator"

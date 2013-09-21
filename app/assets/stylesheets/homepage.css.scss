@@ -1,0 +1,74 @@
+.homepage {
+
+  padding-top: 2em;
+
+  color: white;
+  h2, h3, h4, h5, h6 {
+    color: white;
+  }
+
+  .werkd-logo {
+    margin-bottom: 8em;
+    @media only screen and (max-width: 400px) {
+      margin-bottom: 2em;
+    }
+  }
+
+  #signup {
+    background: $primary-color;
+    .btn {
+      background-color: white;
+      color: $primary-color;
+    }
+  }
+
+  #distinctions {
+    padding: 2em 20px 20px 2em;
+    background: $primary-color;
+
+    h4 {
+      font-family: oswaldbold, Calibri, Candara, Arial, sans-serif;
+      font-size: 25px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+
+  #alternative-signup {
+    h5 {
+      color: $primary-color;
+      font-size: 20px;
+    }
+  }
+
+  #intro-video {
+    height: 454px;
+    @media only screen and (max-width: 400px) {
+      height: 22em;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+
+    iframe {
+      width: 100%;
+      @media only screen and (max-width: 400px) {
+        height: 22em;
+      }
+    }
+    h1 {
+      color: grey;
+      font-size: 4em;
+      line-height: 1em;
+      @media only screen and (max-width: 400px) {
+        font-size: 2em;
+      }
+    }
+
+    #play {
+      padding-top: 2em;
+      padding-bottom: 1em;
+    }
+  }
+}
+

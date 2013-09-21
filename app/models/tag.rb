@@ -13,8 +13,8 @@ class Tag < ActiveRecord::Base
   end
 
   def self.token(q)
-    query = "%#{q}%"
-    tags = Tag.where("name like ?", query).limit(10)
+    query = "%#{q.upcase}%"
+    tags = Tag.where("UPPER(name) like ?", query).limit(10)
     unless tags.present?
       tags = [{name: q, id: q}]
     end

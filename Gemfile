@@ -54,7 +54,9 @@ gem 'acts-as-taggable-on'
 gem 'cloudinary'
 gem 'rabl'
 
-gem 'activeadmin'
+gem 'activeadmin',  github: "gregbell/active_admin"
+
+gem 'rails_12factor'
 
 group :test, :development do
   gem "mysql2"

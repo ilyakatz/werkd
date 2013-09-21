@@ -1,3 +1,19 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+#= require jquery
+#= require jquery_ujs
+#= require twitter/bootstrap
+#= require alerts
+#
+Froogaloop( $('#intro-video-player')[0] ).addEvent('ready', ->
+  f = $f($('#intro-video-player')[0])
+  f.addEvent('play', ->
+    console.log("playing")
+    return true
+  )
+  window.vimeoPlayer = f
+)
+
+$("#intro-text").on("click", ->
+  $("#intro-text").hide()
+  $('#intro-video-player').show()
+  window.vimeoPlayer.api("play")
+)

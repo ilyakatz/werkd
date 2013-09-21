@@ -20,6 +20,8 @@ class Werkd.Models.Project extends Supermodel.Model
   getContributors: ->
     @contributors()
 
+  getPendingContributors: ->
+    @pendingContributors()
 
 Werkd.Models.Project.initializeProperties()
 
