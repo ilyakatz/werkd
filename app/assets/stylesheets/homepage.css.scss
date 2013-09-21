@@ -1,3 +1,5 @@
+@import "bourbon";
+
 .homepage {
 
   font-family: ralewaymedium, Calibri, Candara, Arial, sans-serif;
@@ -34,11 +36,15 @@
       input {
         min-width: 140px;
         border-radius: 6px;
+        &.btn {
+          @include linear-gradient(#FEFEFE, #E7E7E7);
+        }
       }
     }
   }
 
   #distinctions {
+    margin-top: 40px;
     padding: 2em 20px 20px 2em;
     background: $primary-color;
 
@@ -52,6 +58,9 @@
   }
 
   #alternative-signup {
+
+    padding-top: 25px;
+
     h5 {
       color: $primary-color;
       font-size: 20px;
