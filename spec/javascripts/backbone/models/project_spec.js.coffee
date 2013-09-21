@@ -17,6 +17,7 @@ describe 'Werkd.Models.Project', ->
     expect(@model.getTitle()).toBeNull()
     expect(@model.getCompany()).toBeNull()
     expect(@model.getThumbnailUrl()).toBeNull()
+    expect(@model.getSkills()).toEqual([])
 
 
   describe 'associations', ->
