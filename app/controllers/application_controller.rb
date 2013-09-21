@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include Profiles
   http_basic_authenticate_with name: "werkdmvp",
     password: "4success",
-    unless: -> { Rails.env.development? }
+    if: -> { Rails.env.production? }
 
   protect_from_forgery
 
