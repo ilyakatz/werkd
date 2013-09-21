@@ -1,63 +1,51 @@
 <div class="project-modal-content">
-  <div class="row-fluid heading">
-    <div class="span8 grey-bg">
+  <div class="row-fluid">
+    <div class="span8 project">
       <div class="panel-heading">
         <h4>WeRKD On</h4>
-      </div>
-    </div>
-    <div class="span4 grey-bg">
-      <div class="panel-heading">
-        <h4>With</h4>
-      </div>
-    </div>
-  </div>
-  <div class="row-fluid navigation">
-    <div class="span8">
-      <div class="close-modal"><a href="#close">&times;</a></div>
-      <div class="project-tags">
-        <ul class="user-skills project-skills">
-          <% for skill in @project.getSkills(): %>
-            <li><%= skill %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <div class="span4">
-      <div class="right-column">
-        <!--Contributors | Contacts-->
-      </div>
-    </div>
-  </div>
-  <div class="row-fluid info">
-    <div class="span8">
+      </div> <!-- panel-heading -->
+      <div class="navigation">
+        <div class="close-modal"><a href="#close">&times;</a></div>
+        <div class="project-tags">
+          <ul class="user-skills project-skills">
+            <% for skill in @project.getSkills(): %>
+              <li><%= skill %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div> <!-- navigation -->
       <div class="project-details">
         <h5><%= @project.getTitle() %></h5>
         <h6>produced at <%= @project.getCompany() %></h6>
         <img class="main" src="<%= if @project.getThumbnailUrl() then @project.getThumbnailUrl() else '/assets/werkd.png' %>" />
         <% if @project.getCreator().getId() == @currentUser.getId(): %>
-        <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
+          <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
         <% end %>
+      </div> <!-- project-details -->
+    </div> <!-- span8 -->
+    <div class="span4">
+      <div class="panel-heading">
+        <h4>With</h4>
       </div>
-    </div>
-    <div class="span4 user-dashboard-list-view">
-      <ul class="user-dashboard-list-item-views">
-        <% for user in @project.getContributors().models: %>
-          <li>
-            <a href="#"><%= user.getPublicName() %></a>
-          </li>
-        <% end %>
-      </ul>
-      <ul class="user-dashboard-list-item-views">
-        <% for user in @project.getPendingContributors().models: %>
-          <li>
-            <% if @project.getCreator().getId() == @currentUser.getId(): %>
-              <a href="#"><%= user.getPublicName() %> (pending)</a>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-
-    </div>
-  </div>
-</div>
+      <div class="user-dashboard-list-view">
+        <ul class="user-dashboard-list-item-views">
+          <% for user in @project.getContributors().models: %>
+            <li>
+              <a href="#"><%= user.getPublicName() %></a>
+            </li>
+          <% end %>
+        </ul>
+        <ul class="user-dashboard-list-item-views">
+          <% for user in @project.getPendingContributors().models: %>
+            <li>
+              <% if @project.getCreator().getId() == @currentUser.getId(): %>
+                <a href="#"><%= user.getPublicName() %> (pending)</a>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div> <!-- user-dashboard-list-view -->
+    </div> <!-- span4 -->
+  </div> <!-- row-fluid -->
+</div> <!-- project-modal-content -->
 <div class="background-blocker" />
