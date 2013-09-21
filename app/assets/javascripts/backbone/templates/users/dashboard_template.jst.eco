@@ -1,7 +1,7 @@
 <div class="span12">
-  <div class="row">
+  <div class="row-fluid">
     <div class="span8 project-dashboard-list-view">
-      <div class="row">
+      <div class="row-fluid">
         <div class="span12">
           <div class="panel-heading">
             <h4>WeRKD On</h4>
@@ -11,7 +11,7 @@
           </div>
         </div> <!-- span12  -->
       </div> <!-- row -->
-      <div class="row">
+      <div class="row-fluid">
         <div class="span12">
           <ul class="user-skills">
             <% for skill in @user.getSkills(): %>
@@ -20,7 +20,7 @@
           </ul>
         </div> <!-- span12 -->
       </div> <!-- row -->
-      <div class="row">
+      <div class="row-fluid">
         <div class="span12">
           <ul class="project-dashboard-list-item-views project-thumbnails thumbnails">
           </ul>
