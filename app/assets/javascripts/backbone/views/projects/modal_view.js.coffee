@@ -11,6 +11,10 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
 
   initialize: ->
     @currentUser = @options.currentUser
+    @initViewBindings()
+
+  initViewBindings: ->
+    $(window).resize(@onWindowResize)
 
   # Properties:
   
@@ -34,17 +38,26 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
   getCloseButtonEl: ->
     @$el.find('.close-modal a')
 
+  getProjectImageEl: ->
+    @$el.find('.project-details img.main')
+
   # Methods:
 
   show: ->
     console.log('open')
     # @$el.css('display', 'block')
     @$el.fadeIn()
+    @resizeProjectImage()
 
   hide: ->
     console.log('close')
     # @$el.css('display', 'none')
     @$el.fadeOut()
+
+  resizeProjectImage: ->
+    width = @getProjectImageEl().width()
+    console.log('resizeProjectImage', width)
+    @getProjectImageEl().height(9.0/16.0 * width)
 
 
   # Render methods:
@@ -55,7 +68,11 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
     @$el.html(@template(project: @getProject(), currentUser: @getCurrentUser()))
   
 
-  # Events:
+  # View Events:
+  
+  onWindowResize: (event) =>
+    console.log('onWindowResize', event)
+    @resizeProjectImage()
 
   onClickCloseButton: (event) ->
     console.log('onClickCloseButton', event)

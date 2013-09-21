@@ -5,6 +5,7 @@
   .panel-heading {
     position: relative;
     padding: 4px 4px 4px 4px;
+    background-color: #eee;
 
     h4 {
       margin: 0 0 0 0;
@@ -80,13 +81,16 @@
     right: 0;
     left: 0;
     z-index: 100;
-    background-color: #333;
 
-    .row-fluid.heading {
+    .heading {
       background-color: #eee;
     }
 
-    .row-fluid.navigation {
+    .project {
+      background-color: #333;
+    }
+
+    .navigation {
       padding: 6px;
 
       .close-modal {
@@ -121,41 +125,34 @@
       }
     }
 
-    .row-fluid.info {
-      position: relative;
+    .project-details {
+      padding: 0 12px 0 12px;
 
-      .project-details {
-        padding: 0 12px 0 12px;
-
-        h5 {
-          border-bottom: 1px #aaa solid;
-          padding-bottom: 2px;
-          font-size: 24px;
-          color: #ccc;
-        }
-
-        h6 {
-          margin-top: -5px;
-          text-align: right;
-          font-size: 13px;
-          color: #aaa;
-        }
-
-        img.main {
-          width: 100%;
-          height: 300px;
-          border: 1px #aaa solid;
-        }
-      } // project-details
-
-      .user-dashboard-list-view {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
+      h5 {
+        border-bottom: 1px #aaa solid;
+        padding-bottom: 2px;
+        font-size: 24px;
+        color: #ccc;
       }
 
-    } // row.info
+      h6 {
+        margin-top: -5px;
+        text-align: right;
+        font-size: 13px;
+        color: #aaa;
+      }
+
+      img.main {
+        width: 100%;
+        height: 300px;
+        border: 1px #aaa solid;
+      }
+    } // project-details
+
+    .user-dashboard-list-view {
+
+    }
+
 
   }
 
@@ -175,7 +172,7 @@ ul.user-skills {
   margin: 0;
   background-color: #555;
   padding: 6px;
-  text-align: center;
+  text-align: right;
 
   li {
     display: inline-block;

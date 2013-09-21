@@ -31,6 +31,9 @@ describe 'Werkd.Views.Projects.ModalView', ->
     it 'should have close button', ->
       expect(@view.getCloseButtonEl()[0]).toBeDefined()
 
+    it 'should have project image el', ->
+      expect(@view.getProjectImageEl()[0]).toBeDefined()
+
     it 'should have background blocker', ->
       expect(@view.getBackgroundBlockerEl()[0]).toBeDefined()
 
