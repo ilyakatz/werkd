@@ -17,13 +17,24 @@
 
   #signup {
     background: $primary-color;
+    padding-top: 20px;
+    padding-bottom: 10px;
     .btn {
       background-color: white;
       color: $primary-color;
     }
 
-    h2 {
+    h2 {;
       font-family: ralewaylight, Calibri, Candara, Arial, sans-serif;
+      font-size: 51px;
+    }
+
+    form {
+      padding-top: 16px;
+      input {
+        min-width: 140px;
+        border-radius: 6px;
+      }
     }
   }
 
@@ -34,6 +45,7 @@
     h4 {
       font-family: oswaldbold, Calibri, Candara, Arial, sans-serif;
       font-size: 25px;
+      font-spacing: 2px;
       padding-top: 10px;
       padding-bottom: 10px;
     }
