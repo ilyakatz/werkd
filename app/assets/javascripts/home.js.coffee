@@ -4,14 +4,16 @@
 #= require alerts
 
 try
-  Froogaloop( $('#intro-video-player')[0] ).addEvent('ready', ->
-    f = $f($('#intro-video-player')[0])
-    f.addEvent('play', ->
-      console.log("playing")
-      return true
+  $player = Froogaloop( $('#intro-video-player')
+  if $player
+    $player[0] ).addEvent('ready', ->
+      f = $f($('#intro-video-player')[0])
+      f.addEvent('play', ->
+        console.log("playing")
+        return true
+      )
+      window.vimeoPlayer = f
     )
-    window.vimeoPlayer = f
-  )
 catch error
   #in case vimeo craps out
 

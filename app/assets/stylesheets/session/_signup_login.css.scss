@@ -1,0 +1,35 @@
+#signup {
+  background: $primary-color;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  .btn {
+    background-color: white;
+    color: $primary-color;
+  }
+
+  h2 {;
+    font-family: ralewayextralight, Calibri, Candara, Arial, sans-serif;
+    font-size: 51px;
+  }
+
+  form {
+    padding-top: 16px;
+    input {
+      min-width: 140px;
+      border-radius: 6px;
+      &.btn {
+        @include linear-gradient(#FEFEFE, #E7E7E7);
+      }
+    }
+  }
+
+  .action {
+    margin-right: 12px;
+    a {
+      color: white;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
