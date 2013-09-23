@@ -19,6 +19,8 @@ Feature: Homepage
     Then I should see "Signed in successfully"
 
   Scenario: Logged in users should be redirected to the dashboard
+    Given a user "ilya" exists with first_name: "Ilya", last_name: "Katz", email: "ilya@werkd.net"
+    And user "ilya" has complete profile
     Given I login as "ilya@werkd.net"
     When I go to the homepage
     Then I should be on the users dashboards page

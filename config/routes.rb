@@ -26,6 +26,9 @@ WeRKD::Application.routes.draw do
     resources :users
   end
 
+  devise_scope :user do
+    get "/" => "home#index"
+  end
   root :to => 'home#index'
 
   ActiveAdmin.routes(self)
