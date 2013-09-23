@@ -1,30 +1,39 @@
-<div style="background-color:#cccccc;">
+<div class="email-body" >
   <div align="center">
-    <table width="550" border="0" cellpadding="0" cellspacing="0" ><tr><td class="imagecell">
-          <a href="http://www.werkd.net" class="linknodecor"><%= image_tag "logos/email_header.jpg" %></a>
-      </td></tr>
+    <table width="550" border="0" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td class="imagecell">
+          <%=link_to root_url, class:"linknodecor" do %>
+            <%= image_tag "logos/email_header.jpg" %>
+        <% end%>
+        </td>
+      </tr>
       <tr>
         <td class="whitecell">
           <p class="body"><span class="bold">Hello <%= @invitee.communication_name %>,</span>
           <br><br>
-          <span class="bold"><%=@inviter.email%></span> wants to connect with you on <%=link_to "WeRKD", root_url, style: "text-decoration: none;color: #ff6600;"%>. <br><br>Take a look at <%=link_to @inviter.email, users_connections_url, style:"text-decoration: none;color: #ff6600;"%>'s profile and see if you want to connect.
+          <span class="bold">
+            <%=@inviter.communication_name%></span> wants to connect with you on <%=link_to "WeRKD", root_url %>.
+          <br><br>
+
+          Take a look at <%=link_to @inviter.communication_name, user_url(@inviter) %>'s profile and see if you want to connect.
 
           <div align="center">
-				<%=link_to "Yes, let's connect!", users_connection_accept_url(@connection),
-              	id: "acceptinvitation",
-              	class: "acceptinviation" %>
+            <%=link_to "Yes, let's connect!", users_connection_accept_url(@connection),
+              id: "acceptinvitation",
+              class: "acceptinviation" %>
           </div>
 
-          <br><br><br>
+            <br><br><br>
 
-          </p>
-        </td>
-      </tr>
-      <tr>
-        <td height="50" bgcolor="#f0f0f0" style="padding-left:10px;">
-        </td>
-      </tr>
-    </table>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td height="50" class="footer">
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
-</div>
 
