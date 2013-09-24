@@ -12,9 +12,23 @@ https://www.codeship.io/projects/4271
 
     `gem install spring`
 
+1. Install bundler
+
+    `gem install bundler`
+
+1. Install gems
+
+    `bundle install`
+
 1. Install phontom.js (for JS testing)
 
     `brew install phantomjs`
+
+1. Migrate databases
+
+    `rake db:create db:migrate`
+
+    `RAILS_ENV=test rake db:create db:migrate`
 
 1. Run tests
 
