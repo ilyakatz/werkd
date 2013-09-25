@@ -3,8 +3,8 @@ extends('/api/users/base')
 
 child(:projects, object_root: false) do
   extends('/api/projects/base')
-  node(:skills) do
-    ['Design', 'Illustration', 'Video Editing']
+  node(:skills) do |p|
+    p.tags.collect(&:name)
   end
 end
 
