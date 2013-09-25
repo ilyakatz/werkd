@@ -33,6 +33,9 @@ class Project < ActiveRecord::Base
 
   before_save :extract_embed
 
+  attr_accessible :company, :title, :contribution, :media_url, :tag_list, :start_at,
+    :tagged_user_ids
+
   def accepted_collaborators
     collaborators.where("accepted_at IS NOT NULL")
   end
