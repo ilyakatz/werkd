@@ -13,6 +13,7 @@ WeRKD::Application.routes.draw do
   namespace :users do
     resources :omnicontacts, only: [ :index, :show]
     resources :dashboards, only: [:index]
+    resources :feeds, only: [:index]
     resources :profiles, only: [:index, :update]
     resources :connections, only: [:index] do
       get "accept"
