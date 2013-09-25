@@ -31,7 +31,7 @@
         <ul class="user-dashboard-list-item-views">
           <% for user in @project.getContributors().models: %>
             <li>
-              <a href="#"><%= user.getPublicName() %></a>
+            <a href="/users/<%=user.getId()%>"><%= user.getPublicName() %></a>
             </li>
           <% end %>
         </ul>
