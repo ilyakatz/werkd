@@ -3,10 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 if defined?(Bundler)
-  # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
-  # If you want your assets lazily compiled in production, use this line
-  # Bundler.require(:default, :assets, Rails.env)
+  Bundler.require(:default, Rails.env)
 end
 
 module WeRKD
@@ -47,12 +44,6 @@ module WeRKD
     # like if you have constraints or database-specific column types
     # config.active_record.schema_format = :sql
 
-    # Enforce whitelist mode for mass assignment.
-    # This will create an empty whitelist of attributes available for mass-assignment for all models
-    # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
-    # parameters by using an attr_accessible or attr_protected declaration.
-    config.active_record.whitelist_attributes = false
-
     # Enable the asset pipeline
     config.assets.enabled = true
 
@@ -65,6 +56,7 @@ module WeRKD
     config.action_mailer.postmark_settings = { api_key: "3a6e6a88-73e7-4a08-9b89-1178492a3a64" }
 
     config.assets.precompile += %w( home.js project.js project.css  email.css twitter.css profile.js project.js )
+    config.assets.precompile += %w( .svg .eot .woff .ttf )
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
