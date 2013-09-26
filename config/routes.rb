@@ -9,7 +9,7 @@ WeRKD::Application.routes.draw do
     }
 
   resources :tags, only: [:index]
-  match "/contacts/:importer/callback" => "users/omnicontacts#callback"
+  match "/contacts/:importer/callback" => "users/omnicontacts#callback", via: :get
   namespace :users do
     resources :omnicontacts, only: [ :index, :show]
     resources :dashboards, only: [:index]

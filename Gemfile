@@ -2,11 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-group :assets do
-  gem 'sass-rails', '~> 3.2'
-  gem 'coffee-rails', '~> 3.2'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
 
 group :production do
   gem "pg"
@@ -15,7 +13,7 @@ group :production do
   gem 'newrelic_rpm'
 end
 
-gem 'rails', '~> 3.2'
+gem 'rails', '4'
 gem "twitter-bootstrap-rails"
 
 gem 'jquery-rails'
@@ -26,11 +24,11 @@ gem 'rails-backbone'
 gem 'eco'
 
 #user authentication
-gem 'devise', '~> 2'
-gem 'devise_invitable'
+gem 'devise', "~>3.0.0"
+gem 'devise_invitable','~> 1.2.1'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
-gem 'omniauth-linkedin-oauth2'
+gem 'omniauth-linkedin-oauth2', "0.0.2"
 
 gem 'omnicontacts'
 gem 'social-share-button'
@@ -43,8 +41,8 @@ gem "sentry-raven"
 
 gem 'typhoeus'
 
-gem 'activerecord-import'
-gem 'strong_parameters'
+gem 'activerecord-import', ">=0.4.0"
+gem 'protected_attributes'
 
 gem 'nokogiri', "1.5.9"
 gem 'roadie'
@@ -55,7 +53,10 @@ gem 'acts-as-taggable-on'
 gem 'cloudinary'
 gem 'rabl'
 
-gem 'activeadmin',  github: "gregbell/active_admin"
+gem 'responders', github: 'plataformatec/responders'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
+gem 'ransack'
+gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
 
 gem 'rails_12factor'
 
@@ -85,14 +86,13 @@ group :development do
   gem "binding_of_caller"
 
   #load rails much faster in development
-  gem 'rails-dev-boost', git: 'git://github.com/thedarkone/rails-dev-boost.git'
+  #gem 'rails-dev-boost', git: 'git://github.com/thedarkone/rails-dev-boost.git'
 end
 
 group :development, :test do
   gem 'annotate', '>=2.5.0'
   gem 'faker'
-  gem 'factory_girl', '~> 3'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 4.0'
 
   gem "hirb"
   gem "hpricot"
@@ -100,7 +100,7 @@ group :development, :test do
   # Jasmin JS testing:
   gem 'guard-jasmine'
   gem 'jasmine'
-  gem 'jasminerice'
+  gem 'jasminerice', github: "bradphelan/jasminerice"
   gem 'jasmine-headless-webkit'
   gem 'poltergeist'
 
