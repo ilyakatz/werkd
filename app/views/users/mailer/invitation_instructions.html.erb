@@ -1,5 +1,13 @@
 <link href="/assets/email.css" media="all" rel="stylesheet" type="text/css" />
 
+<% sender_name = @resource.invited_by.communication_name +
+  if @resource.invited_by.job_title
+    " (#{@resource.invited_by.job_title})"
+  else
+    ""
+  end
+%>
+
 <div class="email-body">
   <div align="center">
     <table width="550" border="0" cellpadding="0" cellspacing="0" >
@@ -8,18 +16,18 @@
       </td></tr>
       <tr>
         <td class="whitecell">
-          <p class="body"><span class="bold">Hello, <%= @resource.communication_name%>,</span>
+          <p class="body"><span class="bold">Hello <%= @resource.communication_name%>,</span>
           <br><br>
-          It's <%=link_to @resource.invited_by.communication_name, user_url(@resource.invited_by)%></a>.
-          I'd like you to join me on <a href="http://www.werkd.net" style="text-decoration: none;color: #ff6644;">WeRKD</a>,
-          <span class="body">where professionals network through projects to build meaningful connections.</span>
-          </p>
+          It's <%=link_to sender_name, user_url(@resource.invited_by)%></a>.
+        I'd like you to join me on <a href="http://www.werkd.net" style="text-decoration: none;color: #ff6644;">WeRKD</a>,
+        <span class="body">where professionals network through projects to build meaningful connections.</span>
+        </p>
 
-          <div align="center">
-            <%= link_to 'Accept Invitation',
-              accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), id: "acceptinvitation", class: "acceptinviation"
-            %>
-          </div>
+        <div align="center">
+          <%= link_to 'Accept Invitation',
+            accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), id: "acceptinvitation", class: "acceptinviation"
+          %>
+        </div>
           <br><br><br>
 
         </td>

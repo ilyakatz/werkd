@@ -111,6 +111,10 @@ class User < ActiveRecord::Base
   #this is the name used in personal communication with the user
   #it doesn't make sense to refer to them as WeRKD user if we send them an email
   def communication_name
+    full_name
+  end
+
+  def full_name
     if first_name.present? || last_name.present?
       [first_name, last_name].compact.join(" ")
     else

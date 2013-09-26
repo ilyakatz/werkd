@@ -25,14 +25,16 @@ if Rails.env.development?
 
   EmailPreview.register 'Invitation to join WeRKD sent', :category => :invitations do
     u = User.create :email => 'invitee@example.com', first_name: "Ilya", id: 2
-    u1 = User.create :email => 'inviter@example.com', first_name: "Will", id: 1
+    u1 = User.create :email => 'inviter@example.com', first_name: "Will", id: 1,
+      job_title: "designer"
     u.invited_by = u1
     Devise::Mailer.invitation_instructions(u)
   end
 
   EmailPreview.register 'Invitation to connect', :category => :connections do
     u = User.new :email => 'invitee@example.com', first_name: "Ilya"
-    u1 = User.new :email => 'inviter@example.com', first_name: "Will"
+    u1 = User.new :email => 'inviter@example.com', first_name: "Will",
+      job_title: "designer, creator"
     connection = Connection.new
     connection.inviter = u1
     connection.invitee = u
