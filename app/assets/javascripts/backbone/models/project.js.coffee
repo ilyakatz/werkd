@@ -23,6 +23,11 @@ class Werkd.Models.Project extends Supermodel.Model
   getPendingContributors: ->
     @pendingContributors()
 
+  # Methods:
+  
+  hasAnySkills: (skills) ->
+    _.intersection(@getSkills(), skills).length > 0
+
 Werkd.Models.Project.initializeProperties()
 
 

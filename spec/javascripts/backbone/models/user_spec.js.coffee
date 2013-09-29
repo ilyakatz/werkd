@@ -38,6 +38,9 @@ describe 'Werkd.Models.User', ->
 
       it 'should be defined', ->
         expect(@model).toBeDefined()
+      
+      it 'should have skills', ->
+        expect(@model.getSkills().length).toEqual(3)
 
     describe 'user with projects and connections', ->
       beforeEach ->

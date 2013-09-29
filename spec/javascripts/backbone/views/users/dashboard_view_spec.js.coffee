@@ -32,6 +32,10 @@ describe 'Werkd.Views.Users.DashboardView', ->
     it 'should have projects el', ->
       expect(@view.getProjectsEl()[0]).toBeDefined()
 
+    it 'should have a skills el', ->
+      expect(@view.getSkillsEl()[0]).toBeDefined()
+      expect(@view.getSkillsEl().find('li')[0]).toBeDefined()
+
 
   describe 'render', ->
     beforeEach ->
@@ -44,3 +48,23 @@ describe 'Werkd.Views.Users.DashboardView', ->
 
     it 'should render the projects', ->
       expect(@view.$el.find('.project').length).toEqual(3)
+
+  describe 'view events', ->
+    beforeEach ->
+      @view.render()
+
+    describe 'onClickSkill', ->
+      beforeEach ->
+        @filterProjects = spyOn(@view, 'filterProjects').andCallThrough()
+        @skillEl = $(@view.getSkillsEl().find('li')[1])
+        @skillEl.click()
+
+      it 'should toggle active on the skill tag', ->
+        expect(@skillEl).not.toHaveClass('active')
+
+      it 'should call filter projects', ->
+        expect(@filterProjects).toHaveBeenCalled()
+
+
+        
+

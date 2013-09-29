@@ -31,6 +31,29 @@ describe 'Werkd.Models.Project', ->
     it 'should have contributors', ->
       expect(@model.getContributors().models).toEqual([])
 
+  describe 'methods', ->
+
+    describe 'hasAnySkills', ->
+      beforeEach ->
+        @projectSkills = ['Java', 'Scala', 'Groovy', 'Ruby']
+        @model.setSkills(@projectSkills)
+
+      it 'should be true when testing for all skills', ->
+        expect(@model.hasAnySkills(@projectSkills)).toEqual(true)
+
+      it 'should be true when testing for some skills', ->
+        @skills = ['Java', 'Ruby']
+        expect(@model.hasAnySkills(@skills)).toEqual(true)
+
+      it 'should be true when testing for one skill', ->
+        @skills = ['Java']
+        expect(@model.hasAnySkills(@skills)).toEqual(true)
+
+      it 'should be false when testing for non skill', ->
+        @skills = ['Cobol']
+        expect(@model.hasAnySkills(@skills)).toEqual(false)
+
+
 
   describe 'factories', ->
 
@@ -47,6 +70,9 @@ describe 'Werkd.Models.Project', ->
 
       it 'should have collections set', ->
         expect(@model.getContributors().length).toEqual(3)
+
+      it 'should have skills', ->
+        expect(@model.getSkills().length).toEqual(3)
 
 
 describe 'Werkd.Collections.Projects', ->
