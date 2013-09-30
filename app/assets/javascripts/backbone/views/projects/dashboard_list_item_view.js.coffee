@@ -17,11 +17,19 @@ class Werkd.Views.Projects.DashboardListItemView extends Werkd.Views.BaseView
   setOnClickProject: (callback) ->
     @onClickProject = callback
 
+  # Methods:
+
+  show: ->
+    @$el.show()
+
+  hide: ->
+    @$el.hide()
+
 
   # Render methods:
 
   render: ->
-    console.log('render', @)
+    # console.log('render', @)
     super
     @$el.html(@template(project: @getProject())).addClass('project')
  

@@ -4,6 +4,7 @@ userFactory = BackboneFactory.define('user', Werkd.Models.User, ->
   {
     first_name: 'Joe'
     last_name: 'Bloggs'
+    skills: ['Ruby', 'Backbone JS', 'CSS']
   }
 )
 

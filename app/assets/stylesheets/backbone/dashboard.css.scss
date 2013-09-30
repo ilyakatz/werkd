@@ -179,10 +179,19 @@ ul.user-skills {
     margin: 6px;
     border: 1px #222 solid;
     border-radius: 4px;
-    background: #FFF;
+    background: #aaa;
     padding: 0px 6px 0px 6px;
     font-size: 12px;
     font-weight: bold;
+
+    &.active {
+      background: #fff;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: rgb(194, 194, 194);
+    }
   }
 
 } // ul.user-skills
