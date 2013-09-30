@@ -1,5 +1,3 @@
-/*
- *= require token-input
- *= require jquery.preview-0.3.2
- *= require ./projects/_thumbnails
- */
+@import 'token-input';
+@import 'jquery.preview-0.3.2';
+@import './projects/_thumbnails';
