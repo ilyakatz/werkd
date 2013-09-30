@@ -187,6 +187,11 @@ ul.user-skills {
     &.active {
       background: #fff;
     }
+
+    &:hover {
+      cursor: pointer;
+      background: rgb(194, 194, 194);
+    }
   }
 
 } // ul.user-skills
