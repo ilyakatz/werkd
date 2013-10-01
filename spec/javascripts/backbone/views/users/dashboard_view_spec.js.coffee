@@ -56,14 +56,34 @@ describe 'Werkd.Views.Users.DashboardView', ->
     describe 'onClickSkill', ->
       beforeEach ->
         @filterProjects = spyOn(@view, 'filterProjects').andCallThrough()
-        @skillEl = $(@view.getSkillsEl().find('li')[1])
-        @skillEl.click()
+        @skillEl1 = $(@view.getSkillEls()[0])
+        @skillEl1.click()
 
       it 'should toggle active on the skill tag', ->
-        expect(@skillEl).not.toHaveClass('active')
+        expect(@skillEl1).toHaveClass('active')
+
+      it 'should deactivate other skill tags', ->
+        expect(@view.getActiveSkillEls().length).toEqual(1)
 
       it 'should call filter projects', ->
         expect(@filterProjects).toHaveBeenCalled()
+
+      describe 'when second skill is clicked', ->
+        beforeEach ->
+          @skillEl2 = $(@view.getSkillEls()[1])
+          @skillEl2.click()
+          
+        it 'should toggle active on the skill tag', ->
+          expect(@skillEl2).toHaveClass('active')
+
+        it 'should keep active on the previous skill tag', ->
+          expect(@skillEl1).toHaveClass('active')
+
+        it 'should just keep the clicked skill tags active', ->
+          expect(@view.getActiveSkillEls().length).toEqual(2)
+
+
+
 
 
         

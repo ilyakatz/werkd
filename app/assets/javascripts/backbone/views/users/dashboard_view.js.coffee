@@ -38,10 +38,16 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
   getSkillsEl: ->
     @$el.find('.user-skills')
 
+  getSkillEls: ->
+    @$el.find('.user-skills li')
+
   getActiveSkillEls: ->
     @$el.find('.user-skills li.active')
 
   # Methods:
+
+  allSkillsAreActive: ->
+    @getSkillEls().length > 0 && @getSkillEls().length == @getActiveSkillEls().length
 
   filterProjects: ->
     console.log('filterProjects', @)
@@ -91,6 +97,8 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
   onClickSkill: (event) ->
     console.log('onClickSkill', event)
     skillEl = $(event.target)
+    if @allSkillsAreActive()
+      @getSkillEls().toggleClass('active')
     skillEl.toggleClass('active')
     @filterProjects()
 
