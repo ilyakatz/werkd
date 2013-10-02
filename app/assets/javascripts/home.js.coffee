@@ -6,11 +6,13 @@
 
 iframe = $('#intro-video-player')[0]
 player = $f(iframe)
+window.vimeo_player = player
 
 player.addEvent('ready',->
     console.log('ready');
     player.addEvent('finish', ->
       console.log("finished")
+      player.api("seekTo", 0)
     )
 )
 
