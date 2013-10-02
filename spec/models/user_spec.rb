@@ -44,21 +44,33 @@ describe User do
     it { should have_many(:collaborated_projects) }
   end # collections
 
-  describe "#skills" do
-   it "should return empty array if user has no projects" do
-     user = create(:user)
-     user.skills.should be_empty
-   end
+  describe "#all_projects" do
+    it "should return my projects and project i was tagged on" do
+      project = create(:project)
+      project1 = create(:project)
+      user = project.creator
+      project1.tagged_users = [ user ]
 
-   it "should combine all skills" do
-     project = create(:project, tag_list: "design, programming")
-     project = create(:project, tag_list: "design, biking", creator: project.creator)
-     skills = project.creator.skills
-     skills.should include "design"
-     skills.should include "programming"
-     skills.should include "biking"
-     skills.count.should eq 3
-   end
+      user.projects.count.should eq 1
+      user.all_projects.count.should eq 2
+    end
+  end
+
+  describe "#skills" do
+    it "should return empty array if user has no projects" do
+      user = create(:user)
+      user.skills.should be_empty
+    end
+
+    it "should combine all skills" do
+      project = create(:project, tag_list: "design, programming")
+      project = create(:project, tag_list: "design, biking", creator: project.creator)
+      skills = project.creator.skills
+      skills.should include "design"
+      skills.should include "programming"
+      skills.should include "biking"
+      skills.count.should eq 3
+    end
   end
 
   describe "#communication_name" do
