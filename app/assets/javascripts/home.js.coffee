@@ -3,25 +3,15 @@
 #= require twitter/bootstrap
 #= require alerts
 
-try
-  $player = Froogaloop( $('#intro-video-player')
-  if $player
-    $player[0] ).addEvent('ready', ->
-      f = $f($('#intro-video-player')[0])
-      f.addEvent('play', ->
-        console.log("playing")
-        return true
-      )
-      window.vimeoPlayer = f
+
+iframe = $('#intro-video-player')[0]
+player = $f(iframe)
+
+player.addEvent('ready',->
+    console.log('ready');
+    player.addEvent('finish', ->
+      console.log("finished")
     )
-catch error
-  #in case vimeo craps out
-
-
-$("#intro-text").on("click", ->
-  $("#intro-text").hide()
-  $('#intro-video-player').show()
-  window.vimeoPlayer.api("play")
 )
 
 $("[data-role=existing-user]").on("click", ->

@@ -1,75 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<%= render partial: "layouts/opengraph"%>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WeRKD <%= content_for?(:title) ? yield(:title) : "" %></title>
-<%= stylesheet_link_tag "application", :media => "all" %>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <%= render partial: "layouts/opengraph"%>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeRKD <%= content_for?(:title) ? yield(:title) : "" %></title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+  </head>
+  <body>
 
-<div class="container homepage">
+    <div class="container homepage">
 
-  <%= bootstrap_flash %>
-  <div class="werkd-logo row-fluid">
-    <div class="span12 text-center">
-      <%= link_to root_path do %>
-        <%= image_tag "logos/logo_brand.png" %>
-    <% end  %>
-    </div>
-  </div>
-
-  <section id="intro-video">
-    <iframe id="intro-video-player" src="http://player.vimeo.com/video/74688795?api=1&amp;player_id=intro-video-player"
-      width="800" height="454" frameborder="0"
-      webkitallowfullscreen style="display:none"></iframe>
-
-    <div id="intro-text">
-      <header class="row-fluid logo">
-        <div class="text-center">
-          <h1>Project-based, Skill-driven<br>
-            Professional Network<br>
-            for the Creative Comminities</h1>
+      <%= bootstrap_flash %>
+      <div class="werkd-logo row-fluid">
+        <div class="span12 text-center">
+          <%= link_to root_path do %>
+            <%= image_tag "logos/logo_brand.png" %>
+          <% end  %>
         </div>
-      </header>
+      </div>
 
-      <div id="play" class="row-fluid text-center">
-        <%= image_tag "homepage/play.png"%>
-      </div>
-      j   </div>
-  </section>
+      <section id="intro-video">
+        <iframe id="intro-video-player" src="http://player.vimeo.com/video/75366644?api=1&amp;player_id=intro-video-player"
+          width="800" height="454" frameborder="0"
+          webkitallowfullscreen></iframe>
+      </section>
 
-  <%=render "signup_login"%>
+      <%=render "signup_login"%>
 
-  <section id="distinctions">
-    <div class="row-fluid text-center">
-      <div class="network span4">
-        <%= image_tag "homepage/network.png"%>
-        <h4>Network with ease</h4>
-        <p>Use shared projects and skills as icebreake.
-        No more awkward introductions, shameless schmoozing and empty endorsements!
-        </p>
-      </div>
-      <div class="build span4">
-        <%= image_tag "homepage/build.png"%>
-        <h4>Build project archive</h4>
-        <p>
-        Collectively build a sharable archive of projects through the power of creative community. Credit yourself and your peers for the work you have done.
-        </p>
-      </div>
-      <div class="know span4">
-        <%= image_tag "homepage/know.png"%>
-        <h4>Know your connections</h4>
-        <p>Understand people through projects and skills in the right context, and connect with confidence and clarity.
-        </p>
-      </div>
+      <section id="distinctions">
+        <div class="row-fluid text-center">
+          <div class="network span4">
+            <%= image_tag "homepage/network.png"%>
+            <h4>Network with ease</h4>
+            <p>Use shared projects and skills as icebreake.
+              No more awkward introductions, shameless schmoozing and empty endorsements!
+            </p>
+          </div>
+          <div class="build span4">
+            <%= image_tag "homepage/build.png"%>
+            <h4>Build project archive</h4>
+            <p>
+              Collectively build a sharable archive of projects through the power of creative community. Credit yourself and your peers for the work you have done.
+            </p>
+          </div>
+          <div class="know span4">
+            <%= image_tag "homepage/know.png"%>
+            <h4>Know your connections</h4>
+            <p>Understand people through projects and skills in the right context, and connect with confidence and clarity.
+            </p>
+          </div>
+        </div>
+      </section>
+
     </div>
-  </section>
-
-</div>
-</body>
-<script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
-<%= javascript_include_tag "home" %>
+  </body>
+  <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+  <%= javascript_include_tag "home" %>
 </html>
