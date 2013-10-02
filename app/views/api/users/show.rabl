@@ -1,7 +1,7 @@
 object @user
 extends('/api/users/base')
 
-child(:projects, object_root: false) do
+child(:all_projects, object_root: false) do
   extends('/api/projects/base')
   node(:skills) do |p|
     p.tags.collect(&:name)
