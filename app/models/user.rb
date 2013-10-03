@@ -60,6 +60,11 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   acts_as_tagger
 
+  def all_projects
+    projects + collaborated_projects
+  end
+
+
   def connections
     Connection.where("user_id = ? or connected_to =?", self.id, self.id)
   end
