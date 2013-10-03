@@ -11,14 +11,14 @@ window.vimeo_player = player
 player.addEvent('ready',->
     console.log('ready');
     player.addEvent('finish', ->
-      console.log("finished")
-      player.api("seekTo", 0)
+      $("iframe").hide()
+      $("#play-intro-button").show()
     )
 )
 
 $("#play-intro-button").on("click", ->
   $("iframe").show().css("margin-bottom", "-5px")
-  $(@).remove()
+  $(@).hide()
   window.vimeo_player.api("play")
 )
 
