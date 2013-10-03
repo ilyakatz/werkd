@@ -40,6 +40,12 @@ class Project < ActiveRecord::Base
     collaborators.where("accepted_at IS NOT NULL")
   end
 
+  def cloudinary_id
+    thumbnail_url.try { |url|
+      url.match(/\/([a-z0-9]+\.[a-z]+)$/)[1]
+    }
+  end
+
   def pending_contributors
     collaborators.where("accepted_at IS NULL")
   end

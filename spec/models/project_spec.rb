@@ -145,6 +145,19 @@ describe Project do
     end
   end
 
+  describe '#cloudinary_id' do
+    let(:cloudinary_id) { 'hd1kgkx7nccahdyl9wtz.jpg' }
+    let(:thumbnail_url) { "http://res.cloudinary.com/werkd/image/upload/v1379801218/#{cloudinary_id}" }
+    let(:project) { create(:project, thumbnail_url: thumbnail_url) }
+    subject { project.cloudinary_id }
+    it { should == cloudinary_id  }
+
+    context 'when thumbnail_url is nil' do
+      let(:thumbnail_url) { nil }
+      it { should == nil }
+    end # when thumbnail_url is nil
+  end # cloudinary_id
+
   describe :factories do
 
     describe :project do
