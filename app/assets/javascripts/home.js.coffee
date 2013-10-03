@@ -17,8 +17,8 @@ player.addEvent('ready',->
 )
 
 $("#play-intro-button").on("click", ->
-  $(@).hide()
-  $("iframe").show()
+  $("iframe").show().css("margin-bottom", "-5px")
+  $(@).remove()
   window.vimeo_player.api("play")
 )
 
