@@ -3,7 +3,8 @@ attributes(
   :id,
   :title,
   :company,
-  :thumbnail_url
+  :thumbnail_url,
+  :cloudinary_id
 )
 
 child(creator: :creator) do
