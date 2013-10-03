@@ -19,14 +19,31 @@ describe 'Werkd.Views.Projects.DashboardListItemView', ->
   it 'has defaults set', ->
     expect(@view.getProject()).toEqual(@model)
 
+  describe 'properties', ->
+
+    describe 'imageUrl', ->
+      
+      describe 'when there is a cloudinary id', ->
+        beforeEach ->
+          @cloudinaryId = '12345678.jpg'
+          @model.setCloudinaryId(@cloudinaryId)
+          @imageUrl = @view.getImageUrl()
+
+        it 'should have a cloudinary image url', ->
+          expect(@imageUrl).toMatch(/.*12345678\.jpg/)
+      
+      describe 'when there is no cloudinary id', ->
+        beforeEach ->
+          @model.setCloudinaryId(null)
+          @imageUrl = @view.getImageUrl()
+
+        it 'should have a default werked image url', ->
+          expect(@imageUrl).toEqual('/assets/werkd.png')
+          
 
   describe 'view properties', ->
     beforeEach ->
       @view.render()
-
-    # it 'should have projects el', ->
-      # expect(@view.getProjectsEl()[0]).toBeDefined()
-
 
   describe 'render', ->
     beforeEach ->

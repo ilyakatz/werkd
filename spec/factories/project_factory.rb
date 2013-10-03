@@ -22,7 +22,9 @@ FactoryGirl.define do
     association :creator, factory: :user
     sequence(:title) { |n| "Project #{n}" }
     company { Faker::Company.name }
-    tag_list "design"
+    thumbnail_url { 'http://res.cloudinary.com/werkd/image/upload/v1379801218/hd1kgkx7nccahdyl9wtz.png' }
+    embed_html { '<iframe src="http://www.google.com"></iframe>' }
+    tag_list { ['design', 'color correction'] }
   end
 
 end

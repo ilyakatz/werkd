@@ -17,7 +17,10 @@
       <div class="project-details">
         <h5><%= @project.getTitle() %></h5>
         <h6>produced at <%= @project.getCompany() %></h6>
-        <img class="main" src="<%= if @project.getThumbnailUrl() then @project.getThumbnailUrl() else '/assets/werkd.png' %>" />
+        <div class="media-container">
+          <!--img class="main" src="<%= @view.getImageUrl() %>" /-->
+          <%#= @view.getMediaContainerContent() %>
+        </div>
         <% if @project.getCreator().getId() == @currentUser.getId(): %>
         <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
         <% end %>

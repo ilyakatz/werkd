@@ -30,6 +30,20 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
   setCurrentUser: (currentUser) ->
     @currentUser = currentUser
 
+  getImageUrl: ->
+    if cloudinaryId = @getProject().getCloudinaryId()
+      $.cloudinary.url(cloudinaryId, {width: 621, height: 350, crop: 'fill'})
+    else
+      '/assets/werkd.png'
+
+  getMediaContainerContent: ->
+    if @getProject().hasEmbedHtml()
+      content = $(@getProject().getEmbedHtml())
+      content.css(width: '100%', height: '100%')
+      content
+    else
+      $("<img class=\"main\" src=\"#{@getImageUrl()}\" />")
+
   # View properties:
 
   getBackgroundBlockerEl: ->
@@ -41,23 +55,27 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
   getProjectImageEl: ->
     @$el.find('.project-details img.main')
 
+  getMediaContainerEl: ->
+    @$el.find('.media-container')
+
+
   # Methods:
 
   show: ->
     console.log('open')
     # @$el.css('display', 'block')
     @$el.fadeIn()
-    @resizeProjectImage()
+    @resizeMediaContainer()
 
   hide: ->
     console.log('close')
     # @$el.css('display', 'none')
     @$el.fadeOut()
 
-  resizeProjectImage: ->
-    width = @getProjectImageEl().width()
-    console.log('resizeProjectImage', width)
-    @getProjectImageEl().height(9.0/16.0 * width)
+  resizeMediaContainer: ->
+    width = @getMediaContainerEl().width()
+    console.log('resizeMediaContainer', width)
+    @getMediaContainerEl().height(9.0/16.0 * width)
 
 
   # Render methods:
@@ -65,14 +83,22 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
   render: ->
     super
     @$el.css('display', 'none')
-    @$el.html(@template(project: @getProject(), currentUser: @getCurrentUser()))
+    @$el.html(@template(
+      project: @getProject()
+      currentUser: @getCurrentUser()
+      view: @
+    ))
+    @renderMediaContainer()
+
+  renderMediaContainer: ->
+    @getMediaContainerEl().html(@getMediaContainerContent())
   
 
   # View Events:
   
   onWindowResize: (event) =>
     console.log('onWindowResize', event)
-    @resizeProjectImage()
+    @resizeMediaContainer()
 
   onClickCloseButton: (event) ->
     console.log('onClickCloseButton', event)
