@@ -24,7 +24,7 @@ gem 'rails-backbone'
 gem 'eco'
 
 #user authentication
-gem 'devise', "~>3.0.0"
+gem 'devise', "~>3.0.3"
 gem 'devise_invitable','~> 1.2.1'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'

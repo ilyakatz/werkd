@@ -458,7 +458,7 @@ DEPENDENCIES
   coffee-rails
   cucumber-rails
   database_cleaner
-  devise (~> 3.0.0)
+  devise (~> 3.0.3)
   devise_invitable (~> 1.2.1)
   eco
   email_preview
