@@ -51,7 +51,6 @@
   }
 
   #intro-video {
-    height: 454px;
     @media only screen and (max-width: 400px) {
       height: 22em;
     }
@@ -59,11 +58,6 @@
       cursor: pointer;
     }
 
-    iframe {
-      @media only screen and (max-width: 400px) {
-        height: 22em;
-      }
-    }
     h1 {
       color: grey;
       font-size: 4em;
