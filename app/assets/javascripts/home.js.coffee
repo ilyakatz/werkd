@@ -16,6 +16,12 @@ player.addEvent('ready',->
     )
 )
 
+$("#play-intro-button").on("click", ->
+  $(@).hide()
+  $("iframe").show()
+  window.vimeo_player.api("play")
+)
+
 $("[data-role=existing-user]").on("click", ->
   $("#signup-form").hide()
   $("#signin-form").show()
