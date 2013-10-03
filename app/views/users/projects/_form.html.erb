@@ -1,19 +1,68 @@
 <%= simple_form_for([:users, @project], html: {novalidate: true}) do |f| %>
-  <%= f.input :title,
-    placeholder: "The name of the project?",
-    input_html: { autofocus: true }
-  %>
-  <%= f.input :company, placeholder: "Where was this project produced?" %>
-  <%= f.input :contribution,
-    placeholder: "Your contribution to the project?",
-    as: :text
-  %>
-<%= f.input :tag_list, label: "Skills tags",
-    placeholder: "Skills you used on the project?"%>
+  <div class="project-modal-view" style="top: 95.55555725097656px;"><div class="project-modal-content">
+      <div class="row-fluid">
+        <div class="span8 project">
+          <div class="panel-heading">
+            <h4>WeRKD On</h4>
+          </div> <!-- panel-heading -->
+          <div class="navigation">
+            <div class="close-modal"><a href="#close">×</a></div>
+            <div class="project-tags">
+              <ul class="user-skills project-skills">
+                <%= f.input :tag_list,
+                  label: "Skills tags",
+                  placeholder: "Skills you used on the project?"%>
+              </ul>
+            </div>
+          </div> <!-- navigation -->
+          <div class="project-details">
+            <h5>
+              <%= f.input :title,
+                placeholder: "The name of the project?",
+                input_html: { autofocus: true },
+                label: false
+              %>
+          </h5>
+
+          <h6>
+            <%= f.input :company,
+              placeholder: "Where was this project produced?",
+              label: false%>
+          </h6>
+          <div class="media-container" style="height: 348.06249994039536px;"><iframe width="228" height="171" src="http://www.youtube.com/embed/ms-piPxEzbk?feature=oembed" frameborder="0" allowfullscreen="" style="width: 100%; height: 100%;"></iframe></div>
+
+          <a href="/users/projects/3/edit">Edit</a>
+
+        </div> <!-- project-details -->
+      </div> <!-- span8 -->
+      <div class="span4">
+        <div class="panel-heading">
+          <h4>With</h4>
+        </div>
+        <div class="user-dashboard-list-view">
+          <ul class="user-dashboard-list-item-views">
+
+          </ul>
+          <ul class="user-dashboard-list-item-views">
+
+          </ul>
+        </div> <!-- user-dashboard-list-view -->
+      </div> <!-- span4 -->
+    </div> <!-- row-fluid -->
+  </div> <!-- project-modal-content -->
+  <div class="background-blocker"></div>
+</div>
+
+
+
+<%= f.input :contribution,
+  placeholder: "Your contribution to the project?",
+  as: :text
+%>
 <%= f.input :media_url, placeholder:"add an image or video link",
-    hint: "we support vimeo and youtube videos for now",
-    input_html:
-    { class: "embed-link" }
+  hint: "we support vimeo and youtube videos for now",
+  input_html:
+  { class: "embed-link" }
 %>
 
 <div id="embedly-preview" class="selector-wrapper"></div>
@@ -55,19 +104,19 @@
         prePopulate: <%=raw(@project.tags.collect{|t|{name: t.name}}.to_json)%>
     });
 
-    $("#project_tagged_user_ids").tokenInput("/users.json",
+      $("#project_tagged_user_ids").tokenInput("/users.json",
     {
       hintText: "Type in name or email",
       tokenValue: "id",
       prePopulate: <%=
-    raw(@project.tagged_users.collect do |u|
-      {
-        name: display_user_name(u, @project.creator != current_user) ,
-        id: u.id
-      }
-    end.to_json)
-  %>
-      });
+      raw(@project.tagged_users.collect do |u|
+        {
+          name: display_user_name(u, @project.creator != current_user) ,
+          id: u.id
+        }
+      end.to_json)
+    %>
+  });
 
     });
 
