@@ -135,6 +135,7 @@ class Project < ActiveRecord::Base
       self.embed_html = embed.first.html
       image_url = embed.first.thumbnail_url
     elsif embed.first.try(:url) # This is an image
+      self.embed_html = nil
       image_url = embed.first.url
     end
 

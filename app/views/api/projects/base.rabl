@@ -4,7 +4,8 @@ attributes(
   :title,
   :company,
   :thumbnail_url,
-  :cloudinary_id
+  :cloudinary_id,
+  :embed_html
 )
 
 child(creator: :creator) do

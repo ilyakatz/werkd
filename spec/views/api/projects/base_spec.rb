@@ -12,6 +12,7 @@ describe 'api/projects/base.rabl' do
       subject[:title].should == project.title
       subject[:thumbnail_url].should == project.thumbnail_url
       subject[:cloudinary_id].should == project.cloudinary_id
+      subject[:embed_html].should == project.embed_html
     end
   end
 
