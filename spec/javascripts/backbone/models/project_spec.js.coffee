@@ -17,6 +17,7 @@ describe 'Werkd.Models.Project', ->
     expect(@model.getTitle()).toBeNull()
     expect(@model.getCompany()).toBeNull()
     expect(@model.getThumbnailUrl()).toBeNull()
+    expect(@model.getCloudinaryId()).toEqual(null)
     expect(@model.getSkills()).toEqual([])
 
 
@@ -67,6 +68,7 @@ describe 'Werkd.Models.Project', ->
         expect(@model.getCompany()).not.toBeNull()
         expect(@model.getThumbnailUrl()).not.toBeNull()
         expect(@model.getCreator()).not.toBeNull()
+        expect(@model.getCloudinaryId()).not.toBeNull()
 
       it 'should have collections set', ->
         expect(@model.getContributors().length).toEqual(3)

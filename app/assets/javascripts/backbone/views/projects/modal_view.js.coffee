@@ -30,6 +30,13 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
   setCurrentUser: (currentUser) ->
     @currentUser = currentUser
 
+  getImageUrl: ->
+    if cloudinaryId = @getProject().getCloudinaryId()
+      $.cloudinary.url(cloudinaryId, {width: 621, height: 350, crop: 'fill'})
+    else
+      '/assets/werkd.png'
+
+
   # View properties:
 
   getBackgroundBlockerEl: ->
@@ -65,7 +72,11 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
   render: ->
     super
     @$el.css('display', 'none')
-    @$el.html(@template(project: @getProject(), currentUser: @getCurrentUser()))
+    @$el.html(@template(
+      project: @getProject()
+      currentUser: @getCurrentUser()
+      view: @
+    ))
   
 
   # View Events:
