@@ -132,16 +132,17 @@ class Project < ActiveRecord::Base
                                  maxheight: PREVIEW_MAX_HEIGHT,
                                  maxwidth: PREVIEW_MAX_WIDTH)
     if embed.first.try(:html)
-      self.embed_html   = embed.first.html
-      self.thumbnail_url= embed.first.thumbnail_url
-    elsif embed.first.try(:url)
-      #this is an image
-      cu = Cloudinary::Uploader.upload(embed.first.url, width: Project::PREVIEW_MAX_WIDTH, height: Project::PREVIEW_MAX_HEIGHT, crop: :limit)
-      self.thumbnail_url=cu["url"]
+      self.embed_html = embed.first.html
+      image_url = embed.first.thumbnail_url
+    elsif embed.first.try(:url) # This is an image
+      image_url = embed.first.url
     end
-    #rescue
-    #  Rails.logger.info("Unable to extract oembed from #{media_url}")
-    #  nil
+
+    if image_url
+      # TODO: Perhaps we shouldn't constrain width/height since we can do this in the view (i.e., allow any size image for upload)
+      cloudinary_url = Cloudinary::Uploader.upload(image_url, width: Project::PREVIEW_MAX_WIDTH, height: Project::PREVIEW_MAX_HEIGHT, crop: :limit)
+      self.thumbnail_url = cloudinary_url['url']
+    end
   end
 
 end

@@ -33,10 +33,11 @@ describe Project do
 
     it "should extract embed url when media url changes"  do
       VCR.use_cassette("models/project") do
+        Cloudinary::Uploader.stub(:upload).and_return({"url"=>"asdf2"})
         p = FactoryGirl.build(:project, media_url: "http://www.youtube.com/watch?v=obuV1KrvEYo")
         p.save
         p.embed_html.should =~ /iframe/
-          p.thumbnail_url.should eq "http://i1.ytimg.com/vi/obuV1KrvEYo/hqdefault.jpg"
+        p.thumbnail_url.should eq "asdf2"
       end
     end
 
