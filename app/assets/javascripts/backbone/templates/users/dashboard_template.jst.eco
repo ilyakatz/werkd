@@ -33,7 +33,7 @@
           <h4>Knows</h4>
         </div>
         <div class="text-right">
-          <a href="/users/invitation/new">Invite a friend</a>
+          <a href="/users/omnicontacts/">Invite a friend</a>
         </div>
         <ul class="user-dashboard-list-item-views">
           <% for connection in @user.getConnections().models: %>

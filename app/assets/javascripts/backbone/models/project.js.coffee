@@ -8,6 +8,8 @@ class Werkd.Models.Project extends Supermodel.Model
     title: null
     company: null
     thumbnail_url: null
+    cloudinary_id: null
+    embed_html: null
     skills: []
 
   # Associations:
@@ -22,6 +24,11 @@ class Werkd.Models.Project extends Supermodel.Model
 
   getPendingContributors: ->
     @pendingContributors()
+
+  # Properties:
+
+  hasEmbedHtml: ->
+    @getEmbedHtml() != null
 
   # Methods:
   

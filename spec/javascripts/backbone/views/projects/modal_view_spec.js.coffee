@@ -31,6 +31,9 @@ describe 'Werkd.Views.Projects.ModalView', ->
     it 'should have close button', ->
       expect(@view.getCloseButtonEl()[0]).toBeDefined()
 
+    it 'should have media container el', ->
+      expect(@view.getMediaContainerEl()[0]).toBeDefined()
+
     it 'should have project image el', ->
       expect(@view.getProjectImageEl()[0]).toBeDefined()
 

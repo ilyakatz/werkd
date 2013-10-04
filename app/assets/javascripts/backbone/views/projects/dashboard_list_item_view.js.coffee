@@ -17,6 +17,12 @@ class Werkd.Views.Projects.DashboardListItemView extends Werkd.Views.BaseView
   setOnClickProject: (callback) ->
     @onClickProject = callback
 
+  getImageUrl: ->
+    if cloudinaryId = @getProject().getCloudinaryId()
+      $.cloudinary.url(cloudinaryId, {width: 304, height: 171, crop: 'fill'})
+    else
+      '/assets/werkd.png'
+
   # Methods:
 
   show: ->
@@ -31,7 +37,7 @@ class Werkd.Views.Projects.DashboardListItemView extends Werkd.Views.BaseView
   render: ->
     # console.log('render', @)
     super
-    @$el.html(@template(project: @getProject())).addClass('project')
+    @$el.html(@template(view: @)).addClass('project')
  
 
   # View events:

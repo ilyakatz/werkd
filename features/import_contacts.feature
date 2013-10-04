@@ -18,6 +18,13 @@ Feature: invite contacts
     And 1 email should be delivered to ilya@werkd.net
     And the email should contain "connect"
 
+  Scenario: I want to connect with non-existing users
+    When I login as "ilya@werkd.net"
+    And google returns my contact list
+    And I go to import google contacts page
+    And I follow "Invite"
+    And show me the emails
+
   Scenario: I want to be able to skip user import
     Given a user "me" exists with email: "ilya@werkd.net"
     And user "me" has complete profile

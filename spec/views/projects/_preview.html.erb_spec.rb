@@ -34,6 +34,7 @@ describe "projects/_preview.html.erb" do
   end
 
   it "should show default image" do
+    project.stub(:thumbnail_url).and_return(nil)
     render
     rendered.should match("werkd.png")
   end

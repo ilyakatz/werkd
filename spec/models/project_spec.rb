@@ -33,10 +33,11 @@ describe Project do
 
     it "should extract embed url when media url changes"  do
       VCR.use_cassette("models/project") do
+        Cloudinary::Uploader.stub(:upload).and_return({"url"=>"asdf2"})
         p = FactoryGirl.build(:project, media_url: "http://www.youtube.com/watch?v=obuV1KrvEYo")
         p.save
         p.embed_html.should =~ /iframe/
-          p.thumbnail_url.should eq "http://i1.ytimg.com/vi/obuV1KrvEYo/hqdefault.jpg"
+        p.thumbnail_url.should eq "asdf2"
       end
     end
 
@@ -144,6 +145,19 @@ describe Project do
       p.tagged_users.should eq [u]
     end
   end
+
+  describe '#cloudinary_id' do
+    let(:cloudinary_id) { 'hd1kgkx7nccahdyl9wtz.jpg' }
+    let(:thumbnail_url) { "http://res.cloudinary.com/werkd/image/upload/v1379801218/#{cloudinary_id}" }
+    let(:project) { create(:project, thumbnail_url: thumbnail_url) }
+    subject { project.cloudinary_id }
+    it { should == cloudinary_id  }
+
+    context 'when thumbnail_url is nil' do
+      let(:thumbnail_url) { nil }
+      it { should == nil }
+    end # when thumbnail_url is nil
+  end # cloudinary_id
 
   describe :factories do
 

@@ -5,6 +5,7 @@ ruby '2.0.0'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
+gem "non-stupid-digest-assets"
 
 group :production do
   gem "pg"
@@ -79,7 +80,6 @@ group :development do
   gem "guard"
   gem "guard-migrate"
   gem "foreman"
-  gem 'quiet_assets'
 
   #show great looking error pages with extra functionality
   gem "better_errors"
@@ -90,6 +90,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'quiet_assets'
   gem 'annotate', '>=2.5.0'
   gem 'faker'
   gem 'factory_girl_rails', '~> 4.0'

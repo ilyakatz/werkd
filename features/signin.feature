@@ -11,10 +11,11 @@ Feature: Signing up and signin in
 
   Scenario: I should be able to sign up
     When I go to the root page
-    And I fill in "Email" with "ilykatz@gmail.com"
+    And I fill in "Email" with "ilyakatz@gmail.com"
     And I fill in "Password" with "secret"
     And I press "Let's get started"
     Then I should be on the users profiles page
+    And 1 email should be delivered to "ilyakatz@gmail.com"
 
   Scenario: After I signup, I should be taken to my profile
     When I go to the users registrations page

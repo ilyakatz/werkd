@@ -60,6 +60,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   acts_as_tagger
 
+  after_create :send_welcome_email
+
   def all_projects
     projects + collaborated_projects
   end
@@ -154,7 +156,6 @@ class User < ActiveRecord::Base
         email: data["email"],
         password: Devise.friendly_token[0, 20]
       )
-      WelcomeMailer.send_welcome_email(user).deliver!
     end
     user
   end
@@ -185,7 +186,6 @@ class User < ActiveRecord::Base
         )
         user.authentications << auth
         user.save!
-        WelcomeMailer.send_welcome_email(self).deliver!
       end
     end
 
@@ -202,6 +202,12 @@ class User < ActiveRecord::Base
   #create a meaningful professional connection
   def connect_to!(user)
     Connection.create_pending_connections(self, user)
+  end
+
+  private
+
+  def send_welcome_email
+    WelcomeMailer.send_welcome_email(self).deliver! if confirmed?
   end
 
 end

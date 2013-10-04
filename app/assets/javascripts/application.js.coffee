@@ -17,8 +17,10 @@
 #= require backbone
 #= require backbone_rails_sync
 #= require backbone_datalink
+#= require vendor
 #= require backbone/werkd
 #= require ajax
 #= require alerts
 #= require global/forms
+#= require config
 #= require_self
