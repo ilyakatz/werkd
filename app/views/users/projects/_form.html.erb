@@ -1,5 +1,5 @@
-<%= simple_form_for([:users, @project], html: {class: "form-inline",novalidate: true}) do |f| %>
-  <div class="project-modal-view" style="top: 95.55555725097656px;"><div class="project-modal-content">
+<div class="project-modal-view" style="top: 95.55555725097656px;"><div class="project-modal-content">
+    <%= simple_form_for([:users, @project], html: {class: "form-inline",novalidate: true}) do |f| %>
       <div class="row-fluid">
         <div class="span8 project">
           <div class="panel-heading">
@@ -58,23 +58,23 @@
           </ul>
         </div> <!-- user-dashboard-list-view -->
       </div> <!-- span4 -->
+      <%= f.input :tagged_user_ids,
+        label: "Collaborators",
+        placeholder: "Tag people you worked with",
+        input_html:{
+          value: @project.tagged_user_ids.join(",")
+        } %>
+      <br/>
+
     </div> <!-- row-fluid -->
-  </div> <!-- project-modal-content -->
-  <div class="background-blocker"></div>
+  <% end %>
+</div> <!-- project-modal-content -->
+<div class="background-blocker"></div>
 </div>
 
 
 
 
-
-<%= f.input :tagged_user_ids,
-  label: "Collaborators",
-  placeholder: "Tag people you worked with",
-  input_html:{
-    value: @project.tagged_user_ids.join(",")
-  } %>
-<br/>
-<% end %>
 
 
 <% content_for :dom_ready do %>
