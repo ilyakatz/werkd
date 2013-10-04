@@ -5,6 +5,7 @@ ruby '2.0.0'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
+gem "non-stupid-digest-assets"
 
 group :production do
   gem "pg"
