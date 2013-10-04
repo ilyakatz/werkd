@@ -70,3 +70,11 @@
     When I login as "ilyakatz@gmail.com"
     When they follow "Yes" in the email
     Then 1 email should be delivered to ilya@werkd.net
+
+  @javascript
+  Scenario: I should be able to invite friends from the dashboard
+    When I login as "ilya@werkd.net"
+    When I go to the users dashboards page
+    And I follow "Invite a friend"
+    Then I should see "Let's invite people"
+
