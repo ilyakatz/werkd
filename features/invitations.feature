@@ -22,6 +22,7 @@ Feature: Invitations
   Scenario: Inviter gets a notification that invitee accepted invitation
     Given a user exists with email: "ilya@werkd.net", first_name: "ilya", last_name: "katzmopolitan"
     When I login as "ilya@werkd.net"
+    And all emails have been delivered
     And I go to new user invitation page
     And I fill in "Email" with "ilyakatz@gmail.com"
     And I press "Send"

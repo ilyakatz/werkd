@@ -25,6 +25,7 @@
     When I login as "ilya@werkd.net"
     And I go to new user invitation page
     And a user exists with email: "ilyakatz@gmail.com", password: "password123", first_name: "Ilya", last_name: "Morpheus"
+    And all emails have been delivered
     And I fill in "Email" with "ilyakatz@gmail.com"
     And I press "Send"
     Then 1 email should be delivered to ilyakatz@gmail.com
@@ -48,6 +49,7 @@
     When I login as "ilya@werkd.net"
     And I go to new user invitation page
     And a user exists with email: "ilyakatz@gmail.com", password: "password123", first_name: "Katzo"
+    And all emails have been delivered
     And I fill in "Email" with "ilyakatz@gmail.com"
     And I press "Send"
     Then 1 email should be delivered to ilyakatz@gmail.com
@@ -61,8 +63,9 @@
 
  Scenario: Inviter gets an email when invitee accepts invitation
     When I login as "ilya@werkd.net"
-    And I go to new user invitation page
     And a user exists with email: "ilyakatz@gmail.com", password: "password123"
+    And I go to new user invitation page
+    And all emails have been delivered
     And I fill in "Email" with "ilyakatz@gmail.com"
     And I press "Send"
     Then 1 email should be delivered to ilyakatz@gmail.com

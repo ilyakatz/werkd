@@ -20,7 +20,11 @@ end
 
 Given /^I login as "(.*?)"/ do |email|
   user = User.find_by_email(email)
-  user = FactoryGirl.create(:user, email: email) unless user
+
+  unless user
+    user = FactoryGirl.create(:user, email: email)
+    step "all emails have been delivered"
+  end
 
   login_as(user)
 end
