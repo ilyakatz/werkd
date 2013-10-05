@@ -1,32 +1,90 @@
-.project-modal-view {
-  .project-modal-content {
+.project-edit-view {
+  .project-edit-content {
     form {
       color: white;
 
+      .project-pane {
+        background-color: #555;
+      }
+
+      header {
+        display: inline-block;
+        width: 100%;
+
+        h4 {
+          font-size: 14px;
+        }
+        background: #EDEDED;
+        text-align: center;
+      }
+
       label {
-        display: none;
+        #        display: none;
       }
 
       input[type=url],
-      input[type=text] {
-        width: 100%;
-        float: left;
+      input[type=text],
+      textarea{
+        width: 80%;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 8px;
       }
 
+      .input {
+        display: block;
+      }
+
+      select {
+        margin-left: 10px;
+      }
+
+      abbr {
+        display: none;
+      }
+
+      .project-skills {
+        .token-input-input-token {
+          input {
+            width: 30px;
+            box-shadow: none;
+            background: transparent;
+            -webkit-box-shadow: none;
+            &:focus{
+              box-shadow: none;
+              -webkit-box-shadow: none;
+            }
+          }
+        }
+      }
       .project-details {
         padding: 0;
       }
 
+      .project_title {
+        label {
+          display: none;
+        }
+        input {
+          width: 90%;
+        }
+      }
+      .project_company {
+        width: 300px;
+        input {
+          width: 190px;
+        }
+      }
+
       #embedly-preview {
-        height: 200px;
         color: white;
+        height: 200px;
+        display: inline-block;
         a {
           color: white;
         }
         .attributes {
           .title {
-            height: 22px;
-            padding-bottom: 60px;
           }
         }
       }

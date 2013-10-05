@@ -1,73 +1,74 @@
-<div class="project-modal-view" style="top: 95.55555725097656px;"><div class="project-modal-content">
+<div class="project-edit-view" >
+  <div class="project-edit-content">
     <%= simple_form_for([:users, @project], html: {class: "form-inline",novalidate: true}) do |f| %>
-      <div class="row offset2">
-        <div class="span8 project">
+      <div class="row span6 project-pane">
+        <div class="project">
           <header class="panel-heading">
-            <h4>WeRKD On</h4>
+            <h4>Edit project</h4>
           </header>
+
           <nav class="navigation">
-            <div class="close-modal"><a href="#close">×</a></div>
             <div class="project-tags">
               <ul class="user-skills project-skills">
                 <%= f.input :tag_list,
                   label: "Skills tags",
+                  wrapper_html: { class: "clearfix"},
                   placeholder: "Skills you used on the project?"%>
               </ul>
             </div>
           </nav>
 
           <section class="project-details">
-            <h5>
-              <%= f.input :title,
-                placeholder: "The name of the project?",
-                input_html: { autofocus: true } %>
-            </h5>
+            <%= f.input :title,
+              placeholder: "The name of the project?",
+              wrapper_html: { class: "clearfix"},
+              input_html: { autofocus: true } %>
           </section>
 
-          <h6>
-            <%= f.input :company,
-              placeholder: "Where was this project produced?"%>
-          </h6>
-          <div id="embedly-preview" class="selector-wrapper"></div>
+          <%= f.input :company,
+            wrapper_html: { class: "right clearfix"} %>
+          <div id="embedly-preview" class="selector-wrapper">
+          </div>
 
-          <%= f.input :media_url, placeholder:"add an image or video link",
-            hint: "we support vimeo and youtube videos for now",
-            input_html:
-            { class: "embed-link", value: "www.youtube.com/watch?v=PqtYcHyyWJA&feature=player_detailpage#t=1008" } %>
+          <%= f.input :media_url, placeholder:"Add an image or video link ( Vimeo and Youtube only for now)",
+            wrapper_html: { class: "clearfix"},
+            input_html: { class: "embed-link" } %>
           <%= f.input :contribution,
+            wrapper_html: { class: "clearfix"},
             placeholder: "Your contribution to the project?",
             as: :text %>
           <%= f.input :start_at,
             label: "Project date",
-            hint: "When did you work on this project?",
+            wrapper_html: { class: "clearfix"},
             order: [:month, :year] %>
 
           <%= f.submit %>
 
         </div> <!-- project-details -->
       </div> <!-- span8 -->
-      <div class="span4">
-        <div class="panel-heading">
-          <h4>With</h4>
-        </div>
+
+      <section id="collaborators" class="project-pane span4">
+        <header>
+          <h4>Edit collaborators</h4>
+        </header>
         <div class="user-dashboard-list-view">
           <ul class="user-dashboard-list-item-views">
 
+            <%= f.input :tagged_user_ids,
+              label: "Collaborators",
+              placeholder: "Tag people you worked with",
+              input_html:{
+                value: @project.tagged_user_ids.join(",")
+              } %>
           </ul>
           <ul class="user-dashboard-list-item-views">
 
           </ul>
         </div> <!-- user-dashboard-list-view -->
-      </div> <!-- span4 -->
-      <%= f.input :tagged_user_ids,
-        label: "Collaborators",
-        placeholder: "Tag people you worked with",
-        input_html:{
-          value: @project.tagged_user_ids.join(",")
-        } %>
+      </section>
       <br/>
 
-    </div> <!-- row-fluid -->
+    </div>
   <% end %>
 </div> <!-- project-modal-content -->
 <div class="background-blocker"></div>
