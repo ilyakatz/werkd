@@ -1,11 +1,11 @@
 <div class="project-modal-view" style="top: 95.55555725097656px;"><div class="project-modal-content">
     <%= simple_form_for([:users, @project], html: {class: "form-inline",novalidate: true}) do |f| %>
-      <div class="row-fluid">
+      <div class="row offset2">
         <div class="span8 project">
-          <div class="panel-heading">
+          <header class="panel-heading">
             <h4>WeRKD On</h4>
-          </div> <!-- panel-heading -->
-          <div class="navigation">
+          </header>
+          <nav class="navigation">
             <div class="close-modal"><a href="#close">×</a></div>
             <div class="project-tags">
               <ul class="user-skills project-skills">
@@ -14,14 +14,15 @@
                   placeholder: "Skills you used on the project?"%>
               </ul>
             </div>
-          </div> <!-- navigation -->
-          <div class="project-details">
+          </nav>
+
+          <section class="project-details">
             <h5>
               <%= f.input :title,
                 placeholder: "The name of the project?",
-                input_html: { autofocus: true }
-              %>
-          </h5>
+                input_html: { autofocus: true } %>
+            </h5>
+          </section>
 
           <h6>
             <%= f.input :company,
@@ -32,7 +33,7 @@
           <%= f.input :media_url, placeholder:"add an image or video link",
             hint: "we support vimeo and youtube videos for now",
             input_html:
-            { class: "embed-link" } %>
+            { class: "embed-link", value: "www.youtube.com/watch?v=PqtYcHyyWJA&feature=player_detailpage#t=1008" } %>
           <%= f.input :contribution,
             placeholder: "Your contribution to the project?",
             as: :text %>
@@ -71,10 +72,6 @@
 </div> <!-- project-modal-content -->
 <div class="background-blocker"></div>
 </div>
-
-
-
-
 
 
 <% content_for :dom_ready do %>

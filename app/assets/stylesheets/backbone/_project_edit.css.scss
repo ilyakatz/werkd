@@ -1,6 +1,36 @@
-.project-modal-content {
-  form {
-    width: 100%;
-    float: left;
+.project-modal-view {
+  .project-modal-content {
+    form {
+      color: white;
+
+      label {
+        display: none;
+      }
+
+      input[type=url],
+      input[type=text] {
+        width: 100%;
+        float: left;
+      }
+
+      .project-details {
+        padding: 0;
+      }
+
+      #embedly-preview {
+        height: 200px;
+        color: white;
+        a {
+          color: white;
+        }
+        .attributes {
+          .title {
+            height: 22px;
+            padding-bottom: 60px;
+          }
+        }
+      }
+
+    }
   }
 }
