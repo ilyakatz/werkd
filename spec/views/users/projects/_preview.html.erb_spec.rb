@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "projects/_preview.html.erb" do
+describe "users/projects/_preview.html.erb" do
 
   let(:project){create(:project)}
 
@@ -21,7 +21,7 @@ describe "projects/_preview.html.erb" do
     end
 
     it "should show video preview" do
-      render "projects/preview", show_video: true
+      render "users/projects/preview", show_video: true
       rendered.should match("www.youtube.com")
     end
 

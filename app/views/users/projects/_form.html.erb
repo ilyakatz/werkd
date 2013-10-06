@@ -1,38 +1,82 @@
-<%= simple_form_for([:users, @project], html: {novalidate: true}) do |f| %>
-  <%= f.input :title,
-    placeholder: "The name of the project?",
-    input_html: { autofocus: true }
-  %>
-  <%= f.input :company, placeholder: "Where was this project produced?" %>
-  <%= f.input :contribution,
-    placeholder: "Your contribution to the project?",
-    as: :text
-  %>
-<%= f.input :tag_list, label: "Skills tags",
-    placeholder: "Skills you used on the project?"%>
-<%= f.input :media_url, placeholder:"add an image or video link",
-    hint: "we support vimeo and youtube videos for now",
-    input_html:
-    { class: "embed-link" }
-%>
+<div class="project-edit-view" >
+  <div class="project-edit-content">
+    <%= simple_form_for([:users, @project], html: {class: "form-inline"}) do |f| %>
+      <div class="row span6 project-pane">
+        <div class="project">
+          <header class="panel-heading">
+            <h4>Edit project</h4>
+          </header>
 
-<div id="embedly-preview" class="selector-wrapper"></div>
+          <nav class="navigation">
+            <div class="project-tags">
+              <ul class="user-skills project-skills">
+                <%= f.input :tag_list,
+                  label: "Skills tags",
+                  wrapper_html: { class: "clearfix"},
+                  placeholder: "Skills you used on the project?"%>
+              </ul>
+            </div>
+          </nav>
 
-<%= f.input :tagged_user_ids,
-  label: "Collaborators",
-  placeholder: "Tag people you worked with",
-  input_html:{
-    value: @project.tagged_user_ids.join(",")
-  } %>
-<%= f.input :start_at,
-  label: "Project date",
-  hint: "When did you work on this project?",
-  order: [:month, :year]
-%>
+          <section class="project-details">
+            <%= f.input :title,
+              placeholder: "The name of the project?",
+              wrapper_html: { class: "clearfix"},
+              input_html: { autofocus: true } %>
+          </section>
 
-  <br/>
-  <%= f.submit %>
-<% end %>
+          <%= f.input :company,
+            placeholder: "Company name",
+            wrapper_html: { class: "right clearfix"} %>
+          <div id="embedly-preview" class="selector-wrapper">
+            <%= render "preview", project: @project, show_video: true%>
+
+          </div>
+
+          <%= f.input :media_url, placeholder:"Add an image or video link ( Vimeo and Youtube only for now)",
+            wrapper_html: { class: "clearfix"},
+            input_html: { class: "embed-link" } %>
+          <%= f.input :contribution,
+            wrapper_html: { class: "clearfix"},
+            placeholder: "Your contribution to the project?",
+          as: :text %>
+          <%= f.input :start_at,
+            label: "Project date",
+            wrapper_html: { class: "clearfix"},
+            order: [:month, :year] %>
+
+          <%= link_to "Back", users_dashboards_path, class: "btn action" %>
+          <%= f.submit class: "btn action"%>
+
+        </div> <!-- project-details -->
+      </div> <!-- span8 -->
+
+      <section id="collaborators" class="project-pane span4">
+        <header>
+          <h4>Edit collaborators</h4>
+        </header>
+        <div class="user-dashboard-list-view">
+          <ul class="user-dashboard-list-item-views">
+
+            <%= f.input :tagged_user_ids,
+              label: "Collaborators",
+              placeholder: "Tag people you worked with",
+              input_html:{
+                value: @project.tagged_user_ids.join(",")
+              } %>
+          </ul>
+          <ul class="user-dashboard-list-item-views">
+
+          </ul>
+        </div> <!-- user-dashboard-list-view -->
+      </section>
+      <br/>
+
+    </div>
+  <% end %>
+</div> <!-- project-modal-content -->
+<div class="background-blocker"></div>
+</div>
 
 
 <% content_for :dom_ready do %>
@@ -55,19 +99,19 @@
         prePopulate: <%=raw(@project.tags.collect{|t|{name: t.name}}.to_json)%>
     });
 
-    $("#project_tagged_user_ids").tokenInput("/users.json",
+      $("#project_tagged_user_ids").tokenInput("/users.json",
     {
       hintText: "Type in name or email",
       tokenValue: "id",
       prePopulate: <%=
-    raw(@project.tagged_users.collect do |u|
-      {
-        name: display_user_name(u, @project.creator != current_user) ,
-        id: u.id
-      }
-    end.to_json)
-  %>
-      });
+      raw(@project.tagged_users.collect do |u|
+        {
+          name: display_user_name(u, @project.creator != current_user) ,
+          id: u.id
+        }
+      end.to_json)
+    %>
+  });
 
     });
 
