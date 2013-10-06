@@ -22,6 +22,12 @@
         #        display: none;
       }
 
+      .project_tagged_user_ids {
+        label {
+          display: none;
+        }
+      }
+
       input[type=url],
       input[type=text],
       textarea{
@@ -80,12 +86,17 @@
         color: white;
         height: 200px;
         display: inline-block;
+        width: 100%
         a {
           color: white;
         }
         .attributes {
           .title {
           }
+        }
+        img,iframe {
+          margin-left: auto;
+          margin-right: auto;
         }
       }
 

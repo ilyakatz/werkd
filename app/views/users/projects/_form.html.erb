@@ -28,6 +28,8 @@
           <%= f.input :company,
             wrapper_html: { class: "right clearfix"} %>
           <div id="embedly-preview" class="selector-wrapper">
+            <%= render "preview", project: @project, show_video: true%>
+
           </div>
 
           <%= f.input :media_url, placeholder:"Add an image or video link ( Vimeo and Youtube only for now)",

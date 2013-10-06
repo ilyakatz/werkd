@@ -5,10 +5,14 @@ li{
 }
 
 div.token-input-dropdown {
-ul
-{
-  li.token-input-selected-dropdown-item {
-  background-color: #ccc;
+  ul
+  {
+    li.token-input-selected-dropdown-item {
+      background-color: #ccc;
+    }
+  }
 }
-}
+
+ul.token-input-list {
+  width: 100%;
 }
