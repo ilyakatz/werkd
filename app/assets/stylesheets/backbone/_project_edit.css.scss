@@ -19,7 +19,8 @@
       }
 
       label {
-        #        display: none;
+        width: 15%;
+        margin-left: 10px;
       }
 
       .project_tagged_user_ids {
@@ -32,17 +33,12 @@
       input[type=text],
       textarea{
         width: 80%;
-        margin-left: 10px;
         margin-top: 10px;
         margin-bottom: 8px;
       }
 
       .input {
         display: block;
-      }
-
-      select {
-        margin-left: 10px;
       }
 
       abbr {
@@ -67,18 +63,35 @@
         padding: 0;
       }
 
+      .project_media_url {
+        float: right;
+        margin-right: 10px;
+      }
+
       .project_title {
         label {
           display: none;
         }
         input {
-          width: 90%;
+          margin-left: 10px;
+          width: 95%;
         }
       }
       .project_company {
         width: 300px;
+        label {
+          display: none;
+        }
         input {
           width: 190px;
+          float: right;
+          margin-right: 10px;
+        }
+      }
+
+      .project_contribution {
+        input {
+          width: 78%;
         }
       }
 
@@ -98,6 +111,11 @@
           margin-left: auto;
           margin-right: auto;
         }
+      }
+
+      .action {
+        float: right;
+        margin: 10px;
       }
 
     }

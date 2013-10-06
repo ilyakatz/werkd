@@ -1,6 +1,6 @@
 <div class="project-edit-view" >
   <div class="project-edit-content">
-    <%= simple_form_for([:users, @project], html: {class: "form-inline",novalidate: true}) do |f| %>
+    <%= simple_form_for([:users, @project], html: {class: "form-inline"}) do |f| %>
       <div class="row span6 project-pane">
         <div class="project">
           <header class="panel-heading">
@@ -26,6 +26,7 @@
           </section>
 
           <%= f.input :company,
+            placeholder: "Company name",
             wrapper_html: { class: "right clearfix"} %>
           <div id="embedly-preview" class="selector-wrapper">
             <%= render "preview", project: @project, show_video: true%>
@@ -38,13 +39,14 @@
           <%= f.input :contribution,
             wrapper_html: { class: "clearfix"},
             placeholder: "Your contribution to the project?",
-            as: :text %>
+          as: :text %>
           <%= f.input :start_at,
             label: "Project date",
             wrapper_html: { class: "clearfix"},
             order: [:month, :year] %>
 
-          <%= f.submit %>
+          <%= link_to "Back", users_dashboards_path, class: "btn action" %>
+          <%= f.submit class: "btn action"%>
 
         </div> <!-- project-details -->
       </div> <!-- span8 -->
