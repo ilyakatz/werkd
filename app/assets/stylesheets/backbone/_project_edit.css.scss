@@ -1,0 +1,123 @@
+.project-edit-view {
+  .project-edit-content {
+    form {
+      color: white;
+
+      .project-pane {
+        background-color: #555;
+      }
+
+      header {
+        display: inline-block;
+        width: 100%;
+
+        h4 {
+          font-size: 14px;
+        }
+        background: #EDEDED;
+        text-align: center;
+      }
+
+      label {
+        width: 15%;
+        margin-left: 10px;
+      }
+
+      .project_tagged_user_ids {
+        label {
+          display: none;
+        }
+      }
+
+      input[type=url],
+      input[type=text],
+      textarea{
+        width: 80%;
+        margin-top: 10px;
+        margin-bottom: 8px;
+      }
+
+      .input {
+        display: block;
+      }
+
+      abbr {
+        display: none;
+      }
+
+      .project-skills {
+        .token-input-input-token {
+          input {
+            width: 30px;
+            box-shadow: none;
+            background: transparent;
+            -webkit-box-shadow: none;
+            &:focus{
+              box-shadow: none;
+              -webkit-box-shadow: none;
+            }
+          }
+        }
+      }
+      .project-details {
+        padding: 0;
+      }
+
+      .project_media_url {
+        float: right;
+        margin-right: 10px;
+      }
+
+      .project_title {
+        label {
+          display: none;
+        }
+        input {
+          margin-left: 10px;
+          width: 95%;
+        }
+      }
+      .project_company {
+        width: 300px;
+        label {
+          display: none;
+        }
+        input {
+          width: 190px;
+          float: right;
+          margin-right: 10px;
+        }
+      }
+
+      .project_contribution {
+        input {
+          width: 78%;
+        }
+      }
+
+      #embedly-preview {
+        color: white;
+        height: 200px;
+        display: inline-block;
+        width: 100%
+        a {
+          color: white;
+        }
+        .attributes {
+          .title {
+          }
+        }
+        img,iframe {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      .action {
+        float: right;
+        margin: 10px;
+      }
+
+    }
+  }
+}

@@ -1,0 +1,98 @@
+#dashboard-content {
+  position: relative;
+
+  .panel-heading {
+    position: relative;
+    padding: 4px 4px 4px 4px;
+    background-color: #eee;
+
+    h4 {
+      margin: 0 0 0 0;
+      text-align: center;
+      font-weight: normal;
+      font-size: 16px;
+      color: #808080;
+    }
+
+  } // panel-heading
+
+
+} // dashboard-content
+
+.user-dashboard-view {
+
+}
+
+.project-dashboard-list-view {
+  background-color: #eee;
+
+  .add-project-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px;
+  }
+}
+
+.user-dashboard-list-view {
+  background-color: #eee;
+
+  ul.user-dashboard-list-item-views {
+    display: block;
+    margin: 0 0 0 0;
+    list-style-type: none;
+
+    li {
+
+      a {
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        margin: -1px 0 0 0;
+        border: 1px solid #dddddd;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.15);
+          text-decoration: none;
+        }
+      }
+
+      /* a:hover { */
+        /* background-color: rgba(0, 0, 0, 0.15); */
+      /* } */
+
+    } // li
+
+  } // ul.user-dashboard-list-item-views
+
+} // user-dashboard-list-view
+
+ul.user-skills {
+  list-style: none;
+  margin: 0;
+  background-color: #555;
+  padding: 6px;
+  text-align: right;
+
+  li {
+    display: inline-block;
+    margin: 6px;
+    border: 1px #222 solid;
+    border-radius: 4px;
+    background: #aaa;
+    padding: 0px 6px 0px 6px;
+    font-size: 12px;
+    font-weight: bold;
+
+    &.active {
+      background: #fff;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: rgb(194, 194, 194);
+    }
+  }
+
+} // ul.user-skills
+
