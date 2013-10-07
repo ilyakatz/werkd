@@ -28,8 +28,8 @@ production:
   client: 167144929226-6rii4jghfgnl7uqokjosssbiop9prbnh.apps.googleusercontent.com
   secret: pkB3WlcnZC2kMKKYBzaxnc9B
  yahoo:
-  consumer: "dj0yJmk9ZXg3Z0pOc0hBMGFQJmQ9WVdrOWVIcFBZa2hoTXpnbWNHbzlNVEF3T0RnNE1UWXkmcz1jb25zdW1lcnNlY3JldCZ4PTAy"
-  secret: 2190e103fcf25edfbcc3357a64470855bb7073ad
+  consumer: "dj0yJmk9VHQwRWxaT2xIeHE3JmQ9WVdrOWVHZDZhVGxRTm04bWNHbzlNVGN5TmpJek9UVTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1kYQ--"
+  secret: 489ca4a128616c8307cd74effad38ade6aedb370
  hotmail:
   client: 000000004C0F6A13
   secret: GyOEoRFH3Wljsn0L9UeYkCljb4LZXuuG
