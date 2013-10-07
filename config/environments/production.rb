@@ -68,4 +68,10 @@ WeRKD::Application.configure do
   #http://blog.alexmaccaw.com/faster-deploys?utm_source=rubyweekly&utm_medium=email
   config.assets.cache_store = :iron_cache
 
+  #redirect all traffic from werkd.net to www.werkd.net
+  config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
+    r301 %r{.*}, 'http://www.werkd.net$&', :if => Proc.new {|rack_env|
+      rack_env['SERVER_NAME'] == 'werkd.net'
+    }
+  end
 end
