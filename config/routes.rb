@@ -32,7 +32,5 @@ WeRKD::Application.routes.draw do
   end
   root :to => 'home#index'
 
-  get "gZqxhv5bXQHTESFXI4.Bv3o.KlzhDLDXnISp3_xRCQ--.html" => "yahoo#index"
-
   ActiveAdmin.routes(self)
 end
