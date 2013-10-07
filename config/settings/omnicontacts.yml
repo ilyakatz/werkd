@@ -29,7 +29,7 @@ production:
   secret: pkB3WlcnZC2kMKKYBzaxnc9B
  yahoo:
   consumer: "dj0yJmk9ZXg3Z0pOc0hBMGFQJmQ9WVdrOWVIcFBZa2hoTXpnbWNHbzlNVEF3T0RnNE1UWXkmcz1jb25zdW1lcnNlY3JldCZ4PTAy"
-  secret: b4e8f08107038e844e718b34b8a699cbff140dcf
+  secret: 2190e103fcf25edfbcc3357a64470855bb7073ad
  hotmail:
   client: 000000004C0F6A13
   secret: GyOEoRFH3Wljsn0L9UeYkCljb4LZXuuG
