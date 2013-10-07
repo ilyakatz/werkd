@@ -131,13 +131,20 @@ class Project < ActiveRecord::Base
     embed = @@embedly_api.oembed(url: media_url,
                                  maxheight: PREVIEW_MAX_HEIGHT,
                                  maxwidth: PREVIEW_MAX_WIDTH)
-    if embed.first.try(:html)
+
+    case embed.first.try(:type)
+    when "video"
       self.embed_html = embed.first.html
       image_url = embed.first.thumbnail_url
-    elsif embed.first.try(:url) # This is an image
+    when "photo"
       self.embed_html = nil
       image_url = embed.first.url
+    when "link"
+      self.embed_html = nil
+      image_url = embed.first.thumbnail_url
     end
+
+    self.media_type = embed.first.try(:type)
 
     if image_url
       # TODO: Perhaps we shouldn't constrain width/height since we can do this in the view (i.e., allow any size image for upload)

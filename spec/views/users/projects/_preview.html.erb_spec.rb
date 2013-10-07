@@ -21,6 +21,7 @@ describe "users/projects/_preview.html.erb" do
     end
 
     it "should show video preview" do
+      project.stub(:media_type).and_return("video")
       render "users/projects/preview", show_video: true
       rendered.should match("www.youtube.com")
     end

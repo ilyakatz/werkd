@@ -38,6 +38,7 @@ describe Project do
         p.save
         p.embed_html.should =~ /iframe/
         p.thumbnail_url.should eq "asdf2"
+        p.media_type.should eq "video"
       end
     end
 
@@ -50,7 +51,22 @@ describe Project do
         p.save
         p.embed_html.should be_nil
         p.thumbnail_url.should eq "asdf"
+        p.media_type.should eq "photo"
       end
+    end
+
+    it "should extract audio" do
+      VCR.use_cassette("models/project/audio_embed") do
+        #vcr doesn't seem to work with multiple requests
+        Cloudinary::Uploader.stub(:upload).and_return({"url"=>"audio/url"})
+        p = FactoryGirl.build(:project,
+                              media_url: "https://soundcloud.com/thirdcoast/re-sound-139-the")
+        p.save
+        p.embed_html.should be_nil
+        p.thumbnail_url.should eq "audio/url"
+        p.media_type.should eq "link"
+      end
+
     end
 
   end

@@ -45,4 +45,56 @@ http_interactions:
         "provider_name": "Affinitycycles", "type": "photo"}]'
     http_version: '1.1'
   recorded_at: Thu, 29 Aug 2013 17:49:53 GMT
+- request:
+    method: get
+    uri: http://api.embed.ly/1/oembed?urls=https%3A%2F%2Fsoundcloud.com%2Fthirdcoast%2Fre-sound-139-the&key=6302cfbf429e4309b6235dbee0c051a1&maxheight=171&maxwidth=304
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; werkd/1.0; my@email.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 07 Oct 2013 21:38:47 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '734'
+      Connection:
+      - keep-alive
+      X-Embedly-From-Cache:
+      - '0'
+      Access-Control-Max-Age:
+      - '86400'
+      Server:
+      - TornadoServer/2.1
+      Etag:
+      - '"d3b5c87d1033cfd8e2d4bc575ad714bca6f8e37b"'
+      X-Embedly-Process-Time:
+      - '33'
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      X-Embedly-Host:
+      - api04
+    body:
+      encoding: UTF-8
+      string: '[{"provider_url": "http://soundcloud.com", "description": "Listen to
+        Re:sound #139 The Metamorphosis Show (originally aired in 2011) by Third Coast
+        Festival: This hour: two people shed old skins and resurface in foreign territory.
+        Breaking Away by Josh Gleason (Vox Tablet, 2010) Luzer Twersky ... | Explore
+        the largest community of artists, bands, podcasters and creators of music
+        & audio.", "title": "Re:sound #139 The Metamorphosis Show (originally aired
+        in 2011)", "thumbnail_width": 500, "url": "http://soundcloud.com/thirdcoast/re-sound-139-the",
+        "thumbnail_url": "http://i1.sndcdn.com/artworks-000059331811-2karm1-t500x500.jpg?3eddc42",
+        "version": "1.0", "provider_name": "Soundcloud", "type": "link", "thumbnail_height":
+        500}]'
+    http_version: '1.1'
+  recorded_at: Mon, 07 Oct 2013 21:38:47 GMT
 recorded_with: VCR 2.5.0

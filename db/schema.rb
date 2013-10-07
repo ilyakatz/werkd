@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130925030459) do
+ActiveRecord::Schema.define(version: 20131007214450) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "resource_id",   null: false
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20130925030459) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "authentications", ["provider", "user_id"], name: "index_authentications_on_provider_and_user_id", unique: true, using: :btree
 
   create_table "collaborations", force: true do |t|
     t.integer  "user_id"
@@ -90,6 +92,7 @@ ActiveRecord::Schema.define(version: 20130925030459) do
     t.date     "start_at"
     t.string   "embed_html"
     t.string   "thumbnail_url"
+    t.string   "media_type"
   end
 
   create_table "taggings", force: true do |t|

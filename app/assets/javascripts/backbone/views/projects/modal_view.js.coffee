@@ -17,7 +17,7 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
     $(window).resize(@onWindowResize)
 
   # Properties:
-  
+
   getProject: ->
     @model
 
@@ -92,10 +92,10 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
 
   renderMediaContainer: ->
     @getMediaContainerEl().html(@getMediaContainerContent())
-  
+
 
   # View Events:
-  
+
   onWindowResize: (event) =>
     console.log('onWindowResize', event)
     @resizeMediaContainer()
