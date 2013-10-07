@@ -54,8 +54,8 @@ class User < ActiveRecord::Base
   has_many :authentications
   has_many :projects
   has_many :collaborations
-  has_many :collaborated_projects, through: :collaborations, class_name: 'Project', source: :project
-
+  has_many :collaborated_projects, -> { where( "accepted_at is not null") },
+through: :collaborations, class_name: 'Project', source: :project
   validates_presence_of :email
   validates_uniqueness_of :email
   acts_as_tagger

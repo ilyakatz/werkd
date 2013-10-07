@@ -56,10 +56,10 @@ FactoryGirl.define do
         connections = create_list(:connection, 6, inviter: user)
 
         projects.each_with_index do |project, i|
-          create(:collaboration, collaborator: user, project: project)
+          create(:collaboration, collaborator: user, project: project, accepted_at: Time.now)
           i.times {
             connection = connections.pop()
-            create(:collaboration, collaborator: connection.invitee, project: project)
+            create(:collaboration, collaborator: connection.invitee, project: project, accepted_at: Time.now)
           }
         end
       end

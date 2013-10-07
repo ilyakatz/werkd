@@ -45,11 +45,23 @@ describe User do
   end # collections
 
   describe "#all_projects" do
+    it "should not show projects that where I was tagged but not accepted" do
+      project = create(:project)
+      project1 = create(:project)
+      user = project.creator
+      project1.tagged_users = [ user ]
+
+      user.projects.count.should eq 1
+      user.all_projects.count.should eq 1
+      user.all_projects.first.should eq project
+    end
+
     it "should return my projects and project i was tagged on" do
       project = create(:project)
       project1 = create(:project)
       user = project.creator
       project1.tagged_users = [ user ]
+      project1.collaborations.first.accept!
 
       user.projects.count.should eq 1
       user.all_projects.count.should eq 2
