@@ -36,6 +36,8 @@ https://www.codeship.io/projects/4271
 
     `spring rspec spec`
 
+    `bundle exec guard-jasmine --server-timeout=90 -t 30000`
+
 # In the wild
 
 You can access your server from the outside world:

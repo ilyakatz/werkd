@@ -9,7 +9,7 @@
         <div class="project-tags">
           <ul class="user-skills project-skills">
             <% for skill in @project.getSkills(): %>
-            <li><%= skill %></li>
+            <li class="active"><%= skill %></li>
             <% end %>
           </ul>
         </div>
@@ -17,10 +17,7 @@
       <div class="project-details">
         <h5><%= @project.getTitle() %></h5>
         <h6>produced at <%= @project.getCompany() %></h6>
-        <div class="media-container">
-          <!--img class="main" src="<%= @view.getImageUrl() %>" /-->
-          <%#= @view.getMediaContainerContent() %>
-        </div>
+        <div class="media-container"></div>
         <% if @project.getCreator().getId() == @currentUser.getId(): %>
         <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
         <% end %>

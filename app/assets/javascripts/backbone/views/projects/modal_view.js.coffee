@@ -71,6 +71,7 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
     console.log('close')
     # @$el.css('display', 'none')
     @$el.fadeOut()
+    @getMediaContainerEl().html('')
 
   resizeMediaContainer: ->
     width = @getMediaContainerEl().width()
