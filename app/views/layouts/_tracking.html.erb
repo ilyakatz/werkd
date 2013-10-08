@@ -1,0 +1,5 @@
+<% if Rails.env.production? %>
+  <%= render "layouts/tracking/clicky" %>
+  <%= render "layouts/tracking/inspectlet" %>
+  <%= render "layouts/tracking/ga" %>
+<%end%>
