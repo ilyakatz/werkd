@@ -36,8 +36,6 @@ ActiveRecord::Schema.define(version: 20131007214450) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "authentications", ["provider", "user_id"], name: "index_authentications_on_provider_and_user_id", unique: true, using: :btree
-
   create_table "collaborations", force: true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
