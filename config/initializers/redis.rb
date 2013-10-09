@@ -6,7 +6,7 @@ uri = if (ENV["REDISCLOUD_URL"])
 
 $redis = if uri
            Redis.new(
-             hos: ( uri.host if uri.try(:host)),
+             host: ( uri.host if uri.try(:host)),
              port: ( uri.port if uri.try(:port)),
              password: (uri.password if uri.try(:password))
            )
