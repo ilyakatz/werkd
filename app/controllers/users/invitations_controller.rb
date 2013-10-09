@@ -44,7 +44,16 @@ module Users
     end
 
     def new_user_invitation(resource_params, current_inviter)
-      resource = resource_class.invite!(resource_params, current_inviter)
+      resource =
+        if $rollout.active?(:send_connection_emails)
+          resource_class.invite!(resource_params, current_inviter)
+        else
+          resource_class.invite!(resource_params, current_inviter) do |u|
+            u.skip_invitation = true
+          end
+          resource.update_attribute(:invitation_sent_at, Time.now)
+        end
+
       respond_to do |format|
         if resource.errors.empty?
           format.json do
@@ -72,7 +81,14 @@ module Users
         redirect_to after_invite_path_for(invitee), notice: notice
       else
         connection = Connection.create_pending_connections(inviter, invitee)
-        ContactsMailer.send_connection_request(connection).deliver!
+
+        #mimic users accepting invitations
+        if $rollout.active?(:send_connection_emails)
+          ContactsMailer.send_connection_request(connection).deliver!
+        else
+          connection.accept!
+        end
+
         message = "Invitation to connect has been sent"
         respond_to do |format|
           format.json do
