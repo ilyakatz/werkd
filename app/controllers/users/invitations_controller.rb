@@ -44,14 +44,16 @@ module Users
     end
 
     def new_user_invitation(resource_params, current_inviter)
-        if $rollout.active?(:send_connection_emails)
-          resource = resource_class.invite!(resource_params, current_inviter)
-        else
-          resource = resource_class.invite!(resource_params, current_inviter) do |u|
-            u.skip_invitation = true
-          end
-          resource.update_attribute(:invitation_sent_at, Time.now)
+      if $rollout.active?(:send_connection_emails)
+        resource = resource_class.invite!(resource_params, current_inviter)
+      else
+        resource = resource_class.invite!(resource_params, current_inviter) do |u|
+          u.skip_invitation = true
         end
+        resource.update_attribute(:invitation_sent_at, Time.now)
+        connection = Connection.create_pending_connections(current_inviter, resource)
+        connection.accept!
+      end
 
       respond_to do |format|
         if resource.errors.empty?
