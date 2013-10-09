@@ -23,7 +23,6 @@ Feature: invite contacts
     And google returns my contact list
     And I go to import google contacts page
     And I follow "Invite"
-    And show me the emails
 
   Scenario: I want to be able to skip user import
     Given a user "me" exists with email: "ilya@werkd.net"

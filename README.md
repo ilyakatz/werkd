@@ -20,6 +20,10 @@ https://www.codeship.io/projects/4271
 
     `bundle install`
 
+1. Install redis
+
+    `brew install redis`
+
 1. Install phontom.js (for JS testing)
 
     `brew install phantomjs`

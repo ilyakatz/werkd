@@ -61,6 +61,9 @@ gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
 
 gem 'rails_12factor'
 
+gem 'redis'
+gem 'rollout'
+
 group :test, :development do
   gem "mysql2"
 end
