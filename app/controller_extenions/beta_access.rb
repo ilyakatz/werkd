@@ -43,7 +43,6 @@ module BetaAccess
   end
 
   def enforce_beta_access?
-    beta_access_enabled? && !user_signed_in? && !devise_controller? && is_a?(HomeController)
-    true
+    beta_access_enabled? && !user_signed_in?
   end
 end

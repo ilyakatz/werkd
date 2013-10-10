@@ -1,9 +1,9 @@
 production:
-  enabled: enabled
-  token: token
+  enabled: true
+  token: w3rkd4success
 
 development:
-  enabled: enabled
+  enabled: false
   token: token
 
 test:
