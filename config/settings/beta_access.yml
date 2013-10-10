@@ -1,0 +1,12 @@
+production:
+  enabled: true
+  token: w3rkd4success
+
+development:
+  enabled: false
+  token: token
+
+test:
+  enabled: false
+  token: token
+
