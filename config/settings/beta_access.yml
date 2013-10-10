@@ -1,0 +1,12 @@
+production:
+  enabled: enabled
+  token: token
+
+development:
+  enabled: enabled
+  token: token
+
+test:
+  enabled: false
+  token: token
+

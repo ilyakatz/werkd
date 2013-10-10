@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
   include Profiles
-  http_basic_authenticate_with name: "werkdmvp",
-    password: "4success",
-    if: -> { Rails.env.production? }
+  include BetaAccess
 
+  before_filter :beta_access
   protect_from_forgery
 
   def after_sign_in_path_for(resource)
