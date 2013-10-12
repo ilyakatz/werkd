@@ -16,6 +16,19 @@
     font-size: 51px;
   }
 
+  #error_explanation {
+    ul {
+      list-style-type: none;
+      li {
+        font-weight: bold;
+        color: white;
+      }
+    }
+    h2 {
+      font-size: 1em;
+    }
+  }
+
   form {
     padding-top: 16px;
     input {

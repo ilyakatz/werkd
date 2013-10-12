@@ -3,18 +3,18 @@
 #= require twitter/bootstrap
 #= require alerts
 
+if $f?
+  iframe = $('#intro-video-player')[0]
+  player = $f(iframe)
+  window.vimeo_player = player
 
-iframe = $('#intro-video-player')[0]
-player = $f(iframe)
-window.vimeo_player = player
-
-player.addEvent('ready',->
-    console.log('ready');
-    player.addEvent('finish', ->
-      $("iframe").hide()
-      $("#play-intro-button").show()
-    )
-)
+  player.addEvent('ready',->
+      console.log('ready');
+      player.addEvent('finish', ->
+        $("iframe").hide()
+        $("#play-intro-button").show()
+      )
+  )
 
 $("#play-intro-button").on("click", ->
   $("iframe").show().css("margin-bottom", "-5px")
