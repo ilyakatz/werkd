@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131010004526) do
+ActiveRecord::Schema.define(version: 20131012020255) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "resource_id",   null: false
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20131010004526) do
     t.string   "media_url"
     t.string   "contribution"
     t.date     "start_at"
-    t.string   "embed_html"
+    t.text     "embed_html"
     t.string   "thumbnail_url"
     t.string   "media_type"
   end
