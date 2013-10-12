@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.embed.ly/1/oembed?urls=https%3A%2F%2Fsoundcloud.com%2Fportugaltheman&key=6302cfbf429e4309b6235dbee0c051a1&maxheight=171&maxwidth=304
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; werkd/1.0; my@email.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 12 Oct 2013 01:52:24 GMT
+      Connection:
+      - keep-alive
+      X-Embedly-From-Cache:
+      - '0'
+      Access-Control-Max-Age:
+      - '86400'
+      Server:
+      - TornadoServer/2.1
+      Etag:
+      - '"039cd67d90c6d0f3f1ad2675cf7e87470d8ee319"'
+      X-Embedly-Process-Time:
+      - '46'
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      X-Embedly-Host:
+      - api22
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '690'
+    body:
+      encoding: UTF-8
+      string: '[{"provider_url": "http://soundcloud.com", "description": "Evil Friends
+        is an album http://smarturl.it/evilfriends", "title": "Portugal. The Man",
+        "author_name": "Portugal. The Man", "height": 171, "thumbnail_width": 500,
+        "width": 304, "html": "<iframe width=\"304\" height=\"171\" scrolling=\"no\"
+        frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Fusers%2F1184887&show_artwork=true&maxwidth=900\"></iframe>",
+        "author_url": "http://soundcloud.com/portugaltheman", "version": "1.0", "provider_name":
+        "SoundCloud", "thumbnail_url": "http://i1.sndcdn.com/avatars-000041089266-g6tl0b-t500x500.jpg?3eddc42",
+        "type": "rich", "thumbnail_height": 500}]'
+    http_version: '1.1'
+  recorded_at: Sat, 12 Oct 2013 01:52:32 GMT
+recorded_with: VCR 2.5.0

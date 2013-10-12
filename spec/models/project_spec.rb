@@ -42,6 +42,17 @@ describe Project do
       end
     end
 
+    it "should extract embed url when media url changes"  do
+      VCR.use_cassette("models/project/rich_format") do
+        Cloudinary::Uploader.stub(:upload).and_return({"url"=>"asdf2"})
+        p = FactoryGirl.build(:project, media_url: "https://soundcloud.com/portugaltheman")
+        p.save
+        p.embed_html.should =~ /iframe/
+        p.thumbnail_url.should eq "asdf2"
+        p.media_type.should eq "rich"
+      end
+    end
+
     it "shouold extract image" do
       VCR.use_cassette("models/project/image_embed") do
         #vcr doesn't seem to work with multiple requests

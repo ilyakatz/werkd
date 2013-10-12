@@ -133,7 +133,7 @@ class Project < ActiveRecord::Base
                                  maxwidth: PREVIEW_MAX_WIDTH)
 
     case embed.first.try(:type)
-    when "video"
+    when "video", "rich"
       self.embed_html = embed.first.html
       image_url = embed.first.thumbnail_url
     when "photo"
