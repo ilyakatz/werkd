@@ -1,0 +1,14 @@
+development: &default
+  adapter: mysql2
+  database: werkd_development
+  username: root
+  pool: 5
+  timeout: 5000
+  reconnect: true
+
+test: &test
+  <<: *default
+  database: werkd_test
+
+cucumber:
+  <<: *test
