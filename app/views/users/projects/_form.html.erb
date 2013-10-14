@@ -11,34 +11,36 @@
             <div class="project-tags">
               <ul class="user-skills project-skills">
                 <%= f.input :tag_list,
-                  label: "Skills tags",
+                  label: "Skills used on this project",
                   wrapper_html: { class: "clearfix"},
-                  placeholder: "Skills you used on the project?"%>
+                  placeholder: "skillz"%>
               </ul>
             </div>
           </nav>
 
           <section class="project-details">
             <%= f.input :title,
-              placeholder: "The name of the project?",
+            label: "Project title",
+              placeholder: "Amazing project",
               wrapper_html: { class: "clearfix"},
               input_html: { autofocus: true } %>
           </section>
 
           <%= f.input :company,
-            placeholder: "Company name",
+          label: "Company",
+            placeholder: "Awesome company",
             wrapper_html: { class: "right clearfix"} %>
           <div id="embedly-preview" class="selector-wrapper">
             <%= render "preview", project: @project, show_video: true%>
 
           </div>
 
-          <%= f.input :media_url, placeholder:"Add an image or video link ( Vimeo and Youtube only for now)",
+          <%= f.input :media_url, placeholder:"link to the image, audio or video of the project",
             wrapper_html: { class: "clearfix"},
             input_html: { class: "embed-link" } %>
           <%= f.input :contribution,
             wrapper_html: { class: "clearfix"},
-            placeholder: "Your contribution to the project?",
+            placeholder: "I did A and B for C and D part of the project",
           as: :text %>
           <%= f.input :start_at,
             label: "Project date",
