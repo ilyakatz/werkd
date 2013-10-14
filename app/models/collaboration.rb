@@ -20,6 +20,9 @@ class Collaboration < ActiveRecord::Base
   end
 
   def accept!
-    update_attribute(:accepted_at, Time.now)
+    transaction do
+      update_attribute(:accepted_at, Time.now)
+      Connection.create_accepted_connection(project.creator, collaborator)
+    end
   end
 end
