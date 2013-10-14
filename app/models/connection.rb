@@ -22,13 +22,24 @@ class Connection < ActiveRecord::Base
 
   validates_uniqueness_of :connected_to, scope: :user_id
 
+  # Creates a new pending connection unless there is one already
   def self.create_pending_connections(inviter, invitee)
-    connection = Connection.new
-    connection.user_id = inviter.id
-    connection.connected_to=invitee.id
-    connection.sent_at = Time.now
-    connection.save!
-    connection
+    existing = inviter.connections.
+      where("user_id = ? or connected_to =?", invitee.id, invitee.id).exists?
+
+    unless existing
+      connection = Connection.new
+      connection.user_id = inviter.id
+      connection.connected_to=invitee.id
+      connection.sent_at = Time.now
+      connection.save!
+      connection
+    end
+  end
+
+  def self.create_accepted_connection(inviter, invitee)
+    connection = create_pending_connections(inviter, invitee)
+    connection.accept! if connection
   end
 
   def accepted?

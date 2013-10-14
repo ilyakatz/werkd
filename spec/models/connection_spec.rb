@@ -47,4 +47,21 @@ describe Connection do
 
   end # factories
 
+  describe "Connection#create_pending_connections" do
+    it "should not create duplicate connections" do
+      user1 = create(:user)
+      user2 = create(:user)
+      Connection.create_pending_connections(user1, user2)
+      Connection.create_pending_connections(user1, user2).should be_nil
+    end
+
+    it "order of connections doesn't matter" do
+      user1 = create(:user)
+      user2 = create(:user)
+      Connection.create_pending_connections(user1, user2)
+      Connection.create_pending_connections(user2, user1).should be_nil
+    end
+
+  end
+
 end
