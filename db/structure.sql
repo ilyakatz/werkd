@@ -3,7 +3,6 @@
 --
 
 SET statement_timeout = 0;
-SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -30,7 +29,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: active_admin_comments; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: active_admin_comments; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE active_admin_comments (
@@ -66,7 +65,7 @@ ALTER SEQUENCE active_admin_comments_id_seq OWNED BY active_admin_comments.id;
 
 
 --
--- Name: authentications; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: authentications; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE authentications (
@@ -99,7 +98,7 @@ ALTER SEQUENCE authentications_id_seq OWNED BY authentications.id;
 
 
 --
--- Name: collaborations; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: collaborations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE collaborations (
@@ -132,7 +131,7 @@ ALTER SEQUENCE collaborations_id_seq OWNED BY collaborations.id;
 
 
 --
--- Name: connections; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: connections; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE connections (
@@ -166,7 +165,7 @@ ALTER SEQUENCE connections_id_seq OWNED BY connections.id;
 
 
 --
--- Name: imported_contacts; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: imported_contacts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE imported_contacts (
@@ -200,7 +199,7 @@ ALTER SEQUENCE imported_contacts_id_seq OWNED BY imported_contacts.id;
 
 
 --
--- Name: invitations; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: invitations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE invitations (
@@ -233,7 +232,7 @@ ALTER SEQUENCE invitations_id_seq OWNED BY invitations.id;
 
 
 --
--- Name: projects; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: projects; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE projects (
@@ -273,7 +272,7 @@ ALTER SEQUENCE projects_id_seq OWNED BY projects.id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE schema_migrations (
@@ -282,7 +281,7 @@ CREATE TABLE schema_migrations (
 
 
 --
--- Name: taggings; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: taggings; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE taggings (
@@ -317,7 +316,7 @@ ALTER SEQUENCE taggings_id_seq OWNED BY taggings.id;
 
 
 --
--- Name: tags; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: tags; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE tags (
@@ -346,7 +345,7 @@ ALTER SEQUENCE tags_id_seq OWNED BY tags.id;
 
 
 --
--- Name: user_invites; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: user_invites; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE user_invites (
@@ -378,7 +377,7 @@ ALTER SEQUENCE user_invites_id_seq OWNED BY user_invites.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE users (
@@ -514,7 +513,7 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 
 
 --
--- Name: admin_notes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: admin_notes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY active_admin_comments
@@ -522,7 +521,7 @@ ALTER TABLE ONLY active_admin_comments
 
 
 --
--- Name: authentications_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: authentications_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY authentications
@@ -530,7 +529,7 @@ ALTER TABLE ONLY authentications
 
 
 --
--- Name: collaborations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: collaborations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY collaborations
@@ -538,7 +537,7 @@ ALTER TABLE ONLY collaborations
 
 
 --
--- Name: connections_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: connections_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY connections
@@ -546,7 +545,7 @@ ALTER TABLE ONLY connections
 
 
 --
--- Name: imported_contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: imported_contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY imported_contacts
@@ -554,7 +553,7 @@ ALTER TABLE ONLY imported_contacts
 
 
 --
--- Name: invitations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: invitations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY invitations
@@ -562,7 +561,7 @@ ALTER TABLE ONLY invitations
 
 
 --
--- Name: projects_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: projects_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY projects
@@ -570,7 +569,7 @@ ALTER TABLE ONLY projects
 
 
 --
--- Name: taggings_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: taggings_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY taggings
@@ -578,7 +577,7 @@ ALTER TABLE ONLY taggings
 
 
 --
--- Name: tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY tags
@@ -586,7 +585,7 @@ ALTER TABLE ONLY tags
 
 
 --
--- Name: user_invites_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: user_invites_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY user_invites
@@ -594,7 +593,7 @@ ALTER TABLE ONLY user_invites
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY users
@@ -602,105 +601,105 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: index_active_admin_comments_on_author_type_and_author_id; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_active_admin_comments_on_author_type_and_author_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_active_admin_comments_on_author_type_and_author_id ON active_admin_comments USING btree (author_type, author_id);
 
 
 --
--- Name: index_active_admin_comments_on_namespace; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_active_admin_comments_on_namespace; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_active_admin_comments_on_namespace ON active_admin_comments USING btree (namespace);
 
 
 --
--- Name: index_active_admin_comments_on_resource_type_and_resource_id; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_active_admin_comments_on_resource_type_and_resource_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_active_admin_comments_on_resource_type_and_resource_id ON active_admin_comments USING btree (resource_type, resource_id);
 
 
 --
--- Name: index_collaborations_on_user_id_and_project_id; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_collaborations_on_user_id_and_project_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_collaborations_on_user_id_and_project_id ON collaborations USING btree (user_id, project_id);
 
 
 --
--- Name: index_connections_on_user_id_and_connected_to; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_connections_on_user_id_and_connected_to; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_connections_on_user_id_and_connected_to ON connections USING btree (user_id, connected_to);
 
 
 --
--- Name: index_imported_contacts_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_imported_contacts_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_imported_contacts_on_email ON imported_contacts USING btree (email);
 
 
 --
--- Name: index_invitations_on_email_and_referer_id; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_invitations_on_email_and_referer_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_invitations_on_email_and_referer_id ON invitations USING btree (email, referer_id);
 
 
 --
--- Name: index_taggings_on_tag_id; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_taggings_on_tag_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_taggings_on_tag_id ON taggings USING btree (tag_id);
 
 
 --
--- Name: index_taggings_on_taggable_id_and_taggable_type_and_context; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_taggings_on_taggable_id_and_taggable_type_and_context; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_taggings_on_taggable_id_and_taggable_type_and_context ON taggings USING btree (taggable_id, taggable_type, context);
 
 
 --
--- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
 
 
 --
--- Name: index_users_on_invitation_token; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_users_on_invitation_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_users_on_invitation_token ON users USING btree (invitation_token);
 
 
 --
--- Name: index_users_on_invited_by_id; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_users_on_invited_by_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_users_on_invited_by_id ON users USING btree (invited_by_id);
 
 
 --
--- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
 
 
 --
--- Name: tagging_index; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: tagging_index; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX tagging_index ON taggings USING btree (tag_id, taggable_id, taggable_type, tagger_id, tagger_type, context);
 
 
 --
--- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
