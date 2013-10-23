@@ -43,6 +43,7 @@ gem "sentry-raven"
 gem 'typhoeus'
 
 gem 'activerecord-import', ">=0.4.0"
+gem 'yaml_db'
 gem 'protected_attributes'
 
 gem 'nokogiri', "1.5.9"
