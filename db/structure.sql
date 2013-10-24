@@ -107,7 +107,8 @@ CREATE TABLE collaborations (
     project_id integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    accepted_at timestamp without time zone
+    accepted_at timestamp without time zone,
+    contribution character varying(255)
 );
 
 
@@ -766,3 +767,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131007214450');
 INSERT INTO schema_migrations (version) VALUES ('20131010004526');
 
 INSERT INTO schema_migrations (version) VALUES ('20131012020255');
+
+INSERT INTO schema_migrations (version) VALUES ('20131024002316');

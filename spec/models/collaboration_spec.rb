@@ -13,6 +13,10 @@ require 'spec_helper'
 
 describe Collaboration do
 
+  describe :fields do
+    it { should respond_to(:contribution) }
+  end # fields
+
   describe "#pending" do
 
     it "should be pending by default" do
