@@ -27,14 +27,16 @@ class Project < ActiveRecord::Base
   has_many :collaborators, through: :collaborations
   has_many :taggings, conditions: { taggable_type: Project }, class_name: 'Tagging', foreign_key: :taggable_id
 
-  acts_as_taggable
-  acts_as_taggable_on :roles
-  validates_presence_of :title, :company, :tag_list
+  validates_presence_of :title, :company
 
   before_save :extract_embed
 
-  attr_accessible :company, :title, :contribution, :media_url, :tag_list, :start_at,
+  attr_accessible :company, :title, :contribution, :media_url, :start_at,
     :tagged_user_ids
+
+  attr_accessible :collaborations_attributes
+
+  accepts_nested_attributes_for :collaborations
 
   def accepted_collaborators
     collaborators.where("accepted_at IS NOT NULL")

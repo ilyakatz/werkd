@@ -85,7 +85,7 @@ through: :collaborations, class_name: 'Project', source: :project
   end
 
   def skills
-    projects.collect(&:tags).flatten.collect(&:name).uniq
+   collaborations.collect(&:skills).flatten.collect(&:name).uniq
   end
 
   def self.json_token(q)

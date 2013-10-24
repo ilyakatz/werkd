@@ -3,6 +3,8 @@ module Users
 
     def new
       @project = Project.new
+      @project.collaborations.build
+      @project.collaborations.first.collaborator = current_user
       @project.creator = current_user
     end
 
@@ -47,7 +49,8 @@ module Users
     def project_params
       params.require(:project).permit(:company, :title, :user_id,
                                       :video, :contribution, :media_url,
-                                      :tag_list, :start_at, :tagged_user_ids
+                                      :tag_list, :start_at, :tagged_user_ids,
+                                      :collaborations_attributes => [:user_id, :skill_list]
                                      )
     end
 
