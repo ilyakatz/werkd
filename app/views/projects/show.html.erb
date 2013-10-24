@@ -17,10 +17,11 @@
 
 <%= render "users/projects/preview", project: @project, show_video: true%>
 
-<% if @project.tags.any? %>
+<% skills  = @project.collaborations.where(user_id: 1).last.skills %>
+<% if skills.any? %>
   <p><b>Tags:</b></p>
   <ul>
-    <%@project.tags.each do |t|%>
+    <%skills.each do |t|%>
       <li>
         <%=t.name%>
       </li>
