@@ -28,7 +28,6 @@ class Project < ActiveRecord::Base
   has_many :taggings, conditions: { taggable_type: Project }, class_name: 'Tagging', foreign_key: :taggable_id
 
   acts_as_taggable
-  acts_as_taggable_on :roles
   validates_presence_of :title, :company, :tag_list
 
   before_save :extract_embed

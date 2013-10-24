@@ -82,6 +82,12 @@ end
 group :development do
   gem "guard"
   gem "guard-migrate"
+  gem 'guard-rspec', require: false
+  gem "rb-fchange", require: false
+  gem "rb-fsevent", require: false
+  gem "rb-inotify", require: false
+  gem 'guard-cucumber'
+  gem "terminal-notifier-guard"
   gem "foreman"
 
   #show great looking error pages with extra functionality
