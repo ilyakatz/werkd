@@ -15,6 +15,10 @@ class Collaboration < ActiveRecord::Base
 
   validates_presence_of :user_id
 
+  attr_accessible :user_id, :skill_list
+
+  acts_as_taggable_on :skills
+
   def pending?
     !accepted_at?
   end

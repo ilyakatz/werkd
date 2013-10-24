@@ -10,24 +10,27 @@
           <nav class="navigation">
             <div class="project-tags">
               <ul class="user-skills project-skills">
-                <%= f.input :tag_list,
-                  label: "Skills used on this project",
-                  wrapper_html: { class: "clearfix"},
-                  placeholder: "skillz"%>
+                <%= f.simple_fields_for :collaborations do |collaborators| %>
+                  <%= collaborators.input :user_id %>
+                  <%= collaborators.input :project_id %>
+                  <%= collaborators.input :skill_list,
+                    label: "Skills used on this project",
+                    wrapper_html: { class: "clearfix"},
+                    placeholder: "skillz"%>
+                <% end%>
               </ul>
             </div>
           </nav>
-
           <section class="project-details">
             <%= f.input :title,
-            label: "Project title",
+              label: "Project title",
               placeholder: "Amazing project",
               wrapper_html: { class: "clearfix"},
               input_html: { autofocus: true } %>
           </section>
 
           <%= f.input :company,
-          label: "Company",
+            label: "Company",
             placeholder: "Awesome company",
             wrapper_html: { class: "right clearfix"} %>
           <div id="embedly-preview" class="selector-wrapper">
@@ -41,7 +44,7 @@
           <%= f.input :contribution,
             wrapper_html: { class: "clearfix"},
             placeholder: "I did A and B for C and D part of the project",
-          as: :text %>
+            as: :text %>
           <%= f.input :start_at,
             label: "Project date",
             wrapper_html: { class: "clearfix"},
