@@ -20,15 +20,6 @@ require 'spec_helper'
 
 describe Project do
 
-  describe "#tag_list" do
-    it "should be require" do
-      p = FactoryGirl.build(:project)
-      p.tag_list=""
-      p.save.should be_false
-      p.errors[:tag_list].should_not be_empty
-    end
-  end
-
   describe "#extract_embed" do
 
     it "should extract embed url when media url changes"  do

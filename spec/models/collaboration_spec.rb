@@ -28,6 +28,15 @@ describe Collaboration do
 
   end
 
+  describe "#skill_list" do
+    it "should save skills" do
+      c = FactoryGirl.build(:collaboration)
+      c.skill_list="hiking, biking"
+      c.save
+      c.skill_list.should eq ["hiking","biking"]
+    end
+  end
+
   describe "connection" do
     it "should not create a connection after collaboration is created" do
       c= create(:collaboration)
