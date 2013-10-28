@@ -14,9 +14,9 @@ userFactory = BackboneFactory.define('user', Werkd.Models.User, ->
 @createUserModels = (count, options) ->
   createModels('user', count, options)
 
-@createUserWithProjectsAndConnectionsModel = (options) ->
+@createUserWithCollaborationsAndConnectionsModel = (options) ->
   user = createModel('user', options)
-  user.getProjects().reset(createProjectModels(3))
+  user.getCollaborations().reset(createCollaborationModels(3, user: null))
   user.getConnections().reset(createConnectionModels(6))
   user
 

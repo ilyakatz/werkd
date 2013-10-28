@@ -3,7 +3,7 @@ createView = (args) ->
 
 describe 'Werkd.Views.Users.DashboardView', ->
   beforeEach ->
-    @model = createUserWithProjectsAndConnectionsModel()
+    @model = createUserWithCollaborationsAndConnectionsModel()
     @currentUser = createUserModel()
     @view = createView(model: @model, currentUser: @currentUser)
     @server = sinon.fakeServer.create()
