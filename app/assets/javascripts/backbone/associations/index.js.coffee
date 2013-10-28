@@ -7,18 +7,39 @@ Werkd.Models.Connection.has().one('user', {
 })
 
 
-# User:
+# Collaboration:
 
-Werkd.Models.User.has().many('projects', {
-  inverse: 'user'
-  source: 'projects'
-  collection: Werkd.Collections.Projects
+Werkd.Models.Collaboration.has().one('user', {
+  inverse: 'collaborations'
+  source: 'user'
+  model: Werkd.Models.User
 })
+
+Werkd.Models.Collaboration.has().one('project', {
+  inverse: 'collaborations'
+  source: 'project'
+  model: Werkd.Models.Project
+})
+
+
+# User:
 
 Werkd.Models.User.has().many('connections', {
   inverse: 'connectee'
   source: 'connections'
   collection: Werkd.Collections.Connections
+})
+
+Werkd.Models.User.has().many('collaborations', {
+  inverse: 'user'
+  source: 'collaborations'
+  collection: Werkd.Collections.Collaborations
+})
+
+Werkd.Models.User.has().many('projects', {
+  inverse: 'user'
+  source: 'projects'
+  collection: Werkd.Collections.Projects
 })
 
 
