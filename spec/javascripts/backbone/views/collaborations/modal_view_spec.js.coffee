@@ -1,12 +1,12 @@
 createView = (args) ->
-  new Werkd.Views.Projects.ModalView(args)
+  new Werkd.Views.Collaborations.ModalView(args)
 
-describe 'Werkd.Views.Projects.ModalView', ->
+describe 'Werkd.Views.Collaborations.ModalView', ->
   beforeEach ->
-    @model = createProjectModel()
+    @model = createCollaborationModel()
     @currentUser = createUserModel()
     @view = createView()
-    @view.setProject(@model)
+    @view.setCollaboration(@model)
     @view.setCurrentUser(@currentUser)
     @server = sinon.fakeServer.create()
 
@@ -14,13 +14,13 @@ describe 'Werkd.Views.Projects.ModalView', ->
     @server.restore()
   
   it 'should have model defined', ->
-    expect(Werkd.Views.Projects.ModalView).toBeDefined()
+    expect(Werkd.Views.Collaborations.ModalView).toBeDefined()
 
   it 'can be instantiated', ->
     expect(@view).not.toBeNull()
 
   it 'has defaults set', ->
-    expect(@view.getProject().getId()).toEqual(@model.getId())
+    expect(@view.getCollaboration().getId()).toEqual(@model.getId())
     expect(@view.getCurrentUser().getId()).toEqual(@currentUser.getId())
 
 

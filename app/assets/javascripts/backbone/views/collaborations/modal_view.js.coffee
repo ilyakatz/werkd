@@ -1,6 +1,6 @@
-Werkd.Views.Projects ||= {}
+Werkd.Views.Collaborations ||= {}
 
-class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
+class Werkd.Views.Collaborations.ModalView extends Werkd.Views.BaseView
   template: JST['backbone/templates/projects/modal_template']
 
   className: 'project-modal-view'
@@ -18,11 +18,14 @@ class Werkd.Views.Projects.ModalView extends Werkd.Views.BaseView
 
   # Properties:
 
-  getProject: ->
+  getCollaboration: ->
     @model
 
-  setProject: (project) ->
+  setCollaboration: (project) ->
     @model = project
+
+  getProject: ->
+    @getCollaboration().getProject()
 
   getCurrentUser: ->
     @currentUser
