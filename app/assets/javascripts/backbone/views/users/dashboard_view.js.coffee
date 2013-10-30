@@ -8,6 +8,7 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
   events:
     'click .user-skills li':    'onClickSkill'
 
+
   # Properties:
   
   getUser: ->
@@ -30,10 +31,11 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
       $(skillEl).text()
     )
 
+
   # View properties:
 
   getCollaborationsEl: ->
-    @$el.find('.project-dashboard-list-item-views')
+    @$el.find('.collaboration-dashboard-list-item-views')
 
   getSkillsEl: ->
     @$el.find('.user-skills')
@@ -43,6 +45,7 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
 
   getActiveSkillEls: ->
     @$el.find('.user-skills li.active')
+
 
   # Methods:
 
@@ -54,7 +57,7 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
     activeSkillTags = @getActiveSkillTags()
     console.log('filterCollaborations -> activeSkillTags: ', activeSkillTags)
     _.each(@getCollaborationListItemViews(), (view) ->
-      if view.getCollaboration().getProject().hasAnySkills(activeSkillTags)
+      if view.getCollaboration().hasAnySkills(activeSkillTags)
         view.show()
       else
         view.hide()
@@ -63,19 +66,19 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
 
   # Render methods:
 
-  renderCollaborationModalView: (project) ->
+  renderCollaborationModalView: (collaboration) ->
     modalView = @getCollaborationModalView()
     if modalView.isNotAttached()
       @$el.parent().append(modalView.el)
       modalView.$el.offset(top: @$el.offset().top)
-    modalView.setCollaboration(project)
+    modalView.setCollaboration(collaboration)
     modalView.setCurrentUser(@getCurrentUser())
     modalView.render()
     modalView.show()
 
   renderCollaborationListItemViews: ->
-    _.each(@getUser().getCollaborations().models, (project) =>
-      view = new Werkd.Views.Collaborations.DashboardListItemView(model: project)
+    _.each(@getUser().getCollaborations().models, (collaboration) =>
+      view = new Werkd.Views.Collaborations.DashboardListItemView(model: collaboration)
       @getCollaborationListItemViews().push(view)
       view.setOnClickCollaboration(@onClickCollaboration)
       @getCollaborationsEl().append(view.el)
@@ -90,9 +93,9 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
 
   # View events:
 
-  onClickCollaboration: (event, project) =>
+  onClickCollaboration: (event, collaboration) =>
     console.log('onClickCollaboration', arguments)
-    @renderCollaborationModalView(project)
+    @renderCollaborationModalView(collaboration)
 
   onClickSkill: (event) ->
     console.log('onClickSkill', event)

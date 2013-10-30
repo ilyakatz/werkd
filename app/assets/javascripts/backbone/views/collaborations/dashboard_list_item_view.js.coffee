@@ -1,7 +1,7 @@
 Werkd.Views.Collaborations ||= {}
 
 class Werkd.Views.Collaborations.DashboardListItemView extends Werkd.Views.BaseView
-  template: JST['backbone/templates/projects/dashboard_list_item_template']
+  template: JST['backbone/templates/collaborations/dashboard_list_item_template']
 
   tagName: 'li'
   className: 'projects-dashboard-list-item-view'

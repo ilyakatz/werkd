@@ -5,6 +5,8 @@ class Werkd.Models.Collaboration extends Supermodel.Model
 
   defaults:
     id: null
+    skill_list: []
+
 
   # Assocations:
 
@@ -13,6 +15,13 @@ class Werkd.Models.Collaboration extends Supermodel.Model
 
   getUser: ->
     @user()
+
+
+  # Methods:
+  
+  hasAnySkills: (skills) ->
+    _.intersection(@getSkillList(), skills).length > 0
+
 
 Werkd.Models.Collaboration.initializeProperties()
 

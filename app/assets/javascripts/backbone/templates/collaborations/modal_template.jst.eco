@@ -1,3 +1,6 @@
+<% @collaboration = @view.getCollaboration() %>
+<% @project = @view.getProject() %>
+<% @currentUser = @view.getCurrentUser() %>
 <div class="project-modal-content">
   <div class="row-fluid">
     <div class="span8 project">
@@ -8,7 +11,7 @@
         <div class="close-modal"><a href="#close">&times;</a></div>
         <div class="project-tags">
           <ul class="user-skills project-skills">
-            <% for skill in @project.getSkills(): %>
+            <% for skill in @collaboration.getSkillList(): %>
             <li class="active"><%= skill %></li>
             <% end %>
           </ul>

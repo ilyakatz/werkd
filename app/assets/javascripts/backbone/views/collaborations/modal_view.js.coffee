@@ -1,7 +1,7 @@
 Werkd.Views.Collaborations ||= {}
 
 class Werkd.Views.Collaborations.ModalView extends Werkd.Views.BaseView
-  template: JST['backbone/templates/projects/modal_template']
+  template: JST['backbone/templates/collaborations/modal_template']
 
   className: 'project-modal-view'
 
@@ -87,11 +87,7 @@ class Werkd.Views.Collaborations.ModalView extends Werkd.Views.BaseView
   render: ->
     super
     @$el.css('display', 'none')
-    @$el.html(@template(
-      project: @getProject()
-      currentUser: @getCurrentUser()
-      view: @
-    ))
+    @$el.html(@template(view: @))
     @renderMediaContainer()
 
   renderMediaContainer: ->

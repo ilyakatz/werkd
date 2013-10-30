@@ -1,6 +1,6 @@
 <div class="span12">
   <div class="row-fluid">
-    <div class="span8 project-dashboard-list-view">
+    <div class="span8 collaboration-dashboard-list-view">
       <div class="row-fluid">
         <div class="span12">
           <div class="panel-heading">
@@ -22,7 +22,7 @@
       </div> <!-- row -->
       <div class="row-fluid">
         <div class="span12">
-          <ul class="project-dashboard-list-item-views project-thumbnails thumbnails">
+          <ul class="collaboration-dashboard-list-item-views project-thumbnails thumbnails">
           </ul>
         </div> <!-- span12 -->
       </div> <!-- row -->
