@@ -3,6 +3,8 @@ extends('/api/users/base')
 
 child(:collaborations, object_root: false) do
   attributes(
+    :id,
+    :contribution,
     :skill_list
   )
   child(:project) do

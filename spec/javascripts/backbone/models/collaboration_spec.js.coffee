@@ -14,6 +14,7 @@ describe 'Werkd.Models.Collaboration', ->
 
   it 'has defaults set', ->
     expect(@model.getId()).toBeNull()
+    expect(@model.getContribution()).toBeNull()
     expect(@model.getSkillList()).toEqual([])
 
 

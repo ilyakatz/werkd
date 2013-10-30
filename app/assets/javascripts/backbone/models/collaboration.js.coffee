@@ -5,6 +5,7 @@ class Werkd.Models.Collaboration extends Supermodel.Model
 
   defaults:
     id: null
+    contribution: null
     skill_list: []
 
 
