@@ -14,8 +14,9 @@ class Collaboration < ActiveRecord::Base
   belongs_to :project
 
   validates_presence_of :user_id
+  #validates_uniqueness_of :user_id, scope: :project_id
 
-  attr_accessible :user_id, :skill_list
+  attr_accessible :user_id, :skill_list, :project_id
 
   acts_as_taggable_on :skills
 

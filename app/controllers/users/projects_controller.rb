@@ -4,10 +4,16 @@ module Users
     def new
       @project = Project.new
       @project.collaborations.build
+      @collaborator_skills=[]
     end
 
     def edit
       @project = current_user.projects.find(params[:id])
+      collaboration = @project.collaborations.where(user_id: current_user.id).last
+      unless collaboration
+        collaboration = @project.collaborations.build
+      end
+      @collaborator_skills = collaboration.skills.collect{|t|{name: t.name}}.to_json
     end
 
     def create
@@ -29,6 +35,11 @@ module Users
     def update
       @project = current_user.projects.find(params[:id])
 
+      #TODO
+      #@project.collaborations.where(user_id: current_user.id).delete_all
+      #Collaboration.delete_all
+
+      raise
       if @project.update_attributes(project_params)
         redirect_to users_dashboards_path, notice: 'Project was successfully updated.'
       else
@@ -49,7 +60,7 @@ module Users
       params.require(:project).permit(:company, :title, :user_id,
                                       :video, :contribution, :media_url,
                                       :tag_list, :start_at, :tagged_user_ids,
-                                      :collaborations_attributes => [:user_id, :skill_list]
+                                      :collaborations_attributes => [:user_id, :project_id, :skill_list]
                                      )
     end
 

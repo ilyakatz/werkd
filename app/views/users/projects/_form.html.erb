@@ -11,12 +11,10 @@
             <div class="project-tags">
               <ul class="user-skills project-skills">
                 <%= f.simple_fields_for :collaborations do |collaborators| %>
-                  <%= collaborators.input :user_id %>
-                  <%= collaborators.input :project_id %>
                   <%= collaborators.input :skill_list,
                     label: "Skills used on this project",
-                    wrapper_html: { class: "clearfix"},
-                    placeholder: "skillz"%>
+                    wrapper_html: { class: "clearfix", id: "collaborator_skills" },
+                    placeholder: "skillz" %>
                 <% end%>
               </ul>
             </div>
@@ -98,10 +96,10 @@
         }
       });
 
-      $("#project_tag_list").tokenInput("/tags",
+      $("#collaborator_skills input").tokenInput("/tags",
       {
         tokenValue: "name",
-        prePopulate: <%=raw(@project.tags.collect{|t|{name: t.name}}.to_json)%>
+        prePopulate: <%=raw( @collaborator_skills)%>
     });
 
       $("#project_tagged_user_ids").tokenInput("/users.json",
