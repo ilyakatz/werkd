@@ -75,9 +75,9 @@ describe User do
     end
 
     it "should combine all skills" do
-      project = create(:project, tag_list: "design, programming")
-      project = create(:project, tag_list: "design, biking", creator: project.creator)
-      skills = project.creator.skills
+      c = collaboration = create(:collaboration, skill_list: "design, programming")
+      collaboration = create(:collaboration, skill_list: "design, biking", collaborator: c.collaborator)
+      skills = c.collaborator.skills
       skills.should include "design"
       skills.should include "programming"
       skills.should include "biking"

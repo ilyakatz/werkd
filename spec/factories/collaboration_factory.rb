@@ -14,6 +14,7 @@ FactoryGirl.define do
   factory :collaboration do
     association :collaborator, factory: :user
     association :project
+    skill_list { ['design', 'color correction'] }
   end # collabortaion
 
 end
