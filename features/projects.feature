@@ -152,3 +152,18 @@ Feature: Projects
     And I go to user "me"'s page
     And I follow "Cool project preview"
     Then I should not see "Edit"
+
+  @javascript
+  Scenario: I should be able to update tags
+    Given a user "me" exists with email: "ilyakatz@gmail.com"
+    When I login as "ilyakatz@gmail.com"
+    And user "me" created project "Cool project"
+    And I go to user "me"'s page
+    And I follow "Cool project preview"
+    Then I follow "Edit"
+    And I fill in skill "graphic design"
+    And I press "Update"
+    When I go to the users dashboards page
+    And I follow "Cool project preview"
+    Then I should see "graphic design"
+

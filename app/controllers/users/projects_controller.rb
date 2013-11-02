@@ -38,8 +38,10 @@ module Users
 
     def update
       @project = current_user.projects.find(params[:id])
+      collaboration = @project.collaborations.first
+      collaboration.skill_list = params[:collaborator_skills]
 
-      if @project.update_attributes(project_params)
+      if @project.update_attributes(project_params) && collaboration.save!
         redirect_to users_dashboards_path, notice: 'Project was successfully updated.'
       else
         render action: "edit"
