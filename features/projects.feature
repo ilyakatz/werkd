@@ -45,7 +45,7 @@ Feature: Projects
     And I fill in skill "graphic design"
     And I press "Create"
     When I go to the users dashboards page
-    And I click within ".project-model-link"
+    And I follow "New Project preview"
     Then I should see "graphic design"
 
   @javascript
@@ -138,12 +138,17 @@ Feature: Projects
     And I press "Create"
     Then I should see "Only 2 more to go"
 
+  @javascript
   Scenario: A visitor should be able to view a project
-    Given a project exists with title: "Cool project", company: "Coca Kola"
-    When I go to the project's page
-    Then I should see "Cool project"
+    Given a user "me" exists with first_name: "Ilya"
+    Given a project exists with title: "Cool project", company: "Coca Kola", creator: user "me"
+    And I go to user "me"'s page
+    And I follow "Cool project preview"
 
+  @javascript
   Scenario: A visitor should not be able to see edit link for a project
-    Given a project exists with title: "Cool project", company: "Coca Kola"
-    When I go to the project's page
+    Given a user "me" exists with first_name: "Ilya"
+    Given a project exists with title: "Cool project", company: "Coca Kola", creator: user "me"
+    And I go to user "me"'s page
+    And I follow "Cool project preview"
     Then I should not see "Edit"

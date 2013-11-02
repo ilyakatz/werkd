@@ -24,6 +24,10 @@ FactoryGirl.define do
     company { Faker::Company.name }
     thumbnail_url { 'http://res.cloudinary.com/werkd/image/upload/v1379801218/hd1kgkx7nccahdyl9wtz.png' }
     embed_html { '<iframe src="http://www.google.com"></iframe>' }
+
+    after(:create) do |p|
+      p.collaborations << create(:collaboration, project: p, collaborator: p.creator, accepted_at: Time.now)
+    end
   end
 
 end
