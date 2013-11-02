@@ -10,7 +10,7 @@ class Werkd.Views.Collaborations.DashboardListItemView extends Werkd.Views.BaseV
     'click':      'onClickDelegate'
 
   # Properties:
-  
+
   getCollaboration: ->
     @model
 
@@ -38,10 +38,10 @@ class Werkd.Views.Collaborations.DashboardListItemView extends Werkd.Views.BaseV
   # Render methods:
 
   render: ->
-    # console.log('render', @)
+    console.log('render', @)
     super
     @$el.html(@template(view: @)).addClass('project')
- 
+
 
   # View events:
 

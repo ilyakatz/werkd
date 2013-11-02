@@ -18,7 +18,11 @@ module Users
 
     def create
       @project = Project.new(project_params)
-      @project.collaborations.first.collaborator = current_user
+      collaborations = @project.collaborations.build
+      creator = collaborations
+      creator.collaborator = current_user
+      creator.skill_list = params[:collaborator_skills]
+      creator.accepted_at = Time.now
       @project.creator = current_user
 
       if @project.save
@@ -35,11 +39,6 @@ module Users
     def update
       @project = current_user.projects.find(params[:id])
 
-      #TODO
-      #@project.collaborations.where(user_id: current_user.id).delete_all
-      #Collaboration.delete_all
-
-      raise
       if @project.update_attributes(project_params)
         redirect_to users_dashboards_path, notice: 'Project was successfully updated.'
       else

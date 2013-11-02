@@ -10,12 +10,12 @@
           <nav class="navigation">
             <div class="project-tags">
               <ul class="user-skills project-skills">
-                <%= f.simple_fields_for :collaborations do |collaborators| %>
-                  <%= collaborators.input :skill_list,
+                <%= f.input 'collaborator_skills', label: "Skills used on this project" do %>
+                  <%= text_field_tag 'collaborator_skills', "",
                     label: "Skills used on this project",
-                    wrapper_html: { class: "clearfix", id: "collaborator_skills" },
+                    class: "clearfix", id: "project_collaborator_skills",
                     placeholder: "skillz" %>
-                <% end%>
+                <% end %>
               </ul>
             </div>
           </nav>
@@ -96,7 +96,7 @@
         }
       });
 
-      $("#collaborator_skills input").tokenInput("/tags",
+      $("#project_collaborator_skills").tokenInput("/tags",
       {
         tokenValue: "name",
         prePopulate: <%=raw( @collaborator_skills)%>

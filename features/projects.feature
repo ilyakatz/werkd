@@ -3,7 +3,7 @@ Feature: Projects
   @javascript
   Scenario: I should be able to list my projects
     Given a user "me" exists with email: "ilyakatz@gmail.com"
-    And a project "project" exists with creator: user "me", title: "Cool project"
+    And user "me" created project "Cool project"
     And I login as "ilyakatz@gmail.com"
     When I go to the users dashboards page
     Then I should see "Cool project"
@@ -18,7 +18,7 @@ Feature: Projects
   @javascript
   Scenario: I should be able to edit a project
     Given a user "me" exists with email: "ilyakatz@gmail.com"
-    And a project "project" exists with creator: user "me", title: "Cool project"
+    And user "me" created project "Cool project"
     And I login as "ilyakatz@gmail.com"
     When I go to the users dashboards page
     And I follow "Cool project"
@@ -41,11 +41,13 @@ Feature: Projects
     And I go to the new users project page
     And I fill in "Project title" with "New Project"
     And I fill in "Company" with "Coca Cola"
-    And I fill in "Skills used" with "Design"
     And I fill in "Skills used" with "graphic design"
     And I press "Create"
     Then a project should exist
-    When I go to the project's page
+    When I go to the users dashboards page
+    And I should see "This is the project"
+    And show me the page
+    And I click within ".projects-dashboard-list-item-view a"
     Then I should see "graphic design"
 
   Scenario: I should be able to add project date
