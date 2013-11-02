@@ -2,6 +2,65 @@ WeRKD
 
 Where creative folks come to shmooze
 
+# Environment setup
+
+1. Install git http://git-scm.com/download/mac
+
+1. Install ruby manager
+   - [rvm](https://rvm.io)
+   - [rbenv](https://github.com/sstephenson/rbenv)
+1. Create ssh keys
+
+    `ssh-keygen`
+
+1. add ssh key to bitbucket
+
+    `cd ~/ws`
+
+    `git clone git@bitbucket.org:katzmopolitan/werkd.git`
+    `
+
+1. Install [command line tools](https://developer.apple.com/downloads/index.action)
+1. Install ruby
+
+    `rvm install ruby 2.0.0`
+
+    or
+
+    `rbenv install 2.0.0`
+
+1. Install [homebrew](http://mxcl.github.io/homebrew/)
+
+## Local dns
+
+1. Add this to /etc/hosts
+
+     `127.0.0.1 localhost`
+
+1. (optional) Git GUI http://www.sourcetreeapp.com/download/
+1. Set up [heroku environment](https://toolbelt.heroku.com/)
+
+
+## Datastore
+
+1. Set up postgres
+
+   `brew install postgres`
+
+   `createuser werkd_dev --createdb`
+
+   `createuser werkd_test --createdb`
+
+1. Install redis
+
+   `brew install redis`
+
+1. Migrate databases
+
+    `rake  db:migrate`
+
+    `RAILS_ENV=test rake db:migrate`
+
 # Tests
 
 https://www.codeship.io/projects/4271
@@ -20,19 +79,9 @@ https://www.codeship.io/projects/4271
 
     `bundle install`
 
-1. Install redis
-
-    `brew install redis`
-
 1. Install phontom.js (for JS testing)
 
     `brew install phantomjs`
-
-1. Migrate databases
-
-    `rake db:create db:migrate`
-
-    `RAILS_ENV=test rake db:create db:migrate`
 
 1. Run tests
 
@@ -48,62 +97,13 @@ You can access your server from the outside world:
 
 1. gem install proxylocal
 
-2. proxylocal 5000 --host \`scutil --get LocalHostName | perl -ne 'print $_ if s/(.*)/\L$1/'\`
-
-# Environment setup
-
-- Install sublime
-- If you have sublime, createa link
-
-        ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime
-
-- Open ~/.bash_profile and add this line
-
-        export EDITOR=/usr/local/bin/sublime
-
-- Close terminal window and restart it
-- install git http://git-scm.com/download/mac
-- install rvm https://rvm.io
-- create ssh keys
-
-	ssh-keygen
-
-- add ssh key to bitbucket
-
-	cd ~/ws
-	git clone git@bitbucket.org:katzmopolitan/werkd.git
-
-- install command line tools https://developer.apple.com/downloads/index.action#
-- install mysql
-
-	http://dev.mysql.com/downloads/mysql/
-
-- update paths
-
-    http://stackoverflow.com/questions/10557507/rails-mysql-on-osx-library-not-loaded-libmysqlclient-18-dylib
-
-- install ruby
-
-	rvm install ruby 2.0.0
-
-- install homebrew http://mxcl.github.io/homebrew/
-- brew doctor
-- install postgre
-
-	brew install postgres
-
-- Add this to /etc/hosts
-
-    127.0.0.1 localhost
-
-- (optional) Git GUI http://www.sourcetreeapp.com/download/
-- Set up heroku environment
-
-      https://toolbelt.heroku.com/
+## Heroku prerequisites
 
 - Add heroku remote repostory
 
-      git remote add heroku git@heroku.com:werkd.git
+`git remote add heroku git@heroku.com:werkd.git`
+
+2. proxylocal 5000 --host \`scutil --get LocalHostName | perl -ne 'print $_ if s/(.*)/\L$1/'\`
 
 # Work flow
 
@@ -165,3 +165,15 @@ git rm [path to file]
 ## When you want to reset all changes made to a file since last commit
 
 git checkout [path to file]
+
+Install sublime
+- If you have sublime, createa link
+
+ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime
+
+- Open ~/.bash_profile and add this line
+
+export EDITOR=/usr/local/bin/sublime
+
+- Close terminal window and restart it
+-

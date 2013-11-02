@@ -1,14 +1,22 @@
-development: &default
-  adapter: mysql2
-  database: werkd_development
-  username: root
+login: &login
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  password:
+
+connection: &connection
+  encoding: unicode
   pool: 5
-  timeout: 5000
-  reconnect: true
 
-test: &test
-  <<: *default
+
+development:
+  username: werkd_dev
+  database: werkd_dev
+  <<: *login
+  <<: *connection
+
+test:
+  username: werkd_test
   database: werkd_test
-
-cucumber:
-  <<: *test
+  <<: *login
+  <<: *connection
