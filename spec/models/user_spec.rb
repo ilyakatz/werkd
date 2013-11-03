@@ -61,7 +61,7 @@ describe User do
       project1 = create(:project)
       user = project.creator
       project1.tagged_users = [ user ]
-      project1.collaborations.first.accept!
+      project1.collaborations.where(user_id: user.id).first.accept!
 
       user.projects.count.should eq 1
       user.all_projects.count.should eq 2
@@ -75,9 +75,9 @@ describe User do
     end
 
     it "should combine all skills" do
-      project = create(:project, tag_list: "design, programming")
-      project = create(:project, tag_list: "design, biking", creator: project.creator)
-      skills = project.creator.skills
+      c = collaboration = create(:collaboration, skill_list: "design, programming")
+      collaboration = create(:collaboration, skill_list: "design, biking", collaborator: c.collaborator)
+      skills = c.collaborator.skills
       skills.should include "design"
       skills.should include "programming"
       skills.should include "biking"
@@ -260,13 +260,7 @@ describe User do
         context :project_1 do
           let(:project_1) { collaborated_projects[0] }
           subject { project_1 }
-          its(:collaborators) { should have(1).items }
-        end
-
-        context :project_4 do
-          let(:project_4) { collaborated_projects[3] }
-          subject { project_4 }
-          its(:collaborators) { should have(4).items }
+          its(:collaborators) { should have(2).items }
         end
 
       end # projects

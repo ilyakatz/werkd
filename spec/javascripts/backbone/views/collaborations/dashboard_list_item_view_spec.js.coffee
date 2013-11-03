@@ -1,9 +1,9 @@
 createView = (args) ->
-  new Werkd.Views.Projects.DashboardListItemView(args)
+  new Werkd.Views.Collaborations.DashboardListItemView(args)
 
-describe 'Werkd.Views.Projects.DashboardListItemView', ->
+describe 'Werkd.Views.Collaborations.DashboardListItemView', ->
   beforeEach ->
-    @model = createProjectModel()
+    @model = createCollaborationModel()
     @view = createView(model: @model)
     @server = sinon.fakeServer.create()
 
@@ -11,13 +11,13 @@ describe 'Werkd.Views.Projects.DashboardListItemView', ->
     @server.restore()
   
   it 'should have model defined', ->
-    expect(Werkd.Views.Projects.DashboardListItemView).toBeDefined()
+    expect(Werkd.Views.Collaborations.DashboardListItemView).toBeDefined()
 
   it 'can be instantiated', ->
     expect(@view).not.toBeNull()
 
   it 'has defaults set', ->
-    expect(@view.getProject()).toEqual(@model)
+    expect(@view.getCollaboration()).toEqual(@model)
 
   describe 'properties', ->
 
@@ -26,7 +26,7 @@ describe 'Werkd.Views.Projects.DashboardListItemView', ->
       describe 'when there is a cloudinary id', ->
         beforeEach ->
           @cloudinaryId = '12345678.jpg'
-          @model.setCloudinaryId(@cloudinaryId)
+          @model.getProject().setCloudinaryId(@cloudinaryId)
           @imageUrl = @view.getImageUrl()
 
         it 'should have a cloudinary image url', ->
@@ -34,7 +34,7 @@ describe 'Werkd.Views.Projects.DashboardListItemView', ->
       
       describe 'when there is no cloudinary id', ->
         beforeEach ->
-          @model.setCloudinaryId(null)
+          @model.getProject().setCloudinaryId(null)
           @imageUrl = @view.getImageUrl()
 
         it 'should have a default werked image url', ->
@@ -67,13 +67,13 @@ describe 'Werkd.Views.Projects.DashboardListItemView', ->
 
     describe 'onClick', ->
       beforeEach ->
-        @onClickProject = (event, project) =>
+        @onClickCollaboration = (event, project) =>
           @clickEvent = event
           @project = project
-        @view.setOnClickProject(@onClickProject)
+        @view.setOnClickCollaboration(@onClickCollaboration)
         @view.$el.click()
 
-      it 'should call onClickProject', ->
+      it 'should call onClickCollaboration', ->
         expect(@clickEvent).toBeDefined()
         expect(@project.getId()).toEqual(@model.getId())
 

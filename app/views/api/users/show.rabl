@@ -1,10 +1,14 @@
 object @user
 extends('/api/users/base')
 
-child(:all_projects, object_root: false) do
-  extends('/api/projects/base')
-  node(:skills) do |p|
-    p.tags.collect(&:name)
+child(:collaborations, object_root: false) do
+  attributes(
+    :id,
+    :contribution,
+    :skill_list
+  )
+  child(:project) do
+    extends('/api/projects/base')
   end
 end
 

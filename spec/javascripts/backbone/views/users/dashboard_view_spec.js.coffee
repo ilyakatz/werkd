@@ -3,7 +3,7 @@ createView = (args) ->
 
 describe 'Werkd.Views.Users.DashboardView', ->
   beforeEach ->
-    @model = createUserWithProjectsAndConnectionsModel()
+    @model = createUserWithCollaborationsAndConnectionsModel()
     @currentUser = createUserModel()
     @view = createView(model: @model, currentUser: @currentUser)
     @server = sinon.fakeServer.create()
@@ -22,7 +22,7 @@ describe 'Werkd.Views.Users.DashboardView', ->
     expect(@view.getCurrentUser()).toEqual(@currentUser)
 
   it 'should have project modal view', ->
-    expect(@view.getProjectModalView()).toBeDefined()
+    expect(@view.getCollaborationModalView()).toBeDefined()
 
 
   describe 'view properties', ->
@@ -30,7 +30,7 @@ describe 'Werkd.Views.Users.DashboardView', ->
       @view.render()
 
     it 'should have projects el', ->
-      expect(@view.getProjectsEl()[0]).toBeDefined()
+      expect(@view.getCollaborationsEl()[0]).toBeDefined()
 
     it 'should have a skills el', ->
       expect(@view.getSkillsEl()[0]).toBeDefined()
@@ -55,7 +55,7 @@ describe 'Werkd.Views.Users.DashboardView', ->
 
     describe 'onClickSkill', ->
       beforeEach ->
-        @filterProjects = spyOn(@view, 'filterProjects').andCallThrough()
+        @filterCollaborations = spyOn(@view, 'filterCollaborations').andCallThrough()
         @skillEl1 = $(@view.getSkillEls()[0])
         @skillEl1.click()
 
@@ -66,7 +66,7 @@ describe 'Werkd.Views.Users.DashboardView', ->
         expect(@view.getActiveSkillEls().length).toEqual(1)
 
       it 'should call filter projects', ->
-        expect(@filterProjects).toHaveBeenCalled()
+        expect(@filterCollaborations).toHaveBeenCalled()
 
       describe 'when second skill is clicked', ->
         beforeEach ->

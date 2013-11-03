@@ -1,7 +1,7 @@
-Werkd.Views.Projects ||= {}
+Werkd.Views.Collaborations ||= {}
 
-class Werkd.Views.Projects.DashboardListItemView extends Werkd.Views.BaseView
-  template: JST['backbone/templates/projects/dashboard_list_item_template']
+class Werkd.Views.Collaborations.DashboardListItemView extends Werkd.Views.BaseView
+  template: JST['backbone/templates/collaborations/dashboard_list_item_template']
 
   tagName: 'li'
   className: 'projects-dashboard-list-item-view'
@@ -10,12 +10,15 @@ class Werkd.Views.Projects.DashboardListItemView extends Werkd.Views.BaseView
     'click':      'onClickDelegate'
 
   # Properties:
-  
-  getProject: ->
+
+  getCollaboration: ->
     @model
 
-  setOnClickProject: (callback) ->
-    @onClickProject = callback
+  getProject: ->
+    @getCollaboration().getProject()
+
+  setOnClickCollaboration: (callback) ->
+    @onClickCollaboration = callback
 
   getImageUrl: ->
     if cloudinaryId = @getProject().getCloudinaryId()
@@ -35,12 +38,12 @@ class Werkd.Views.Projects.DashboardListItemView extends Werkd.Views.BaseView
   # Render methods:
 
   render: ->
-    # console.log('render', @)
+    console.log('render', @)
     super
     @$el.html(@template(view: @)).addClass('project')
- 
+
 
   # View events:
 
   onClickDelegate: (event) ->
-    @onClickProject?(event, @getProject())
+    @onClickCollaboration?(event, @getCollaboration())

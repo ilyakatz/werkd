@@ -22,13 +22,17 @@ describe 'Werkd.Models.User', ->
 
   describe 'collections', ->
 
-    it 'should have projects', ->
-      expect(@model.getProjects()).toBeDefined()
-      expect(@model.getProjects().models).toEqual([])
+    it 'should have collaborations', ->
+      expect(@model.getCollaborations()).toBeDefined()
+      expect(@model.getCollaborations().models).toEqual([])
 
     it 'should have contacts', ->
       expect(@model.getConnections()).toBeDefined()
       expect(@model.getConnections().models).toEqual([])
+
+    it 'should have projects', ->
+      expect(@model.getProjects()).toBeDefined()
+      expect(@model.getProjects().models).toEqual([])
 
   describe 'factories', ->
 
@@ -42,12 +46,15 @@ describe 'Werkd.Models.User', ->
       it 'should have skills', ->
         expect(@model.getSkills().length).toEqual(3)
 
-    describe 'user with projects and connections', ->
+    describe 'user with collaborations and connections', ->
       beforeEach ->
-        @model = createUserWithProjectsAndConnectionsModel()
+        @model = createUserWithCollaborationsAndConnectionsModel()
 
-      it 'should have projects', ->
-        expect(@model.getProjects().length).toEqual(3)
+      it 'should have collaborations', ->
+        expect(@model.getCollaborations().length).toEqual(3)
+
+      it 'should have connections', ->
+        expect(@model.getConnections().length).toEqual(6)
 
   describe 'publicName', ->
 

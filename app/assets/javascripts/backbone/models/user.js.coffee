@@ -13,11 +13,14 @@ class Werkd.Models.User extends Supermodel.Model
 
   # Collections:
 
-  getProjects: ->
-    @projects()
+  getCollaborations: ->
+    @collaborations()
 
   getConnections: ->
     @connections()
+
+  getProjects: ->
+    @projects()
 
   #Name as can be displayed on the site
   getPublicName: ->

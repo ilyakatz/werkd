@@ -83,6 +83,17 @@ end
 group :development do
   gem "guard"
   gem "guard-migrate"
+  gem "guard-bundler"
+  gem 'guard-rspec', require: false
+    # Guard and friends
+  gem "guard"
+  gem "guard-bundler"
+  gem "guard-livereload"
+  gem "guard-rspec"
+  gem "guard-spork"
+  gem "rb-fchange", require: false
+  gem "rb-fsevent", require: false
+  gem "rb-inotify", require: false
   gem "foreman"
 
   #show great looking error pages with extra functionality

@@ -20,15 +20,6 @@ require 'spec_helper'
 
 describe Project do
 
-  describe "#tag_list" do
-    it "should be require" do
-      p = FactoryGirl.build(:project)
-      p.tag_list=""
-      p.save.should be_false
-      p.errors[:tag_list].should_not be_empty
-    end
-  end
-
   describe "#extract_embed" do
 
     it "should extract embed url when media url changes"  do
@@ -134,7 +125,16 @@ describe Project do
       p.tagged_users.should eq [u]
 
       p.tagged_users=[u1]
-      p.tagged_users.reload.should eq [u1]
+      p.reload.tagged_users.should eq [u1]
+    end
+
+    it "should not override creator collaborator" do
+      p = FactoryGirl.create(:project)
+      u = FactoryGirl.create(:user)
+
+      p.tagged_users=[u]
+      p.reload
+      p.collaborators.should eq [p.creator, u]
     end
 
     it "should send emails to tagged users" do

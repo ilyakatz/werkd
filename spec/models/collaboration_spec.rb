@@ -13,6 +13,11 @@ require 'spec_helper'
 
 describe Collaboration do
 
+  describe "callbacks" do
+    it "should delete Collaboration when project is deleted" do
+      #pending
+    end
+  end
   describe "#pending" do
 
     it "should be pending by default" do
@@ -26,6 +31,15 @@ describe Collaboration do
       c.pending?.should be_false
     end
 
+  end
+
+  describe "#skill_list" do
+    it "should save skills" do
+      c = FactoryGirl.build(:collaboration)
+      c.skill_list="hiking, biking"
+      c.save
+      c.skill_list.should eq ["hiking","biking"]
+    end
   end
 
   describe "connection" do
@@ -56,4 +70,5 @@ describe Collaboration do
     end
 
   end
+
 end

@@ -8,6 +8,7 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
   events:
     'click .user-skills li':    'onClickSkill'
 
+
   # Properties:
   
   getUser: ->
@@ -16,13 +17,13 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
   getCurrentUser: ->
     @options.currentUser
 
-  getProject: ->
-    @getUser().getProjects().models[0] || new Werkd.Models.Project()
+  getCollaboration: ->
+    @getUser().getCollaborations().models[0] || new Werkd.Models.Collaboration()
 
-  getProjectModalView: ->
-    @projectModalView ||= new Werkd.Views.Projects.ModalView()
+  getCollaborationModalView: ->
+    @projectModalView ||= new Werkd.Views.Collaborations.ModalView()
 
-  getProjectListItemViews: ->
+  getCollaborationListItemViews: ->
     @projectListItemViews ||= []
 
   getActiveSkillTags: ->
@@ -30,10 +31,11 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
       $(skillEl).text()
     )
 
+
   # View properties:
 
-  getProjectsEl: ->
-    @$el.find('.project-dashboard-list-item-views')
+  getCollaborationsEl: ->
+    @$el.find('.collaboration-dashboard-list-item-views')
 
   getSkillsEl: ->
     @$el.find('.user-skills')
@@ -44,17 +46,18 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
   getActiveSkillEls: ->
     @$el.find('.user-skills li.active')
 
+
   # Methods:
 
   allSkillsAreActive: ->
     @getSkillEls().length > 0 && @getSkillEls().length == @getActiveSkillEls().length
 
-  filterProjects: ->
-    console.log('filterProjects', @)
+  filterCollaborations: ->
+    console.log('filterCollaborations', @)
     activeSkillTags = @getActiveSkillTags()
-    console.log('filterProjects -> activeSkillTags: ', activeSkillTags)
-    _.each(@getProjectListItemViews(), (view) ->
-      if view.getProject().hasAnySkills(activeSkillTags)
+    console.log('filterCollaborations -> activeSkillTags: ', activeSkillTags)
+    _.each(@getCollaborationListItemViews(), (view) ->
+      if view.getCollaboration().hasAnySkills(activeSkillTags)
         view.show()
       else
         view.hide()
@@ -63,36 +66,36 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
 
   # Render methods:
 
-  renderProjectModalView: (project) ->
-    modalView = @getProjectModalView()
+  renderCollaborationModalView: (collaboration) ->
+    modalView = @getCollaborationModalView()
     if modalView.isNotAttached()
       @$el.parent().append(modalView.el)
       modalView.$el.offset(top: @$el.offset().top)
-    modalView.setProject(project)
+    modalView.setCollaboration(collaboration)
     modalView.setCurrentUser(@getCurrentUser())
     modalView.render()
     modalView.show()
 
-  renderProjectListItemViews: ->
-    _.each(@getUser().getProjects().models, (project) =>
-      view = new Werkd.Views.Projects.DashboardListItemView(model: project)
-      @getProjectListItemViews().push(view)
-      view.setOnClickProject(@onClickProject)
-      @getProjectsEl().append(view.el)
+  renderCollaborationListItemViews: ->
+    _.each(@getUser().getCollaborations().models, (collaboration) =>
+      view = new Werkd.Views.Collaborations.DashboardListItemView(model: collaboration)
+      @getCollaborationListItemViews().push(view)
+      view.setOnClickCollaboration(@onClickCollaboration)
+      @getCollaborationsEl().append(view.el)
       view.render()
     )
 
   render: ->
     super
     @$el.html(@template(user: @getUser())).addClass('row-fluid')
-    @renderProjectListItemViews()
+    @renderCollaborationListItemViews()
 
 
   # View events:
 
-  onClickProject: (event, project) =>
-    console.log('onClickProject', arguments)
-    @renderProjectModalView(project)
+  onClickCollaboration: (event, collaboration) =>
+    console.log('onClickCollaboration', arguments)
+    @renderCollaborationModalView(collaboration)
 
   onClickSkill: (event) ->
     console.log('onClickSkill', event)
@@ -100,5 +103,5 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
     if @allSkillsAreActive()
       @getSkillEls().toggleClass('active')
     skillEl.toggleClass('active')
-    @filterProjects()
+    @filterCollaborations()
 

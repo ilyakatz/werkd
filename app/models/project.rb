@@ -27,14 +27,18 @@ class Project < ActiveRecord::Base
   has_many :collaborators, through: :collaborations
   has_many :taggings, conditions: { taggable_type: Project }, class_name: 'Tagging', foreign_key: :taggable_id
 
-  acts_as_taggable
-  acts_as_taggable_on :roles
-  validates_presence_of :title, :company, :tag_list
+  validates_presence_of :title, :company
 
   before_save :extract_embed
 
-  attr_accessible :company, :title, :contribution, :media_url, :tag_list, :start_at,
+  attr_accessible :company, :title, :contribution, :media_url, :start_at,
     :tagged_user_ids
+
+  attr_accessible :collaborations_attributes
+
+  accepts_nested_attributes_for :collaborations
+
+  after_create :add_collaboration
 
   def accepted_collaborators
     collaborators.where("accepted_at IS NOT NULL")
@@ -68,11 +72,11 @@ class Project < ActiveRecord::Base
 
   #return string with ids
   def tagged_user_ids
-    collaborators.collect(&:id)
+    tagged_users.collect(&:id)
   end
 
   def tagged_users
-    collaborators
+    collaborators - [creator_collaborator]
   end
 
   #@params
@@ -151,6 +155,19 @@ class Project < ActiveRecord::Base
       cloudinary_url = Cloudinary::Uploader.upload(image_url, width: Project::PREVIEW_MAX_WIDTH, height: Project::PREVIEW_MAX_HEIGHT, crop: :limit)
       self.thumbnail_url = cloudinary_url['url']
     end
+  end
+
+
+  def add_collaboration
+    collaborations = self.collaborations.build
+    creator = collaborations
+    creator.collaborator = self.creator
+    creator.accepted_at = Time.now
+    collaborations.save
+  end
+
+  def creator_collaborator
+    collaborators.where(id: self.creator).first
   end
 
 end
