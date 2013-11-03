@@ -7,7 +7,7 @@
 <%= simple_form_for @user, url: users_profile_path(@user) do |f| %>
   <%=f.input :first_name, required: true%>
   <%=f.input :last_name, required: true%>
-  <%=f.input :job_title, required: true, maxlength: 20%>
+  <%=f.input :job_title, required: true, maxlength: 40%>
   <%=f.input :location, required: true%>
   <%=f.submit%>
 <%end%>
