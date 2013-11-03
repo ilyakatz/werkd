@@ -1,4 +1,21 @@
 namespace :werkd do
+
+  task project_creators: :environment do
+    class Project < ActiveRecord::Base
+      acts_as_taggable
+    end
+    Project.all.each do |project|
+      unless project.creator_collaborator
+        collaboration = Collaboration.new
+        collaboration.collaborator = project.creator
+        collaboration.accepted_at=project.created_at
+        collaboration.project = project
+        collaboration.save!
+        collaboration.skill_list = project.tag_list
+      end
+    end
+  end
+
   task project_tags: :environment do
     names = %Q/
     Design
