@@ -38,6 +38,8 @@ class Project < ActiveRecord::Base
 
   accepts_nested_attributes_for :collaborations
 
+  after_create :add_collaboration
+
   def accepted_collaborators
     collaborators.where("accepted_at IS NOT NULL")
   end
@@ -70,11 +72,11 @@ class Project < ActiveRecord::Base
 
   #return string with ids
   def tagged_user_ids
-    collaborators.collect(&:id)
+    tagged_users.collect(&:id)
   end
 
   def tagged_users
-    collaborators
+    collaborators - [creator_collaborator]
   end
 
   #@params
@@ -153,6 +155,19 @@ class Project < ActiveRecord::Base
       cloudinary_url = Cloudinary::Uploader.upload(image_url, width: Project::PREVIEW_MAX_WIDTH, height: Project::PREVIEW_MAX_HEIGHT, crop: :limit)
       self.thumbnail_url = cloudinary_url['url']
     end
+  end
+
+
+  def add_collaboration
+    collaborations = self.collaborations.build
+    creator = collaborations
+    creator.collaborator = self.creator
+    creator.accepted_at = Time.now
+    collaborations.save
+  end
+
+  def creator_collaborator
+    collaborators.where(id: self.creator).first
   end
 
 end

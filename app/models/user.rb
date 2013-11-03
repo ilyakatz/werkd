@@ -63,7 +63,7 @@ through: :collaborations, class_name: 'Project', source: :project
   after_create :send_welcome_email
 
   def all_projects
-    projects + collaborated_projects
+    collaborated_projects
   end
 
 

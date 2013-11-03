@@ -125,7 +125,16 @@ describe Project do
       p.tagged_users.should eq [u]
 
       p.tagged_users=[u1]
-      p.tagged_users.reload.should eq [u1]
+      p.reload.tagged_users.should eq [u1]
+    end
+
+    it "should not override creator collaborator" do
+      p = FactoryGirl.create(:project)
+      u = FactoryGirl.create(:user)
+
+      p.tagged_users=[u]
+      p.reload
+      p.collaborators.should eq [p.creator, u]
     end
 
     it "should send emails to tagged users" do
