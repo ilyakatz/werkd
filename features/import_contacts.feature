@@ -30,7 +30,7 @@ Feature: invite contacts
     When I login as "ilya@werkd.net"
     And I go to users omnicontacts page
     And I follow "Skip"
-    And I should be on the users dashboards page
+    And I should be on the users feeds page
 
   Scenario: If I skip import I should be taken to the projects page
     When I login as "ilya@werkd.net"
@@ -46,7 +46,7 @@ Feature: invite contacts
     And google returns my contact list
     And I go to import google contacts page
     When I follow the first "Done"
-    Then I should be on the users dashboards page
+    Then I should be on the users feeds page
 
   @javascript @wip
   Scenario: I want to send to multiple people

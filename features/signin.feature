@@ -52,7 +52,7 @@ Feature: Signing up and signin in
     And I fill in "Email" with "ilyakatz@gmail.com"
     And I fill in "Password" with "secret"
     And I press "Sign in"
-    Then I should be on the users dashboards page
+    Then I should be on the users feeds page
 
   @wip
   Scenario: After I signup with facebook I should be taken to the profiles page

@@ -19,7 +19,7 @@ describe Profiles do
 
     it "should go to dashboard path if status is anything else" do
       user.stub(:profile_status).and_return(:complete)
-      profile_completions_paths(user).should eq users_dashboards_path
+      profile_completions_paths(user).should eq users_feeds_path
     end
 
   end

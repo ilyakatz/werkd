@@ -23,4 +23,4 @@ Feature: Homepage
     And user "ilya" has complete profile
     Given I login as "ilya@werkd.net"
     When I go to the homepage
-    Then I should be on the users dashboards page
+    Then I should be on the users feeds page

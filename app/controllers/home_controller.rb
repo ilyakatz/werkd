@@ -4,7 +4,7 @@ class HomeController <DeviseController
 
   def index
     if user_signed_in?
-      redirect_to users_dashboards_url and return
+      redirect_to users_feeds_url and return
     end
     self.resource = User.new
     render layout: false

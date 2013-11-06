@@ -8,7 +8,7 @@ module Profiles
     elsif user.profile_status == :contacts
       users_omnicontacts_path
     else
-      users_dashboards_path
+      users_feeds_path
     end
   end
 
