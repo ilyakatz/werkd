@@ -11,7 +11,7 @@ describe Users::ProjectsController do
     let(:contribution) { 'I made this' }
     let(:start_at) { Date.yesterday }
     let(:project_params) { {
-      company: Faker::Company.name,
+      company: company,
       title: title,
       media_url: media_url,
       contribution: contribution,
@@ -22,19 +22,35 @@ describe Users::ProjectsController do
     let(:action_response) { post(:create, post_params) }
     let(:before_action) { }
     before {
-      before_action
+      stub_cloudinary({url: media_url})
+      stub_embedly({url: media_url})
       sign_in(current_user)
+      before_action
       action_response
     }
     subject { action_response }
 
-
+    shared_examples_for 'a created project' do
+      let(:project) { assings(:project) }
+      it { should be }
+    end # shared examples for created project
 
     context 'when project data is valid' do
 
       context 'when user has less than min projects per user' do
-        it { should redirect_to(users_feeds_path) }
+        it_behaves_like('a created project')
+        it { should redirect_to(new_users_project_path) }
       end # when user has min projects per user
+
+      context 'when user has more than min projects per user' do
+        let(:before_action) {
+          (Project::MINIMUM_PROJECTS_PER_USER + 1).times.each {
+            create(:project, creator: current_user)
+          }
+        }
+        it_behaves_like('a created project')
+        it { should redirect_to(users_feeds_path) }
+      end # when user has more than min projects per user
 
     end # when project data is valid
 

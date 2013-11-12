@@ -38,3 +38,18 @@ RSpec.configure do |config|
 
  config.include FactoryGirl::Syntax::Methods
 end
+
+def stub_cloudinary(options = {})
+  options = Hashie::Mash.new({
+    url:  Faker::Internet.url
+  }).merge(options)
+  Cloudinary::Uploader.stub(:upload).and_return(options)
+end
+
+def stub_embedly(options = {})
+  options = Hashie::Mash.new({
+    type: 'photo',
+    url: Faker::Internet.url
+  }).merge(options)
+  @@embedly_api.stub(:oembed).and_return([options])
+end
