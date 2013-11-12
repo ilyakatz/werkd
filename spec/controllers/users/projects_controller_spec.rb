@@ -31,8 +31,14 @@ describe Users::ProjectsController do
     subject { action_response }
 
     shared_examples_for 'a created project' do
-      let(:project) { assings(:project) }
+      let(:project) { assigns(:project) }
+      subject { project }
       it { should be }
+      its(:company) { should == company }
+      its(:title) { should == title }
+      its(:media_url) { should == media_url }
+      its(:contribution) { should == contribution }
+      its(:start_at) { should == start_at }
     end # shared examples for created project
 
     context 'when project data is valid' do
