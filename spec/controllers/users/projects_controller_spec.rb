@@ -4,15 +4,52 @@ describe Users::ProjectsController do
   render_views
 
   shared_examples_for 'a project' do
-    let(:project) { assigns(:project) }
-    subject { project }
-    it { should be }
-    its(:company) { should == company }
-    its(:title) { should == title }
-    its(:media_url) { should == media_url }
-    its(:contribution) { should == contribution }
-    its(:start_at) { should == start_at }
+
+    context 'project' do
+      subject { assigns(:project) }
+      it { should be }
+      its(:company) { should == company }
+      its(:title) { should == title }
+      its(:media_url) { should == media_url }
+      its(:contribution) { should == contribution }
+      its(:start_at) { should == start_at }
+    end # project
+
+    context 'collaboration' do
+      subject { assigns(:collaboration) }
+      its(:skill_list) { should =~ collaborator_skills.split(', ') }
+      its(:contribution) { should == contribution }
+      its(:collaborator) { should == current_user }
+    end # collaboration
+
   end # shared examples for a project
+
+  describe '#new' do
+    let!(:current_user) { create(:user) }
+    let(:action_response) { get(:new) }
+    before {
+      sign_in(current_user)
+      action_response
+    }
+    subject { action_response }
+    it { should be_success }
+
+    context 'project' do
+      subject { assigns(:project) }
+      it { should be }
+    end # project
+
+    context 'collaboration' do
+      subject { assigns(:collaboration) }
+      it { should be }
+    end # collaboration
+
+    context 'collaborator_skills' do
+      subject { assigns(:collaborator_skills) }
+      it { should be }
+    end # collaborator_skills
+
+  end # new
 
   describe '#create' do
     let!(:current_user) { create(:user) }
@@ -67,10 +104,41 @@ describe Users::ProjectsController do
 
   end # create
 
+  describe '#edit' do
+    let(:current_user) { create(:user) }
+    let(:project) { create(:project) }
+    let(:get_params) { {id: project.id} }
+    let(:action_response) { get(:edit, get_params) }
+    before {
+      create(:collaboration, project: project, collaborator: current_user)
+      sign_in(current_user)
+      action_response
+    }
+    subject { action_response }
+    it { should be_success }
+
+    context 'project' do
+      subject { assigns(:project) }
+      it { should be }
+    end # project
+
+    context 'collaboration' do
+      subject { assigns(:collaboration) }
+      it { should be }
+      its(:collaborator) { should == current_user }
+    end # collaboration
+
+    context 'collaborator_skills' do
+      subject { assigns(:collaborator_skills) }
+      it { should be }
+    end # collaborator_skills
+
+  end # new
+
   describe '#update' do
-    let!(:current_user) { create(:user) }
-    let(:user_project) { create(:project) }
-    let(:project_id) { user_project.id }
+    let(:current_user) { create(:user) }
+    let(:project) { create(:project) }
+    let(:project_id) { project.id }
     let(:company) { Faker::Company.name }
     let(:title) { Faker::Commerce.product_name }
     let(:media_url) { Faker::Internet.url }
@@ -90,7 +158,7 @@ describe Users::ProjectsController do
     before {
       stub_cloudinary({url: media_url})
       stub_embedly({url: media_url})
-      current_user.projects << user_project
+      create(:collaboration, project: project, collaborator: current_user)
       sign_in(current_user)
       before_action
       action_response

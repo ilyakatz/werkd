@@ -39,10 +39,11 @@
           <%= f.input :media_url, placeholder:"link to the image, audio or video of the project",
             wrapper_html: { class: "clearfix"},
             input_html: { class: "embed-link" } %>
-          <%= f.input :contribution,
-            wrapper_html: { class: "clearfix"},
+          <%= text_field_tag 'collaboration[contribution]', '',
+            class: 'clearfix',
             placeholder: "I did A and B for C and D part of the project",
-            as: :text %>
+            value: @collaboration.contribution
+          %>
           <%= f.input :start_at,
             label: "Project date",
             wrapper_html: { class: "clearfix"},
