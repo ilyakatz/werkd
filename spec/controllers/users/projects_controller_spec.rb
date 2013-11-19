@@ -17,6 +17,7 @@ describe Users::ProjectsController do
 
     context 'collaboration' do
       subject { assigns(:collaboration) }
+      its(:id) { should be }
       its(:skill_list) { should =~ collaborator_skills.split(', ') }
       its(:contribution) { should == contribution }
       its(:collaborator) { should == current_user }

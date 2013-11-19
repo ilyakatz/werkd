@@ -19,13 +19,12 @@ module Users
     def create
       @project = Project.new(project_params)
       @project.creator = current_user
+      @collaboration = @project.collaborations.build
+      @collaboration.collaborator = current_user
+      @collaboration.skill_list = params[:collaborator_skills]
+      @collaboration.contribution = params[:project][:contribution]
 
       if @project.save
-        @collaboration = @project.reload.collaborations.first
-        @collaboration.skill_list = params[:collaborator_skills]
-        @collaboration.contribution = params[:project][:contribution]
-        @collaboration.save!
-
         if current_user.projects.count < Project::MINIMUM_PROJECTS_PER_USER
           redirect_to new_users_project_path, notice: current_user.missing_project_message
         else
