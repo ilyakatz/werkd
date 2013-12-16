@@ -21,8 +21,8 @@
         <h5><%= @project.getTitle() %></h5>
         <h6>produced at <%= @project.getCompany() %></h6>
         <div class="media-container"></div>
-        <% if @project.getCreator().getId() == @currentUser.getId(): %>
-        <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
+        <% if @collaboration.getUser().getId() == @currentUser.getId(): %>
+          <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
         <% end %>
         <div class="contribution">
           <h6>Contribution:</h6>
