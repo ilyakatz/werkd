@@ -12,7 +12,7 @@
               <ul class="user-skills project-skills">
                 <%= f.input 'collaborator_skills', label: "Skills used on this project" do %>
                   <%= text_field_tag 'collaborator_skills', "",
-                    label: "Skills used on this project",
+                    label: "What skills did you use on this project?",
                     class: "clearfix", id: "project_collaborator_skills",
                     placeholder: "skillz" %>
                 <% end %>
@@ -22,26 +22,26 @@
           <section class="project-details">
             <%= f.input :title,
               label: "Project title",
-              placeholder: "Amazing project",
+              placeholder: "Project Name",
               wrapper_html: { class: "clearfix"},
               input_html: { autofocus: true } %>
           </section>
 
           <%= f.input :company,
             label: "Company",
-            placeholder: "Awesome company",
+            placeholder: "Which company produced this project?",
             wrapper_html: { class: "right clearfix"} %>
           <div id="embedly-preview" class="selector-wrapper">
             <%= render "preview", project: @project, show_video: true%>
 
           </div>
 
-          <%= f.input :media_url, placeholder:"link to the image, audio or video of the project",
+          <%= f.input :media_url, placeholder:"Copy & Paste a link to an image or video",
             wrapper_html: {class: "clearfix"},
             input_html: {class: "embed-link"} %>
           <%= f.input :contribution,
             wrapper_html: { class: "clearfix"},
-            placeholder: "I did A and B for C and D part of the project",
+            placeholder: "How did you contribute to the project? In which part?",
             as: :text %>
           <%= f.input :start_at,
             label: "Project date",
