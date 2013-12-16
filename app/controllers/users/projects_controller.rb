@@ -3,28 +3,29 @@ module Users
 
     def new
       @project = Project.new
-      @project.collaborations.build
+      @collaboration = @project.collaborations.build
       @collaborator_skills=[]
     end
 
     def edit
-      @project = current_user.projects.find(params[:id])
-      collaboration = @project.collaborations.where(user_id: current_user.id).last
-      unless collaboration
-        collaboration = @project.collaborations.build
+      @project = Project.find(params[:id])
+      @collaboration = @project.collaborations.where(user_id: current_user.id).first
+      unless @collaboration
+        @collaboration = @project.collaborations.create(collaborator: current_user)
       end
-      @collaborator_skills = collaboration.skills.collect{|t|{name: t.name}}.to_json
+      @project.contribution = @collaboration.contribution
+      @collaborator_skills = @collaboration.skills.collect {|t| {name: t.name} }.to_json
     end
 
     def create
       @project = Project.new(project_params)
       @project.creator = current_user
+      @collaboration = @project.collaborations.build
+      @collaboration.collaborator = current_user
+      @collaboration.skill_list = params[:collaborator_skills]
+      @collaboration.contribution = params[:project][:contribution]
 
       if @project.save
-        creator = @project.reload.collaborations.first
-        creator.skill_list = params[:collaborator_skills]
-        creator.save!
-
         if current_user.projects.count < Project::MINIMUM_PROJECTS_PER_USER
           redirect_to new_users_project_path, notice: current_user.missing_project_message
         else
@@ -36,11 +37,12 @@ module Users
     end
 
     def update
-      @project = current_user.projects.find(params[:id])
-      collaboration = @project.collaborations.first
-      collaboration.skill_list = params[:collaborator_skills]
+      @project = Project.find(params[:id])
+      @collaboration = @project.collaborations.where(user_id: current_user.id).first
+      @collaboration.skill_list = params[:collaborator_skills]
+      @collaboration.contribution = params[:project][:contribution]
 
-      if @project.update_attributes(project_params) && collaboration.save!
+      if @project.update_attributes(project_params) && @collaboration.save!
         redirect_to users_dashboards_path, notice: 'Project was successfully updated.'
       else
         render action: "edit"

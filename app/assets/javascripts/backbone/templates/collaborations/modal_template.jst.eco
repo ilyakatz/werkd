@@ -19,11 +19,15 @@
       </div> <!-- navigation -->
       <div class="project-details">
         <h5><%= @project.getTitle() %></h5>
-        <h6>produced at <%= @project.getCompany() %> (contribution: <%= @collaboration.getContribution() %>)</h6>
+        <h6>produced at <%= @project.getCompany() %></h6>
         <div class="media-container"></div>
         <% if @project.getCreator().getId() == @currentUser.getId(): %>
         <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
         <% end %>
+        <div class="contribution">
+          <h6>Contribution:</h6>
+          <p><%= @collaboration.getContribution() %></p>
+        </div>
       </div> <!-- project-details -->
     </div> <!-- span8 -->
     <div class="span4">
