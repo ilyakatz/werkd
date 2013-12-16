@@ -13,6 +13,7 @@ module Users
       unless @collaboration
         @collaboration = @project.collaborations.create(collaborator: current_user)
       end
+      @project.contribution = @collaboration.contribution
       @collaborator_skills = @collaboration.skills.collect {|t| {name: t.name} }.to_json
     end
 
