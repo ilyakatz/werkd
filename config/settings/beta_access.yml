@@ -5,7 +5,7 @@ production:
     - techstars
 
 development:
-  enabled: true
+  enabled: false
   tokens:
     - token
 
