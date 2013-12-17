@@ -1,7 +1,10 @@
 .project-thumbnails {
   .project {
     label {
-      display: none;
+      position: relative;
+      top: -30px;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
     }
   }
 }
