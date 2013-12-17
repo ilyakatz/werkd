@@ -7,6 +7,13 @@ class Werkd.Models.Collaboration extends Supermodel.Model
     id: null
     contribution: null
     skill_list: []
+    pending: false
+
+
+  # Properties:
+
+  isPending: ->
+    @getPending()
 
 
   # Assocations:
@@ -21,7 +28,10 @@ class Werkd.Models.Collaboration extends Supermodel.Model
   # Methods:
   
   hasAnySkills: (skills) ->
-    _.intersection(@getSkillList(), skills).length > 0
+    if @getSkillList().length > 0
+      _.intersection(@getSkillList(), skills).length > 0
+    else
+      true
 
 
 Werkd.Models.Collaboration.initializeProperties()

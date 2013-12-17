@@ -30,6 +30,9 @@ describe 'Werkd.Models.Project', ->
 
   describe 'collections', ->
 
+    it 'should have collaborations', ->
+      expect(@model.getCollaborations().models).toEqual([])
+
     it 'should have contributors', ->
       expect(@model.getContributors().models).toEqual([])
 

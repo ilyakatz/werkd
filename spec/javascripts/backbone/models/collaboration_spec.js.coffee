@@ -16,6 +16,16 @@ describe 'Werkd.Models.Collaboration', ->
     expect(@model.getId()).toBeNull()
     expect(@model.getContribution()).toBeNull()
     expect(@model.getSkillList()).toEqual([])
+    expect(@model.getPending()).toEqual(false)
+
+
+  describe 'properties', ->
+
+    describe 'pending', ->
+
+      it 'should set and get', ->
+        @model.setPending(true)
+        expect(@model.isPending()).toEqual(true)
 
 
   describe 'associations', ->
@@ -48,6 +58,14 @@ describe 'Werkd.Models.Collaboration', ->
       it 'should be false when testing for non skill', ->
         skills = ['Cobol']
         expect(@model.hasAnySkills(skills)).toEqual(false)
+
+      describe 'when there are no skills on the project', ->
+        beforeEach ->
+          @model.setSkillList([])
+
+        it 'should always be true', ->
+          skills = ['Java', 'CSS']
+          expect(@model.hasAnySkills(skills)).toEqual(true)
 
   describe 'factories', ->
 

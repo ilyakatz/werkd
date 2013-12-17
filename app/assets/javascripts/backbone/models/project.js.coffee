@@ -19,6 +19,9 @@ class Werkd.Models.Project extends Supermodel.Model
 
   # Collections:
 
+  getCollaborations: ->
+    @collaborations()
+
   getContributors: ->
     @contributors()
 

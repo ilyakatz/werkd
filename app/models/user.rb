@@ -92,7 +92,7 @@ through: :collaborations, class_name: 'Project', source: :project
     res = token(q)
     if res.present?
       res.collect do |user|
-        {id: user.id, name: user.public_name}
+        {id: user.id, name: user.public_name} if user.public_name
       end.to_json
     else
       if q =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
@@ -107,7 +107,7 @@ through: :collaborations, class_name: 'Project', source: :project
     if first_name || last_name
       [first_name, last_name].compact.join(" ")
     else
-      "WeRKD user"
+      nil
     end
   end
 

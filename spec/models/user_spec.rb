@@ -114,9 +114,9 @@ describe User do
       user.public_name.should eq "Ilya Katz"
     end
 
-    it "should show generic name if not present" do
+    it "should not show generic name if not present" do
       user = FactoryGirl.build(:user, first_name: nil, last_name: nil)
-      user.public_name.should eq "WeRKD user"
+      user.public_name.should be_nil
     end
 
   end

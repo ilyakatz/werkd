@@ -123,11 +123,11 @@ Feature: Projects
     And I fill in "Project title" with "New Project"
     And I fill in "Company" with "Coca Cola"
     And I fill in "Skills used" with "Design"
-    And I fill in "Collaborators" with "cowerker@werked.net"
+    And I fill in "Collaborators" with "cowerker@werkd.net"
     And I press "Create"
     Then a project should exist
     When I go to the project's page
-    Then I should see "WeRKD user"
+    Then I should see "cowerker@werkd.net"
 
   Scenario: I am required to enter a few projects
     When I login as "ilyakatz@gmail.com"
