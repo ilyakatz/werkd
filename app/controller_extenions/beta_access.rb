@@ -17,7 +17,7 @@ module BetaAccess
   end
 
   def has_global_beta_token?
-    session[:beta] == Figleaf::Settings.beta_access.token
+    Figleaf::Settings.beta_access.tokens.include?(session[:beta])
   end
 
   #user has beta token and that token is present
@@ -35,8 +35,7 @@ module BetaAccess
       if invite = UserInvite.pending?(params[:beta])
         session[:beta]=params[:beta]
         invite.use!
-      elsif
-        params[:beta] == Figleaf::Settings.beta_access.token
+      elsif Figleaf::Settings.beta_access.tokens.include?(params[:beta])
         session[:beta] = params[:beta]
       end
     end

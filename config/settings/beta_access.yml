@@ -1,12 +1,16 @@
 production:
   enabled: true
-  token: w3rkd4success
+  tokens:
+    - w3rkd4success
+    - techstars
 
 development:
   enabled: false
-  token: token
+  tokens:
+    - token
 
 test:
   enabled: false
-  token: token
+  tokens:
+    - token
 

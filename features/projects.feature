@@ -12,7 +12,7 @@ Feature: Projects
   Scenario: I should be able to add a new project
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
-    And I click ".icon-plus-sign" icon within ".new-project"
+    And I follow "Add Project"
     Then I should be on the new users project page
 
   @javascript
