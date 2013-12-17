@@ -51,6 +51,12 @@ Werkd.Models.Project.has().one('creator', {
   model: Werkd.Models.User
 })
 
+Werkd.Models.Project.has().many('collaborations', {
+  inverse: 'project'
+  source: 'collaborations'
+  collection: Werkd.Collections.Collaborations
+})
+
 Werkd.Models.Project.has().many('contributors', {
   inverse: 'contributed_projects'
   source: 'contributors'
