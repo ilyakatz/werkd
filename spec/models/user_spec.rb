@@ -132,13 +132,6 @@ describe User do
       user.profile_status.should eq :basics
     end
 
-    it "shouold indicate that user needs to invite contacts" do
-      user.first_name="present"
-      user.last_name="present"
-      user.job_title="present"
-      user.profile_status.should eq :contacts
-    end
-
     it "should indicate that user needs to add a project" do
       user.first_name="present"
       user.last_name="present"
