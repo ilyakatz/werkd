@@ -1,8 +1,2 @@
 <% project_count = current_user.projects.count %>
-<% if project_count == 0 %>
- Let's add three projects to get started
-<% elsif project_count == 1 %>
- Only two more left
-<% elsif project_count == 2 %>
- Last one for now
-<%end%>
+<%= Project.missing_project_message(Project::MINIMUM_PROJECTS_PER_USER - project_count) %>

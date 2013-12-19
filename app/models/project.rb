@@ -18,7 +18,7 @@
 
 class Project < ActiveRecord::Base
 
-  MINIMUM_PROJECTS_PER_USER = 3
+  MINIMUM_PROJECTS_PER_USER = 1
   PREVIEW_MAX_WIDTH = 304
   PREVIEW_MAX_HEIGHT = 171
 
@@ -83,12 +83,8 @@ class Project < ActiveRecord::Base
   # number_of_projects - how many more projects
   def self.missing_project_message(number_of_projects)
     case number_of_projects
-    when 3
-      "Add three projects to get started, because nobody wants an empty page..."
-    when 2
-      "Only 2 more to go!"
     when 1
-      "Great. The last one!!"
+      "Please add at least one project."
     end
   end
 

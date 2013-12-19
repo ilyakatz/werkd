@@ -81,11 +81,6 @@ describe Users::ProjectsController do
 
     context 'when project data is valid' do
 
-      context 'when user has less than min projects per user' do
-        it_behaves_like('a project')
-        it { should redirect_to(new_users_project_path) }
-      end # when user has min projects per user
-
       context 'when user has more than min projects per user' do
         let(:before_action) {
           (Project::MINIMUM_PROJECTS_PER_USER + 1).times.each {
