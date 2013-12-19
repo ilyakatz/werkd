@@ -132,11 +132,7 @@ Feature: Projects
   Scenario: I am required to enter a few projects
     When I login as "ilyakatz@gmail.com"
     And I go to the new users project page
-    And I fill in "Project title" with "New Project"
-    And I fill in "Company" with "Coca Cola"
-    And I fill in "Skills used" with "Design"
-    And I press "Create"
-    Then I should see "Only 2 more to go"
+    And I should see "Please add at least one"
 
   @javascript
   Scenario: A visitor should be able to view a project

@@ -193,17 +193,8 @@ describe User do
     let(:user) { create(:user) }
 
     it "should show message for 1 missing project" do
-      user.stub_chain(:projects, :count).and_return 2
-      user.missing_project_message.should eq "Great. The last one!!"
-    end
-
-    it "should show message for 2 missing projects" do
-      user.stub_chain(:projects, :count).and_return 1
-      user.missing_project_message.should match "Only 2 more to go"
-    end
-
-    it "should show message for 3 missing projects" do
-      user.missing_project_message.should match "Add three projects to get started"
+      user.stub_chain(:projects, :count).and_return 0
+      user.missing_project_message.should eq "Please add at least one project."
     end
 
     it "should return nil for 3 projects" do
