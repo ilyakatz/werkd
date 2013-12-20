@@ -14,7 +14,7 @@
                   <%= text_field_tag 'collaborator_skills', "",
                     label: "What skills did you use on this project? ",
                     class: "clearfix", id: "project_collaborator_skills",
-                    placeholder: "skillz" %>
+                    placeholder: "skills" %>
                 <% end %>
               </ul>
             </div>
@@ -29,7 +29,7 @@
 
           <%= f.input :company,
             label: "Company",
-            placeholder: "Which company produced this project?",
+            placeholder: "Company name",
             wrapper_html: { class: "right clearfix"} %>
           <div id="embedly-preview" class="selector-wrapper">
             <%= render "preview", project: @project, show_video: true%>
