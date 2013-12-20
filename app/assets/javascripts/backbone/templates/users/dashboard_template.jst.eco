@@ -6,7 +6,7 @@
           <div class="panel-heading">
             <h4>WeRKD On</h4>
             <div class="text-right new-project add-project-button">
-              <a href="/users/projects/new" class="new-project-link icon-plus-sign"></a>
+              <a href="/users/projects/new" class="new-project-link">Add Project</a>
             </div>
           </div>
         </div> <!-- span12  -->
@@ -40,9 +40,9 @@
           <% user = connection.getUser() %>
           <li>
             <a href="/users/<%= user.getId() %>">
-              <%= user.getPublicName() %>
+              <div><%= user.getPublicName() %></div>
               <% if user.getJobTitle(): %>
-              <span class="job-title pull-right"><%= user.getJobTitle() %></span>
+                <div style="font-size: 12px; color: #999;"><%= user.getJobTitle() %></div>
               <% end %>
             </a>
           </li>

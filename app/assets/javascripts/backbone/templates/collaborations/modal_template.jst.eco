@@ -36,23 +36,19 @@
       </div>
       <div class="user-dashboard-list-view">
         <ul class="user-dashboard-list-item-views">
-          <% for user in @project.getContributors().models: %>
-          <li>
-            <a href="/users/<%=user.getId()%>"><%= user.getPublicName() %></a>
-          </li>
+          <% for collaboration in @project.getCollaborations().models: %>
+            <% user = collaboration.getUser() %>
+            <li>
+              <a href="/users/<%=user.getId()%>">
+                <div><%= user.getPublicName() %><%= ' (pending)' if collaboration.isPending() %></div>
+                <% if user.getJobTitle(): %>
+                  <div style="font-size: 12px; color: #999;"><%= user.getJobTitle() %></div>
+                <% end %>
+              </a>
+            </li>
           <% end %>
           <li>
-            <a href="/users/<%=@project.getCreator().getId()%>"><%= @project.getCreator().getPublicName() %></a>
           </li>
-        </ul>
-        <ul class="user-dashboard-list-item-views">
-          <% for user in @project.getPendingContributors().models: %>
-          <li>
-            <% if @project.getCreator().getId() == @currentUser.getId(): %>
-            <a href="/users/<%=user.getId()%>"><%= user.getPublicName() %> (pending)</a>
-            <% end %>
-          </li>
-          <% end %>
         </ul>
       </div> <!-- user-dashboard-list-view -->
     </div> <!-- span4 -->

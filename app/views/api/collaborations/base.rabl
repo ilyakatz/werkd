@@ -1,8 +1,11 @@
 object @collaboration
 attributes(
-  :id
+  :id,
+  :contribution,
+  :skill_list
 )
 
-child(:collaborator) do
-  extends('/api/users/base')
+node(:pending) do |collaboration|
+  collaboration.pending?
 end
+

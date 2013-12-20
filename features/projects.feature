@@ -12,7 +12,7 @@ Feature: Projects
   Scenario: I should be able to add a new project
     When I login as "ilyakatz@gmail.com"
     And I go to the users dashboards page
-    And I click ".icon-plus-sign" icon within ".new-project"
+    And I follow "Add Project"
     Then I should be on the new users project page
 
   @javascript
@@ -123,11 +123,11 @@ Feature: Projects
     And I fill in "Project title" with "New Project"
     And I fill in "Company" with "Coca Cola"
     And I fill in "Skills used" with "Design"
-    And I fill in "Collaborators" with "cowerker@werked.net"
+    And I fill in "Collaborators" with "cowerker@werkd.net"
     And I press "Create"
     Then a project should exist
     When I go to the project's page
-    Then I should see "WeRKD user"
+    Then I should see "cowerker@werkd.net"
 
   Scenario: I am required to enter a few projects
     When I login as "ilyakatz@gmail.com"
