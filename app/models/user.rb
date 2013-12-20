@@ -132,8 +132,8 @@ through: :collaborations, class_name: 'Project', source: :project
   def profile_status
     if !(first_name.present? && last_name.present? and job_title.present?)
       :basics
-    elsif !invited_contacts?
-      :contacts
+    #elsif !invited_contacts?
+    #  :contacts
     elsif projects.count < Project::MINIMUM_PROJECTS_PER_USER
       :projects
     else

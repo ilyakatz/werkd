@@ -1,9 +1,9 @@
 <% project = @view.getProject() %>
-<label>
-  <%= project.getTitle() %>
-</label>
 <a href="#/projects/<%= project.getId() %>" class="project-model-link">
   <p>
     <img src="<%= @view.getImageUrl() %>" width="304" height="171" alt="<%= project.getTitle() %> preview" class="thumbnail" />
   </p>
+  <label class="text-center">
+    <%= project.getTitle() %>
+  </label>
 </a>

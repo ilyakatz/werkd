@@ -1,7 +1,10 @@
 .project-thumbnails {
   .project {
     label {
-      display: none;
+      position: relative;
+      top: -30px;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
     }
   }
 }
@@ -34,6 +37,9 @@
 }
 
 .thumbnail {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   max-height: 171px;
   max-width: 304px;
   display: block;
@@ -52,9 +58,10 @@
           transition: all 0.2s ease-in-out;
 }
 
-a.thumbnail:hover,
-a.thumbnail:focus {
-  border-color: #007fff;
+.thumbnail:hover,
+.thumbnail:focus {
+  border: 1px solid #007fff;
+  opacity: 0.8;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
      -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
           box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
