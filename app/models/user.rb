@@ -62,6 +62,15 @@ through: :collaborations, class_name: 'Project', source: :project
 
   after_create :send_welcome_email
 
+  def onboarding_complete!
+    update_attribute(:onboarding_completed_at, Time.now) unless
+      onboarding_completed_at?
+  end
+
+  def onboarding_complete?
+    !!onboarding_completed_at
+  end
+
   def all_projects
     collaborated_projects
   end

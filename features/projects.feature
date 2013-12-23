@@ -79,7 +79,7 @@ Feature: Projects
 
   @javascript
   Scenario: Visitor should not be able to see collaborators' emails
-    And a user "me" exists with first_name: "Ilya"
+    Given a user "me" exists with first_name: "Ilya"
     And a user "collaborator" exists with email: "cowerker@werked.net"
     And a project "p" exists with title: "My project", creator: user "me"
     And a collaboration exists with collaborator: user "collaborator", project: project "p"

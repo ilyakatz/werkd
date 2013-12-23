@@ -34,6 +34,21 @@ Feature: Signing up and signin in
     And I press "Sign in"
     Then I should be on the users feeds page
 
+  Scenario: I should not see the header menu until my onboarding is complete
+    When I go to the root page
+    And I fill in "Email" with "ilyakatz@gmail.com"
+    And I fill in "Password" with "secret"
+    And I press "Let's get started"
+    And I should not see "Home" within ".nav"
+    When I fill in "First name" with "Ilya"
+    And I fill in "Last name" with "Katz"
+    And I fill in "Job title" with "Developer"
+    And I fill in "Location" with "Brooklyn, NY"
+    And I press "Update User"
+    And I should not see "Home" within ".nav"
+    And I follow "Skip"
+    And I should see "Home" within ".nav"
+
   @wip
   Scenario: After I signup with facebook I should be taken to the profiles page
     And pending

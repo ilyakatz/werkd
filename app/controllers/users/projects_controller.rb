@@ -26,6 +26,7 @@ module Users
       @collaboration.contribution = params[:project][:contribution]
 
       if @project.save
+        current_user.onboarding_complete!
         if current_user.projects.count < Project::MINIMUM_PROJECTS_PER_USER
           redirect_to new_users_project_path, notice: current_user.missing_project_message
         else
