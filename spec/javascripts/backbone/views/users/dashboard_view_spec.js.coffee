@@ -56,7 +56,7 @@ describe 'Werkd.Views.Users.DashboardView', ->
     describe 'onClickSkill', ->
       beforeEach ->
         @filterCollaborations = spyOn(@view, 'filterCollaborations').andCallThrough()
-        @skillEl1 = $(@view.getSkillEls()[0])
+        @skillEl1 = $(@view.getSkillEls()[1])
         @skillEl1.click()
 
       it 'should toggle active on the skill tag', ->
@@ -70,7 +70,7 @@ describe 'Werkd.Views.Users.DashboardView', ->
 
       describe 'when second skill is clicked', ->
         beforeEach ->
-          @skillEl2 = $(@view.getSkillEls()[1])
+          @skillEl2 = $(@view.getSkillEls()[2])
           @skillEl2.click()
           
         it 'should toggle active on the skill tag', ->
@@ -81,6 +81,18 @@ describe 'Werkd.Views.Users.DashboardView', ->
 
         it 'should just keep the clicked skill tags active', ->
           expect(@view.getActiveSkillEls().length).toEqual(2)
+
+      describe 'when all skill tag is clicked', ->
+        beforeEach ->
+          @allSkillEl = $(@view.getSkillEls()[0])
+          @allSkillEl.click()
+
+        it 'should activate all skill tags', ->
+          _.each(@view.getSkillEls(), (skillEl) ->
+            expect($(skillEl)).toHaveClass('active')
+          )
+
+
 
 
 
