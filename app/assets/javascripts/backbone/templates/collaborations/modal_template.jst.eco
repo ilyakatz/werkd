@@ -33,6 +33,9 @@
     <div class="span4">
       <div class="panel-heading">
         <h4>With</h4>
+        <% if @collaboration.getUser().getId() == @currentUser.getId(): %>
+          <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
+        <% end %>
       </div>
       <div class="user-dashboard-list-view">
         <ul class="user-dashboard-list-item-views">
