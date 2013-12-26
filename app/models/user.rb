@@ -62,6 +62,15 @@ through: :collaborations, class_name: 'Project', source: :project
 
   after_create :send_welcome_email
 
+  def onboarding_complete!
+    update_attribute(:onboarding_completed_at, Time.now) unless
+      onboarding_completed_at?
+  end
+
+  def onboarding_complete?
+    !!onboarding_completed_at
+  end
+
   def all_projects
     collaborated_projects
   end
@@ -92,7 +101,7 @@ through: :collaborations, class_name: 'Project', source: :project
     res = token(q)
     if res.present?
       res.collect do |user|
-        {id: user.id, name: user.public_name}
+        {id: user.id, name: user.public_name} if user.public_name
       end.to_json
     else
       if q =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
@@ -107,7 +116,7 @@ through: :collaborations, class_name: 'Project', source: :project
     if first_name || last_name
       [first_name, last_name].compact.join(" ")
     else
-      "WeRKD user"
+      nil
     end
   end
 
@@ -132,8 +141,8 @@ through: :collaborations, class_name: 'Project', source: :project
   def profile_status
     if !(first_name.present? && last_name.present? and job_title.present?)
       :basics
-    elsif !invited_contacts?
-      :contacts
+    #elsif !invited_contacts?
+    #  :contacts
     elsif projects.count < Project::MINIMUM_PROJECTS_PER_USER
       :projects
     else

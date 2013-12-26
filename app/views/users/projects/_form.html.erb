@@ -36,7 +36,7 @@
 
           </div>
 
-          <%= f.input :media_url, placeholder:"link to the image, audio or video of the project",
+          <%= f.input :media_url, placeholder:"link to the image or YouTube/Vimeo video" ,
             wrapper_html: {class: "clearfix"},
             input_html: {class: "embed-link"} %>
           <%= f.input :contribution,
@@ -48,7 +48,7 @@
             wrapper_html: { class: "clearfix"},
             order: [:month, :year] %>
 
-          <%= link_to "Back", users_dashboards_path, class: "btn action" %>
+          <%= link_to "Skip", users_feeds_path, class: "btn action" %>
           <%= f.submit class: "btn action"%>
 
         </div> <!-- project-details -->
@@ -91,6 +91,12 @@
 
       $('.embed-link').preview({
         key: '<%=Figleaf::Settings.embedly.api_key%>',
+        render: function(obj, options){
+          if(obj.thumbnail_url !== undefined){
+            var $preview = $("#embedly-preview img");
+            $preview.attr("src", obj.thumbnail_url);
+          }
+        },
         error: function (obj) {
           console.log('The URL you entered was not processed.');
         }

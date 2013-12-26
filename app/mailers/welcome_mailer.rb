@@ -5,7 +5,7 @@ class WelcomeMailer <ActionMailer::Base
   def send_welcome_email(user)
     @user = user
     mail(
-      :subject => 'hello',
+      :subject => 'Welcome to WeRKD',
       :to => user.email,
       :from => Figleaf::Settings.email.support,
       :tag => 'welcome'

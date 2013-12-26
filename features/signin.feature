@@ -17,26 +17,6 @@ Feature: Signing up and signin in
     Then I should be on the users profiles page
     And 1 email should be delivered to "ilyakatz@gmail.com"
 
-  Scenario: After I signup, I should be taken to my profile
-    When I go to the users registrations page
-    And I fill in "Email" with "ilykatz@gmail.com"
-    And I fill in "Password" with "secret"
-    And I press "Let's get started"
-    When I fill in "First name" with "Ilya"
-    And I fill in "Last name" with "Katz"
-    And I fill in "Job title" with "dev"
-    And I fill in "Location" with "New York"
-    And I press "Update User"
-    And I should be on the users omnicontacts page
-
-  Scenario: After I sign in with completed profile I should be taken to the contacts page
-    Given a user "me" exists with email: "ilyakatz@gmail.com"
-    And user "me" has basic profile
-    When I login as "ilyakatz@gmail.com"
-    When I go to the new user session page
-    Then I should be on the users omnicontacts page
-    And user "me" should be marked as having invited contacts
-
   Scenario: After sign in, completing profile and contacts I should be taken to add projects_controller
     Given a user "me" exists with email: "ilyakatz@gmail.com"
     And user "me" has basic profile
@@ -53,6 +33,21 @@ Feature: Signing up and signin in
     And I fill in "Password" with "secret"
     And I press "Sign in"
     Then I should be on the users feeds page
+
+  Scenario: I should not see the header menu until my onboarding is complete
+    When I go to the root page
+    And I fill in "Email" with "ilyakatz@gmail.com"
+    And I fill in "Password" with "secret"
+    And I press "Let's get started"
+    And I should not see "Home" within ".nav"
+    When I fill in "First name" with "Ilya"
+    And I fill in "Last name" with "Katz"
+    And I fill in "Job title" with "Developer"
+    And I fill in "Location" with "Brooklyn, NY"
+    And I press "Update User"
+    And I should not see "Home" within ".nav"
+    And I follow "Skip"
+    And I should see "Home" within ".nav"
 
   @wip
   Scenario: After I signup with facebook I should be taken to the profiles page

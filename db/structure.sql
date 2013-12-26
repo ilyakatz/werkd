@@ -413,7 +413,8 @@ CREATE TABLE users (
     location character varying(255),
     job_title character varying(255),
     invited_contacts timestamp without time zone,
-    invitation_created_at timestamp without time zone
+    invitation_created_at timestamp without time zone,
+    onboarding_completed_at time without time zone
 );
 
 
@@ -771,3 +772,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131012020255');
 INSERT INTO schema_migrations (version) VALUES ('20131024002316');
 
 INSERT INTO schema_migrations (version) VALUES ('20131119145413');
+
+INSERT INTO schema_migrations (version) VALUES ('20131223164125');
