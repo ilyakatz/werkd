@@ -91,6 +91,12 @@
 
       $('.embed-link').preview({
         key: '<%=Figleaf::Settings.embedly.api_key%>',
+        render: function(obj, options){
+          if(obj.thumbnail_url !== undefined){
+            var $preview = $("#embedly-preview img");
+            $preview.attr("src", obj.thumbnail_url);
+          }
+        },
         error: function (obj) {
           console.log('The URL you entered was not processed.');
         }

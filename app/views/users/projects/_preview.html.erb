@@ -1,4 +1,4 @@
-<p>
+<p class="thumbnail-holder">
 <%if project.media_type == "video" && local_assigns[:show_video] %>
   <%= project.embed_html.html_safe %>
 <%elsif project.thumbnail_url.present?%>
