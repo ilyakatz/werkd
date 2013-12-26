@@ -103,9 +103,17 @@
     } // project-details
 
     .user-dashboard-list-view {
-
     }
 
+
+    .panel-heading {
+      a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 4px;
+      }
+    }
 
   }
 
