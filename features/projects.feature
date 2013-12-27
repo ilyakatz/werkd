@@ -49,20 +49,6 @@ Feature: Projects
     Then I should see "graphic design"
 
   @javascript
-  Scenario: I should be able to add project date
-    When I login as "ilyakatz@gmail.com"
-    And I go to the new users project page
-    And I fill in "Project title" with "New Project"
-    And I fill in "Company" with "Coca Cola"
-    And I select "2012" from "project_start_at_1i"
-    And I select "May" from "project_start_at_2i"
-    And I press "Create"
-    When I go to the users dashboards page
-    And I click within ".project-model-link"
-    #WIP
-    #Then I should see "May 01, 2012"
-
-  @javascript
   Scenario: I should be able to tag people on a project
     And a user "coworker" exists with email: "coworker@werkd.com", first_name: "Worker"
     When I login as "ilyakatz@gmail.com"

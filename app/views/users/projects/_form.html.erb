@@ -4,8 +4,31 @@
       <div class="span6 project-pane">
         <div class="project">
           <header class="panel-heading">
-            <h4>Edit project</h4>
+            <h4>New project</h4>
           </header>
+
+          <section class="project-details">
+            <%= f.input :title,
+              label: "Project title",
+              placeholder: "Amazing project",
+              wrapper_html: { class: "clearfix"},
+              input_html: { autofocus: true } %>
+          </section>
+
+          <div id="embedly-preview" class="selector-wrapper">
+            <%= render "preview", project: @project, show_video: true%>
+
+          </div>
+
+          <%= f.input :media_url, placeholder:"link to the image or YouTube/Vimeo video" ,
+            wrapper_html: {class: "clearfix"},
+            input_html: {class: "embed-link"} %>
+
+          <%= f.input :company,
+            label: "Company",
+            placeholder: "Awesome company",
+            wrapper_html: { class: "right clearfix"} %>
+
 
           <nav class="navigation">
             <div class="project-tags">
@@ -19,34 +42,12 @@
               </ul>
             </div>
           </nav>
-          <section class="project-details">
-            <%= f.input :title,
-              label: "Project title",
-              placeholder: "Amazing project",
-              wrapper_html: { class: "clearfix"},
-              input_html: { autofocus: true } %>
-          </section>
 
-          <%= f.input :company,
-            label: "Company",
-            placeholder: "Awesome company",
-            wrapper_html: { class: "right clearfix"} %>
-          <div id="embedly-preview" class="selector-wrapper">
-            <%= render "preview", project: @project, show_video: true%>
 
-          </div>
-
-          <%= f.input :media_url, placeholder:"link to the image or YouTube/Vimeo video" ,
-            wrapper_html: {class: "clearfix"},
-            input_html: {class: "embed-link"} %>
           <%= f.input :contribution,
             wrapper_html: { class: "clearfix"},
             placeholder: "I did A and B for C and D part of the project",
             as: :text %>
-          <%= f.input :start_at,
-            label: "Project date",
-            wrapper_html: { class: "clearfix"},
-            order: [:month, :year] %>
 
           <%= link_to "Skip", users_feeds_path, class: "btn action" %>
           <%= f.submit class: "btn action"%>
@@ -103,16 +104,16 @@
       });
 
       $("#project_collaborator_skills").tokenInput("/tags",
-      {
-        tokenValue: "name",
-        prePopulate: <%=raw( @collaborator_skills)%>
-    });
+        {
+          tokenValue: "name",
+          prePopulate: <%=raw( @collaborator_skills)%>
+      });
 
       $("#project_tagged_user_ids").tokenInput("/users.json",
-    {
-      hintText: "Type in name or email",
-      tokenValue: "id",
-      prePopulate: <%=
+        {
+          hintText: "Type in name or email",
+          tokenValue: "id",
+          prePopulate: <%=
       raw(@project.tagged_users.collect do |u|
         {
           name: display_user_name(u, @project.creator != current_user) ,
@@ -120,7 +121,7 @@
         }
       end.to_json)
     %>
-  });
+      });
 
     });
 
