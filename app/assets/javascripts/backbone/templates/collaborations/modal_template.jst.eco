@@ -22,7 +22,7 @@
         <h6>produced at <%= @project.getCompany() %></h6>
         <div class="media-container"></div>
         <% if @collaboration.getUser().getId() == @currentUser.getId(): %>
-          <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
+        <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
         <% end %>
         <div class="contribution">
           <h6>Contribution:</h6>
@@ -34,21 +34,24 @@
       <div class="panel-heading">
         <h4>With</h4>
         <% if @collaboration.getUser().getId() == @currentUser.getId(): %>
-          <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
+        <a href="/users/projects/<%=@project.getId()%>/edit">Edit</a>
         <% end %>
       </div>
       <div class="user-dashboard-list-view">
         <ul class="user-dashboard-list-item-views">
           <% for collaboration in @project.getCollaborations().models: %>
             <% user = collaboration.getUser() %>
+            <% if !collaboration.isPending() || @project.getCreator().getId() == @currentUser.getId(): %>
             <li>
               <a href="/users/<%=user.getId()%>">
-                <div><%= user.getPublicName() %><%= ' (pending)' if collaboration.isPending() %></div>
+                <div><%= user.getPublicName() %>
+                  <%= ' (pending)' if collaboration.isPending() && @project.getCreator().getId() == @currentUser.getId()  %></div>
                 <% if user.getJobTitle(): %>
                   <div style="font-size: 12px; color: #999;"><%= user.getJobTitle() %></div>
                 <% end %>
               </a>
             </li>
+            <% end %>
           <% end %>
           <li>
           </li>

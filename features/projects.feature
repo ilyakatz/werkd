@@ -97,7 +97,7 @@ Feature: Projects
     Then I should see "Collaborator"
 
   @javascript
-  Scenario: I should should be able to see pending Collaborators
+  Scenario: Creator should should be able to see pending Collaborators
     Given a user "me" exists with first_name: "Ilya", email: "ilyakatz@gmail.com"
     Given a user "collaborator" exists with first_name: "Collaborator", last_name: ""
     And a project "p" exists with title: "My project", creator: user "me"
