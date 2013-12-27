@@ -22,7 +22,7 @@ Feature: Projects
     And I login as "ilyakatz@gmail.com"
     When I go to the users dashboards page
     And I follow "Cool project"
-    And I follow "Edit"
+    And I follow "Edit" within ".project-details"
     And I fill in "Project title" with "New cool project"
     And I press "Update"
 
@@ -156,7 +156,7 @@ Feature: Projects
     And user "me" created project "Cool project"
     And I go to user "me"'s page
     And I follow "Cool project preview"
-    Then I follow "Edit"
+    Then I follow "Edit" within ".project-details"
     And I fill in skill "graphic design"
     And I press "Update"
     When I go to the users dashboards page
