@@ -4,9 +4,10 @@
       <div class="span6 project-pane">
         <div class="project">
           <header class="panel-heading">
-            <h4>Edit project</h4>
+            <h4>New project</h4>
           </header>
 
+<<<<<<< HEAD
           <nav class="navigation">
             <div class="project-tags">
               <ul class="user-skills project-skills">
@@ -19,6 +20,8 @@
               </ul>
             </div>
           </nav>
+=======
+>>>>>>> 886a86e97b522a612176b1ad8fcc5544840c7afa
           <section class="project-details">
             <%= f.input :title,
               label: "Project title",
@@ -27,26 +30,50 @@
               input_html: { autofocus: true } %>
           </section>
 
+<<<<<<< HEAD
           <%= f.input :company,
             label: "Company",
-            placeholder: "Company name",
+            placeholder: "CWhich company did you work for?",
             wrapper_html: { class: "right clearfix"} %>
+=======
+>>>>>>> 886a86e97b522a612176b1ad8fcc5544840c7afa
           <div id="embedly-preview" class="selector-wrapper">
             <%= render "preview", project: @project, show_video: true%>
 
           </div>
 
+<<<<<<< HEAD
           <%= f.input :media_url, placeholder:"Copy & Paste a link to an image or video",
+=======
+          <%= f.input :media_url, placeholder:"Copy & Paste a link to an image or video" ,
+>>>>>>> 886a86e97b522a612176b1ad8fcc5544840c7afa
             wrapper_html: {class: "clearfix"},
             input_html: {class: "embed-link"} %>
+
+          <%= f.input :company,
+            label: "Company",
+            placeholder: "Which company did you work for?",
+            wrapper_html: { class: "right clearfix"} %>
+
+
+          <nav class="navigation">
+            <div class="project-tags">
+              <ul class="user-skills project-skills">
+                <%= f.input 'collaborator_skills', label: "What skills did you use?" do %>
+                  <%= text_field_tag 'collaborator_skills', "",
+                    label: "What skills did you use?",
+                    class: "clearfix", id: "project_collaborator_skills",
+                    placeholder: "skillz" %>
+                <% end %>
+              </ul>
+            </div>
+          </nav>
+
+
           <%= f.input :contribution,
             wrapper_html: { class: "clearfix"},
-            placeholder: "How did you contribute to the project? In which part?",
+            placeholder: "How did you contribute to the project?",
             as: :text %>
-          <%= f.input :start_at,
-            label: "Project date",
-            wrapper_html: { class: "clearfix"},
-            order: [:month, :year] %>
 
           <%= link_to "Skip", users_feeds_path, class: "btn action" %>
           <%= f.submit class: "btn action"%>
@@ -63,7 +90,7 @@
 
             <%= f.input :tagged_user_ids,
               label: "Collaborators",
-              placeholder: "Tag people you worked with",
+              placeholder: "Who did you worked with?",
               input_html:{
                 value: @project.tagged_user_ids.join(",")
               } %>
@@ -91,22 +118,28 @@
 
       $('.embed-link').preview({
         key: '<%=Figleaf::Settings.embedly.api_key%>',
+        render: function(obj, options){
+          if(obj.thumbnail_url !== undefined){
+            var $preview = $("#embedly-preview img");
+            $preview.attr("src", obj.thumbnail_url);
+          }
+        },
         error: function (obj) {
           console.log('The URL you entered was not processed.');
         }
       });
 
       $("#project_collaborator_skills").tokenInput("/tags",
-      {
-        tokenValue: "name",
-        prePopulate: <%=raw( @collaborator_skills)%>
-    });
+        {
+          tokenValue: "name",
+          prePopulate: <%=raw( @collaborator_skills)%>
+      });
 
       $("#project_tagged_user_ids").tokenInput("/users.json",
-    {
-      hintText: "Type in name or email",
-      tokenValue: "id",
-      prePopulate: <%=
+        {
+          hintText: "Enter name or email",
+          tokenValue: "id",
+          prePopulate: <%=
       raw(@project.tagged_users.collect do |u|
         {
           name: display_user_name(u, @project.creator != current_user) ,
@@ -114,7 +147,7 @@
         }
       end.to_json)
     %>
-  });
+      });
 
     });
 

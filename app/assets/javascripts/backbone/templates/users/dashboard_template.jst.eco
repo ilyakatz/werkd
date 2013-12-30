@@ -14,6 +14,7 @@
       <div class="row-fluid">
         <div class="span12">
           <ul class="user-skills">
+            <li class="active">All</li>
             <% for skill in @user.getSkills(): %>
               <li class="active"><%= skill %></li>
             <% end %>

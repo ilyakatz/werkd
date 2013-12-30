@@ -22,7 +22,7 @@ Feature: Projects
     And I login as "ilyakatz@gmail.com"
     When I go to the users dashboards page
     And I follow "Cool project"
-    And I follow "Edit"
+    And I follow "Edit" within ".project-details"
     And I fill in "Project title" with "New cool project"
     And I press "Update"
 
@@ -49,20 +49,6 @@ Feature: Projects
     Then I should see "graphic design"
 
   @javascript
-  Scenario: I should be able to add project date
-    When I login as "ilyakatz@gmail.com"
-    And I go to the new users project page
-    And I fill in "Project title" with "New Project"
-    And I fill in "Company" with "Coca Cola"
-    And I select "2012" from "project_start_at_1i"
-    And I select "May" from "project_start_at_2i"
-    And I press "Create"
-    When I go to the users dashboards page
-    And I click within ".project-model-link"
-    #WIP
-    #Then I should see "May 01, 2012"
-
-  @javascript
   Scenario: I should be able to tag people on a project
     And a user "coworker" exists with email: "coworker@werkd.com", first_name: "Worker"
     When I login as "ilyakatz@gmail.com"
@@ -79,7 +65,7 @@ Feature: Projects
 
   @javascript
   Scenario: Visitor should not be able to see collaborators' emails
-    And a user "me" exists with first_name: "Ilya"
+    Given a user "me" exists with first_name: "Ilya"
     And a user "collaborator" exists with email: "cowerker@werked.net"
     And a project "p" exists with title: "My project", creator: user "me"
     And a collaboration exists with collaborator: user "collaborator", project: project "p"
@@ -97,7 +83,7 @@ Feature: Projects
     Then I should see "Collaborator"
 
   @javascript
-  Scenario: I should should be able to see pending Collaborators
+  Scenario: Creator should should be able to see pending Collaborators
     Given a user "me" exists with first_name: "Ilya", email: "ilyakatz@gmail.com"
     Given a user "collaborator" exists with first_name: "Collaborator", last_name: ""
     And a project "p" exists with title: "My project", creator: user "me"
@@ -156,7 +142,7 @@ Feature: Projects
     And user "me" created project "Cool project"
     And I go to user "me"'s page
     And I follow "Cool project preview"
-    Then I follow "Edit"
+    Then I follow "Edit" within ".project-details"
     And I fill in skill "graphic design"
     And I press "Update"
     When I go to the users dashboards page

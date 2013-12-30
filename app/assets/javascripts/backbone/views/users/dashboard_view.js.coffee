@@ -49,6 +49,9 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
 
   # Methods:
 
+  activateAllSkillTags: ->
+    @getSkillEls().addClass('active')
+
   allSkillsAreActive: ->
     @getSkillEls().length > 0 && @getSkillEls().length == @getActiveSkillEls().length
 
@@ -100,8 +103,11 @@ class Werkd.Views.Users.DashboardView extends Werkd.Views.BaseView
   onClickSkill: (event) ->
     console.log('onClickSkill', event)
     skillEl = $(event.target)
-    if @allSkillsAreActive()
-      @getSkillEls().toggleClass('active')
-    skillEl.toggleClass('active')
+    if skillEl.text() == 'All'
+      @activateAllSkillTags()
+    else
+      if @allSkillsAreActive()
+        @getSkillEls().toggleClass('active')
+      skillEl.toggleClass('active')
     @filterCollaborations()
 

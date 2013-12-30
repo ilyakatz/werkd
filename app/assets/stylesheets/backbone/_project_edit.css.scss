@@ -51,12 +51,22 @@
       }
 
       .project-skills {
+        .token-input-token {
+          background: #fff;
+          .token-input-delete-token {
+            margin-left: 5px;
+          }
+        }
         .token-input-input-token {
+          background: #fff;
           input {
             width: 30px;
             box-shadow: none;
             background: transparent;
             -webkit-box-shadow: none;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin: 0;
             &:focus{
               box-shadow: none;
               -webkit-box-shadow: none;
@@ -102,7 +112,6 @@
 
       #embedly-preview {
         color: white;
-        height: 200px;
         display: inline-block;
         width: 100%
         a {
@@ -115,6 +124,11 @@
         img,iframe {
           margin-left: auto;
           margin-right: auto;
+        }
+        .thumbnail-holder {
+          margin-left: auto;
+          margin-right: auto;
+          width: 0%;
         }
       }
 
