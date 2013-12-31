@@ -31,7 +31,7 @@ Feature: Projects
     And I go to the new users project page
     And I fill in "Project title" with "New Project"
     And I fill in "Company" with "Coca Cola"
-    And I fill in "Skills used" with "Design"
+    And I fill in "What skills" with "Design"
     And I fill in "Contribution" with "Slacked off, mostly"
     And I press "Create"
     Then a project should exist with contribution: "Slacked off, mostly"
@@ -108,7 +108,7 @@ Feature: Projects
     And I go to the new users project page
     And I fill in "Project title" with "New Project"
     And I fill in "Company" with "Coca Cola"
-    And I fill in "Skills used" with "Design"
+    And I fill in "What skills" with "Design"
     And I fill in "Collaborators" with "cowerker@werkd.net"
     And I press "Create"
     Then a project should exist

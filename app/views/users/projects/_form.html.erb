@@ -10,7 +10,7 @@
           <section class="project-details">
             <%= f.input :title,
               label: "Project title",
-              placeholder: "Amazing project",
+              placeholder: "Project Name",
               wrapper_html: { class: "clearfix"},
               input_html: { autofocus: true } %>
           </section>
@@ -26,16 +26,15 @@
 
           <%= f.input :company,
             label: "Company",
-            placeholder: "Awesome company",
+            placeholder: "Which company did you work for?",
             wrapper_html: { class: "right clearfix"} %>
 
 
           <nav class="navigation">
             <div class="project-tags">
               <ul class="user-skills project-skills">
-                <%= f.input 'collaborator_skills', label: "Skills used on this project" do %>
+                <%= f.input 'collaborator_skills', label: "What skills did you use?" do %>
                   <%= text_field_tag 'collaborator_skills', "",
-                    label: "Skills used on this project",
                     class: "clearfix", id: "project_collaborator_skills",
                     placeholder: "skillz" %>
                 <% end %>
@@ -46,7 +45,7 @@
 
           <%= f.input :contribution,
             wrapper_html: { class: "clearfix"},
-            placeholder: "I did A and B for C and D part of the project",
+            placeholder: "How did you contribute to the project?",
             as: :text %>
 
           <%= link_to "Skip", users_feeds_path, class: "btn action" %>
@@ -64,7 +63,7 @@
 
             <%= f.input :tagged_user_ids,
               label: "Collaborators",
-              placeholder: "Tag people you worked with",
+              placeholder: "Who did you work with?",
               input_html:{
                 value: @project.tagged_user_ids.join(",")
               } %>
@@ -111,7 +110,7 @@
 
       $("#project_tagged_user_ids").tokenInput("/users.json",
         {
-          hintText: "Type in name or email",
+          hintText: "Enter name or email",
           tokenValue: "id",
           prePopulate: <%=
       raw(@project.tagged_users.collect do |u|
