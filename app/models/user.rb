@@ -61,6 +61,7 @@ through: :collaborations, class_name: 'Project', source: :project
   acts_as_tagger
 
   after_create :send_welcome_email
+  after_create :add_default_connection
 
   def onboarding_complete!
     update_attribute(:onboarding_completed_at, Time.now) unless
@@ -217,6 +218,12 @@ through: :collaborations, class_name: 'Project', source: :project
 
   def send_welcome_email
     WelcomeMailer.send_welcome_email(self).deliver! if confirmed?
+  end
+
+  #all people are automatically connected to the CEO
+  def add_default_connection
+    will = User.find(9) rescue nil
+    self.connect_to!(will) if will
   end
 
 end
