@@ -37,3 +37,5 @@ WeRKD::Application.configure do
 end
 
 Hirb.enable
+
+EmailPreview.delivery_method = :test
