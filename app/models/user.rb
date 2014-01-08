@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
   has_many :projects
   has_many :collaborations
   has_many :collaborated_projects, -> { where( "accepted_at is not null") },
-through: :collaborations, class_name: 'Project', source: :project
+    through: :collaborations, class_name: 'Project', source: :project
   validates_presence_of :email
   validates_uniqueness_of :email
   acts_as_tagger
@@ -65,7 +65,7 @@ through: :collaborations, class_name: 'Project', source: :project
 
   def onboarding_complete!
     update_attribute(:onboarding_completed_at, Time.now) unless
-      onboarding_completed_at?
+    onboarding_completed_at?
   end
 
   def onboarding_complete?
@@ -95,7 +95,7 @@ through: :collaborations, class_name: 'Project', source: :project
   end
 
   def skills
-   collaborations.collect(&:skills).flatten.collect(&:name).uniq
+    collaborations.collect(&:skills).flatten.collect(&:name).uniq
   end
 
   def self.json_token(q)
@@ -108,7 +108,7 @@ through: :collaborations, class_name: 'Project', source: :project
       if q =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
         [{id: q, name: q}].to_json
       else
-      [].to_json
+        [].to_json
       end
     end
   end
@@ -142,8 +142,8 @@ through: :collaborations, class_name: 'Project', source: :project
   def profile_status
     if !(first_name.present? && last_name.present? and job_title.present?)
       :basics
-    #elsif !invited_contacts?
-    #  :contacts
+      #elsif !invited_contacts?
+      #  :contacts
     elsif projects.count < Project::MINIMUM_PROJECTS_PER_USER
       :projects
     else
@@ -213,6 +213,16 @@ through: :collaborations, class_name: 'Project', source: :project
   def connect_to!(user)
     Connection.create_pending_connections(self, user)
   end
+
+  def full_info
+    communication_name +
+      if job_title
+        " (#{job_title})"
+    else
+      ""
+    end
+  end
+
 
   private
 

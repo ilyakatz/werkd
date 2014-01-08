@@ -1,0 +1,30 @@
+
+<div class="span12">
+  <table class="table">
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Action
+      </th>
+      <th>
+      </th>
+    </tr>
+    <tbody>
+      <% connections.each_with_index do |connection, index| %>
+        <tr>
+          <td>
+            <%= connection.invitee.full_info %>
+          </td>
+          <td>
+            Invited to connect
+          </td>
+          <td>
+            <%= link_to "Accept", users_connection_accept_url(connection) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
