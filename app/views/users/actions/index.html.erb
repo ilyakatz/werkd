@@ -1,6 +1,2 @@
-<% if @connections.present? %>
-  <%= render partial: "pending_connections", locals: {
-    connections: @connections } %>
-<% else %>
-  There are no actions at this time.
-<% end %>
+<%= render partial: "pending_connections", locals: {
+  connections: @connections } %>
