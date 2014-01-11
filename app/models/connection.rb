@@ -19,7 +19,7 @@ class Connection < ActiveRecord::Base
   has_one :user
 
   # Scopes:
-
+  scope :pending, -> { where(accepted_at: nil) }
   validates_uniqueness_of :connected_to, scope: :user_id
 
   # Creates a new pending connection unless there is one already
